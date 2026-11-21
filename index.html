@@ -484,6 +484,11 @@ body.lang-ar .mhead{font-family:'Amiri',var(--ar);font-weight:700;font-size:16px
 .foundcard{margin-top:10px;padding:12px;border:1px solid var(--gold);border-radius:14px}
 .foundcard b{display:block;font-size:14.5px;font-weight:600;color:var(--gold);margin-bottom:2px}
 .foundcard small{display:block;color:var(--muted);font-size:12.5px}
+
+.homebar{grid-template-columns:44px 1fr auto}
+.homebar .ibs{display:flex}
+.sharebtn{display:flex;align-items:center;justify-content:center;gap:10px;max-width:280px;margin:22px auto 0}
+.sharebtn svg{width:19px;height:19px}
 </style>
 </head>
 <body>
@@ -524,7 +529,7 @@ body.lang-ar .mhead{font-family:'Amiri',var(--ar);font-weight:700;font-size:16px
 
 <!-- HOME -->
 <section class="screen has-nav" id="home">
-  <div class="bar"><button class="ib" data-go="more" aria-label="Menu"><svg data-ic="menu"></svg></button><span></span><button class="ib" data-go="prefs" aria-label="Settings"><svg data-ic="gear"></svg></button></div>
+  <div class="bar homebar"><button class="ib" data-go="more" aria-label="Menu"><svg data-ic="menu"></svg></button><span></span><span class="ibs"><button class="ib" data-share aria-label="Share the app"><svg data-ic="share"></svg></button><button class="ib" data-go="prefs" aria-label="Settings"><svg data-ic="gear"></svg></button></span></div>
   <div class="body">
     <div class="home-title">
       <h1 class="ttl-ar">تلاوات عبد الباسط عبد الصمد</h1>
@@ -737,7 +742,7 @@ body.lang-ar .mhead{font-family:'Amiri',var(--ar);font-weight:700;font-size:16px
       <button class="li" data-go="assistant"><svg data-ic="mic"></svg><span class="tx" data-i18n="aiTitle"></span><svg class="chev flip" data-ic="chev"></svg></button>
       <button class="li" data-go="translation"><svg data-ic="bookmark"></svg><span class="tx" data-i18n="translation"></span><svg class="chev flip" data-ic="chev"></svg></button>
       <button class="li" data-go="prefs"><svg data-ic="gear"></svg><span class="tx" data-i18n="settings"></span><svg class="chev flip" data-ic="chev"></svg></button>
-      <button class="li" id="shareApp"><svg data-ic="share"></svg><span class="tx" data-i18n="shareApp"></span><svg class="chev flip" data-ic="chev"></svg></button>
+      <button class="li" id="shareApp" data-share><svg data-ic="share"></svg><span class="tx" data-i18n="shareApp"></span><svg class="chev flip" data-ic="chev"></svg></button>
       <button class="li" data-go="about"><svg data-ic="info"></svg><span class="tx" data-i18n="about"></span><svg class="chev flip" data-ic="chev"></svg></button>
     </div>
     <div class="dua">
@@ -811,6 +816,7 @@ body.lang-ar .mhead{font-family:'Amiri',var(--ar);font-weight:700;font-size:16px
       <div class="orn"><i></i><svg viewBox="0 0 16 16"><path d="M8 1l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="currentColor"/></svg><i></i></div>
       <p data-i18n="aboutText"></p>
       <div style="font-size:13px"><span data-i18n="version"></span> 1.0.0</div>
+      <button class="btn-gold sharebtn" data-share><svg data-ic="share"></svg><span data-i18n="shareApp"></span></button>
     </div>
     <div class="dua">
       <svg class="mosque" data-mosque viewBox="0 0 300 120"></svg>
@@ -1829,11 +1835,12 @@ function startListen(){
 }
 $("#aiMic").addEventListener("click",startListen);
 const APP_URL="https://zainxali1390.github.io/tilawat-abdulbasit-adbusamad/";
-$("#shareApp").addEventListener("click",async()=>{
+async function shareApp(){
   const data={title:"Tilawat Abdul Basit",text:t("shareText"),url:APP_URL};
   if(navigator.share){try{await navigator.share(data);return}catch(e){if(e&&e.name==="AbortError")return}}
   try{await navigator.clipboard.writeText(APP_URL);toast(t("linkCopied"))}catch(e){toast(APP_URL)}
-});
+}
+document.addEventListener("click",e=>{if(e.target.closest("[data-share]"))shareApp()});
 
 
 /* ===== Finding the exact recording a clip came from ===== */
