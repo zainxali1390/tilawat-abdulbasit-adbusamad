@@ -19,3 +19,15 @@ Streaming recitations still needs an internet connection.
 - `audio/` – the two built-in recordings (Khatmat al-Arbaʿ, quarters 1–2)
 - `manifest.webmanifest`, `icons/` – app name and home-screen icon
 - `sw.js` – keeps the app on the phone for offline use
+- `data/quran-uthmani.txt` – the Quran text (one ayah per line), used by the Recitation Finder
+
+## Recitation Finder
+Tap **Find a recitation** on the home screen, then the microphone, and hold the phone near a recitation
+for 10–15 seconds. The phone's speech recognition (Chrome on Android, Safari on iPhone) turns the clip into
+Arabic text, and the app matches it against the Quran text on the phone to find the surah and ayah.
+You can then play the full surah, start near that ayah, or open it in the Mushaf.
+You can also type requests such as "play Surah Al-Kahf mujawwad" or paste part of a verse.
+
+## Credits
+Quran text: Uthmani text from The Noble Qur'an Encyclopedia (quranenc.com), via the
+[quran-json](https://github.com/risan/quran-json) package by Risan Bagja Pradana, licensed CC BY 4.0.

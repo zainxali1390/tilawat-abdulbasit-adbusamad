@@ -392,6 +392,61 @@ body.lang-ar .mhead{font-family:'Amiri',var(--ar);font-weight:700;font-size:16px
 .mstage .mcast{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0}
 .mstage .mcast.fwd{background:linear-gradient(270deg,rgba(0,0,0,.3),rgba(0,0,0,0) 45%)}
 .mstage .mcast.bwd{background:linear-gradient(90deg,rgba(0,0,0,.3),rgba(0,0,0,0) 45%)}
+
+/* ===== Recitation assistant ===== */
+.coll.ask .cic{background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--on-gold)}
+.coll.ask{margin-top:14px}
+#assistant.on{height:100dvh}
+.chat{flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:8px max(16px,env(safe-area-inset-right,0px)) 14px max(16px,env(safe-area-inset-left,0px))}
+.msg{max-width:88%;padding:11px 14px;border-radius:18px;line-height:1.55;font-size:14.5px;overflow-wrap:anywhere}
+.msg.bot{align-self:flex-start;background:var(--card);border:1px solid var(--line2);border-end-start-radius:6px}
+.msg.me{align-self:flex-end;background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--on-gold);border-end-end-radius:6px}
+.msg.me .ar{font-family:var(--ar);font-size:17px;direction:rtl;display:block}
+.msg.me small{display:block;font-size:11.5px;opacity:.75;margin-bottom:2px}
+.msg p{margin:0}.msg p+p{margin-top:6px}
+.msg .muted{color:var(--muted);font-size:13px}
+.sugg{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.sugg button,.acts button{padding:8px 12px;border:1px solid var(--line);border-radius:18px;font-size:13px;color:var(--gold);display:inline-flex;align-items:center;gap:6px}
+.sugg button:active,.acts button:active{background:var(--line2)}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.acts button.pri{background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--on-gold);border-color:transparent;font-weight:600}
+.acts svg{width:15px;height:15px}
+.hit{min-width:min(280px,100%)}
+.hit .hd{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.hit .sn{font-family:var(--ar);font-size:24px;color:var(--gold);line-height:1.6;margin-top:4px}
+.hit .se{font-size:13px;color:var(--muted)}
+.hit .conf{flex:none;font-size:11.5px;padding:3px 9px;border-radius:12px;border:1px solid var(--line);color:var(--gold)}
+.hit .conf.lo{color:var(--muted);border-color:var(--line2)}
+.hit .ref{font-size:13.5px;margin-top:2px}
+.hit .qt{font-family:'Amiri Quran','Amiri',serif;font-size:20px;line-height:2;direction:rtl;text-align:right;margin-top:8px;padding-top:8px;border-top:1px solid var(--line2);max-height:9.5em;overflow:hidden;-webkit-mask-image:linear-gradient(#000 75%,transparent)}
+.hit .alts{margin-top:10px;font-size:12.5px;color:var(--muted)}
+.hit .alts button{color:var(--gold);text-decoration:underline;font-size:12.5px;margin-inline-end:8px}
+.typing{display:inline-flex;gap:4px;padding:4px 2px}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:dots 1s infinite ease-in-out}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dots{0%,80%,100%{opacity:.25;transform:none}40%{opacity:1;transform:translateY(-3px)}}
+.composer{flex:none;border-top:1px solid var(--line2);background:var(--bg);padding:10px max(12px,env(safe-area-inset-right,0px)) calc(10px + var(--sb)) max(12px,env(safe-area-inset-left,0px))}
+#aiForm{display:flex;align-items:center;gap:8px}
+#aiInput{flex:1;min-width:0;height:46px;border-radius:23px;border:1px solid var(--line);background:var(--card);padding:0 16px;font-size:15px;color:var(--text);outline:none}
+#aiInput:focus{border-color:var(--gold)}
+.sendb{width:42px;height:42px;display:grid;place-items:center;color:var(--gold);border-radius:50%}
+.sendb svg{width:20px;height:20px}
+.micb{width:52px;height:52px;flex:none;display:grid;place-items:center;border-radius:50%;background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--on-gold);box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.micb svg{width:24px;height:24px}
+.micb:active{transform:scale(.95)}
+.sendb:focus-visible,.micb:focus-visible,.lstop:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.listen{display:flex;align-items:center;gap:12px;padding:4px 4px 12px}
+.listen[hidden]{display:none}
+.wave{display:flex;align-items:center;gap:3px;height:30px;flex:none}
+.wave i{width:4px;height:8px;border-radius:2px;background:var(--gold);animation:wave 1s infinite ease-in-out}
+.wave i:nth-child(2){animation-delay:.1s}.wave i:nth-child(3){animation-delay:.2s}.wave i:nth-child(4){animation-delay:.3s}.wave i:nth-child(5){animation-delay:.4s}
+@keyframes wave{0%,100%{height:8px}50%{height:28px}}
+.ltx{flex:1;min-width:0;display:flex;flex-direction:column}
+.ltx b{font-weight:500;font-size:14px;color:var(--gold)}
+.ltx span{font-family:var(--ar);font-size:16px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:start}
+.lstop{width:42px;height:42px;flex:none;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line);color:var(--gold)}
+.lstop svg{width:18px;height:18px}
+@media (prefers-reduced-motion:reduce){.wave i,.typing i{animation:none}}
 </style>
 </head>
 <body>
@@ -468,6 +523,7 @@ body.lang-ar .mhead{font-family:'Amiri',var(--ar);font-weight:700;font-size:16px
       <button class="tile" data-go="prefs"><svg data-ic="gear"></svg><span data-i18n="settings"></span></button>
     </div>
 
+    <button class="card coll ask" data-go="assistant"><span class="cic"><svg data-ic="mic"></svg></span><span class="tx"><b data-i18n="aiCardT"></b><small data-i18n="aiCardS"></small></span><svg class="chev flip" data-ic="chev"></svg></button>
     <div class="sec"><h4 data-i18n="collections"></h4></div>
     <button class="card coll" data-go="collections"><span class="cic"><svg data-ic="radio"></svg></span><span class="tx"><b data-i18n="liveRadio"></b><small id="egCount"></small></span><svg class="chev flip" data-ic="chev"></svg></button>
 
@@ -546,6 +602,24 @@ body.lang-ar .mhead{font-family:'Amiri',var(--ar);font-weight:700;font-size:16px
   </div>
 </section>
 
+<!-- ASSISTANT -->
+<section class="screen" id="assistant">
+  <div class="bar plain"><button class="ib" data-back aria-label="Back"><svg class="flip" data-ic="back"></svg></button><h1 data-i18n="aiTitle"></h1><span></span></div>
+  <div class="chat" id="chatLog" aria-live="polite"></div>
+  <div class="composer">
+    <div class="listen" id="aiListen" hidden>
+      <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="ltx"><b data-i18n="aiListening"></b><span id="aiHeard" dir="rtl"></span></div>
+      <button class="lstop" id="aiStop" aria-label="Stop"><svg data-ic="stopsq"></svg></button>
+    </div>
+    <form id="aiForm" autocomplete="off">
+      <input id="aiInput" type="text" data-i18n-ph="aiPh" aria-label="Message">
+      <button type="submit" class="sendb" aria-label="Send"><svg data-ic="send"></svg></button>
+      <button type="button" class="micb" id="aiMic" aria-label="Listen to a recitation"><svg data-ic="mic"></svg></button>
+    </form>
+  </div>
+</section>
+
 <!-- TRANSLATION -->
 <section class="screen" id="translation">
   <div class="bar"><button class="ib" data-back aria-label="Back"><svg class="flip" data-ic="back"></svg></button><h1 data-i18n="translation"></h1><span></span></div>
@@ -621,6 +695,7 @@ body.lang-ar .mhead{font-family:'Amiri',var(--ar);font-weight:700;font-size:16px
     <div class="card list">
       <button class="li" data-go="khatam"><svg data-ic="star"></svg><span class="tx" data-i18n="khatam"></span><svg class="chev flip" data-ic="chev"></svg></button>
       <button class="li" data-go="mushaf"><svg data-ic="mushaf"></svg><span class="tx" data-i18n="mushaf"></span><svg class="chev flip" data-ic="chev"></svg></button>
+      <button class="li" data-go="assistant"><svg data-ic="mic"></svg><span class="tx" data-i18n="aiTitle"></span><svg class="chev flip" data-ic="chev"></svg></button>
       <button class="li" data-go="translation"><svg data-ic="bookmark"></svg><span class="tx" data-i18n="translation"></span><svg class="chev flip" data-ic="chev"></svg></button>
       <button class="li" data-go="prefs"><svg data-ic="gear"></svg><span class="tx" data-i18n="settings"></span><svg class="chev flip" data-ic="chev"></svg></button>
       <button class="li" data-go="about"><svg data-ic="info"></svg><span class="tx" data-i18n="about"></span><svg class="chev flip" data-ic="chev"></svg></button>
@@ -792,6 +867,7 @@ const BGS = [
 
 /* icons */
 const P = {
+mic:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0013 0M12 17.5V21"/>',send:'<path d="M4 12l16-8-5.5 16-3-6.5z"/><path d="M11.5 13.5L20 4"/>',stopsq:'<rect x="7" y="7" width="10" height="10" rx="2" fill="currentColor" stroke="none"/>',spark:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>',
 back:'<path d="M15 5l-7 7 7 7"/>',chev:'<path d="M9 5l7 7-7 7"/>',
 menu:'<path d="M4 7h16M4 12h16M4 17h16"/>',
 gear:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.8l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.8-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1.1-1.5 1.7 1.7 0 00-1.8.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.8 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1a1.7 1.7 0 001.5-1.1 1.7 1.7 0 00-.3-1.8l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.8.3H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.8-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.8V9a1.7 1.7 0 001.5 1H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z"/>',
@@ -1426,7 +1502,236 @@ $$("[data-ptab]").forEach(b=>b.addEventListener("click",()=>{
 }));
 
 /* navigation (hash names) */
-const SCREENS=["khatma","collections","area","home","surahs","player","mushaf","translation","favourites","khatam","more","prefs","appearance","audio","notifs","about","language"];
+
+/* ===== Recitation assistant: listens to a clip, finds the surah and ayah, plays the full recitation ===== */
+/* QMATCH: find where a (possibly noisy) piece of recited Arabic sits in the Quran. */
+const QMATCH=(()=>{
+  const MARKS=/[ؐ-ًؚ-ٰٟۖ-ۭـ]/g;
+  function skel(s){
+    return (s||"").normalize("NFC").replace(MARKS,"")
+      .replace(/[ٱأإآ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه").replace(/ؤ/g,"و").replace(/ئ/g,"ي")
+      .replace(/[ءا]/g,"").replace(/[^ء-ي]/g,"");
+  }
+  const N=4,B=12;
+  let G="",start=null,ayahOf=null,post=null,COUNTS=null;
+  function build(lines,counts){
+    COUNTS=counts;const sk=lines.map(skel);start=new Int32Array(sk.length+1);
+    let p=0;sk.forEach((x,i)=>{start[i]=p;p+=x.length});start[sk.length]=p;G=sk.join("");
+    ayahOf=new Uint16Array(G.length);sk.forEach((x,i)=>ayahOf.fill(i,start[i],start[i+1]));
+    const tmp=new Map();
+    for(let i=0;i+N<=G.length;i++){const g=G.substr(i,N);let a=tmp.get(g);if(!a)tmp.set(g,a=[]);a.push(i)}
+    post=tmp;
+  }
+  function ref(i){let s=0;while(i>=COUNTS[s]){i-=COUNTS[s];s++}return[s+1,i+1]}
+  function find(text){
+    const q=skel(text);if(q.length<N+2)return{q,results:[]};
+    const votes=new Map();let used=0;
+    for(let j=0;j+N<=q.length;j++){
+      const ps=post.get(q.substr(j,N));if(!ps||ps.length>400)continue;used++;
+      const w=1/Math.log2(2+ps.length);
+      for(const gp of ps){const b=Math.floor((gp-j)/B);votes.set(b,(votes.get(b)||0)+w)}
+    }
+    const cand=[];
+    for(const [b,v] of votes){const s=v+(votes.get(b+1)||0)*.9+(votes.get(b-1)||0)*.5;cand.push([s,b])}
+    cand.sort((a,b)=>b[0]-a[0]);
+    const maxGrams=Math.max(1,q.length-N+1);
+    const out=[],seen=new Set();
+    for(const [s,b] of cand){
+      // fine alignment: median offset of the grams that voted near this bucket
+      const offs=[];
+      for(let j=0;j+N<=q.length;j++){const ps=post.get(q.substr(j,N));if(!ps||ps.length>400)continue;
+        for(const gp of ps){const o=gp-j;if(o>=(b-1)*B&&o<(b+2)*B)offs.push(o)}}
+      offs.sort((x,y)=>x-y);
+      const o=offs.length?offs[offs.length>>1]:b*B;
+      const gs=Math.max(0,Math.min(G.length-1,o)),ge=Math.max(gs,Math.min(G.length-1,o+q.length-1-Math.min(3,q.length>>3)));
+      // an ayah that only contributes its last couple of letters is not where the clip starts
+      let a0=ayahOf[Math.min(G.length-1,gs+2)];const a1=ayahOf[ge];
+      if([...seen].some(x=>Math.abs(x-a0)<=1))continue;seen.add(a0);
+      const [su,ay]=ref(a0),[su2,ay2]=ref(a1);
+      out.push({score:s,conf:Math.min(1,s/(maxGrams*0.55)),idx:a0,idx2:a1,surah:su,ayah:ay,surah2:su2,ayah2:ay2,pos:gs});
+      if(out.length>=4)break;
+    }
+    return{q,used,results:out};
+  }
+  function frac(su,ay){ // how far into the surah an ayah starts (0..1), by letters
+    let first=0;for(let i=0;i<su-1;i++)first+=COUNTS[i];
+    const a=start[first],z=start[first+COUNTS[su-1]],x=start[first+ay-1];return z>a?(x-a)/(z-a):0}
+  return{build,find,skel,frac};
+})();
+
+Object.assign(I18N.en,{aiTitle:"Recitation Finder",aiCardT:"Find a recitation",aiCardS:"Play a short clip, get the full surah",aiPh:"Type a surah, a verse, or a request…",aiListening:"Listening… hold your phone near the recitation",
+ aiHello:"Assalamu alaikum. Tap the microphone and hold your phone near a recitation. I'll tell you which surah and ayah it is, then play the full recitation by Sheikh Abdul Basit.",
+ aiHello2:"You can also type a verse in Arabic, or ask me to play or open a surah.",
+ aiLoading:"Getting the Quran text ready…",aiNoSR:"This browser can't listen through the microphone. On Android, open the app in Chrome. On iPhone, use Safari. You can still type the verse you heard.",
+ aiDenied:"I need permission to use the microphone. Allow it in your browser's site settings, then try again.",aiNoSpeech:"I didn't hear anything. Hold the phone closer to the recitation and try again.",
+ aiNetErr:"Listening needs an internet connection, because the phone's speech recognition runs online.",
+ aiHeard:"Heard",aiFound:"I think this is",aiMaybe:"This might be",aiNone:"I couldn't place that. Try a longer clip (10 to 15 seconds) with clear recitation, or type part of the verse.",
+ aiSure:"Confident",aiLikely:"Possible",aiAyah:"Ayah",aiAyahs:"Ayahs",aiOr:"Or maybe:",aiPlayFull:"Play full surah",aiPlayHere:"Start near this ayah",aiOpenMushaf:"Open in Mushaf",
+ aiPlaying:"Playing Surah {s} by Abdul Basit.",aiPlayingNear:"Playing Surah {s} from near ayah {a}. The jump is estimated, so it may start a little early or late.",
+ aiWhichSurah:"Which surah? Try: play Surah Al-Kahf.",aiSurahCard:"Surah {s} · {v} ayahs",aiMujawwad:"Mujawwad",aiMurattal:"Murattal",
+ aiS1:"Play Surah Al-Kahf",aiS2:"Ar-Rahman, Mujawwad",aiS3:"Open Yasin in Mushaf",aiHelp:"I can find a surah from a recording, play any surah (Murattal or Mujawwad), or open it in the Mushaf."});
+Object.assign(I18N.ar,{aiTitle:"التعرّف على التلاوة",aiCardT:"تعرّف على تلاوة",aiCardS:"شغّل مقطعًا قصيرًا واستمع للسورة كاملة",aiPh:"اكتب اسم سورة أو آية أو طلبًا…",aiListening:"أستمع… قرّب هاتفك من التلاوة",
+ aiHello:"السلام عليكم. اضغط على الميكروفون وقرّب هاتفك من التلاوة، وسأخبرك بالسورة والآية ثم أشغّل التلاوة كاملة بصوت الشيخ عبد الباسط.",
+ aiHello2:"يمكنك أيضًا كتابة آية بالعربية، أو طلب تشغيل سورة أو فتحها في المصحف.",
+ aiLoading:"جارٍ تجهيز نص القرآن…",aiNoSR:"هذا المتصفح لا يستطيع الاستماع عبر الميكروفون. على أندرويد افتح التطبيق في كروم، وعلى آيفون استخدم سفاري. يمكنك كتابة الآية التي سمعتها.",
+ aiDenied:"أحتاج إذنًا لاستخدام الميكروفون. اسمح به من إعدادات الموقع في المتصفح ثم حاول مجددًا.",aiNoSpeech:"لم أسمع شيئًا. قرّب الهاتف من التلاوة وحاول مجددًا.",
+ aiNetErr:"الاستماع يحتاج اتصالًا بالإنترنت لأن التعرّف على الكلام في الهاتف يعمل عبر الإنترنت.",
+ aiHeard:"ما سمعته",aiFound:"أظن أنها",aiMaybe:"قد تكون",aiNone:"لم أتمكن من تحديدها. جرّب مقطعًا أطول (١٠ إلى ١٥ ثانية) بتلاوة واضحة، أو اكتب جزءًا من الآية.",
+ aiSure:"مؤكد",aiLikely:"محتمل",aiAyah:"الآية",aiAyahs:"الآيات",aiOr:"أو ربما:",aiPlayFull:"تشغيل السورة كاملة",aiPlayHere:"ابدأ قرب هذه الآية",aiOpenMushaf:"افتح في المصحف",
+ aiPlaying:"تشغيل سورة {s} بصوت عبد الباسط.",aiPlayingNear:"تشغيل سورة {s} من قرب الآية {a}. موضع البدء تقديري، فقد يبدأ قبلها أو بعدها بقليل.",
+ aiWhichSurah:"أي سورة؟ جرّب: شغّل سورة الكهف.",aiSurahCard:"سورة {s} · {v} آية",aiMujawwad:"مجوّد",aiMurattal:"مرتّل",
+ aiS1:"شغّل سورة الكهف",aiS2:"الرحمن مجوّد",aiS3:"افتح يس في المصحف",aiHelp:"أستطيع التعرّف على السورة من تسجيل، وتشغيل أي سورة (مرتّلة أو مجوّدة)، وفتحها في المصحف."});
+
+let QLINES=null,QREADY=null;
+function loadQuran(){
+  if(!QREADY)QREADY=fetch("data/quran-uthmani.txt").then(r=>{if(!r.ok)throw new Error("http");return r.text()})
+    .then(tx=>{QLINES=tx.trim().split("\n");QMATCH.build(QLINES,SURAHS.map(x=>x[2]))})
+    .catch(e=>{QREADY=null;throw e});
+  return QREADY;
+}
+const gIdx=(su,ay)=>SURAHS.slice(0,su-1).reduce((n,x)=>n+x[2],0)+ay-1;
+const esc=x=>String(x).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fill=(k,o)=>t(k).replace(/\{(\w)\}/g,(_,x)=>o[x]);
+const snm=n=>isAr()?SURAHS[n-1][0]:SURAHS[n-1][1];
+const numFmt=n=>isAr()?arNum(n):String(n);
+function chatAdd(cls,html){const el=document.createElement("div");el.className="msg "+cls;el.innerHTML=html;$("#chatLog").appendChild(el);
+  requestAnimationFrame(()=>{const c=$("#chatLog");c.scrollTop=c.scrollHeight});return el}
+function botThinking(){return chatAdd("bot",'<span class="typing" aria-label="…"><i></i><i></i><i></i></span>')}
+function chatHello(){
+  if($("#chatLog").childElementCount)return;
+  chatAdd("bot",`<p>${esc(t("aiHello"))}</p><p class="muted">${esc(t("aiHello2"))}</p><div class="sugg">${["aiS1","aiS2","aiS3"].map(k=>`<button data-say="${esc(t(k))}">${esc(t(k))}</button>`).join("")}</div>`);
+  loadQuran().catch(()=>{});
+}
+
+/* --- understanding typed requests --- */
+const latinKey=x=>x.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[^a-z]/g,"");
+const stripAl=x=>x.replace(/^(al|an|ar|as|at|ad|az|ash|adh|ath)(?=[a-z]{3})/,"").replace(/h$/,"");
+function lev(a,b){if(Math.abs(a.length-b.length)>2)return 9;const d=Array.from({length:b.length+1},(_,i)=>i);
+  for(let i=1;i<=a.length;i++){let p=d[0];d[0]=i;for(let j=1;j<=b.length;j++){const tmp=d[j];d[j]=Math.min(d[j]+1,d[j-1]+1,p+(a[i-1]===b[j-1]?0:1));p=tmp}}return d[b.length]}
+const S_LAT=SURAHS.map(x=>stripAl(latinKey(x[1])));
+const S_AR=SURAHS.map(x=>QMATCH.skel(x[0]));
+function findSurahName(text){
+  const num=text.match(/(?:^|\D)(\d{1,3})(?:\D|$)/);if(num&&+num[1]>=1&&+num[1]<=114)return +num[1];
+  const ar=text.match(/(?:سوره|سورة)\s+([ء-يً-ْٰ\s]+)/);
+  if(ar){const w=QMATCH.skel(ar[1]);let best=0,bl=0;S_AR.forEach((k,i)=>{if(k&&w.startsWith(k)&&k.length>bl){best=i+1;bl=k.length}});if(best)return best}
+  const words=text.toLowerCase().replace(/[^a-zÀ-ɏ\s'-]/g," ").split(/\s+/).filter(Boolean);
+  const stop=new Set(["play","surah","sura","surat","open","in","the","mushaf","read","listen","to","recite","please","mujawwad","murattal","and","from","start","show","me","by","abdul","basit","quran","al","an","ar"]);
+  const cand=[];for(let i=0;i<words.length;i++){if(stop.has(words[i]))continue;cand.push(words[i]);if(i+1<words.length)cand.push(words[i]+words[i+1]);if(i>0)cand.push(words[i-1]+words[i])}
+  let best=0,score=9;
+  for(const c of cand){const k=stripAl(latinKey(c));if(k.length<2)continue;
+    S_LAT.forEach((n,i)=>{let sc=9;if(n===k)sc=0;else if(k.length>=4&&(n.startsWith(k)||k.startsWith(n)))sc=1;else if(k.length>=4)sc=lev(k,n)+.5;if(sc<score){score=sc;best=i+1}})}
+  return score<=2.5?best:0;
+}
+function styleFrom(text){if(/mujaw|mujow|مجو|مجوّد|مجود/i.test(text))return"mujawwad";if(/murat|murrat|مرتل|مرتّل/i.test(text))return"murattal";return null}
+function useStyle(kind){if(!kind)return;const r=findRec("hafs",kind);if(r){S.recId=r.id;save();renderRecSel&&renderRecSel()}}
+
+function playFrom(su,ay,kind){
+  useStyle(kind);
+  playSurah(su);
+  if(ay>1){const f=QMATCH.frac(su,ay);
+    const jump=()=>{au.removeEventListener("loadedmetadata",jump);if(isFinite(au.duration)&&au.duration>0)au.currentTime=Math.max(0,f*au.duration-3)};
+    au.addEventListener("loadedmetadata",jump)}
+  chatAdd("bot",`<p>${esc(ay>1?fill("aiPlayingNear",{s:snm(su),a:numFmt(ay)}):fill("aiPlaying",{s:snm(su)}))}</p>`);
+  setTimeout(()=>go("player"),600);
+}
+async function openMushafAt(su,ay){
+  try{const j=await (await fetch(QAPI+"/ayah/"+su+":"+(ay||1))).json();S.mPage=j.data.page;go("mushaf")}catch(e){toast(t("pageOffline"))}
+}
+function surahCard(su,kind){
+  const k=kind?`data-kind="${kind}"`:"";
+  return `<div class="hit"><div class="hd"><div><div class="sn">سُورَةُ ${SURAHS[su-1][0]}</div><div class="se">${esc(fill("aiSurahCard",{s:snm(su),v:numFmt(SURAHS[su-1][2])}))}</div></div></div>
+   <div class="acts"><button class="pri" data-act="play" data-s="${su}" data-a="1" ${k}>${ic("play")}${esc(t("aiPlayFull"))}</button>
+   <button data-act="mushaf" data-s="${su}" data-a="1">${ic("mushaf")}${esc(t("aiOpenMushaf"))}</button></div></div>`;
+}
+function hitCard(r,heard){
+  const top=r.results[0],sure=top.conf>=.3;
+  const a1=top.idx,a2=Math.min(top.idx2,top.idx+2);
+  const text=QLINES.slice(a1,a2+1).map((x,i)=>esc(x)+` <span style="color:var(--gold)">﴿${arNum(top.ayah+i)}﴾</span>`).join(" ");
+  const same=top.surah2===top.surah;
+  const range=same&&top.ayah2>top.ayah?`${t("aiAyahs")} ${numFmt(top.ayah)}–${numFmt(Math.min(top.ayah2,top.ayah+2))}`:`${t("aiAyah")} ${numFmt(top.ayah)}`;
+  const alts=r.results.slice(1,3).filter(x=>x.conf>=.12);
+  return `<p class="muted">${esc(t(sure?"aiFound":"aiMaybe"))}</p>
+   <div class="hit"><div class="hd"><div><div class="sn">سُورَةُ ${SURAHS[top.surah-1][0]}</div><div class="se">${esc(SURAHS[top.surah-1][1])} · ${top.surah}</div></div>
+   <span class="conf${sure?"":" lo"}">${esc(t(sure?"aiSure":"aiLikely"))}</span></div>
+   <div class="ref">${esc(range)}</div>
+   <div class="qt">${text}</div>
+   <div class="acts"><button class="pri" data-act="play" data-s="${top.surah}" data-a="1">${ic("play")}${esc(t("aiPlayFull"))}</button>
+   ${top.ayah>1?`<button data-act="play" data-s="${top.surah}" data-a="${top.ayah}">${esc(t("aiPlayHere"))}</button>`:""}
+   <button data-act="mushaf" data-s="${top.surah}" data-a="${top.ayah}">${ic("mushaf")}${esc(t("aiOpenMushaf"))}</button></div>
+   ${alts.length?`<div class="alts">${esc(t("aiOr"))} ${alts.map(x=>`<button data-act="show" data-s="${x.surah}" data-a="${x.ayah}">${esc(snm(x.surah))} ${numFmt(x.surah)}:${numFmt(x.ayah)}</button>`).join("")}</div>`:""}
+   </div>`;
+}
+async function identify(texts,thinking){
+  try{await loadQuran()}catch(e){thinking.innerHTML=`<p>${esc(t("pageOffline"))}</p>`;return}
+  let best=null;
+  for(const tx of texts){const r=QMATCH.find(tx);if(r.results.length&&(!best||r.results[0].score>best.results[0].score))best=r}
+  if(!best||!best.results.length||best.results[0].conf<.16){thinking.innerHTML=`<p>${esc(t("aiNone"))}</p>`;return}
+  thinking.innerHTML=hitCard(best);
+  requestAnimationFrame(()=>{const c=$("#chatLog");c.scrollTop=c.scrollHeight});
+}
+async function handleText(raw){
+  const text=raw.trim();if(!text)return;
+  const arabic=/[ء-ي]/.test(text);
+  chatAdd("me",arabic?`<span class="ar">${esc(text)}</span>`:esc(text));
+  const kind=styleFrom(text);
+  const wantsPlay=/\b(play|listen|recite|start)\b|شغل|شغّل|تشغيل|اسمع|استمع/i.test(text);
+  const wantsMushaf=/mushaf|\bopen\b|\bread\b|\bpage\b|المصحف|افتح|اقرأ|اقرا/i.test(text);
+  const command=wantsPlay||wantsMushaf||/سور[ةه]|\bsura|\bsurah/i.test(text)||!!kind;
+  if(/^(hi|hello|salam|salaam|assalam|help|\?|مرحبا|السلام عليكم|مساعدة)/i.test(text)&&!arabic||/^(السلام عليكم|مرحبا|مساعدة)$/.test(text)){chatAdd("bot",`<p>${esc(t("aiHelp"))}</p>`);return}
+  if(command||(!arabic&&text.length<40)){
+    const su=findSurahName(text);
+    if(su){
+      if(wantsMushaf&&!wantsPlay){chatAdd("bot",surahCard(su,kind));openMushafAt(su,1);return}
+      if(wantsPlay){playFrom(su,1,kind);return}
+      chatAdd("bot",surahCard(su,kind));return;
+    }
+    if(!arabic){chatAdd("bot",`<p>${esc(t("aiWhichSurah"))}</p>`);return}
+  }
+  const th=botThinking();
+  if(!QLINES)th.innerHTML=`<p class="muted">${esc(t("aiLoading"))}</p>`;
+  identify([text],th);
+}
+$("#aiForm").addEventListener("submit",e=>{e.preventDefault();const i=$("#aiInput");const v=i.value;i.value="";handleText(v)});
+$("#chatLog").addEventListener("click",e=>{
+  const sg=e.target.closest("[data-say]");if(sg){handleText(sg.dataset.say);return}
+  const b=e.target.closest("[data-act]");if(!b)return;const su=+b.dataset.s,ay=+b.dataset.a;
+  if(b.dataset.act==="play")playFrom(su,ay,b.dataset.kind||null);
+  else if(b.dataset.act==="mushaf")openMushafAt(su,ay);
+  else if(b.dataset.act==="show"){const g=gIdx(su,ay);chatAdd("bot",hitCard({results:[{surah:su,ayah:ay,surah2:su,ayah2:ay,idx:g,idx2:g,conf:.3,score:0}]}))}
+});
+
+/* --- listening --- */
+const SRec=window.SpeechRecognition||window.webkitSpeechRecognition;
+let rec=null,recTimer=null,heardFinal=[],heardAlt=[],heardInterim="";
+function stopListen(){if(rec){try{rec.stop()}catch(e){}}}
+function startListen(){
+  if(rec){stopListen();return}
+  if(!SRec){chatAdd("bot",`<p>${esc(t("aiNoSR"))}</p>`);return}
+  loadQuran().catch(()=>{});
+  heardFinal=[];heardAlt=[];heardInterim="";let err="";
+  rec=new SRec();rec.lang="ar-SA";rec.continuous=true;rec.interimResults=true;rec.maxAlternatives=3;
+  rec.onresult=e=>{heardInterim="";
+    for(let i=e.resultIndex;i<e.results.length;i++){const r=e.results[i];
+      if(r.isFinal){heardFinal.push(r[0].transcript);heardAlt.push(r[1]?r[1].transcript:r[0].transcript)}else heardInterim+=r[0].transcript}
+    $("#aiHeard").textContent=(heardFinal.join(" ")+" "+heardInterim).trim().split(/\s+/).slice(-9).join(" ");
+  };
+  rec.onerror=e=>{err=e.error};
+  rec.onend=()=>{
+    clearTimeout(recTimer);rec=null;$("#aiListen").hidden=true;$("#aiMic").classList.remove("on");
+    const said=(heardFinal.join(" ")+" "+heardInterim).trim();
+    if(!said){chatAdd("bot",`<p>${esc(t(err==="not-allowed"||err==="service-not-allowed"?"aiDenied":err==="network"?"aiNetErr":"aiNoSpeech"))}</p>`);return}
+    chatAdd("me",`<small>${esc(t("aiHeard"))}</small><span class="ar">${esc(said)}</span>`);
+    const th=botThinking();
+    identify([said,(heardAlt.join(" ")+" "+heardInterim).trim()],th);
+  };
+  try{rec.start()}catch(e){rec=null;chatAdd("bot",`<p>${esc(t("aiNoSR"))}</p>`);return}
+  $("#aiHeard").textContent="";$("#aiListen").hidden=false;$("#aiMic").classList.add("on");
+  recTimer=setTimeout(stopListen,15000);
+}
+$("#aiMic").addEventListener("click",startListen);
+$("#aiStop").addEventListener("click",stopListen);
+
+const SCREENS=["assistant","khatma","collections","area","home","surahs","player","mushaf","translation","favourites","khatam","more","prefs","appearance","audio","notifs","about","language"];
 const TABS=["home","surahs","favourites","more"];
 let navDepth=0;
 function show(id){
@@ -1441,6 +1746,8 @@ function show(id){
   if(id==="khatam")renderKhatam();
   if(id==="khatma")renderKhatma();
   if(id==="mushaf")renderMushaf();
+  if(id==="assistant")chatHello();
+  if(id!=="assistant"&&typeof stopListen==="function")stopListen();
   if(id==="area")renderArea();
   window.scrollTo(0,0);
 }
