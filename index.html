@@ -410,7 +410,8 @@ body.lang-ar .mhead{font-family:'Amiri',var(--ar);font-weight:700;font-size:16px
 .sugg button:active,.acts button:active{background:var(--line2)}
 .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .acts button.pri{background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--on-gold);border-color:transparent;font-weight:600}
-.acts svg{width:15px;height:15px}
+.acts svg,.sugg svg{width:15px;height:15px;flex:none}
+.sugg button{white-space:nowrap}
 .hit{min-width:min(280px,100%)}
 .hit .hd{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
 .hit .sn{font-family:var(--ar);font-size:24px;color:var(--gold);line-height:1.6;margin-top:4px}
