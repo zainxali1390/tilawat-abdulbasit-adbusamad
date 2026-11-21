@@ -8,6 +8,15 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Abdul Basit">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="description" content="Listen to Sheikh Abdul Basit Abdul Samad: every surah, 1,700+ rare live and radio recordings, the Mushaf, and a finder that identifies any recitation from a short clip.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zainxali1390.github.io/tilawat-abdulbasit-adbusamad/">
+<meta property="og:title" content="Tilawat Abdul Basit · تلاوات عبد الباسط">
+<meta property="og:description" content="Every surah, 1,700+ rare live and radio recordings, the Mushaf, and a finder that identifies any recitation from a short clip.">
+<meta property="og:image" content="https://zainxali1390.github.io/tilawat-abdulbasit-adbusamad/icons/share-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
 <link rel="icon" href="icons/icon-192.png" sizes="192x192" type="image/png">
@@ -728,6 +737,7 @@ body.lang-ar .mhead{font-family:'Amiri',var(--ar);font-weight:700;font-size:16px
       <button class="li" data-go="assistant"><svg data-ic="mic"></svg><span class="tx" data-i18n="aiTitle"></span><svg class="chev flip" data-ic="chev"></svg></button>
       <button class="li" data-go="translation"><svg data-ic="bookmark"></svg><span class="tx" data-i18n="translation"></span><svg class="chev flip" data-ic="chev"></svg></button>
       <button class="li" data-go="prefs"><svg data-ic="gear"></svg><span class="tx" data-i18n="settings"></span><svg class="chev flip" data-ic="chev"></svg></button>
+      <button class="li" id="shareApp"><svg data-ic="share"></svg><span class="tx" data-i18n="shareApp"></span><svg class="chev flip" data-ic="chev"></svg></button>
       <button class="li" data-go="about"><svg data-ic="info"></svg><span class="tx" data-i18n="about"></span><svg class="chev flip" data-ic="chev"></svg></button>
     </div>
     <div class="dua">
@@ -897,6 +907,7 @@ const BGS = [
 
 /* icons */
 const P = {
+share:'<circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/>',
 clip:'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor" stroke="none"/>',
 mic:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0013 0M12 17.5V21"/>',send:'<path d="M4 12l16-8-5.5 16-3-6.5z"/><path d="M11.5 13.5L20 4"/>',stopsq:'<rect x="7" y="7" width="10" height="10" rx="2" fill="currentColor" stroke="none"/>',spark:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>',
 back:'<path d="M15 5l-7 7 7 7"/>',chev:'<path d="M9 5l7 7-7 7"/>',
@@ -1590,7 +1601,7 @@ const QMATCH=(()=>{
   return{build,find,skel,frac};
 })();
 
-Object.assign(I18N.en,{aiTitle:"Recitation Finder",aiCardT:"Find a recitation",aiCardS:"Play a short clip, get the full surah",aiPh:"Type a surah, a verse, or a request…",aiListening:"Listening… hold your phone near the recitation",
+Object.assign(I18N.en,{shareApp:"Share the app",shareText:"Listen to Sheikh Abdul Basit Abdul Samad, and find any of his recitations from a short clip:",linkCopied:"Link copied",aiTitle:"Recitation Finder",aiCardT:"Find a recitation",aiCardS:"Play a short clip, get the full surah",aiPh:"Type a surah, a verse, or a request…",aiListening:"Listening… hold your phone near the recitation",
  aiHello:"Assalamu alaikum. Tap the microphone and hold your phone near a recitation. I'll tell you which surah and ayah it is, then play the full recitation by Sheikh Abdul Basit.",
  aiHello2:"You can also type a verse in Arabic, or ask me to play or open a surah.",
  aiLoading:"Getting the Quran text ready…",aiNoSR:"This browser can't listen through the microphone. On Android, open the app in Chrome. On iPhone, use Safari. You can still type the verse you heard.",
@@ -1615,7 +1626,7 @@ Object.assign(I18N.en,{aiTitle:"Recitation Finder",aiCardT:"Find a recitation",a
  aiFoundIt:"Found it",aiFoundAt:"Your clip is {t} into this recording.",aiPlayAt:"Play from the moment in your clip",aiPlayStart:"Play from the start",
  aiNoMatchOne:"{r}: not a match.",aiCantOpen:"{r}: couldn't open this recording.",aiNoRecs:"There are no other recordings of this surah in the collection.",
  aiHintNone:"None of the recordings of Surah {s} match \"{h}\".",aiFiltered:"Recordings matching \"{h}\":",aiTooBig:"That file is very large. Trim it to the part with the recitation (under a few minutes) and try again.",aiHelp:"I can find a surah from a recording, play any surah (Murattal or Mujawwad), or open it in the Mushaf."});
-Object.assign(I18N.ar,{aiTitle:"التعرّف على التلاوة",aiCardT:"تعرّف على تلاوة",aiCardS:"شغّل مقطعًا قصيرًا واستمع للسورة كاملة",aiPh:"اكتب اسم سورة أو آية أو طلبًا…",aiListening:"أستمع… قرّب هاتفك من التلاوة",
+Object.assign(I18N.ar,{shareApp:"شارك التطبيق",shareText:"استمع إلى تلاوات الشيخ عبد الباسط عبد الصمد، وتعرّف على أي تلاوة له من مقطع قصير:",linkCopied:"تم نسخ الرابط",aiTitle:"التعرّف على التلاوة",aiCardT:"تعرّف على تلاوة",aiCardS:"شغّل مقطعًا قصيرًا واستمع للسورة كاملة",aiPh:"اكتب اسم سورة أو آية أو طلبًا…",aiListening:"أستمع… قرّب هاتفك من التلاوة",
  aiHello:"السلام عليكم. اضغط على الميكروفون وقرّب هاتفك من التلاوة، وسأخبرك بالسورة والآية ثم أشغّل التلاوة كاملة بصوت الشيخ عبد الباسط.",
  aiHello2:"يمكنك أيضًا كتابة آية بالعربية، أو طلب تشغيل سورة أو فتحها في المصحف.",
  aiLoading:"جارٍ تجهيز نص القرآن…",aiNoSR:"هذا المتصفح لا يستطيع الاستماع عبر الميكروفون. على أندرويد افتح التطبيق في كروم، وعلى آيفون استخدم سفاري. يمكنك كتابة الآية التي سمعتها.",
@@ -1817,6 +1828,12 @@ function startListen(){
   recTimer=setTimeout(stopListen,15000);
 }
 $("#aiMic").addEventListener("click",startListen);
+const APP_URL="https://zainxali1390.github.io/tilawat-abdulbasit-adbusamad/";
+$("#shareApp").addEventListener("click",async()=>{
+  const data={title:"Tilawat Abdul Basit",text:t("shareText"),url:APP_URL};
+  if(navigator.share){try{await navigator.share(data);return}catch(e){if(e&&e.name==="AbortError")return}}
+  try{await navigator.clipboard.writeText(APP_URL);toast(t("linkCopied"))}catch(e){toast(APP_URL)}
+});
 
 
 /* ===== Finding the exact recording a clip came from ===== */
