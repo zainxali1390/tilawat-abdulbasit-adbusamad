@@ -26,8 +26,15 @@ Tap **Find a recitation** on the home screen, then the microphone, and hold the 
 for 10–15 seconds. The phone's speech recognition (Chrome on Android, Safari on iPhone) turns the clip into
 Arabic text, and the app matches it against the Quran text on the phone to find the surah and ayah.
 You can then play the full surah, start near that ayah, or open it in the Mushaf.
+You can also tap the **video button** to choose a clip from your camera roll, or (on Android, with the app
+installed) share a video or voice note to the app from the Share menu. Saved clips are recognised on the phone
+by a Quran speech model (downloaded once, about 63 MB). Links to audio or video files work too; TikTok,
+Instagram and YouTube links can't be opened by other apps, so save those videos first and upload them.
 You can also type requests such as "play Surah Al-Kahf mujawwad" or paste part of a verse.
 
 ## Credits
+Speech model: [tarteel-ai/whisper-tiny-ar-quran](https://huggingface.co/tarteel-ai/whisper-tiny-ar-quran) (Apache 2.0),
+browser version from [Sharjeelbaig/whisper-tiny-ar-quran-onnx](https://huggingface.co/Sharjeelbaig/whisper-tiny-ar-quran-onnx),
+run with [Transformers.js](https://github.com/huggingface/transformers.js). Stored in `models/`.
 Quran text: Uthmani text from The Noble Qur'an Encyclopedia (quranenc.com), via the
 [quran-json](https://github.com/risan/quran-json) package by Risan Bagja Pradana, licensed CC BY 4.0.

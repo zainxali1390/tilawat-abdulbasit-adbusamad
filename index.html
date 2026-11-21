@@ -447,6 +447,13 @@ body.lang-ar .mhead{font-family:'Amiri',var(--ar);font-weight:700;font-size:16px
 .lstop{width:42px;height:42px;flex:none;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line);color:var(--gold)}
 .lstop svg{width:18px;height:18px}
 @media (prefers-reduced-motion:reduce){.wave i,.typing i{animation:none}}
+
+.msg.me audio{display:block;width:min(240px,100%);height:36px;margin-top:6px}
+.msg.me .fn{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500}
+.msg.me .fn svg{width:16px;height:16px;flex:none}
+.prog{margin-top:8px;height:4px;border-radius:2px;background:var(--line2);overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--gold);transition:width .2s}
+.heardline{font-family:var(--ar);direction:rtl;text-align:right;font-size:15px;color:var(--muted);margin-bottom:8px;line-height:1.7}
 </style>
 </head>
 <body>
@@ -613,6 +620,8 @@ body.lang-ar .mhead{font-family:'Amiri',var(--ar);font-weight:700;font-size:16px
       <button class="lstop" id="aiStop" aria-label="Stop"><svg data-ic="stopsq"></svg></button>
     </div>
     <form id="aiForm" autocomplete="off">
+      <button type="button" class="sendb" id="aiAttach" aria-label="Choose a video or audio clip"><svg data-ic="clip"></svg></button>
+      <input id="aiFile" type="file" accept="audio/*,video/*" hidden>
       <input id="aiInput" type="text" data-i18n-ph="aiPh" aria-label="Message">
       <button type="submit" class="sendb" aria-label="Send"><svg data-ic="send"></svg></button>
       <button type="button" class="micb" id="aiMic" aria-label="Listen to a recitation"><svg data-ic="mic"></svg></button>
@@ -867,6 +876,7 @@ const BGS = [
 
 /* icons */
 const P = {
+clip:'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor" stroke="none"/>',
 mic:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0013 0M12 17.5V21"/>',send:'<path d="M4 12l16-8-5.5 16-3-6.5z"/><path d="M11.5 13.5L20 4"/>',stopsq:'<rect x="7" y="7" width="10" height="10" rx="2" fill="currentColor" stroke="none"/>',spark:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>',
 back:'<path d="M15 5l-7 7 7 7"/>',chev:'<path d="M9 5l7 7-7 7"/>',
 menu:'<path d="M4 7h16M4 12h16M4 17h16"/>',
@@ -1565,22 +1575,34 @@ Object.assign(I18N.en,{aiTitle:"Recitation Finder",aiCardT:"Find a recitation",a
  aiLoading:"Getting the Quran text ready…",aiNoSR:"This browser can't listen through the microphone. On Android, open the app in Chrome. On iPhone, use Safari. You can still type the verse you heard.",
  aiDenied:"I need permission to use the microphone. Allow it in your browser's site settings, then try again.",aiNoSpeech:"I didn't hear anything. Hold the phone closer to the recitation and try again.",
  aiNetErr:"Listening needs an internet connection, because the phone's speech recognition runs online.",
- aiHeard:"Heard",aiFound:"I think this is",aiMaybe:"This might be",aiNone:"I couldn't place that. Try a longer clip (10 to 15 seconds) with clear recitation, or type part of the verse.",
+ aiHeard:"Heard",aiFound:"I think this is",aiMaybe:"This might be",aiNone:"I couldn't place that. Try a longer clip (20 seconds to a minute) with clear recitation, or type part of the verse.",
  aiSure:"Confident",aiLikely:"Possible",aiAyah:"Ayah",aiAyahs:"Ayahs",aiOr:"Or maybe:",aiPlayFull:"Play full surah",aiPlayHere:"Start near this ayah",aiOpenMushaf:"Open in Mushaf",
  aiPlaying:"Playing Surah {s} by Abdul Basit.",aiPlayingNear:"Playing Surah {s} from near ayah {a}. The jump is estimated, so it may start a little early or late.",
  aiWhichSurah:"Which surah? Try: play Surah Al-Kahf.",aiSurahCard:"Surah {s} · {v} ayahs",aiMujawwad:"Mujawwad",aiMurattal:"Murattal",
- aiS1:"Play Surah Al-Kahf",aiS2:"Ar-Rahman, Mujawwad",aiS3:"Open Yasin in Mushaf",aiHelp:"I can find a surah from a recording, play any surah (Murattal or Mujawwad), or open it in the Mushaf."});
+ aiS1:"Play Surah Al-Kahf",aiS2:"Ar-Rahman, Mujawwad",aiS3:"Open Yasin in Mushaf",aiS4:"Choose a video",
+ aiHello3:"Got a clip on your phone? Tap the video button to pick one from your camera roll, or share it to this app.",
+ aiReading:"Reading the audio…",aiModel:"Getting the recognition model ready (about 63 MB, only the first time)…",aiTranscribing:"Listening to the clip…",
+ aiBadFile:"I couldn't read the sound in that file. Try another video or audio clip.",aiModelErr:"I couldn't load the recognition model. Check your internet connection and try again.",
+ aiLinkSocial:"I can't open videos from {h} directly, because the site doesn't let other apps read them. Save the video to your phone (Save video or Download), then tap the video button and choose it.",
+ aiLinkFail:"That site doesn't let other apps open its files. Download the clip to your phone, then upload it with the video button.",
+ aiLinkGet:"Opening the link…",aiTooBig:"That file is very large. Trim it to the part with the recitation (under a few minutes) and try again.",aiHelp:"I can find a surah from a recording, play any surah (Murattal or Mujawwad), or open it in the Mushaf."});
 Object.assign(I18N.ar,{aiTitle:"التعرّف على التلاوة",aiCardT:"تعرّف على تلاوة",aiCardS:"شغّل مقطعًا قصيرًا واستمع للسورة كاملة",aiPh:"اكتب اسم سورة أو آية أو طلبًا…",aiListening:"أستمع… قرّب هاتفك من التلاوة",
  aiHello:"السلام عليكم. اضغط على الميكروفون وقرّب هاتفك من التلاوة، وسأخبرك بالسورة والآية ثم أشغّل التلاوة كاملة بصوت الشيخ عبد الباسط.",
  aiHello2:"يمكنك أيضًا كتابة آية بالعربية، أو طلب تشغيل سورة أو فتحها في المصحف.",
  aiLoading:"جارٍ تجهيز نص القرآن…",aiNoSR:"هذا المتصفح لا يستطيع الاستماع عبر الميكروفون. على أندرويد افتح التطبيق في كروم، وعلى آيفون استخدم سفاري. يمكنك كتابة الآية التي سمعتها.",
  aiDenied:"أحتاج إذنًا لاستخدام الميكروفون. اسمح به من إعدادات الموقع في المتصفح ثم حاول مجددًا.",aiNoSpeech:"لم أسمع شيئًا. قرّب الهاتف من التلاوة وحاول مجددًا.",
  aiNetErr:"الاستماع يحتاج اتصالًا بالإنترنت لأن التعرّف على الكلام في الهاتف يعمل عبر الإنترنت.",
- aiHeard:"ما سمعته",aiFound:"أظن أنها",aiMaybe:"قد تكون",aiNone:"لم أتمكن من تحديدها. جرّب مقطعًا أطول (١٠ إلى ١٥ ثانية) بتلاوة واضحة، أو اكتب جزءًا من الآية.",
+ aiHeard:"ما سمعته",aiFound:"أظن أنها",aiMaybe:"قد تكون",aiNone:"لم أتمكن من تحديدها. جرّب مقطعًا أطول (من ٢٠ ثانية إلى دقيقة) بتلاوة واضحة، أو اكتب جزءًا من الآية.",
  aiSure:"مؤكد",aiLikely:"محتمل",aiAyah:"الآية",aiAyahs:"الآيات",aiOr:"أو ربما:",aiPlayFull:"تشغيل السورة كاملة",aiPlayHere:"ابدأ قرب هذه الآية",aiOpenMushaf:"افتح في المصحف",
  aiPlaying:"تشغيل سورة {s} بصوت عبد الباسط.",aiPlayingNear:"تشغيل سورة {s} من قرب الآية {a}. موضع البدء تقديري، فقد يبدأ قبلها أو بعدها بقليل.",
  aiWhichSurah:"أي سورة؟ جرّب: شغّل سورة الكهف.",aiSurahCard:"سورة {s} · {v} آية",aiMujawwad:"مجوّد",aiMurattal:"مرتّل",
- aiS1:"شغّل سورة الكهف",aiS2:"الرحمن مجوّد",aiS3:"افتح يس في المصحف",aiHelp:"أستطيع التعرّف على السورة من تسجيل، وتشغيل أي سورة (مرتّلة أو مجوّدة)، وفتحها في المصحف."});
+ aiS1:"شغّل سورة الكهف",aiS2:"الرحمن مجوّد",aiS3:"افتح يس في المصحف",aiS4:"اختر فيديو",
+ aiHello3:"لديك مقطع على هاتفك؟ اضغط زر الفيديو لاختياره من معرض الصور، أو شاركه إلى هذا التطبيق.",
+ aiReading:"جارٍ قراءة الصوت…",aiModel:"جارٍ تجهيز نموذج التعرّف (نحو ٦٣ ميغابايت، أول مرة فقط)…",aiTranscribing:"أستمع إلى المقطع…",
+ aiBadFile:"لم أتمكن من قراءة الصوت في هذا الملف. جرّب فيديو أو مقطعًا صوتيًا آخر.",aiModelErr:"تعذّر تحميل نموذج التعرّف. تحقق من اتصالك بالإنترنت وحاول مجددًا.",
+ aiLinkSocial:"لا أستطيع فتح مقاطع {h} مباشرة لأن الموقع لا يسمح للتطبيقات الأخرى بقراءتها. احفظ الفيديو على هاتفك ثم اضغط زر الفيديو واختره.",
+ aiLinkFail:"هذا الموقع لا يسمح للتطبيقات الأخرى بفتح ملفاته. نزّل المقطع على هاتفك ثم ارفعه بزر الفيديو.",
+ aiLinkGet:"جارٍ فتح الرابط…",aiTooBig:"الملف كبير جدًا. قصّه إلى جزء التلاوة (بضع دقائق) وحاول مجددًا.",aiHelp:"أستطيع التعرّف على السورة من تسجيل، وتشغيل أي سورة (مرتّلة أو مجوّدة)، وفتحها في المصحف."});
 
 let QLINES=null,QREADY=null;
 function loadQuran(){
@@ -1599,7 +1621,7 @@ function chatAdd(cls,html){const el=document.createElement("div");el.className="
 function botThinking(){return chatAdd("bot",'<span class="typing" aria-label="…"><i></i><i></i><i></i></span>')}
 function chatHello(){
   if($("#chatLog").childElementCount)return;
-  chatAdd("bot",`<p>${esc(t("aiHello"))}</p><p class="muted">${esc(t("aiHello2"))}</p><div class="sugg">${["aiS1","aiS2","aiS3"].map(k=>`<button data-say="${esc(t(k))}">${esc(t(k))}</button>`).join("")}</div>`);
+  chatAdd("bot",`<p>${esc(t("aiHello"))}</p><p class="muted">${esc(t("aiHello3"))}</p><p class="muted">${esc(t("aiHello2"))}</p><div class="sugg"><button data-pick="1">${ic("clip")}${esc(t("aiS4"))}</button>${["aiS1","aiS2","aiS3"].map(k=>`<button data-say="${esc(t(k))}">${esc(t(k))}</button>`).join("")}</div>`);
   loadQuran().catch(()=>{});
 }
 
@@ -1644,7 +1666,7 @@ function surahCard(su,kind){
    <button data-act="mushaf" data-s="${su}" data-a="1">${ic("mushaf")}${esc(t("aiOpenMushaf"))}</button></div></div>`;
 }
 function hitCard(r,heard){
-  const top=r.results[0],sure=top.conf>=.3;
+  const top=r.results[0],nx=r.results[1],long=!r.q||r.q.length>=18,sure=long&&(top.conf>=.3||(top.conf>=.18&&(!nx||top.conf>=nx.conf*2)));
   const a1=top.idx,a2=Math.min(top.idx2,top.idx+2);
   const text=QLINES.slice(a1,a2+1).map((x,i)=>esc(x)+` <span style="color:var(--gold)">﴿${arNum(top.ayah+i)}﴾</span>`).join(" ");
   const same=top.surah2===top.surah;
@@ -1661,16 +1683,21 @@ function hitCard(r,heard){
    ${alts.length?`<div class="alts">${esc(t("aiOr"))} ${alts.map(x=>`<button data-act="show" data-s="${x.surah}" data-a="${x.ayah}">${esc(snm(x.surah))} ${numFmt(x.surah)}:${numFmt(x.ayah)}</button>`).join("")}</div>`:""}
    </div>`;
 }
-async function identify(texts,thinking){
+async function identify(texts,thinking,pre){
+  pre=pre||"";
   try{await loadQuran()}catch(e){thinking.innerHTML=`<p>${esc(t("pageOffline"))}</p>`;return}
   let best=null;
   for(const tx of texts){const r=QMATCH.find(tx);if(r.results.length&&(!best||r.results[0].score>best.results[0].score))best=r}
-  if(!best||!best.results.length||best.results[0].conf<.16){thinking.innerHTML=`<p>${esc(t("aiNone"))}</p>`;return}
-  thinking.innerHTML=hitCard(best);
+  if(!best||!best.results.length||best.results[0].conf<.16||best.q.length<10){thinking.innerHTML=pre+`<p>${esc(t("aiNone"))}</p>`;return false}
+  thinking.innerHTML=pre+hitCard(best);
   requestAnimationFrame(()=>{const c=$("#chatLog");c.scrollTop=c.scrollHeight});
+  const tp=best.results[0],nx=best.results[1];
+  return best.q.length>=18&&(tp.conf>=.3||(tp.conf>=.18&&(!nx||tp.conf>=nx.conf*2)))?1:0;
 }
 async function handleText(raw){
   const text=raw.trim();if(!text)return;
+  const link=text.match(/https?:\/\/\S+/i);
+  if(link){chatAdd("me",esc(text));handleLink(link[0]);return}
   const arabic=/[ء-ي]/.test(text);
   chatAdd("me",arabic?`<span class="ar">${esc(text)}</span>`:esc(text));
   const kind=styleFrom(text);
@@ -1693,6 +1720,7 @@ async function handleText(raw){
 }
 $("#aiForm").addEventListener("submit",e=>{e.preventDefault();const i=$("#aiInput");const v=i.value;i.value="";handleText(v)});
 $("#chatLog").addEventListener("click",e=>{
+  if(e.target.closest("[data-pick]")){$("#aiFile").click();return}
   const sg=e.target.closest("[data-say]");if(sg){handleText(sg.dataset.say);return}
   const b=e.target.closest("[data-act]");if(!b)return;const su=+b.dataset.s,ay=+b.dataset.a;
   if(b.dataset.act==="play")playFrom(su,ay,b.dataset.kind||null);
@@ -1703,10 +1731,21 @@ $("#chatLog").addEventListener("click",e=>{
 /* --- listening --- */
 const SRec=window.SpeechRecognition||window.webkitSpeechRecognition;
 let rec=null,recTimer=null,heardFinal=[],heardAlt=[],heardInterim="";
-function stopListen(){if(rec){try{rec.stop()}catch(e){}}}
+function stopListen(){if(rec){try{rec.stop()}catch(e){}}if(mrec&&mrec.state==="recording")mrec.stop()}
+let mrec=null;
+async function recordClip(){
+  if(mrec&&mrec.state==="recording"){mrec.stop();return}
+  let stream;try{stream=await navigator.mediaDevices.getUserMedia({audio:true})}catch(e){chatAdd("bot",`<p>${esc(t("aiDenied"))}</p>`);return}
+  const parts=[];mrec=new MediaRecorder(stream);
+  mrec.ondataavailable=e=>e.data.size&&parts.push(e.data);
+  mrec.onstop=()=>{stream.getTracks().forEach(x=>x.stop());clearTimeout(recTimer);$("#aiListen").hidden=true;$("#aiMic").classList.remove("on");
+    const b=new Blob(parts,{type:mrec.mimeType||"audio/webm"});mrec=null;if(b.size)identifyMedia(b,t("aiHeard"))};
+  mrec.start();$("#aiHeard").textContent="";$("#aiListen").hidden=false;$("#aiMic").classList.add("on");
+  recTimer=setTimeout(()=>mrec&&mrec.state==="recording"&&mrec.stop(),15000);
+}
 function startListen(){
   if(rec){stopListen();return}
-  if(!SRec){chatAdd("bot",`<p>${esc(t("aiNoSR"))}</p>`);return}
+  if(!SRec){recordClip();return}
   loadQuran().catch(()=>{});
   heardFinal=[];heardAlt=[];heardInterim="";let err="";
   rec=new SRec();rec.lang="ar-SA";rec.continuous=true;rec.interimResults=true;rec.maxAlternatives=3;
@@ -1729,6 +1768,98 @@ function startListen(){
   recTimer=setTimeout(stopListen,15000);
 }
 $("#aiMic").addEventListener("click",startListen);
+
+/* --- clips from the camera roll, shared files and links: recognised on the phone with a Quran speech model --- */
+const TJS="https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.1/dist/transformers.min.js";
+const ASR_SRC=`let pipe=null;
+self.onmessage=async e=>{const m=e.data;
+  try{
+    if(!pipe){const T=await import("${TJS}");T.env.allowRemoteModels=false;T.env.allowLocalModels=true;T.env.localModelPath=m.base;
+      pipe=await T.pipeline("automatic-speech-recognition","whisper-tiny-ar-quran",{dtype:{encoder_model:"fp32",decoder_model_merged:"q8"},device:"wasm",
+        progress_callback:p=>{if(p.status==="progress")self.postMessage({type:"progress",file:p.file,loaded:p.loaded,total:p.total})}});
+      self.postMessage({type:"ready"})}
+    if(m.pcm){const o=await pipe(m.pcm,{language:"ar",task:"transcribe",chunk_length_s:30});self.postMessage({type:"text",id:m.id,text:o.text})}
+  }catch(err){self.postMessage({type:"error",id:m.id,msg:String(err&&err.message||err)})}
+};`;
+let asrW=null,asrSeq=0;const asrWait=new Map();let asrProg=null;
+function asrWorker(){
+  if(asrW)return asrW;
+  asrW=new Worker(URL.createObjectURL(new Blob([ASR_SRC],{type:"text/javascript"})),{type:"module"});
+  const files={};
+  asrW.onmessage=e=>{const m=e.data;
+    if(m.type==="progress"){files[m.file]=[m.loaded||0,m.total||0];let l=0,tt=0;for(const k in files){l+=files[k][0];tt+=files[k][1]}if(asrProg&&tt)asrProg(l/tt)}
+    else if(m.type==="text"||m.type==="error"){const w=asrWait.get(m.id);if(w){asrWait.delete(m.id);m.type==="text"?w.res(m.text):w.rej(new Error(m.msg))}}
+  };
+  asrW.onerror=e=>{asrWait.forEach(w=>w.rej(new Error("worker")));asrWait.clear();asrW=null};
+  return asrW;
+}
+function transcribe(pcm){
+  const id=++asrSeq;const w=asrWorker();
+  return new Promise((res,rej)=>{asrWait.set(id,{res,rej});w.postMessage({id,pcm,base:new URL("models/",location.href).href},[pcm.buffer])});
+}
+async function decodeMedia(blob){
+  const ac=new (window.AudioContext||window.webkitAudioContext)();
+  try{return await ac.decodeAudioData(await blob.arrayBuffer())}finally{try{ac.close()}catch(e){}}
+}
+async function pcmSlice(buf,st,len){
+  len=Math.max(1,Math.min(len,buf.duration-st));
+  const off=new OfflineAudioContext(1,Math.ceil(len*16000),16000);const src=off.createBufferSource();
+  src.buffer=buf;src.connect(off.destination);src.start(0,st,len);return (await off.startRendering()).getChannelData(0);
+}
+async function identifyMedia(blob,name){
+  const url=URL.createObjectURL(blob);
+  chatAdd("me",`<span class="fn">${ic("clip")}${esc(name||"clip")}</span><audio controls preload="metadata" src="${url}"></audio>`);
+  const th=chatAdd("bot",`<p class="muted" data-st>${esc(t("aiReading"))}</p><div class="prog" hidden><i></i></div>`);
+  const st=k=>{const el=th.querySelector("[data-st]");if(el)el.textContent=t(k)};
+  if(blob.size>300e6){th.innerHTML=`<p>${esc(t("aiTooBig"))}</p>`;return}
+  let buf;try{buf=await decodeMedia(blob)}catch(e){th.innerHTML=`<p>${esc(t("aiBadFile"))}</p>`;return}
+  loadQuran().catch(()=>{});
+  const bar=th.querySelector(".prog"),fillEl=bar.querySelector("i");
+  asrProg=f=>{st("aiModel");bar.hidden=false;fillEl.style.width=Math.round(f*100)+"%"};
+  const wins=[];for(let a=0;a<buf.duration-3&&wins.length<3;a+=28)wins.push([a,28]);
+  let heard="";
+  for(const [a,len] of wins){
+    try{
+      const pcm=await pcmSlice(buf,a,len);
+      if(!asrW)st("aiModel");else st("aiTranscribing");
+      const p=transcribe(pcm);
+      p.then(()=>{},()=>{});
+      const tx=await p;asrProg=null;bar.hidden=true;st("aiTranscribing");
+      heard=(heard+" "+tx).trim();
+      const pre=`<div class="heardline">${esc(heard)}</div>`;
+      const sure=await identify([heard,tx],th,pre);
+      if(sure)return;
+    }catch(e){asrProg=null;th.innerHTML=`<p>${esc(t("aiModelErr"))}</p>`;return}
+  }
+}
+$("#aiAttach").addEventListener("click",()=>$("#aiFile").click());
+$("#aiFile").addEventListener("change",e=>{const f=e.target.files&&e.target.files[0];e.target.value="";if(f)identifyMedia(f,f.name)});
+const SOCIAL=[[/youtu\.?be/i,"YouTube"],[/tiktok/i,"TikTok"],[/instagram|instagr\.am/i,"Instagram"],[/facebook|fb\.watch/i,"Facebook"],[/(^|\.)x\.com|twitter/i,"X"],[/snapchat/i,"Snapchat"],[/threads\.net/i,"Threads"],[/whatsapp/i,"WhatsApp"]];
+async function handleLink(u){
+  let host="";try{host=new URL(u).hostname}catch(e){}
+  const soc=SOCIAL.find(([re])=>re.test(host));
+  if(soc){chatAdd("bot",`<p>${esc(fill("aiLinkSocial",{h:soc[1]}))}</p><div class="sugg"><button data-pick="1">${ic("clip")}${esc(t("aiS4"))}</button></div>`);return}
+  const th=chatAdd("bot",`<p class="muted">${esc(t("aiLinkGet"))}</p>`);
+  try{const r=await fetch(u);if(!r.ok)throw 0;const b=await r.blob();
+    if(!/^(audio|video)\//.test(b.type)&&!/\.(mp3|m4a|aac|wav|ogg|oga|opus|webm|mp4|mov|3gp)(\?|$)/i.test(u))throw 0;
+    th.remove();identifyMedia(b,decodeURIComponent(u.split("/").pop().split("?")[0])||"clip");
+  }catch(e){th.innerHTML=`<p>${esc(t("aiLinkFail"))}</p><div class="sugg"><button data-pick="1">${ic("clip")}${esc(t("aiS4"))}</button></div>`}
+}
+/* files or links shared to the app from other apps (Android share menu) */
+async function takeShared(){
+  if(!("caches" in window))return;
+  try{const c=await caches.open("shared");
+    const f=await c.match("shared-media"),tx=await c.match("shared-text");
+    if(!f&&!tx)return;
+    await c.delete("shared-media");await c.delete("shared-text");
+    if(!$("#assistant").classList.contains("on"))go("assistant",true);
+    chatHello();
+    if(f){const b=await f.blob();identifyMedia(b,decodeURIComponent(f.headers.get("x-name")||"clip"))}
+    else if(tx){handleText(await tx.text())}
+  }catch(e){}
+}
+setTimeout(takeShared,2300);
+
 $("#aiStop").addEventListener("click",stopListen);
 
 const SCREENS=["assistant","khatma","collections","area","home","surahs","player","mushaf","translation","favourites","khatam","more","prefs","appearance","audio","notifs","about","language"];
