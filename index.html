@@ -211,21 +211,6 @@ input[type=range]::-moz-range-thumb{width:13px;height:13px;border-radius:50%;bac
 
 /* parchment */
 .parch{background:radial-gradient(circle at 50% 40%,var(--parch),var(--parch2));color:var(--ink);border-radius:6px;position:relative}
-.mushaf-wrap{padding:6px 0 0}
-.mpage{padding:14px;min-height:62dvh;display:flex;flex-direction:column}
-.mframe{flex:1;border:3px double #9b7a3a;outline:1px solid #b89553;outline-offset:4px;margin:6px;padding:12px 12px 16px;display:flex;flex-direction:column;
-  background:repeating-linear-gradient(45deg,transparent 0 10px,rgba(155,122,58,.04) 10px 11px)}
-.cart{margin:0 auto 12px;padding:4px 30px;border:1.5px solid #9b7a3a;border-radius:40px;font-family:var(--ar);font-size:20px;color:#5b3f12;background:rgba(255,255,255,.35);position:relative}
-.cart::before,.cart::after{content:"❖";position:absolute;top:50%;transform:translateY(-50%);color:#9b7a3a;font-size:12px}
-.cart::before{left:10px}.cart::after{right:10px}
-.mtext{font-family:var(--ar);font-size:clamp(22px,6.4vw,27px);line-height:2.25;text-align:center;direction:rtl;color:#1e170b}
-.aya{display:inline-block;font-size:.8em;color:#8a6a2c;margin:0 4px}
-.mempty{margin:auto;text-align:center;color:#6d5a35;font-size:14px;line-height:1.6;padding:20px}
-.mempty b{display:block;font-family:var(--ar);font-size:30px;color:#9b7a3a;margin-bottom:6px}
-.pager{display:flex;justify-content:center;align-items:center;gap:22px;padding:12px 0 2px;color:#5b3f12;font-size:15px;font-variant-numeric:tabular-nums}
-.pager button{width:36px;height:36px;display:grid;place-items:center;color:#5b3f12}
-.pager button svg{width:18px;height:18px}
-.pager input{width:52px;text-align:center;border:1px solid rgba(155,122,58,.5);border-radius:8px;background:rgba(255,255,255,.4);padding:3px;color:#3a2a10}
 
 .trwrap{padding:18px 18px 0;min-height:66dvh;display:flex;flex-direction:column}
 .trwrap h3{text-align:center;margin:0 0 6px;font-weight:600;font-size:18px}
@@ -336,15 +321,6 @@ body.lang-ar .dua p{font-family:var(--ar)}
 /* toast */
 .toast{position:fixed;left:50%;bottom:calc(96px + var(--sb));transform:translate(-50%,20px);background:var(--text);color:var(--bg);padding:11px 18px;border-radius:22px;font-size:13.5px;opacity:0;pointer-events:none;transition:.25s;z-index:50;max-width:88%;text-align:center}
 .toast.on{opacity:1;transform:translate(-50%,0)}
-.mhead{display:flex;justify-content:space-between;padding:2px 10px 4px;font-family:var(--ar);font-size:15px;color:#6b4f1d;direction:rtl}
-.mtext{font-family:'Amiri Quran','Amiri',serif;font-size:clamp(21px,5.9vw,26px);line-height:2.15;text-align:justify;text-align-last:center;direction:rtl;color:#1e170b;word-spacing:1px}
-.mtext.short{text-align:center}
-.mbasm{font-family:'Amiri Quran','Amiri',serif;text-align:center;font-size:clamp(20px,5.6vw,24px);color:#2c2312;margin:2px 0 6px;direction:rtl}
-.mframe .cart{margin:10px auto 6px}
-.mframe .cart:first-child{margin-top:0}
-.qmark{color:#9b7a3a;margin:0 2px}
-.mload{margin:auto;text-align:center;color:#6d5a35;font-size:14px;padding:30px 10px}
-.mload .sp{width:26px;height:26px;border:2px solid rgba(155,122,58,.3);border-top-color:#9b7a3a;border-radius:50%;margin:0 auto 10px;animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .slist2 .row{cursor:pointer}
 .slist2 .row .pg{color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
@@ -367,6 +343,69 @@ body.lang-ar .dua p{font-family:var(--ar)}
 [hidden]{display:none!important}
 .ytbox{position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;border:1px solid var(--line)}
 .ytbox iframe,.ytbox #ytPlayer{position:absolute;inset:0;width:100%;height:100%}
+
+/* ===== Mushaf: a full-height parchment page that always fits the screen ===== */
+:root{
+  --pg:#f6ecd2;--pg2:#ead9b0;--pgink:#1c150a;--pggold:#a8823c;--pggold2:#c9a35c;--pggreen:#1d4a34;--pgbrown:#6b4b1a;
+}
+#mushaf.on{height:100dvh}
+.mushaf-wrap{display:flex;flex-direction:column;gap:8px;padding:2px 14px calc(10px + var(--sb));overflow:hidden;min-height:0}
+.mstage{flex:1;min-height:0;position:relative;perspective:2000px}
+.mpage{position:absolute;inset:0;display:flex;flex-direction:column;padding:10px 12px 6px;color:var(--pgink);
+  border-radius:3px 12px 12px 3px;
+  background:
+    radial-gradient(120% 90% at 50% 45%,transparent 55%,rgba(120,85,25,.16)),
+    linear-gradient(90deg,rgba(0,0,0,0) 92%,rgba(90,60,15,.13)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .33 0 0 0 0 .12 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E"),
+    linear-gradient(180deg,var(--pg),var(--pg2));
+  box-shadow:1px 1px 0 #e3d2a6,3px 3px 0 -1px #f1e5c6,4px 4px 0 -1px #cdb787,6px 6px 0 -2px #efe2c0,7px 7px 0 -2px #c2aa78,0 14px 30px rgba(0,0,0,.35)}
+body.light .mpage{box-shadow:1px 1px 0 #e3d2a6,3px 3px 0 -1px #f8efd9,4px 4px 0 -1px #cdb787,6px 6px 0 -2px #f6ecd2,7px 7px 0 -2px #c2aa78,0 10px 24px rgba(90,60,10,.22)}
+.mhead{display:flex;justify-content:space-between;align-items:center;padding:0 8px 6px;font-family:'Amiri',var(--ar);font-size:14px;color:var(--pgbrown);direction:rtl;line-height:1.4}
+.mhead span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mframe{flex:1;min-height:0;position:relative;padding:8px;
+  border:2px solid var(--pggold);border-radius:2px;
+  box-shadow:inset 0 0 0 3px var(--pg),inset 0 0 0 4px var(--pggold2),0 0 0 3px var(--pg),0 0 0 4px rgba(168,130,60,.55)}
+.mc{position:absolute;width:22px;height:22px;pointer-events:none;color:var(--pggold);z-index:1}
+.mc svg{width:100%;height:100%}
+.mc.tl{top:-11px;left:-11px}.mc.tr{top:-11px;right:-11px}.mc.bl{bottom:-11px;left:-11px}.mc.br{bottom:-11px;right:-11px}
+.mbody{position:absolute;inset:10px 10px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;--mfs:22px}
+.mbody.full{justify-content:space-evenly}
+.mtext{font-family:'Amiri Quran','Amiri',serif;font-size:var(--mfs);line-height:2.05;text-align:justify;text-align-last:center;direction:rtl;color:var(--pgink);word-spacing:.04em}
+.mbody.opening .mtext{text-align:center;line-height:2.2}
+.mbasm{font-family:'Amiri Quran','Amiri',serif;text-align:center;font-size:calc(var(--mfs) * .95);line-height:1.9;color:#2a200e;direction:rtl}
+.cart{position:relative;margin:.35em auto .25em;width:min(100%,19em);padding:.15em 2.2em;text-align:center;
+  font-family:'Amiri',var(--ar);font-size:calc(var(--mfs) * .82);line-height:1.7;color:#f4e3b5;direction:rtl;
+  background:linear-gradient(180deg,#245a40,var(--pggreen));border:1px solid var(--pggold2);border-radius:3px;
+  box-shadow:0 0 0 2px var(--pg),0 0 0 3px var(--pggold)}
+.cart::before,.cart::after{content:"";position:absolute;top:50%;width:1.1em;height:1.1em;transform:translateY(-50%) rotate(45deg);border:1px solid var(--pggold2);background:rgba(244,227,181,.12)}
+.cart::before{right:.55em}.cart::after{left:.55em}
+.mbody>.cart:first-child{margin-top:0}
+.aya{display:inline-block;font-size:.8em;color:#8a6a2c;margin:0 4px}
+.mbody .aya{display:inline-grid;place-items:center;width:1.32em;height:1.32em;margin:0 .12em;vertical-align:-.28em;
+  font-family:'Amiri',serif;font-size:.78em;line-height:1;color:var(--pgbrown);
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%23a8823c'%3E%3Crect x='8' y='8' width='24' height='24' stroke-width='1.6'/%3E%3Crect x='8' y='8' width='24' height='24' transform='rotate(45 20 20)' stroke-width='1.6'/%3E%3Ccircle cx='20' cy='20' r='10.5' fill='%23fbf3dc' stroke-width='1.2'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat}
+.mbody .aya b{font-weight:700;font-size:.62em;transform:translateY(.06em)}
+.qmark{color:var(--pggold);margin:0 .1em}
+.mfoot{display:flex;justify-content:center;padding-top:6px}
+.mfoot span{min-width:2.4em;padding:0 .6em;font-family:'Amiri',serif;font-size:14px;line-height:1.6;color:var(--pgbrown);text-align:center;border-top:1px solid rgba(168,130,60,.5);border-bottom:1px solid rgba(168,130,60,.5)}
+.mempty,.mload{margin:auto;text-align:center;color:#6d5a35;font-size:14px;line-height:1.6;padding:20px}
+.mempty b{display:block;font-family:var(--ar);font-size:30px;color:var(--pggold);margin-bottom:6px}
+.mload .sp{width:26px;height:26px;border:2px solid rgba(155,122,58,.3);border-top-color:#9b7a3a;border-radius:50%;margin:0 auto 10px;animation:spin 1s linear infinite}
+.pager{display:flex;justify-content:center;align-items:center;gap:18px;color:var(--gold);font-size:15px;font-variant-numeric:tabular-nums;flex:none}
+.pager button{width:44px;height:40px;display:grid;place-items:center;color:var(--gold);border-radius:12px;border:1px solid var(--line2)}
+.pager button:active{background:var(--line2)}
+.pager button:focus-visible,.pager input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.pager button svg{width:18px;height:18px}
+.pager input{width:58px;text-align:center;border:1px solid var(--line);border-radius:10px;background:transparent;padding:6px 4px;color:var(--text)}
+.pager .of{color:var(--muted)}
+/* page turn */
+.mflip{position:absolute;inset:0;z-index:5;pointer-events:none;will-change:transform}
+.mflip .mshade{position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0}
+.mflip.fwd .mshade{background:linear-gradient(270deg,rgba(60,40,10,.05),rgba(60,40,10,.38))}
+.mflip.bwd .mshade{background:linear-gradient(90deg,rgba(60,40,10,.05),rgba(60,40,10,.38))}
+.mstage .mcast{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0;border-radius:3px 12px 12px 3px}
+.mstage .mcast.fwd{background:linear-gradient(270deg,rgba(0,0,0,.28),rgba(0,0,0,0) 45%)}
+.mstage .mcast.bwd{background:linear-gradient(90deg,rgba(0,0,0,.28),rgba(0,0,0,0) 45%)}
 </style>
 </head>
 <body>
@@ -505,16 +544,18 @@ body.lang-ar .dua p{font-family:var(--ar)}
 <section class="screen" id="mushaf">
   <div class="bar plain"><button class="ib" data-back aria-label="Back"><svg class="flip" data-ic="back"></svg></button><h1 data-i18n="mushaf"></h1><button class="ib" id="mIndex" aria-label="Surah index"><svg data-ic="list"></svg></button></div>
   <div class="body mushaf-wrap">
-    <div class="parch mpage" id="mpage">
-      <div class="mhead"><span id="mSurahName"></span><span id="mJuz"></span></div>
-      <div class="mframe" id="mframe"></div>
-      <div class="pager" dir="ltr">
-        <button id="mNext" aria-label="Next page"><svg data-ic="back"></svg></button>
-        <span><input id="mNum" type="number" min="1" max="604" inputmode="numeric" aria-label="Page"> / 604</span>
-        <button id="mPrev" aria-label="Previous page"><svg data-ic="chev"></svg></button>
+    <div class="mstage" id="mstage">
+      <div class="mpage" id="mpage">
+        <div class="mhead"><span id="mSurahName"></span><span id="mJuz"></span></div>
+        <div class="mframe"><i class="mc tl"><svg viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z" opacity=".9"/><circle cx="12" cy="12" r="2.6" fill="#f6ecd2"/></g></svg></i><i class="mc tr"><svg viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z" opacity=".9"/><circle cx="12" cy="12" r="2.6" fill="#f6ecd2"/></g></svg></i><i class="mc bl"><svg viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z" opacity=".9"/><circle cx="12" cy="12" r="2.6" fill="#f6ecd2"/></g></svg></i><i class="mc br"><svg viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z" opacity=".9"/><circle cx="12" cy="12" r="2.6" fill="#f6ecd2"/></g></svg></i><div class="mbody" id="mframe"></div></div>
+        <div class="mfoot"><span id="mFoot"></span></div>
       </div>
     </div>
-    <p class="note" style="text-align:center" data-i18n="mushafNote"></p>
+    <div class="pager" dir="ltr">
+      <button id="mNext" aria-label="Next page"><svg data-ic="back"></svg></button>
+      <span><input id="mNum" type="number" min="1" max="604" inputmode="numeric" aria-label="Page"> <span class="of">/ 604</span></span>
+      <button id="mPrev" aria-label="Previous page"><svg data-ic="chev"></svg></button>
+    </div>
   </div>
 </section>
 
@@ -969,10 +1010,22 @@ function stripBasmala(s,txt){
   return txt;
 }
 let mSeq=0;
+/* Shrink or grow the text until the whole page fits inside the frame, like a printed mushaf page. */
+function fitMushaf(){
+  const box=$("#mframe");if(!box||!box.firstElementChild||!$("#mushaf").classList.contains("on"))return;
+  const opening=box.classList.contains("opening");
+  let lo=12,hi=opening?34:30;
+  box.style.setProperty("--mfs",hi+"px");
+  if(box.scrollHeight<=box.clientHeight+1)return;
+  for(let k=0;k<9;k++){const mid=(lo+hi)/2;box.style.setProperty("--mfs",mid+"px");
+    if(box.scrollHeight>box.clientHeight+1)hi=mid;else lo=mid}
+  box.style.setProperty("--mfs",lo.toFixed(2)+"px");
+}
 async function renderMushaf(){
   const p=Math.min(604,Math.max(1,S.mPage|0||1));S.mPage=p;save();
-  $("#mNum").value=p;
+  $("#mNum").value=p;$("#mFoot").textContent=arNum(p);
   const fr=$("#mframe"),seq=++mSeq;
+  fr.className="mbody";
   fr.innerHTML=`<div class="mload"><div class="sp"></div>${t("loadingPage")}</div>`;
   let d;
   try{d=await qPage(p)}catch(e){
@@ -982,27 +1035,71 @@ async function renderMushaf(){
   }
   if(seq!==mSeq)return;
   let html="",line=[],prevQ=null;
-  const flush=()=>{if(line.length){html+=`<div class="mtext${p<=2?" short":""}">${line.join(" ")}</div>`;line=[]}};
-  d.forEach(([s,ns,txt,juz,hq,sj],i)=>{
+  const flush=()=>{if(line.length){html+=`<div class="mtext">${line.join(" ")}</div>`;line=[]}};
+  d.forEach(([s,ns,txt,juz,hq,sj])=>{
     if(ns===1){flush();html+=`<div class="cart">سُورَةُ ${SURAHS[s-1][0]}</div>`;if(s!==1&&s!==9)html+=`<div class="mbasm">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>`;txt=stripBasmala(s,txt)}
     const qm=(prevQ!==null&&hq!==prevQ)?`<span class="qmark">۞</span>`:"";prevQ=hq;
-    line.push(qm+txt+(sj?`<span class="qmark">۩</span>`:"")+`<span class="aya">﴿${arNum(ns)}﴾</span>`);
+    line.push(qm+txt+(sj?`<span class="qmark">۩</span>`:"")+`<span class="aya"><b>${arNum(ns)}</b></span>`);
   });
   flush();
+  fr.className="mbody "+(p<=2?"opening":"full");
   fr.innerHTML=html;
+  fitMushaf();
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if(seq===mSeq)fitMushaf()});
   const first=d[0];
   $("#mSurahName").textContent="سورة "+SURAHS[first[0]-1][0];
   $("#mJuz").textContent="الجزء "+arNum(first[3]);
   if(p<604)qPage(p+1).catch(()=>{});
 }
-function mGo(d){S.mPage=Math.min(604,Math.max(1,(S.mPage|0)+d));renderMushaf()}
+window.addEventListener("resize",()=>{clearTimeout(fitMushaf._t);fitMushaf._t=setTimeout(fitMushaf,120)});
+
+/* Page turn: a copy of the current page lifts and swings over the spine while the next page is drawn underneath.
+   The spine is on the right (Arabic binding): going forward the page swings to the right, going back it swings to the left. */
+let mTurning=false;
+async function mGo(d){
+  const target=Math.min(604,Math.max(1,(S.mPage|0)+d));
+  if(target===(S.mPage|0)||mTurning)return;
+  const stage=$("#mstage"),page=$("#mpage");
+  const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const fwd=d>0;
+  const flip=page.cloneNode(true);flip.removeAttribute("id");flip.querySelectorAll("[id]").forEach(n=>n.removeAttribute("id"));
+  flip.classList.add("mflip",fwd?"fwd":"bwd");
+  const shade=document.createElement("div");shade.className="mshade";flip.appendChild(shade);
+  const cast=document.createElement("div");cast.className="mcast "+(fwd?"fwd":"bwd");
+  stage.append(cast,flip);
+  mTurning=true;
+  S.mPage=target;
+  const drawn=renderMushaf();
+  await Promise.race([drawn,new Promise(r=>setTimeout(r,450))]);
+  const done=()=>{flip.remove();cast.remove();mTurning=false};
+  if(still||!flip.animate){
+    if(flip.animate){const a=flip.animate([{opacity:1},{opacity:0}],{duration:180,easing:"ease-out"});a.onfinish=done}else done();
+    return;
+  }
+  // Only the half of the turn that stays on screen is drawn: the page lifts from its free edge and folds onto the spine.
+  const dur=640,ease="cubic-bezier(.42,0,.68,1)";
+  flip.style.transformOrigin=fwd?"right center":"left center";
+  const k=fwd?1:-1;
+  const a=flip.animate([
+    {transform:"rotateY(0deg)"},
+    {transform:`rotateY(${k*35}deg) translateZ(12px)`,offset:.4},
+    {transform:`rotateY(${k*91}deg) translateZ(0)`}
+  ],{duration:dur,easing:ease,fill:"forwards"});
+  shade.animate([{opacity:0},{opacity:1}],{duration:dur,easing:ease,fill:"forwards"});
+  cast.animate([{opacity:.9},{opacity:0}],{duration:dur,easing:"ease-in"});
+  a.onfinish=done;a.oncancel=done;
+}
 $("#mPrev").addEventListener("click",()=>mGo(-1));
 $("#mNext").addEventListener("click",()=>mGo(1));
-$("#mNum").addEventListener("change",e=>{S.mPage=+e.target.value;renderMushaf()});
-(()=>{let x0=null,y0=0;const el=$("#mpage");
+$("#mNum").addEventListener("change",e=>{const n=+e.target.value|0;if(n>=1&&n<=604&&n!==S.mPage)mGo(n-S.mPage);else e.target.value=S.mPage});
+document.addEventListener("keydown",e=>{
+  if(!$("#mushaf").classList.contains("on")||e.target.tagName==="INPUT")return;
+  if(e.key==="ArrowLeft")mGo(1);else if(e.key==="ArrowRight")mGo(-1);
+});
+(()=>{let x0=null,y0=0;const el=$("#mstage");
   el.addEventListener("touchstart",e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
   el.addEventListener("touchend",e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;
-    if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5)mGo(dx>0?1:-1)},{passive:true});
+    if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.3)mGo(dx>0?1:-1)},{passive:true});
 })();
 /* surah index sheet */
 async function openSurahIndex(){
