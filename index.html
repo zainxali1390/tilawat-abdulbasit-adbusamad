@@ -455,6 +455,26 @@ body.lang-ar .mhead{font-family:'Amiri',var(--ar);font-weight:700;font-size:16px
 .prog{margin-top:8px;height:4px;border-radius:2px;background:var(--line2);overflow:hidden}
 .prog i{display:block;height:100%;width:0;background:var(--gold);transition:width .2s}
 .heardline{font-family:var(--ar);direction:rtl;text-align:right;font-size:15px;color:var(--muted);margin-bottom:8px;line-height:1.7}
+
+.recs{margin-top:12px;padding-top:10px;border-top:1px solid var(--line2)}
+.recs h5{margin:0 0 2px;font-size:13.5px;font-weight:600;color:var(--gold)}
+.recs .hint{font-size:12.5px;color:var(--muted);margin:0 0 8px}
+.rrow{display:flex;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--line2)}
+.rrow:first-of-type{border-top:0}
+.rrow .rt{flex:1;min-width:0}
+.rrow .rt b{display:block;font-weight:500;font-size:13.5px;line-height:1.35}
+.rrow .rt small{display:block;color:var(--muted);font-size:12px;line-height:1.35}
+.rrow .playc{width:34px;height:34px;flex:none}
+.rrow .chk{flex:none;font-size:12px;color:var(--gold);padding:5px 9px;border:1px solid var(--line);border-radius:14px}
+.rrow.found{background:linear-gradient(90deg,var(--line2),transparent);border-radius:10px;padding-inline:8px}
+.rrow .tag{display:inline-block;font-size:11px;color:var(--on-gold);background:var(--gold);border-radius:8px;padding:1px 7px;margin-inline-start:6px;vertical-align:1px}
+.recs .more{margin-top:6px;font-size:12.5px;color:var(--gold);text-decoration:underline}
+.scan{margin-top:10px;font-size:12.5px;color:var(--muted)}
+.scan .prog{margin-top:6px}
+.scan button{margin-top:8px}
+.foundcard{margin-top:10px;padding:12px;border:1px solid var(--gold);border-radius:14px}
+.foundcard b{display:block;font-size:14.5px;font-weight:600;color:var(--gold);margin-bottom:2px}
+.foundcard small{display:block;color:var(--muted);font-size:12.5px}
 </style>
 </head>
 <body>
@@ -1586,7 +1606,15 @@ Object.assign(I18N.en,{aiTitle:"Recitation Finder",aiCardT:"Find a recitation",a
  aiBadFile:"I couldn't read the sound in that file. Try another video or audio clip.",aiModelErr:"I couldn't load the recognition model. Check your internet connection and try again.",
  aiLinkSocial:"I can't open videos from {h} directly, because the site doesn't let other apps read them. Save the video to your phone (Save video or Download), then tap the video button and choose it.",
  aiLinkFail:"That site doesn't let other apps open its files. Download the clip to your phone, then upload it with the video button.",
- aiLinkGet:"Opening the link…",aiTooBig:"That file is very large. Trim it to the part with the recitation (under a few minutes) and try again.",aiHelp:"I can find a surah from a recording, play any surah (Murattal or Mujawwad), or open it in the Mushaf."});
+ aiLinkGet:"Opening the link…",
+ aiRecs:"Full recordings of Surah {s} in your collection ({n})",aiRecsHint:"Know where or when it was recorded? Type it, for example: Syria 1957.",
+ aiRecsMic:"To match the exact recording by sound, send a saved clip with the video button.",aiShowAll:"Show all {n}",aiCheck:"Check",
+ aiFind:"Find the exact recording",aiScanning:"Comparing the sound of your clip with {r} ({i} of {n})…",aiScanData:"{mb} MB used",
+ aiStop:"Stop",aiMore:"Keep searching (about {mb} MB more)",aiNotFound:"I compared your clip with {n} recordings and none matched. It may be a recording that isn't in the collection, or one I couldn't open.",
+ aiPaused:"I've checked {n} of {t} recordings without a match. Searching the rest uses more data.",
+ aiFoundIt:"Found it",aiFoundAt:"Your clip is {t} into this recording.",aiPlayAt:"Play from the moment in your clip",aiPlayStart:"Play from the start",
+ aiNoMatchOne:"{r}: not a match.",aiCantOpen:"{r}: couldn't open this recording.",aiNoRecs:"There are no other recordings of this surah in the collection.",
+ aiHintNone:"None of the recordings of Surah {s} match \"{h}\".",aiFiltered:"Recordings matching \"{h}\":",aiTooBig:"That file is very large. Trim it to the part with the recitation (under a few minutes) and try again.",aiHelp:"I can find a surah from a recording, play any surah (Murattal or Mujawwad), or open it in the Mushaf."});
 Object.assign(I18N.ar,{aiTitle:"التعرّف على التلاوة",aiCardT:"تعرّف على تلاوة",aiCardS:"شغّل مقطعًا قصيرًا واستمع للسورة كاملة",aiPh:"اكتب اسم سورة أو آية أو طلبًا…",aiListening:"أستمع… قرّب هاتفك من التلاوة",
  aiHello:"السلام عليكم. اضغط على الميكروفون وقرّب هاتفك من التلاوة، وسأخبرك بالسورة والآية ثم أشغّل التلاوة كاملة بصوت الشيخ عبد الباسط.",
  aiHello2:"يمكنك أيضًا كتابة آية بالعربية، أو طلب تشغيل سورة أو فتحها في المصحف.",
@@ -1603,7 +1631,15 @@ Object.assign(I18N.ar,{aiTitle:"التعرّف على التلاوة",aiCardT:"�
  aiBadFile:"لم أتمكن من قراءة الصوت في هذا الملف. جرّب فيديو أو مقطعًا صوتيًا آخر.",aiModelErr:"تعذّر تحميل نموذج التعرّف. تحقق من اتصالك بالإنترنت وحاول مجددًا.",
  aiLinkSocial:"لا أستطيع فتح مقاطع {h} مباشرة لأن الموقع لا يسمح للتطبيقات الأخرى بقراءتها. احفظ الفيديو على هاتفك ثم اضغط زر الفيديو واختره.",
  aiLinkFail:"هذا الموقع لا يسمح للتطبيقات الأخرى بفتح ملفاته. نزّل المقطع على هاتفك ثم ارفعه بزر الفيديو.",
- aiLinkGet:"جارٍ فتح الرابط…",aiTooBig:"الملف كبير جدًا. قصّه إلى جزء التلاوة (بضع دقائق) وحاول مجددًا.",aiHelp:"أستطيع التعرّف على السورة من تسجيل، وتشغيل أي سورة (مرتّلة أو مجوّدة)، وفتحها في المصحف."});
+ aiLinkGet:"جارٍ فتح الرابط…",
+ aiRecs:"تسجيلات كاملة لسورة {s} في المجموعة ({n})",aiRecsHint:"تعرف أين أو متى سُجّلت؟ اكتب ذلك، مثل: سوريا ١٩٥٧.",
+ aiRecsMic:"لمطابقة التسجيل نفسه بالصوت، أرسل مقطعًا محفوظًا بزر الفيديو.",aiShowAll:"عرض الكل ({n})",aiCheck:"افحص",
+ aiFind:"ابحث عن التسجيل نفسه",aiScanning:"أقارن صوت المقطع مع {r} ({i} من {n})…",aiScanData:"استُخدم {mb} ميغابايت",
+ aiStop:"إيقاف",aiMore:"تابع البحث (نحو {mb} ميغابايت إضافية)",aiNotFound:"قارنت المقطع مع {n} تسجيلات ولم يتطابق أي منها. قد يكون التسجيل غير موجود في المجموعة أو تعذّر فتحه.",
+ aiPaused:"فحصت {n} من {t} تسجيلًا دون تطابق. البحث في البقية يستهلك بيانات أكثر.",
+ aiFoundIt:"وجدته",aiFoundAt:"مقطعك يبدأ عند {t} من هذا التسجيل.",aiPlayAt:"شغّل من موضع المقطع",aiPlayStart:"شغّل من البداية",
+ aiNoMatchOne:"{r}: غير مطابق.",aiCantOpen:"{r}: تعذّر فتح هذا التسجيل.",aiNoRecs:"لا توجد تسجيلات أخرى لهذه السورة في المجموعة.",
+ aiHintNone:"لا يوجد تسجيل لسورة {s} يطابق \"{h}\".",aiFiltered:"التسجيلات المطابقة لـ \"{h}\":",aiTooBig:"الملف كبير جدًا. قصّه إلى جزء التلاوة (بضع دقائق) وحاول مجددًا.",aiHelp:"أستطيع التعرّف على السورة من تسجيل، وتشغيل أي سورة (مرتّلة أو مجوّدة)، وفتحها في المصحف."});
 
 let QLINES=null,QREADY=null;
 function loadQuran(){
@@ -1685,7 +1721,7 @@ function hitCard(r,heard){
    </div>`;
 }
 async function identify(texts,thinking,pre){
-  pre=pre||"";
+  pre=pre||"";identify.last=null;
   try{await loadQuran()}catch(e){thinking.innerHTML=`<p>${esc(t("pageOffline"))}</p>`;return}
   let best=null;
   for(const tx of texts){const r=QMATCH.find(tx);if(r.results.length&&(!best||r.results[0].score>best.results[0].score))best=r}
@@ -1693,12 +1729,24 @@ async function identify(texts,thinking,pre){
   thinking.innerHTML=pre+hitCard(best);
   requestAnimationFrame(()=>{const c=$("#chatLog");c.scrollTop=c.scrollHeight});
   const tp=best.results[0],nx=best.results[1];
+  identify.last=tp;
   return best.q.length>=18&&(tp.conf>=.3||(tp.conf>=.18&&(!nx||tp.conf>=nx.conf*2)))?1:0;
 }
 async function handleText(raw){
   const text=raw.trim();if(!text)return;
   const link=text.match(/https?:\/\/\S+/i);
   if(link){chatAdd("me",esc(text));handleLink(link[0]);return}
+  if(RCTX&&RCTX.list.length&&!/play|open|mushaf|شغل|افتح/i.test(text)){
+    const scored=RCTX.list.map(r=>({...r,hs:hintScore(r.c,text)})).filter(r=>r.hs>0);
+    if(scored.length){
+      chatAdd("me",esc(text));scored.sort((a,b)=>b.hs-a.hs||b.rank-a.rank);
+      const box=chatAdd("bot",`<div class="hit"><p class="muted">${esc(fill("aiFiltered",{h:text}))}</p></div>`);
+      const prev=RCTX;RCTX={...prev,hint:text,list:scored,box,checked:new Set(),running:false,stop:false,budget:60e6,used:0};
+      const host=document.createElement("div");host.className="recwrap";host.innerHTML=recsHTML(RCTX);box.querySelector(".hit").appendChild(host);RCTX.host=host;
+      if(RCTX.clipH)findExact(RCTX);
+      return;
+    }
+  }
   const arabic=/[ء-ي]/.test(text);
   chatAdd("me",arabic?`<span class="ar">${esc(text)}</span>`:esc(text));
   const kind=styleFrom(text);
@@ -1717,7 +1765,7 @@ async function handleText(raw){
   }
   const th=botThinking();
   if(!QLINES)th.innerHTML=`<p class="muted">${esc(t("aiLoading"))}</p>`;
-  identify([text],th);
+  identify([text],th).then(()=>{const r=identify.last;if(r)attachRecs(th,r.surah,r.ayah,null,"")});
 }
 $("#aiForm").addEventListener("submit",e=>{e.preventDefault();const i=$("#aiInput");const v=i.value;i.value="";handleText(v)});
 $("#chatLog").addEventListener("click",e=>{
@@ -1762,13 +1810,267 @@ function startListen(){
     if(!said){chatAdd("bot",`<p>${esc(t(err==="not-allowed"||err==="service-not-allowed"?"aiDenied":err==="network"?"aiNetErr":"aiNoSpeech"))}</p>`);return}
     chatAdd("me",`<small>${esc(t("aiHeard"))}</small><span class="ar">${esc(said)}</span>`);
     const th=botThinking();
-    identify([said,(heardAlt.join(" ")+" "+heardInterim).trim()],th);
+    identify([said,(heardAlt.join(" ")+" "+heardInterim).trim()],th).then(()=>{const r=identify.last;if(r)attachRecs(th,r.surah,r.ayah,null,"")});
   };
   try{rec.start()}catch(e){rec=null;chatAdd("bot",`<p>${esc(t("aiNoSR"))}</p>`);return}
   $("#aiHeard").textContent="";$("#aiListen").hidden=false;$("#aiMic").classList.add("on");
   recTimer=setTimeout(stopListen,15000);
 }
 $("#aiMic").addEventListener("click",startListen);
+
+
+/* ===== Finding the exact recording a clip came from ===== */
+/* Audio fingerprint (landmark pairs) for matching a clip to a recording. Input: Float32Array mono at 8 kHz. */
+const FP=(()=>{
+  const N=512,H=256,B=N/2+1;
+  const win=new Float32Array(N).map((_,i)=>0.5-0.5*Math.cos(2*Math.PI*i/N));
+  const rev=new Uint16Array(N);for(let i=0,j=0;i<N;i++){rev[i]=j;let b=N>>1;while(j&b){j^=b;b>>=1}j|=b}
+  const cs=new Float32Array(N/2),sn=new Float32Array(N/2);for(let i=0;i<N/2;i++){cs[i]=Math.cos(-2*Math.PI*i/N);sn[i]=Math.sin(-2*Math.PI*i/N)}
+  function fft(re,im){for(let i=0;i<N;i++){const j=rev[i];if(j>i){let t=re[i];re[i]=re[j];re[j]=t;t=im[i];im[i]=im[j];im[j]=t}}
+    for(let s=2;s<=N;s<<=1){const h=s>>1,st=N/s;for(let i=0;i<N;i+=s)for(let k=0;k<h;k++){const c=cs[k*st],d=sn[k*st],a=i+k,b=a+h;
+      const tr=re[b]*c-im[b]*d,ti=re[b]*d+im[b]*c;re[b]=re[a]-tr;im[b]=im[a]-ti;re[a]+=tr;im[a]+=ti}}}
+  const F0=5,F1=200; // ~80 Hz to ~3.1 kHz
+  function spectrogram(x){
+    const T=Math.max(0,Math.floor((x.length-N)/H)+1),S=new Float32Array(T*(F1-F0));
+    const re=new Float32Array(N),im=new Float32Array(N);
+    for(let t=0;t<T;t++){const o=t*H;for(let i=0;i<N;i++){re[i]=x[o+i]*win[i];im[i]=0}fft(re,im);
+      for(let f=F0;f<F1;f++)S[t*(F1-F0)+f-F0]=Math.log(1e-9+re[f]*re[f]+im[f]*im[f])}
+    return{S,T,W:F1-F0};
+  }
+  function peaks(sp){
+    const {S,T,W}=sp,out=[],DT=4,DF=8;
+    // remove slow loudness changes per band so quiet and loud passages both give peaks
+    const mean=new Float32Array(W);
+    for(let t=0;t<T;t++){
+      for(let f=0;f<W;f++){const v=S[t*W+f];
+        if(v<-15)continue;let mx=true;
+        for(let dt=-DT;dt<=DT&&mx;dt++){const tt=t+dt;if(tt<0||tt>=T)continue;
+          for(let df=-DF;df<=DF;df++){if(!dt&&!df)continue;const ff=f+df;if(ff<0||ff>=W)continue;if(S[tt*W+ff]>=v){mx=false;break}}}
+        if(mx)out.push([t,f,v]);
+      }
+    }
+    // keep the strongest peaks, about 20 per second
+    const per=new Map();for(const p of out){const k=p[0]>>5;(per.get(k)||per.set(k,[]).get(k)).push(p)}
+    const keep=[];for(const arr of per.values()){arr.sort((a,b)=>b[2]-a[2]);keep.push(...arr.slice(0,20))}
+    keep.sort((a,b)=>a[0]-b[0]||a[1]-b[1]);return keep;
+  }
+  function hashes(x){
+    const pk=peaks(spectrogram(x)),hs=[];
+    for(let i=0;i<pk.length;i++){const [t1,f1]=pk[i];let n=0;
+      for(let j=i+1;j<pk.length&&n<5;j++){const [t2,f2]=pk[j];const dt=t2-t1;if(dt<1)continue;if(dt>40)break;if(Math.abs(f2-f1)>60)continue;
+        hs.push([(f1<<14)|(f2<<6)|dt,t1]);n++}}
+    return hs;
+  }
+  function index(hs){const m=new Map();for(const [h,t] of hs){let a=m.get(h);if(!a)m.set(h,a=[]);a.push(t)}return m}
+  function match(clipH,idx){
+    const votes=new Map();
+    for(const [h,t] of clipH){const a=idx.get(h);if(!a)continue;for(const tc of a){const d=tc-t;votes.set(d,(votes.get(d)||0)+1)}}
+    let best=0,bd=0;for(const [d,v] of votes){const v2=v+(votes.get(d-1)||0)+(votes.get(d+1)||0);if(v2>best){best=v2;bd=d}}
+    let second=0;for(const [d,v] of votes){if(Math.abs(d-bd)<20)continue;const v2=v+(votes.get(d-1)||0)+(votes.get(d+1)||0);if(v2>second)second=v2}
+    return{count:best,second,offsetSec:bd*H/8000,ratio:best/Math.max(1,clipH.length)};
+  }
+  return{hashes,index,match,H};
+})();
+/* Which surahs (and ayah ranges) does each collection recording cover? Parsed from its English title. */
+function makeCover(SURAHS){
+  const key=x=>x.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[^a-z]/g,"");
+  const strip=x=>x.replace(/^(al|an|ar|as|at|ad|az|ash|adh|ath)(?=[a-z]{3})/,"").replace(/h$/,"");
+  const NAMES=SURAHS.map(x=>strip(key(x[1])));
+  const byName=n=>{const k=strip(key(n));if(k.length<2)return 0;const i=NAMES.indexOf(k);return i+1};
+  return function(tEn){
+    const out=[];let unknown=false,partial=false;
+    const pieces=tEn.split("·").map(x=>x.trim()).filter(Boolean);
+    for(let p of pieces){
+      if(/\bpart\s*\d+\b/i.test(p)){partial=true;p=p.replace(/\bpart\s*\d+\b/i,"").trim();if(!p)continue}
+      let m;
+      if((m=p.match(/^(.+?)\s+(\d+)\s*[–-]\s*(.+?)\s+(\d+)$/))){const a=byName(m[1]),b=byName(m[3]);
+        if(a){out.push({s:a,from:+m[2],to:SURAHS[a-1][2]})}
+        for(let x=a+1;a&&b&&x<b;x++)out.push({s:x,from:1,to:SURAHS[x-1][2]});
+        if(b){out.push({s:b,from:1,to:+m[4]})}if(!a||!b)unknown=true;continue}
+      if((m=p.match(/^(.+?)\s*\((\d+)\s*[–-]\s*(\d+)\)/))){const a=byName(m[1]);if(a){out.push({s:a,from:+m[2],to:+m[3]});continue}}
+      if((m=p.match(/^(.+?)\s+(\d+)\s*[–-]\s*(\d+)$/))){const a=byName(m[1]);if(a){out.push({s:a,from:+m[2],to:+m[3]});continue}}
+      const a=byName(p.replace(/\(.*?\)/g,"").replace(/\d+/g,""));
+      if(a)out.push({s:a,from:1,to:SURAHS[a-1][2]});else{out.push({s:0});unknown=true}
+    }
+    return {parts:out,unknown,partial};
+  };
+}
+
+const COVER=makeCover(SURAHS);let CANDS=null;
+function allItems(){
+  if(CANDS)return CANDS;CANDS=[];
+  AREAS.forEach((a,ai)=>a.secs.forEach((sc,si)=>sc.items.forEach((it,ii)=>{const c=COVER(it[3]);CANDS.push({ai,si,ii,it,a,sc,...c})})));
+  return CANDS;
+}
+const recName=c=>{const it=c.it;const place=isAr()?(it[5]||c.a.ar):(it[6]||c.a.en);return [place,it[4]].filter(Boolean).join(" · ")};
+const recTitle=c=>(isAr()?c.it[2]:c.it[3]);
+function hintScore(c,h){
+  if(!h)return 0;const H=h.toLowerCase();let sc=0;
+  const yrs=H.match(/(1[89]\d\d|20\d\d)/g)||[],arY=(h.match(/[١٩][٠-٩]{3}/g)||[]).map(x=>x.replace(/[٠-٩]/g,d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d)));
+  const it=c.it,y=String(it[4]||"");
+  for(const v of yrs.concat(arY)){if(y===v)sc+=6;else if(y.slice(0,3)===v.slice(0,3))sc+=2}
+  const dec=H.match(/\b(19)?([5-9]0)'?s\b/);if(dec&&y.startsWith("19"+dec[2][0]))sc+=3;
+  const words=[c.a.en,c.a.ar,it[5],it[6],c.sc.en,c.sc.ar].filter(Boolean).join(" ").toLowerCase();
+  const wk=words.normalize("NFD").replace(/[̀-ͯ]/g,"");
+  for(const w of H.normalize("NFD").replace(/[̀-ͯ]/g,"").split(/[^a-z؀-ۿ]+/).filter(x=>x.length>=3)){
+    if(["surah","sura","the","and","from","recording","recitation","abdul","basit","quran","سورة","تلاوة","عبد","الباسط"].includes(w))continue;
+    if(wk.includes(w))sc+=4}
+  return sc;
+}
+function recsFor(su,ay,hint){
+  const out=[];
+  for(const c of allItems()){
+    const p=c.parts.find(x=>x.s===su&&(!x.from||(ay>=x.from&&ay<=x.to)));if(!p)continue;
+    const hs=hintScore(c,hint);
+    const rank=hs*10+(c.it[4]?3:0)+(c.it[6]&&c.a.id!=="unknown"?2:0)+(c.partial?-2:0)+(p.from>1||p.to<SURAHS[su-1][2]?1:0);
+    out.push({c,hs,rank});
+  }
+  out.sort((x,y)=>y.rank-x.rank);return out;
+}
+/* rough time (seconds) at which ayah `ay` of surah `su` is heard in a recording, from its title and his live pace */
+function estTime(c,su,ay){
+  if(c.partial)return null;let L=0;
+  for(const p of c.parts){
+    if(!p.s)return null;
+    const from=p.from||1;
+    if(p.s===su){L+=lettersBetween(su,from,ay);break}
+    L+=lettersBetween(p.s,from,(p.to||SURAHS[p.s-1][2])+1);
+  }
+  return 240+2.6*L;
+}
+function lettersBetween(su,a,b){let g=gIdx(su,1),t=0;for(let i=g+a-1;i<g+b-1&&i<QLINES.length;i++)t+=QMATCH.skel(QLINES[i]).length;return t}
+const recUrl=c=>EG_BASE[c.it[0]]+encodeURIComponent(c.it[1]);
+const fileInfo={};
+async function rfetch(url,opt){try{const r=await fetch(url,opt);if(r.ok||r.status===206)return r;throw new Error("http "+r.status)}catch(e){await new Promise(z=>setTimeout(z,800));return fetch(url,opt)}}
+async function mp3Info(url){
+  if(fileInfo[url])return fileInfo[url];
+  const h=await rfetch(url,{method:"HEAD"});if(!h.ok)throw new Error("head");
+  const size=+h.headers.get("content-length");
+  const r0=new Uint8Array(await (await rfetch(url,{headers:{Range:"bytes=0-9"}})).arrayBuffer());
+  let id3=0;if(r0[0]===73&&r0[1]===68&&r0[2]===51)id3=10+((r0[6]&127)<<21|(r0[7]&127)<<14|(r0[8]&127)<<7|(r0[9]&127));
+  const hb=new Uint8Array(await (await rfetch(url,{headers:{Range:`bytes=${id3}-${id3+4095}`}})).arrayBuffer());
+  let bps=16000,i=0;
+  for(;i<hb.length-4;i++)if(hb[i]===255&&(hb[i+1]&0xE0)===0xE0)break;
+  if(i<hb.length-4){
+    const v=(hb[i+1]>>3)&3,lay=(hb[i+1]>>1)&3,bri=hb[i+2]>>4,sri=(hb[i+2]>>2)&3;
+    const T1=[0,32,40,48,56,64,80,96,112,128,160,192,224,256,320],T2=[0,8,16,24,32,40,48,56,64,80,96,112,128,144,160];
+    const kb=(v===3?T1:T2)[bri];const sr=[[11025,12000,8000],null,[22050,24000,16000],[44100,48000,32000]][v][sri];
+    if(kb&&lay===1)bps=kb*125;
+    const txt=String.fromCharCode(...hb.slice(i,i+200));const xi=Math.max(txt.indexOf("Xing"),txt.indexOf("Info"));
+    if(xi>=0&&hb[i+xi+7]&1){const o=i+xi+8;const frames=(hb[o]<<24|hb[o+1]<<16|hb[o+2]<<8|hb[o+3])>>>0;const spf=v===3?1152:576;
+      if(frames&&sr)bps=(size-id3)/(frames*spf/sr)}
+  }
+  return fileInfo[url]={size,id3,bps,dur:(size-id3)/bps};
+}
+async function pcm8k(arr){
+  const ac=new (window.AudioContext||window.webkitAudioContext)();let buf;
+  try{buf=await ac.decodeAudioData(arr)}finally{try{ac.close()}catch(e){}}
+  const off=new OfflineAudioContext(1,Math.max(1,Math.ceil(buf.duration*8000)),8000);const src=off.createBufferSource();src.buffer=buf;src.connect(off.destination);src.start();
+  return (await off.startRendering()).getChannelData(0);
+}
+function scanWindow(c,ctx,inf){
+  const est=QLINES?estTime(c,ctx.surah,ctx.ayah):null;
+  let w0=0,w1=inf.dur;
+  if(est!=null&&inf.dur>8*60){w0=Math.max(0,est*.6-120);w1=Math.min(inf.dur,est*1.4+150);if(w1-w0<240){w0=Math.max(0,w0-120);w1=Math.min(inf.dur,w1+120)}}
+  return [w0,w1,est];
+}
+/* compare the clip with one recording; resolves {found,time,bytes} */
+async function scanRecording(c,ctx,onBytes,stopped){
+  const url=recUrl(c);const inf=await mp3Info(url);
+  const [w0,w1,est]=scanWindow(c,ctx,inf);
+  const CH=75,OV=12;const starts=[];for(let t=w0;t<w1;t+=CH-OV)starts.push(t);
+  const ref=est!=null?Math.min(Math.max(est,w0),w1):w0;starts.sort((a,b)=>Math.abs(a-ref)-Math.abs(b-ref));
+  let used=0;
+  for(const t of starts){
+    if(stopped())return{stopped:true,bytes:used};
+    const b0=Math.floor(inf.id3+t*inf.bps),b1=Math.min(inf.size-1,Math.floor(inf.id3+(t+CH)*inf.bps));
+    const r=await rfetch(url,{headers:{Range:`bytes=${b0}-${b1}`}});
+    const arr=await r.arrayBuffer();used+=arr.byteLength;onBytes(arr.byteLength);
+    let x;try{x=await pcm8k(arr)}catch(e){continue}
+    const m=FP.match(ctx.clipH,FP.index(FP.hashes(x)));
+    if(m.count>=Math.max(18,ctx.clipH.length*.04)&&m.count>=5*Math.max(2,m.second))return{found:true,time:Math.max(0,t+m.offsetSec),bytes:used};
+  }
+  return{found:false,bytes:used};
+}
+const fmtT=x=>{x=Math.round(x);const h=Math.floor(x/3600),m=Math.floor(x%3600/60),s2=String(x%60).padStart(2,"0");return h?`${h}:${String(m).padStart(2,"0")}:${s2}`:`${m}:${s2}`};
+function playRec(c,at){
+  playQueue(c.sc.items.map((_,j)=>egTrack(c.ai,c.si,j)),c.ii);
+  if(at>0){const jump=()=>{au.removeEventListener("loadedmetadata",jump);try{au.currentTime=at}catch(e){}};au.addEventListener("loadedmetadata",jump)}
+  setTimeout(()=>go("player"),400);
+}
+function recRow(r,ctx,found){
+  const c=r.c,k=CANDS.indexOf(c);
+  return `<div class="rrow${found?" found":""}" data-rk="${k}"><div class="rt"><b>${esc(recName(c)||recTitle(c))}${found?`<span class="tag">${esc(t("aiFoundIt"))}</span>`:""}</b><small>${esc(recTitle(c))} · ${esc(isAr()?c.sc.ar:c.sc.en)}</small></div>
+    ${ctx.clipH?`<button class="chk" data-chk="${k}">${esc(t("aiCheck"))}</button>`:""}<button class="playc" data-prec="${k}" aria-label="Play">${ic("play")}</button></div>`;
+}
+function recsHTML(ctx,limit){
+  const list=ctx.list;if(!list.length)return `<div class="recs"><p class="hint">${esc(t("aiNoRecs"))}</p></div>`;
+  const shown=list.slice(0,limit||5);
+  return `<div class="recs"><h5>${esc(fill("aiRecs",{s:snm(ctx.surah),n:numFmt(list.length)}))}</h5>
+    <p class="hint">${esc(ctx.clipH?t("aiRecsHint"):t("aiRecsMic"))}</p>
+    ${shown.map(r=>recRow(r,ctx)).join("")}
+    ${list.length>shown.length?`<button class="more" data-allrecs="1">${esc(fill("aiShowAll",{n:numFmt(list.length)}))}</button>`:""}
+    ${ctx.clipH?`<div class="acts"><button class="pri" data-findrec="1">${ic("search")}${esc(t("aiFind"))}</button></div>`:""}
+    <div class="scanbox"></div></div>`;
+}
+let RCTX=null,pendingHint=""; // the latest identified clip
+function attachRecs(box,su,ay,clipH,hint){
+  RCTX={surah:su,ayah:ay,clipH:clipH||null,hint:hint||"",list:recsFor(su,ay,hint||""),box,stop:false,checked:new Set(),budget:60e6,used:0};
+  const host=document.createElement("div");host.className="recwrap";host.innerHTML=recsHTML(RCTX);box.querySelector(".hit")?.appendChild(host);RCTX.host=host;
+  if(hint&&clipH&&RCTX.list.length&&RCTX.list[0].hs>0)findExact(RCTX);
+}
+async function findExact(ctx,only){
+  if(ctx.running)return;ctx.running=true;ctx.stop=false;
+  const sb=ctx.host.querySelector(".scanbox");
+  let order=only?[only]:ctx.list.filter(r=>!ctx.checked.has(r.c));
+  if(!only){ // recordings matching the hint first, then the cheapest to check
+    sb.innerHTML=`<div class="scan"><span class="typing"><i></i><i></i><i></i></span></div>`;
+    const q=order.slice();let k2=0;
+    await Promise.all(Array.from({length:6},async()=>{while(k2<q.length){const r=q[k2++];
+      try{const inf=await mp3Info(recUrl(r.c));const [w0,w1]=scanWindow(r.c,ctx,inf);r.cost=(w1-w0)*inf.bps}catch(e){r.cost=Infinity}}}));
+    order=order.filter(r=>r.cost!==Infinity||r.hs>0);
+    order.sort((a,b)=>(b.hs>0)-(a.hs>0)||(b.hs-a.hs)||(a.cost-b.cost));
+  }
+  const total=ctx.list.length;let i=0,lastMsg="";
+  for(const r of order){
+    if(ctx.stop)break;
+    if(!only&&ctx.used>=ctx.budget){
+      sb.innerHTML=`<div class="scan">${esc(fill("aiPaused",{n:numFmt(ctx.checked.size),t:numFmt(total)}))}<div class="acts"><button data-morerec="1">${esc(fill("aiMore",{mb:numFmt(60)}))}</button></div></div>`;
+      ctx.running=false;return;
+    }
+    i++;
+    const draw=()=>{sb.innerHTML=`<div class="scan">${esc(fill("aiScanning",{r:recName(r.c)||recTitle(r.c),i:numFmt(ctx.checked.size+1),n:numFmt(only?1:total)}))}
+      <div class="prog"><i style="width:${Math.min(100,Math.round(ctx.used/ctx.budget*100))}%"></i></div><div>${esc(fill("aiScanData",{mb:numFmt(Math.round(ctx.used/1e6))}))}${lastMsg?" · "+esc(lastMsg):""}</div>
+      <button data-stoprec="1">${esc(t("aiStop"))}</button></div>`};
+    draw();
+    try{
+      const res=await scanRecording(r.c,ctx,b=>{ctx.used+=b;draw()},()=>ctx.stop);
+      ctx.checked.add(r.c);
+      if(res.found){
+        ctx.running=false;const k=CANDS.indexOf(r.c);
+        sb.innerHTML=`<div class="foundcard"><b>${esc(t("aiFoundIt"))}: ${esc(recName(r.c)||recTitle(r.c))}</b><small>${esc(recTitle(r.c))} · ${esc(isAr()?r.c.sc.ar:r.c.sc.en)}</small>
+          <small>${esc(fill("aiFoundAt",{t:fmtT(res.time)}))}</small>
+          <div class="acts"><button class="pri" data-prec="${k}" data-at="${Math.max(0,res.time-2).toFixed(1)}">${ic("play")}${esc(t("aiPlayAt"))}</button><button data-prec="${k}">${esc(t("aiPlayStart"))}</button></div></div>`;
+        requestAnimationFrame(()=>sb.scrollIntoView({block:"nearest",behavior:"smooth"}));
+        return;
+      }
+      if(res.stopped)break;
+      lastMsg=fill("aiNoMatchOne",{r:recName(r.c)||recTitle(r.c)});
+    }catch(e){ctx.checked.add(r.c);lastMsg=fill("aiCantOpen",{r:recName(r.c)||recTitle(r.c)})}
+  }
+  ctx.running=false;
+  if(ctx.stop){sb.innerHTML=`<div class="scan">${esc(fill("aiPaused",{n:numFmt(ctx.checked.size),t:numFmt(total)}))}<div class="acts"><button data-morerec="1">${esc(fill("aiMore",{mb:numFmt(60)}))}</button></div></div>`;return}
+  sb.innerHTML=`<div class="scan">${esc(only?lastMsg:fill("aiNotFound",{n:numFmt(ctx.checked.size)}))}</div>`;
+}
+$("#chatLog").addEventListener("click",e=>{
+  const ctx=RCTX;if(!ctx)return;
+  const pr=e.target.closest("[data-prec]");if(pr){playRec(CANDS[+pr.dataset.prec],+(pr.dataset.at||0));return}
+  if(e.target.closest("[data-findrec]")){findExact(ctx);return}
+  if(e.target.closest("[data-stoprec]")){ctx.stop=true;return}
+  if(e.target.closest("[data-morerec]")){ctx.budget+=60e6;findExact(ctx);return}
+  const ck=e.target.closest("[data-chk]");if(ck){const c=CANDS[+ck.dataset.chk];const r=ctx.list.find(x=>x.c===c);if(r)findExact(ctx,r);return}
+  if(e.target.closest("[data-allrecs]")){const box=ctx.host;box.innerHTML=recsHTML(ctx,ctx.list.length);return}
+});
 
 /* --- clips from the camera roll, shared files and links: recognised on the phone with a Quran speech model --- */
 const TJS="https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.1/dist/transformers.min.js";
@@ -1814,6 +2116,11 @@ async function identifyMedia(blob,name){
   const st=k=>{const el=th.querySelector("[data-st]");if(el)el.textContent=t(k)};
   if(blob.size>300e6){th.innerHTML=`<p>${esc(t("aiTooBig"))}</p>`;return}
   let buf;try{buf=await decodeMedia(blob)}catch(e){th.innerHTML=`<p>${esc(t("aiBadFile"))}</p>`;return}
+  let clipH=null;
+  const finish=()=>{const r=identify.last;if(!r)return;
+    if(!clipH){try{const off=new OfflineAudioContext(1,Math.ceil(Math.min(buf.duration,60)*8000),8000);const sN=off.createBufferSource();sN.buffer=buf;sN.connect(off.destination);sN.start();
+      off.startRendering().then(rb=>{clipH=FP.hashes(rb.getChannelData(0));attachRecs(th,r.surah,r.ayah,clipH,(name||"")+" "+(pendingHint||""))})}catch(e){attachRecs(th,r.surah,r.ayah,null,name)}}
+  };
   loadQuran().catch(()=>{});
   const bar=th.querySelector(".prog"),fillEl=bar.querySelector("i");
   asrProg=f=>{st("aiModel");bar.hidden=false;fillEl.style.width=Math.round(f*100)+"%"};
@@ -1829,9 +2136,10 @@ async function identifyMedia(blob,name){
       heard=(heard+" "+tx).trim();
       const pre=`<div class="heardline">${esc(heard)}</div>`;
       const sure=await identify([heard,tx],th,pre);
-      if(sure)return;
+      if(sure){finish();return}
     }catch(e){asrProg=null;th.innerHTML=`<p>${esc(t("aiModelErr"))}</p>`;return}
   }
+  finish();
 }
 $("#aiAttach").addEventListener("click",()=>$("#aiFile").click());
 $("#aiFile").addEventListener("change",e=>{const f=e.target.files&&e.target.files[0];e.target.value="";if(f)identifyMedia(f,f.name)});

@@ -30,6 +30,11 @@ You can also tap the **video button** to choose a clip from your camera roll, or
 installed) share a video or voice note to the app from the Share menu. Saved clips are recognised on the phone
 by a Quran speech model (downloaded once, about 63 MB). Links to audio or video files work too; TikTok,
 Instagram and YouTube links can't be opened by other apps, so save those videos first and upload them.
+After a clip is identified, the app lists every full recording of that surah in the collection (place, year).
+**Find the exact recording** compares the sound of the clip with those recordings, a bit like Shazam, downloading
+only the part of each recording where that ayah should be (cheapest first, about 60 MB at most unless you
+continue). Typing a hint such as "Syria 1957" checks the matching recordings first. When it finds the match,
+you can play that recording from the start or from the moment in your clip.
 You can also type requests such as "play Surah Al-Kahf mujawwad" or paste part of a verse.
 
 ## Credits
