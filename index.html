@@ -1464,7 +1464,8 @@ function updateTime(){
   ["np","pl"].forEach(k=>{const s=$("#"+k+"Seek");if(!s._drag){s.value=v;s.style.setProperty("--p",v/10+"%")}$("#"+k+"Cur").textContent=fmt(c);$("#"+k+"Dur").textContent=fmt(d)});
 }
 ["npSeek","plSeek"].forEach(id=>{const s=$("#"+id);
-  s.addEventListener("input",()=>{s._drag=true;s.style.setProperty("--p",s.value/10+"%")});
+  s.addEventListener("input",()=>{s._drag=true;s.style.setProperty("--p",s.value/10+"%");const d=au.duration;if(cur&&d&&isFinite(d)){const k=id.slice(0,2);$("#"+k+"Cur").textContent=fmt(s.value/1000*d);const o=$("#"+(k==="np"?"pl":"np")+"Seek");o.value=s.value;o.style.setProperty("--p",s.value/10+"%")}});
+  ["pointerup","pointercancel","touchend"].forEach(n=>s.addEventListener(n,()=>setTimeout(()=>{if(s._drag){s._drag=false;updateTime()}},400)));
   s.addEventListener("change",()=>{s._drag=false;if(cur&&au.duration)au.currentTime=s.value/1000*au.duration;else{s.value=0;s.style.setProperty("--p","0%")}});
 });
 au.addEventListener("timeupdate",updateTime);au.addEventListener("loadedmetadata",updateTime);
