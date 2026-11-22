@@ -1,6 +1,6 @@
 // Offline support: keeps the app itself on the phone so it opens without internet.
 // Streaming audio from other sites is left to the network.
-const CACHE = 'abdulbasit-v4';
+const CACHE = 'abdulbasit-v5';
 const SHELL = ['./', './index.html', './manifest.webmanifest', './icons/basit-192.png', './icons/basit-512.png', './icons/basit-180.png'];
 
 self.addEventListener('install', e => {
