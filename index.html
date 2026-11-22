@@ -437,6 +437,27 @@ body.light #mushaf{--mp-bg:#fdfaf3;--mp-ink:#1b1810;--mp-acc:#a8823c;--mp-soft:#
 .homebar .ibs{display:flex}
 .sharebtn{display:flex;align-items:center;justify-content:center;gap:10px;max-width:280px;margin:22px auto 0}
 .sharebtn svg{width:19px;height:19px}
+
+.nsearch{width:100%;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);padding:0 14px;font-size:15px;margin-bottom:8px}
+.nsearch:focus{outline:none;border-color:var(--gold)}
+.nrow.cur{background:var(--line2);border-radius:10px}
+.nrow[hidden]{display:none}
+.ntabs button{font-size:12.5px}
+.vpick{display:grid;grid-template-columns:1fr 92px;gap:10px}
+.vcol{min-width:0}
+.vpick .nlist{max-height:52dvh}
+.vpick .nrow .na{display:none}
+.vlist{display:flex;flex-direction:column;gap:4px}
+.vbtn{padding:10px 0;border-radius:10px;font-size:15px;font-variant-numeric:tabular-nums;color:var(--text)}
+.vbtn:active,.vbtn.on{background:var(--line2);color:var(--gold)}
+.snav{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:18px 0 8px;max-width:560px;margin:0 auto}
+.snav button{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--mp-line);border-radius:14px;background:var(--mp-ban);color:var(--mp-ink);text-align:start;min-width:0}
+.snav button.nx{justify-content:flex-end;text-align:end}
+.snav button span{display:flex;flex-direction:column;min-width:0}
+.snav small{font-size:11.5px;color:var(--muted)}
+.snav b{font-size:14.5px;font-weight:600;color:var(--mp-acc);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.snav svg{width:18px;height:18px;color:var(--mp-acc);flex:none}
+[dir=rtl] .snav svg{transform:scaleX(-1)}
 </style>
 </head>
 <body>
@@ -1395,8 +1416,8 @@ const JUZ_PAGE=[1, 22, 42, 62, 82, 102, 121, 142, 162, 182, 201, 222, 242, 262, 
    Translation view: quran-json (Saheeh International / Hamidullah / Diyanet). Ayah audio: Abdul Basit, per ayah. */
 const QCF="https://cdn.jsdelivr.net/npm/quran-qcf4@1.1.0/";
 const QTR="https://cdn.jsdelivr.net/npm/quran-json@3.1.2/dist/chapters/";
-Object.assign(I18N.en,{mRead:"Reading",mTrans:"Translation",mJuz:"Juz",mPg:"Page",mNavT:"Go to",nSurah:"Surah",nJuz:"Juz",nPage:"Page",nBm:"Bookmarks",noBm:"No bookmarks yet. Tap an ayah and choose Bookmark.",vPlay:"Play this ayah",vFrom:"Play from here",vCopy:"Copy",vShare:"Share",vBm:"Bookmark",vUnbm:"Remove bookmark",copied:"Copied",goBtn:"Go",textSize:"Text size",trSizeNote:"Changes the Arabic and translation text in the Translation view. Mushaf pages always fit your screen.",mOffline:"This page needs an internet connection the first time.",vErr:"Couldn't play this ayah. Check your internet connection.",prevS:"Previous surah",nextS:"Next surah",ayahN:"Ayah {n}",bmAdded:"Bookmarked",bmRemoved:"Bookmark removed",pagesN:"pages {a}–{b}",juzN:"Juz {n}",pageN:"Page {n}"});
-Object.assign(I18N.ar,{mRead:"المصحف",mTrans:"الترجمة",mJuz:"الجزء",mPg:"صفحة",mNavT:"انتقل إلى",nSurah:"السور",nJuz:"الأجزاء",nPage:"الصفحة",nBm:"العلامات",noBm:"لا توجد علامات بعد. اضغط على آية واختر «علامة».",vPlay:"تشغيل الآية",vFrom:"تشغيل من هنا",vCopy:"نسخ",vShare:"مشاركة",vBm:"علامة",vUnbm:"إزالة العلامة",copied:"تم النسخ",goBtn:"انتقال",textSize:"حجم الخط",trSizeNote:"يغيّر حجم النص العربي والترجمة في عرض الترجمة. صفحات المصحف تلائم شاشتك دائمًا.",mOffline:"تحتاج هذه الصفحة إلى الإنترنت في أول مرة.",vErr:"تعذّر تشغيل الآية. تحقّق من الإنترنت.",prevS:"السورة السابقة",nextS:"السورة التالية",ayahN:"الآية {n}",bmAdded:"تمت إضافة العلامة",bmRemoved:"أُزيلت العلامة",pagesN:"الصفحات {a}–{b}",juzN:"الجزء {n}",pageN:"صفحة {n}"});
+Object.assign(I18N.en,{nVerse:"Verse",searchSurah:"Search surah",vNum:"Verse",mRead:"Reading",mTrans:"Translation",mJuz:"Juz",mPg:"Page",mNavT:"Go to",nSurah:"Surah",nJuz:"Juz",nPage:"Page",nBm:"Bookmarks",noBm:"No bookmarks yet. Tap an ayah and choose Bookmark.",vPlay:"Play this ayah",vFrom:"Play from here",vCopy:"Copy",vShare:"Share",vBm:"Bookmark",vUnbm:"Remove bookmark",copied:"Copied",goBtn:"Go",textSize:"Text size",trSizeNote:"Changes the Arabic and translation text in the Translation view. Mushaf pages always fit your screen.",mOffline:"This page needs an internet connection the first time.",vErr:"Couldn't play this ayah. Check your internet connection.",prevS:"Previous surah",nextS:"Next surah",ayahN:"Ayah {n}",bmAdded:"Bookmarked",bmRemoved:"Bookmark removed",pagesN:"pages {a}–{b}",juzN:"Juz {n}",pageN:"Page {n}"});
+Object.assign(I18N.ar,{nVerse:"الآية",searchSurah:"ابحث عن سورة",vNum:"الآية",mRead:"المصحف",mTrans:"الترجمة",mJuz:"الجزء",mPg:"صفحة",mNavT:"انتقل إلى",nSurah:"السور",nJuz:"الأجزاء",nPage:"الصفحة",nBm:"العلامات",noBm:"لا توجد علامات بعد. اضغط على آية واختر «علامة».",vPlay:"تشغيل الآية",vFrom:"تشغيل من هنا",vCopy:"نسخ",vShare:"مشاركة",vBm:"علامة",vUnbm:"إزالة العلامة",copied:"تم النسخ",goBtn:"انتقال",textSize:"حجم الخط",trSizeNote:"يغيّر حجم النص العربي والترجمة في عرض الترجمة. صفحات المصحف تلائم شاشتك دائمًا.",mOffline:"تحتاج هذه الصفحة إلى الإنترنت في أول مرة.",vErr:"تعذّر تشغيل الآية. تحقّق من الإنترنت.",prevS:"السورة السابقة",nextS:"السورة التالية",ayahN:"الآية {n}",bmAdded:"تمت إضافة العلامة",bmRemoved:"أُزيلت العلامة",pagesN:"الصفحات {a}–{b}",juzN:"الجزء {n}",pageN:"صفحة {n}"});
 Object.assign(I18N.fr,{mRead:"Lecture",mTrans:"Traduction"});Object.assign(I18N.de,{mRead:"Lesen",mTrans:"Übersetzung"});Object.assign(I18N.tr,{mRead:"Okuma",mTrans:"Meal"});
 if(!P.aa)P.aa='<path d="M3 19l5.5-14L14 19M5 14.5h7M15 19l3.5-9 3.5 9M16.2 16h4.6"/>';
 if(!P.x)P.x='<path d="M6 6l12 12M18 6L6 18"/>';
@@ -1432,72 +1453,91 @@ async function versePage(key){
   return g;
 }
 /* reading view: all 604 pages in one scroll; pages near the screen are drawn, far ones are released */
-let mBuilt=false,mCur=1,mFs=0,mPgh=0;const pgEls=[];
-function mBuild(){
-  if(mBuilt)return;mBuilt=true;
-  const box=$("#mPages");let h="";for(let n=1;n<=604;n++)h+=`<div class="mpg" data-p="${n}"><div class="pl">${numFmt(n)}</div></div>`;
-  box.innerHTML=h;box.querySelectorAll(".mpg").forEach(e=>pgEls.push(e));
-  const io=new IntersectionObserver(es=>es.forEach(e=>{const n=+e.target.dataset.p;if(e.isIntersecting)drawPage(n)}),{root:$("#mScroll"),rootMargin:"900px 0px"});
-  pgEls.forEach(e=>io.observe(e));
-  let ticking=false;
-  $("#mScroll").addEventListener("scroll",()=>{if(ticking)return;ticking=true;requestAnimationFrame(()=>{ticking=false;trackPage()})},{passive:true});
+let mSu=0,mCur=1,mFs=0,mPgh=0,mIO=null,mScrollBound=false;let pgMap={},pgList=[];
+const surahRange=su=>[SURAH_PAGE[su-1],su<114?SURAH_PAGE[su]:604];
+function snavHTML(su){
+  return `<div class="snav">${su>1?`<button data-sgo="${su-1}">${ic("prev")}<span><small>${t("prevS")}</small><b>${sName(su-1)}</b></span></button>`:"<span></span>"}${su<114?`<button data-sgo="${su+1}" class="nx"><span><small>${t("nextS")}</small><b>${sName(su+1)}</b></span>${ic("next")}</button>`:"<span></span>"}</div>`;
+}
+function mBuild(su){
+  if(su===mSu&&pgList.length)return;
+  mSu=su;S.mSu=su;mFs=0;
+  const [a,b]=surahRange(su);pgList=[];pgMap={};
+  let h="";for(let n=a;n<=b;n++){pgList.push(n);h+=`<div class="mpg" data-p="${n}"><div class="pl">${numFmt(n)}</div></div>`}
+  const box=$("#mPages");box.innerHTML=h+snavHTML(su);box.querySelectorAll(".mpg").forEach(e=>pgMap[+e.dataset.p]=e);
+  if(mIO)mIO.disconnect();
+  mIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)drawPage(+e.target.dataset.p)}),{root:$("#mScroll"),rootMargin:"900px 0px"});
+  Object.values(pgMap).forEach(e=>mIO.observe(e));
+  if(!mScrollBound){mScrollBound=true;let ticking=false;
+    $("#mScroll").addEventListener("scroll",()=>{if(ticking)return;ticking=true;requestAnimationFrame(()=>{ticking=false;trackPage()})},{passive:true})}
 }
 async function drawPage(n){
-  const el=pgEls[n-1];if(!el||el._drawn||el._busy)return;el._busy=true;
+  const el=pgMap[n];if(!el||el._drawn||el._busy)return;el._busy=true;const su=mSu;
   try{
     const d=await qPageData(n);
-    const fonts=new Set();d.lines.forEach(l=>l.words.forEach(w=>fonts.add(w.font)));
+    if(su!==mSu||pgMap[n]!==el){el._busy=false;return}
+    // only the lines of the surah being read
+    const lines=d.lines.filter(l=>{const w=l.words[0];if(w.type==="surah_header"||w.type==="bismillah")return w.sura===su;const k=l.words.find(x=>x.verse_key);return k&&+k.verse_key.split(":")[0]===su});
+    if(!lines.length){el.hidden=true;el._drawn=true;pgList=pgList.filter(x=>x!==n);el._busy=false;return}
+    const fonts=new Set();lines.forEach(l=>l.words.forEach(w=>fonts.add(w.font)));
     await Promise.all([...fonts].map(qFont));
-    const su=d.surahs[0].id;
     let h=`<div class="ph"><span>${isAr()?"سورة "+SURAHS[su-1][0]:SURAHS[su-1][1]}</span><span>${fmtN("juzN",{n:juzOf(n)})}</span></div>`;
-    for(const l of d.lines){
+    for(const l of lines){
       const w0=l.words[0];
       if(w0.type==="surah_header"||w0.type==="bismillah"){h+=`<div class="ql qc ${w0.type==="surah_header"?"qh":"qb"}"><span style="font-family:${w0.font}">${w0.char}</span></div>`;continue}
       h+=`<div class="ql">`+l.words.map(w=>w.verse_key?`<span class="w${w.type==="end"?" qend":""}" data-v="${w.verse_key}" style="font-family:${w.font}">${w.char}</span>`:`<span style="font-family:${w.font}">${w.char}</span>`).join("")+`</div>`;
     }
     h+=`<div class="pf">${numFmt(n)}</div>`;
-    el.innerHTML=h;el.classList.toggle("short",n<=2);el._drawn=true;
+    el.innerHTML=h;el.classList.toggle("short",n<=2);el.classList.toggle("part",lines.length<d.lines.length);el._drawn=true;
     fitPage(el);markAll(el);
   }catch(e){el.innerHTML=`<div class="pl">${t("mOffline")}</div>`}
   el._busy=false;
-  // keep the page count of drawn pages small
-  pgEls.forEach((x,i)=>{if(x._drawn&&Math.abs(i+1-mCur)>8&&Math.abs(i+1-n)>8){x.innerHTML=`<div class="pl">${numFmt(i+1)}</div>`;x._drawn=false}});
+  pgList.forEach(x=>{const q=pgMap[x];if(q&&q._drawn&&!q.hidden&&Math.abs(x-mCur)>8&&Math.abs(x-n)>8){q.innerHTML=`<div class="pl">${numFmt(x)}</div>`;q._drawn=false}});
 }
 function fitPage(el){
   const W=el.clientWidth;if(!W)return;
   el.style.setProperty("--qfs","20px");
-  let mx=0;el.querySelectorAll(".ql:not(.qc)").forEach(l=>{let s=0;for(const c of l.children)s+=c.getBoundingClientRect().width;if(s>mx)mx=s});
-  let fs=mx?20*W*.985/mx:24;
-  if(el.classList.contains("short"))fs=Math.min(fs,(mFs||W/17)*1.3);
-  else if(!mFs||Math.abs(fs-mFs)>.5)mFs=fs;
+  let mx=0;el.querySelectorAll(".ql:not(.qc)").forEach(l=>{let s2=0;for(const c of l.children)s2+=c.getBoundingClientRect().width;if(s2>mx)mx=s2});
+  const part=el.classList.contains("part"),short=el.classList.contains("short");
+  let fs=mx?20*W*.985/mx:(mFs||24);
+  if(short)fs=Math.min(fs,(mFs||W/17)*1.3);
+  else if(part&&mFs)fs=Math.min(fs,mFs);
+  else if(!part&&(!mFs||Math.abs(fs-mFs)>.5))mFs=fs;
   el.style.setProperty("--qfs",fs.toFixed(2)+"px");
-  if(!el.classList.contains("short")&&!mPgh){const h=el.offsetHeight;if(h>200){mPgh=h;$("#mPages").style.setProperty("--pgh",h+"px")}}
+  if(!short&&!part&&!mPgh){const h=el.offsetHeight;if(h>200){mPgh=h;$("#mPages").style.setProperty("--pgh",h+"px")}}
 }
-const pgTop=n=>pgEls[n-1].offsetTop-$("#mPages").offsetTop;
+const pgTop=n=>pgMap[n].offsetTop-$("#mPages").offsetTop;
 function trackPage(){
+  if(!pgList.length)return;
   const sc=$("#mScroll"),y=sc.scrollTop+sc.clientHeight*.35;
-  let n=mCur;const el=pgEls[n-1];if(!el)return;
-  while(n<604&&pgTop(n+1)<=y)n++;
-  while(n>1&&pgTop(n)>y)n--;
+  let n=pgList[0];for(const x of pgList){if(pgTop(x)<=y)n=x;else break}
   if(n!==mCur){mCur=n;S.mPage=n;clearTimeout(trackPage._t);trackPage._t=setTimeout(save,600);mLabels()}
 }
 function mLabels(){
-  const su=S.mMode==="tr"?(S.trSu||surahAt(mCur)):surahAt(mCur);
+  const su=S.mMode==="tr"?(S.trSu||mSu||surahAt(mCur)):(mSu||surahAt(mCur));
   $("#mTitle").textContent=(isAr()?"سورة ":"")+sName(su);
   const pg=S.mMode==="tr"?SURAH_PAGE[su-1]:mCur;
   $("#mSub").textContent=fmtN("juzN",{n:juzOf(pg)})+" · "+fmtN("pageN",{n:pg});
   $$("[data-mmode]").forEach(b=>{b.textContent=t(b.dataset.mmode==="read"?"mRead":"mTrans");b.classList.toggle("on",b.dataset.mmode===(S.mMode==="tr"?"tr":"read"))});
 }
-async function goPage(n,key){
-  n=Math.min(604,Math.max(1,n|0||1));mBuild();
-  if(S.mMode==="tr"){const su=key?+key.split(":")[0]:surahAt(n);await drawTr(su,key);return}
+/* open page n of surah su (su comes from the ayah, or from the top of the page) */
+async function goPage(n,key,su){
+  n=Math.min(604,Math.max(1,n|0||1));
+  if(key)su=+key.split(":")[0];
+  if(S.mMode==="tr"){await drawTr(su||surahAt(n),key);return}
+  if(!su){try{su=(await qPageData(n)).surahs[0].id}catch(e){su=surahAt(n)}}
+  mBuild(su);
+  const [a,b]=surahRange(su);n=Math.min(b,Math.max(a,n));
   mCur=n;S.mPage=n;save();
-  const sc=$("#mScroll");sc.scrollTop=pgTop(n)-4;
-  await drawPage(n);
-  await Promise.all([n-2,n-1,n+1].filter(x=>x>=1&&x<=604).map(drawPage));
-  sc.scrollTop=pgTop(n)-4;await new Promise(r=>requestAnimationFrame(r));sc.scrollTop=pgTop(n)-4;
+  const sc=$("#mScroll");
+  if(n===a&&!key){sc.scrollTop=0;await drawPage(n);await Promise.all([n+1,n+2].filter(x=>pgMap[x]).map(drawPage));sc.scrollTop=0}
+  else{
+    sc.scrollTop=pgTop(n)-4;
+    await drawPage(n);
+    await Promise.all([n-2,n-1,n+1].filter(x=>pgMap[x]).map(drawPage));
+    sc.scrollTop=pgTop(n)-4;await new Promise(r=>requestAnimationFrame(r));sc.scrollTop=pgTop(n)-4;
+  }
   mLabels();
-  if(key){const sp=pgEls[n-1].querySelector(`.w[data-v="${key}"]`);if(sp){selectVerse(key);sp.scrollIntoView({block:"center"})}}
+  if(key){const sp=pgMap[n]&&pgMap[n].querySelector(`.w[data-v="${key}"]`);if(sp){selectVerse(key);sp.scrollIntoView({block:"center"})}}
 }
 /* translation view: one surah at a time */
 async function drawTr(su,key){
@@ -1518,7 +1558,8 @@ const esc2=x=>String(x).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"
 function setMode(m){
   S.mMode=m;save();
   $("#mScroll").hidden=m==="tr";$("#mTr").hidden=m!=="tr";
-  if(m==="tr")drawTr(surahAt(mCur));else{const su=S.trSu;if(su&&surahAt(mCur)!==su)goPage(SURAH_PAGE[su-1]);else goPage(mCur)}
+  if(m==="tr")drawTr(mSu||surahAt(mCur));
+  else{const su=S.trSu||mSu||surahAt(mCur);if(su!==mSu)goPage(SURAH_PAGE[su-1],null,su);else goPage(mCur,null,su)}
   mLabels();
 }
 $$("[data-mmode]").forEach(b=>b.addEventListener("click",()=>setMode(b.dataset.mmode)));
@@ -1544,7 +1585,7 @@ async function openVerse(key){
   $("#scrim").classList.add("on");$("#sheet").classList.add("on");
   try{const d=await trData(s);const v=d.verses[a-1];const el=$("#vTrTxt");if(el)el.textContent=v?v.translation:""}catch(e){const el=$("#vTrTxt");if(el)el.textContent=""}
 }
-$("#mPages").addEventListener("click",e=>{const w=e.target.closest(".w[data-v]");if(w)openVerse(w.dataset.v)});
+$("#mPages").addEventListener("click",e=>{const g=e.target.closest("[data-sgo]");if(g){const su=+g.dataset.sgo;goPage(SURAH_PAGE[su-1],null,su);return}const w=e.target.closest(".w[data-v]");if(w)openVerse(w.dataset.v)});
 $("#mTr").addEventListener("click",e=>{
   const pl=e.target.closest("[data-vplay]");if(pl){playVerse(pl.dataset.vplay,true);return}
   const mn=e.target.closest("[data-vmenu]");if(mn){openVerse(mn.dataset.vmenu);return}
@@ -1564,18 +1605,45 @@ async function verseAction(act,key){
     try{await navigator.clipboard.writeText(text+"\n"+url);toast(t("linkCopied"))}catch(e){toast(url)}}
 }
 /* navigation sheet: surah, juz, page, bookmarks */
+/* searching surahs by number, English or Arabic name (forgiving spelling: "yaseen" finds Ya Sin) */
+const latinK=x=>x.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[^a-z0-9]/g,"");
+const noAl=x=>x.replace(/^(al|an|ar|as|at|ad|az|ash|adh|ath|aal)(?=[a-z]{2})/,"");
+const skelK=x=>noAl(x).replace(/[aeiouyw]/g,"").replace(/(.)\1+/g,"$1");
+const arK=x=>x.replace(/[ً-ْٰـ]/g,"").replace(/[أإآٱ]/g,"ا").replace(/ة/g,"ه").replace(/ى/g,"ي").replace(/^ال/,"").replace(/\s+/g,"");
+const SKEYS=SURAHS.map(x=>({l:noAl(latinK(x[1])),k:skelK(latinK(x[1])),a:arK(x[0])}));
+function surahMatch(i,q){
+  q=q.trim();if(!q)return true;
+  if(/^\d+$/.test(q))return String(i+1).startsWith(q);
+  if(/[؀-ۿ]/.test(q)){const a=arK(q);return SKEYS[i].a.includes(a)}
+  const l=noAl(latinK(q));if(!l)return true;
+  return SKEYS[i].l.includes(l)||(l.length>=3&&skelK(l).length>=2&&SKEYS[i].k.startsWith(skelK(l)));
+}
+let navSu=0;
+function surahRows(attr){return SURAHS.map((x,i)=>`<button class="nrow" ${attr(i)} data-si="${i}"><span class="nn">${numFmt(i+1)}</span><span class="nt"><b>${isAr()?x[0]:x[1]}</b><small>${numFmt(x[2])} ${t("verses")} · ${fmtN("pageN",{n:SURAH_PAGE[i]})}</small></span><span class="na">${isAr()?"":x[0]}</span></button>`).join("")}
+function verseCol(su){
+  return `<input class="nsearch" id="nVin" type="number" inputmode="numeric" min="1" max="${SURAHS[su-1][2]}" placeholder="${t("vNum")}" aria-label="${t("vNum")}">
+    <div class="nlist vlist" id="nVlist">${Array.from({length:SURAHS[su-1][2]},(_,k)=>`<button class="vbtn" data-vgo="${su}:${k+1}">${numFmt(k+1)}</button>`).join("")}</div>`;
+}
 function openNav(tab){
   tab=tab||"s";sheetMode="mnav";$("#sheetTitle").textContent=t("mNavT");
-  const tabs=[["s","nSurah"],["j","nJuz"],["p","nPage"],["b","nBm"]];
+  const cur=S.mMode==="tr"?(S.trSu||mSu||1):(mSu||surahAt(mCur));
+  const tabs=[["s","nSurah"],["v","nVerse"],["j","nJuz"],["p","nPage"],["b","nBm"]];
   let body="";
-  if(tab==="s")body=SURAHS.map((x,i)=>`<button class="nrow" data-np="${SURAH_PAGE[i]}" data-nsu="${i+1}"><span class="nn">${numFmt(i+1)}</span><span class="nt"><b>${isAr()?x[0]:x[1]}</b><small>${numFmt(x[2])} ${t("verses")} · ${fmtN("pageN",{n:SURAH_PAGE[i]})}</small></span><span class="na">${isAr()?"":x[0]}</span></button>`).join("");
-  if(tab==="j")body=JUZ_PAGE.map((p,i)=>{const su=surahAt(p);return `<button class="nrow" data-np="${p}"><span class="nn">${numFmt(i+1)}</span><span class="nt"><b>${fmtN("juzN",{n:i+1})}</b><small>${sName(su)} · ${fmtN("pageN",{n:p})}</small></span></button>`}).join("");
+  if(tab==="s")body=`<input class="nsearch" id="nSq" type="search" placeholder="${t("searchSurah")}" aria-label="${t("searchSurah")}" autocomplete="off"><div class="nlist" id="nSlist">${surahRows(i=>`data-np="${SURAH_PAGE[i]}" data-nsu="${i+1}"`)}</div>`;
+  if(tab==="v"){navSu=navSu||cur;body=`<div class="vpick"><div class="vcol"><input class="nsearch" id="nSq" type="search" placeholder="${t("searchSurah")}" aria-label="${t("searchSurah")}" autocomplete="off"><div class="nlist" id="nSlist">${surahRows(i=>`data-vsu="${i+1}"`)}</div></div><div class="vcol vright" id="nVcol">${verseCol(navSu)}</div></div>`}
+  if(tab==="j")body=`<div class="nlist">${JUZ_PAGE.map((p,i)=>{const su=surahAt(p);return `<button class="nrow" data-np="${p}"><span class="nn">${numFmt(i+1)}</span><span class="nt"><b>${fmtN("juzN",{n:i+1})}</b><small>${sName(su)} · ${fmtN("pageN",{n:p})}</small></span></button>`}).join("")}</div>`;
   if(tab==="p")body=`<div class="npage"><input id="nPageIn" type="number" min="1" max="604" inputmode="numeric" value="${mCur}" aria-label="${t("nPage")}"><button data-npgo="1">${t("goBtn")}</button></div><p class="mnote">1 – ${numFmt(604)}</p>`;
-  if(tab==="b")body=(S.bm||[]).length?(S.bm||[]).map(b=>{const [s,a]=b.k.split(":").map(Number);return `<button class="nrow" data-np="${b.p}" data-nv="${b.k}"><span class="nn">${ic("bm")}</span><span class="nt"><b>${sName(s)} · ${fmtN("ayahN",{n:a})}</b><small>${fmtN("pageN",{n:b.p})}</small></span></button>`}).join(""):`<p class="mnote">${t("noBm")}</p>`;
-  $("#sheetBody").innerHTML=`<div class="ntabs">${tabs.map(([k,l])=>`<button data-ntab="${k}" class="${k===tab?"on":""}">${t(l)}</button>`).join("")}</div><div class="nlist">${body}</div>`;
+  if(tab==="b")body=`<div class="nlist">${(S.bm||[]).length?(S.bm||[]).map(b=>{const [s2,a]=b.k.split(":").map(Number);return `<button class="nrow" data-np="${b.p}" data-nv="${b.k}"><span class="nn">${ic("bm")}</span><span class="nt"><b>${sName(s2)} · ${fmtN("ayahN",{n:a})}</b><small>${fmtN("pageN",{n:b.p})}</small></span></button>`}).join(""):`<p class="mnote">${t("noBm")}</p>`}</div>`;
+  $("#sheetBody").innerHTML=`<div class="ntabs">${tabs.map(([k,l])=>`<button data-ntab="${k}" class="${k===tab?"on":""}">${t(l)}</button>`).join("")}</div>${body}`;
   $("#scrim").classList.add("on");$("#sheet").classList.add("on");
-  if(tab==="s"){const cur=$("#sheetBody").querySelector(`[data-nsu="${surahAt(mCur)}"]`);if(cur)cur.scrollIntoView({block:"center"})}
+  const sq=$("#nSq");
+  if(sq){sq.addEventListener("input",()=>{const q=sq.value;$$("#nSlist .nrow").forEach(r=>{r.hidden=!surahMatch(+r.dataset.si,q)})});
+    sq.addEventListener("keydown",e=>{if(e.key==="Enter"){const r=[...$$("#nSlist .nrow")].find(x=>!x.hidden);if(r)r.click()}})}
+  const mark=tab==="v"?navSu:cur;const r=$("#sheetBody").querySelector(`#nSlist [data-si="${mark-1}"]`);if(r){r.classList.add("cur");r.scrollIntoView({block:"center"})}
+  bindVin();
 }
+function bindVin(){const vi=$("#nVin");if(!vi)return;vi.addEventListener("keydown",e=>{if(e.key==="Enter"){const n=+vi.value;if(n>=1&&n<=SURAHS[navSu-1][2])$(`#nVlist [data-vgo="${navSu}:${n}"]`).click()}});
+  vi.addEventListener("input",()=>{const n=+vi.value;const b=$(`#nVlist [data-vgo="${navSu}:${n}"]`);$$("#nVlist .vbtn").forEach(x=>x.classList.toggle("on",x===b));if(b)b.scrollIntoView({block:"nearest"})})}
 $("#mNav").addEventListener("click",()=>openNav("s"));
 $("#mAa").addEventListener("click",()=>{
   sheetMode="maa";$("#sheetTitle").textContent=t("textSize");
@@ -1587,9 +1655,11 @@ $("#sheetBody").addEventListener("click",e=>{
   const va=e.target.closest("[data-vact]");if(va){e.stopPropagation();verseAction(va.dataset.vact,va.dataset.k);return}
   const tb=e.target.closest("[data-ntab]");if(tb){e.stopPropagation();openNav(tb.dataset.ntab);return}
   const pg=e.target.closest("[data-npgo]");if(pg){e.stopPropagation();const n=+$("#nPageIn").value;if(n>=1&&n<=604){closeSheet();if(S.mMode==="tr")setMode("read");goPage(n)}return}
+  const vs=e.target.closest("[data-vsu]");if(vs){e.stopPropagation();navSu=+vs.dataset.vsu;$$("#nSlist .nrow").forEach(x=>x.classList.toggle("cur",x===vs));$("#nVcol").innerHTML=verseCol(navSu);bindVin();return}
+  const vg=e.target.closest("[data-vgo]");if(vg){e.stopPropagation();closeSheet();const k=vg.dataset.vgo;if(S.mMode==="tr")drawTr(+k.split(":")[0],k);else versePage(k).then(p=>goPage(p,k));return}
   const r=e.target.closest("[data-np]");if(r){e.stopPropagation();closeSheet();
     if(S.mMode==="tr"){const su=r.dataset.nsu?+r.dataset.nsu:(r.dataset.nv?+r.dataset.nv.split(":")[0]:surahAt(+r.dataset.np));drawTr(su,r.dataset.nv||null)}
-    else goPage(+r.dataset.np,r.dataset.nv||null)}
+    else goPage(+r.dataset.np,r.dataset.nv||null,r.dataset.nsu?+r.dataset.nsu:0)}
 },true);
 /* ayah-by-ayah audio, following along on the page */
 const vau=new Audio();let vQ=null;
@@ -1614,19 +1684,18 @@ $("#vStyle").addEventListener("click",()=>{S.vStyle=S.vStyle==="Mujawwad"?"Murat
 async function followVerse(key){
   if(S.mMode==="tr"){const su=+key.split(":")[0];if(S.trSu!==su)await drawTr(su);const el=$("#mTr").querySelector(`.tv[data-v="${key}"]`);if(el)el.scrollIntoView({block:"center",behavior:"smooth"});return}
   let sp=$("#mPages").querySelector(`.w[data-v="${key}"]`);
-  if(!sp){const p=await versePage(key);await goPage(p);sp=$("#mPages").querySelector(`.w[data-v="${key}"]`)}
+  if(!sp){const p=await versePage(key);await goPage(p,null,+key.split(":")[0]);sp=$("#mPages").querySelector(`.w[data-v="${key}"]`)}
   if(sp){const sc=$("#mScroll"),r=sp.getBoundingClientRect(),b=sc.getBoundingClientRect();if(r.top<b.top+40||r.bottom>b.bottom-90)sp.scrollIntoView({block:"center",behavior:"smooth"})}
 }
 /* opening the reader */
 let mPendingKey=null;
 function mOpen(){
-  mBuild();
   $("#mScroll").hidden=S.mMode==="tr";$("#mTr").hidden=S.mMode!=="tr";
   if(mPendingKey){const k=mPendingKey;mPendingKey=null;versePage(k).then(p=>{if(S.mMode==="tr")drawTr(+k.split(":")[0],k);else goPage(p,k)});mLabels();return}
-  if(S.mMode==="tr"){if(!$("#mTr").childElementCount)drawTr(S.trSu||surahAt(S.mPage||1));mLabels();return}
-  if(!pgEls[(S.mPage||1)-1]._drawn)goPage(S.mPage||1);else mLabels();
+  if(S.mMode==="tr"){if(!$("#mTr").childElementCount)drawTr(S.trSu||S.mSu||surahAt(S.mPage||1));mLabels();return}
+  if(!pgList.length){const p=S.mPage||1,su=S.mSu&&p>=surahRange(S.mSu)[0]&&p<=surahRange(S.mSu)[1]?S.mSu:0;goPage(p,null,su)}else mLabels();
 }
-window.addEventListener("resize",()=>{clearTimeout(mOpen._r);mOpen._r=setTimeout(()=>{mFs=0;mPgh=0;pgEls.forEach(e=>{if(e._drawn)fitPage(e)})},150)});
+window.addEventListener("resize",()=>{clearTimeout(mOpen._r);mOpen._r=setTimeout(()=>{mFs=0;mPgh=0;pgList.forEach(n=>{const e=pgMap[n];if(e&&e._drawn)fitPage(e)})},150)});
 
 /* a shared ayah link (?v=2:255) opens the reader at that ayah */
 (function(){try{const v=new URLSearchParams(location.search).get("v");if(v&&/^\d{1,3}:\d{1,3}$/.test(v)){mPendingKey=v;history.replaceState(null,"",location.pathname+"#mushaf")}}catch(e){}})();
