@@ -512,7 +512,7 @@ body.lang-ar .mhead{font-family:'Amiri',var(--ar);font-weight:700;font-size:16px
 
 <!-- PLAYER -->
 <section class="screen" id="player">
-  <div class="bar"><button class="ib" data-back aria-label="Back"><svg class="flip" data-ic="back"></svg></button><h1 data-i18n="nowPlaying"></h1><span></span></div>
+  <div class="bar"><button class="ib" data-back aria-label="Back"><svg class="flip" data-ic="back"></svg></button><h1 data-i18n="nowPlaying"></h1><button class="ib" id="plShare" aria-label="Share this recitation"><svg data-ic="share"></svg></button></div>
   <div class="body big">
     <div class="pl-title">
       <h2 id="plTitle"></h2>
@@ -857,7 +857,7 @@ const MOSQUE = '<g fill="currentColor">'+
  '</g>';
 
 /* state */
-const DEF = {area:0,lang:null,theme:"dark",bgc:"green",bg:true,autoNext:true,hq:true,notifDaily:false,notifNew:true,favs:[],recent:[],trMode:"both",mPage:1,recId:null,shuffle:false,repeat:false};
+const DEF = {area:0,lang:null,theme:"dark",bgc:"green",bg:true,autoNext:true,hq:true,notifDaily:false,notifNew:true,favs:[],recent:[],trMode:"both",mPage:1,recId:null,shuffle:false,repeat:false,pos:{},last:null};
 let S;
 try{S=Object.assign({},DEF,JSON.parse(localStorage.getItem("abq")||"{}"))}catch(e){S=Object.assign({},DEF)}
 function save(){try{localStorage.setItem("abq",JSON.stringify(S))}catch(e){}}
@@ -1369,9 +1369,17 @@ function resolveUrl(u){
   for(let i=0;i<bin.length;i++)arr[i]=bin.charCodeAt(i);
   return embCache[u]=URL.createObjectURL(new Blob([arr],{type:el.dataset.type||"audio/webm"}));
 }
-function playTrack(tr){
-  cur=tr;
-  au.src=resolveUrl(tr.url);au.play().catch(()=>{});
+let pendingSeek=null;
+function playTrack(tr,opt){
+  opt=opt||{};
+  cur=tr;S.last=tr;
+  const saved=(S.pos||{})[tr.k]||0;
+  if(opt.at!=null)pendingSeek=opt.at;
+  else if(saved>15){pendingSeek=Math.max(0,saved-3);if(!opt.quiet)toast(fill2("resumeFrom",{t:fmt(saved)}))}
+  else pendingSeek=null;
+  au.preload=opt.noplay?"none":"auto";
+  au.src=resolveUrl(tr.url);
+  if(!opt.noplay)au.play().catch(()=>{if(opt.shared)toast(t("tapToPlay"))});
   S.recent=[tr,...S.recent.filter(x=>x&&x.k!==tr.k)].slice(0,20);save();
   updatePlayer();renderRecent();
   if($("#area").classList.contains("on"))renderArea();if($("#collections").classList.contains("on")&&$("#cq").value)renderCollections();
@@ -1427,6 +1435,20 @@ function updateTime(){
   s.addEventListener("change",()=>{s._drag=false;if(cur&&au.duration)au.currentTime=s.value/1000*au.duration;else{s.value=0;s.style.setProperty("--p","0%")}});
 });
 au.addEventListener("timeupdate",updateTime);au.addEventListener("loadedmetadata",updateTime);
+au.addEventListener("loadedmetadata",()=>{if(pendingSeek==null)return;const t2=pendingSeek;pendingSeek=null;if(!isFinite(au.duration)||t2<au.duration-5)try{au.currentTime=t2}catch(e){}});
+/* remember where each recitation was stopped, so it continues from there next time */
+let posSaved=0;
+function savePos(force){
+  if(!cur||!isFinite(au.duration)||au.duration<60)return;
+  const c=au.currentTime||0,now=Date.now();if(!force&&now-posSaved<5000)return;posSaved=now;
+  S.pos=S.pos||{};
+  if(c>au.duration-20)delete S.pos[cur.k];else if(c>15){delete S.pos[cur.k];S.pos[cur.k]=Math.floor(c)}
+  const ks=Object.keys(S.pos);if(ks.length>300)ks.slice(0,ks.length-300).forEach(k=>delete S.pos[k]);
+  save();
+}
+au.addEventListener("timeupdate",()=>savePos(false));au.addEventListener("pause",()=>savePos(true));
+au.addEventListener("ended",()=>{if(cur&&S.pos){delete S.pos[cur.k];save()}});
+window.addEventListener("pagehide",()=>savePos(true));document.addEventListener("visibilitychange",()=>{if(document.hidden)savePos(true)});
 au.addEventListener("error",async()=>{if(!cur)return;const tr=cur;
   if(await repairUrl(tr)){if(cur===tr){au.src=tr.url;au.play().catch(()=>{})}return}
   toast(t("loadErr"))});
@@ -1474,6 +1496,60 @@ async function shareApp(){
   try{await navigator.clipboard.writeText(APP_URL);toast(t("linkCopied"))}catch(e){toast(APP_URL)}
 }
 document.addEventListener("click",e=>{if(e.target.closest("[data-share]"))shareApp()});
+
+/* ===== Sharing a recitation (optionally from a moment) and opening shared links ===== */
+Object.assign(I18N.en,{shareRec:"Share this recitation",shareFrom:"Share from {t}",shareFromSub:"Opens at the moment you're listening to",shareRecSub:"Opens at the start",resumeFrom:"Continuing from {t}",tapToPlay:"Tap play to listen",shareTitle2:"Share",listenTo:"Listen to {r} by Sheikh Abdul Basit Abdul Samad",fromT:"from {t}",linkNotFound:"That recitation isn't in the app any more."});
+Object.assign(I18N.ar,{shareRec:"شارك هذه التلاوة",shareFrom:"شارك من {t}",shareFromSub:"تُفتح عند الموضع الذي تستمع إليه",shareRecSub:"تُفتح من البداية",resumeFrom:"المتابعة من {t}",tapToPlay:"اضغط تشغيل للاستماع",shareTitle2:"مشاركة",listenTo:"استمع إلى {r} بصوت الشيخ عبد الباسط عبد الصمد",fromT:"من {t}",linkNotFound:"هذه التلاوة لم تعد موجودة في التطبيق."});
+const fill2=(k,o)=>t(k).replace(/\{(\w)\}/g,(_,x)=>o[x]);
+const b64e=x=>btoa(unescape(encodeURIComponent(x))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+const b64d=x=>decodeURIComponent(escape(atob(x.replace(/-/g,"+").replace(/_/g,"/"))));
+function trCode(tr){
+  if(!tr.eg&&tr.rec&&tr.n)return "s:"+tr.rec+":"+tr.n;
+  if(tr.eg&&tr.k&&tr.k.startsWith("eg:")){const m=tr.k.match(/^eg:([^:]+):(.*)$/);if(m)return "e:"+m[1]+":"+m[2]}
+  return "j:"+JSON.stringify(tr);
+}
+function trFromCode(code){
+  if(code.startsWith("s:")){const [,rec,n]=code.split(":");const r=RECITATIONS.find(x=>x.id===rec)||RECITATIONS[0];return r&&r.surahs[+n]?surahTrack(r,+n):null}
+  if(code.startsWith("e:")){const m=code.match(/^e:([^:]+):(.*)$/);if(!m)return null;
+    for(let ai=0;ai<AREAS.length;ai++)for(let si=0;si<AREAS[ai].secs.length;si++){const ii=AREAS[ai].secs[si].items.findIndex(it=>it[0]===m[1]&&it[1]===m[2]);if(ii>=0)return egTrack(ai,si,ii)}
+    return null}
+  if(code.startsWith("j:")){try{const x=JSON.parse(code.slice(2));return validTr(x)?x:null}catch(e){return null}}
+  return null;
+}
+function shareLink(tr,at){return APP_URL+"?r="+b64e(trCode(tr))+(at?"&t="+Math.floor(at):"")}
+async function shareRecitation(at){
+  if(!cur){toast(t("noRec"));return}
+  closeSheet();
+  const name=trTitle(cur)+" · "+trSub(cur).replace(/^Abdul Basit Abdul Samad · ?/,"");
+  const text=fill2("listenTo",{r:name})+(at?" ("+fill2("fromT",{t:fmt(at)})+")":"");
+  const url=shareLink(cur,at);
+  if(navigator.share){try{await navigator.share({title:trTitle(cur),text,url});return}catch(e){if(e&&e.name==="AbortError")return}}
+  try{await navigator.clipboard.writeText(text+"\n"+url);toast(t("linkCopied"))}catch(e){toast(url)}
+}
+$("#plShare").addEventListener("click",()=>{
+  if(!cur){toast(t("noRec"));return}
+  const at=Math.floor(au.currentTime||0);
+  sheetMode="share";$("#sheetTitle").textContent=t("shareTitle2");
+  $("#sheetBody").innerHTML=`<div class="card list">
+    <button class="li" data-shr="0">${ic("share")}<span class="tx">${t("shareRec")}<small style="display:block;color:var(--muted);font-size:12px">${t("shareRecSub")}</small></span></button>
+    ${at>5?`<button class="li" data-shr="${at}">${ic("play")}<span class="tx">${fill2("shareFrom",{t:fmt(at)})}<small style="display:block;color:var(--muted);font-size:12px">${t("shareFromSub")}</small></span></button>`:""}
+  </div>`;
+  $("#scrim").classList.add("on");$("#sheet").classList.add("on");
+});
+$("#sheetBody").addEventListener("click",e=>{const b=e.target.closest("[data-shr]");if(b){e.stopPropagation();shareRecitation(+b.dataset.shr||0)}},true);
+/* open a shared link, or bring back the last recitation where it was left */
+(function(){
+  let q;try{q=new URLSearchParams(location.search)}catch(e){return}
+  const code=q.get("r");
+  if(code){
+    let tr=null;try{tr=trFromCode(b64d(code))}catch(e){}
+    try{history.replaceState(null,"",location.pathname+"#player")}catch(e){}
+    if(tr){playTrack(tr,{at:+(q.get("t")||0)||0,shared:true,quiet:true});setTimeout(()=>{if(S.lang)go("player",true)},2100);return}
+    setTimeout(()=>toast(t("linkNotFound")),2200);
+  }
+  if(S.last&&validTr(S.last)&&!cur){playTrack(S.last,{noplay:true,quiet:true})}
+})();
+
 const SCREENS=["khatma","collections","area","home","surahs","player","mushaf","translation","favourites","khatam","more","prefs","appearance","audio","notifs","about","language"];
 const TABS=["home","surahs","favourites","more"];
 let navDepth=0;
