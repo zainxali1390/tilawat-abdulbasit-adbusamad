@@ -913,7 +913,7 @@ let cur=null; // {rec, n}
 function toast(msg){const el=$("#toast");el.textContent=msg;el.classList.add("on");clearTimeout(toast._t);toast._t=setTimeout(()=>el.classList.remove("on"),2200)}
 function fmt(s){if(!isFinite(s))return"0:00";s=Math.floor(s);return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")}
 const arNum=n=>String(n).replace(/\d/g,d=>"٠١٢٣٤٥٦٧٨٩"[d]);
-const norm=s=>s.toLowerCase().normalize("NFD").replace(/[̀-ًͯ-ْٰʿʾ'’\-\s]/g,"").replace(/[أإآٱ]/g,"ا");
+const norm=s=>s.toLowerCase().normalize("NFD").replace(/[ٓ-ٕ]/g,"").replace(/ة/g,"ه").replace(/[̀-ًͯ-ْٰʿʾ'’\-\s]/g,"").replace(/[أإآٱ]/g,"ا");
 
 /* theme */
 function applyTheme(){
@@ -1078,20 +1078,56 @@ function iaList(id){ // exact file list straight from archive.org, cached on the
   });
 }
 function arLabel(name,title){
-  let s=(/[؀-ۿ]/.test(title)?title:name).split("/").pop().replace(/\.mp3$/i,"");
-  return s.replace(/(^|\D)0+(\d)/g,"$1$2").replace(/\s*-{2,}\s*/g," – ").replace(/\s*\(\d+\)/g,"").replace(/^\s*(الربع\s*)?\d+[\s\-_.]*/,"").replace(/_uP_bY.*$/i,"").replace(/\s{2,}/g," ").trim()||s;
+  let nm=name;try{if(/%[0-9A-F]{2}/i.test(nm))nm=decodeURIComponent(nm)}catch(e){}
+  let s=(/[؀-ۿ]/.test(title)?title:nm).split("/").pop().replace(/(\.mp3)+$/i,"");
+  s=s.replace(/([\u0621-\u064A])(\d)/g,"$1 $2");
+  s=s.replace(/(^|[\s\-–(])(ال\s+عمران|العمران)(?=$|[\s\-–)])/g,"$1آل عمران");
+  return s.replace(/(^|\D)0+(\d)/g,"$1$2").replace(/\s*-{2,}\s*/g," – ").replace(/\s*\(\d+\)/g,"").replace(/^\s*(الربع\s*)?\d+(?:\s*-\s*\d+(?=\s))?[\s\-_.]*/,"").replace(/_uP_bY.*$/i,"").replace(/\s{2,}/g," ").trim()||s;
 }
 function arToEn(s){
+  arToEn.last=null;
+  s=s.replace(/آل عمران/g,"آل_عمران");
+  // a title written in English letters, e.g. "Yusuf 22 - 67"
+  if(!/[\u0600-\u06FF]/.test(s)){const lk=x=>x.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z]/g,"").replace(/^(al|an|ar|as|at|ad|az|ash)(?=[a-z]{3})/,"");
+    const m=s.match(/^\s*([A-Za-z'\- ]+?)\s*(\d+)\s*[-–]\s*(\d+)/);if(m){const i=SURAHS.findIndex(x=>lk(x[1])===lk(m[1]));if(i>=0){arToEn.last=i;return SURAHS[i][1]+" "+m[2]+" – "+m[3]}}}
+  s=s.replace(/^.*?عبد\s*الصمد\s*/,"")
+     .replace(/الحزب\s+(\d+|ال\S+(\s+عشر)?)\s*/g," ")
+     .replace(/سور[ىي](?=\s)/g,"سورة")
+     .replace(/(\d)(من|الى|إلى)/g,"$1 $2")
+     .replace(/(?:ال)?[اآ]ي[ةه]\s+/g,m=>m.replace(/الآية|الآيه/,"الاية"))
+     .replace(/من\s+[اأ]ول\s+سور[ةه]\s+(\S+)\s+(?:الى|إلى|حتى)\s+(?:ال)?[اآ]ي[ةه]\s+(\d+)(?!\s*من\s+سور)/g," $1 1 – $2 ")
+     .replace(/(?:الى|إلى)\s+سور[ةه]\s+(\S+)\s+(?:ال)?[اآ]ي[ةه]\s+(\d+)/g," الى $1 $2 ")
+     .replace(/سور[ةه]\s+(?=\S)/g,m=>m)
+     .replace(/(\d+)\s+(?:الى|إلى)\s+(\d+)/g," $1 – $2 ");
+  s=s.replace(/ختام\s+(ال)?قر[اآ]ن(\s+الكريم)?/g," ختام ")
+     .replace(/(?:الى|إلى|حتى)\s+(?:ال)?[اآ]ي[ةه]\s+(\d+)\s+من\s+سور[ةه]\s+(\S+)/g," الى $2 $1 ")
+     .replace(/من\s+(?:ال)?[اآ]ي[ةه]\s+(\d+)\s+من\s+سور[ةه]\s+(\S+)/g," $2 $1 ")
+     .replace(/من\s+(?:ال)?[اآ]ي[ةه]\s+(\d+)\s+(?:الى|إلى|حتى)\s+(?:ال)?[اآ]ي[ةه]\s+(\d+)/g," $1 – $2 ")
+     .replace(/(?:ال)?[اآ]ي[ةه]\s+(\d+)\s+من\s+سور[ةه]\s+(\S+)/g," الى $2 $1 ")
+     .replace(/(\d+)\s+(?:الى|إلى|حتى)\s+(?:ال)?[اآ]ي[ةه]\s+(\d+)/g," $1 – $2 ")
+     .replace(/(?:الى|إلى|حتى)\s+[اآ]خر\s+السور[ةه]/g," آخر ")
+     .replace(/(?:الى|إلى|حتى)\s+[اآ]خر\s+سور[ةه]\s+(\S+)/g," الى_آخر $1 ")
+     .replace(/من\s+[اأ]ول\s+سور[ةه]\s+/g," ")
+     .replace(/آل عمران/g,"آل_عمران");
   const out=[];let last="";
   s.replace(/[-–—]+/g," – ").split(/\s+/).forEach(w=>{
     if(!w)return;
     if(/^\d+$/.test(w)){out.push(String(+w));last="n";return}
     if(w==="–"){if(last&&last!=="d"){out.push("–");last="d"}return}
+    if(/^ال\S{4,}$/.test(w)&&!SURAHS.some(su=>norm(su[0])===norm(w))){const nw=norm(w);
+      const near=SURAHS.findIndex(su=>{const a=norm(su[0]);if(Math.abs(a.length-nw.length)>1||a.length<5)return false;let d=0;for(let k=0,j=0;k<a.length||j<nw.length;){if(a[k]===nw[j]){k++;j++;continue}d++;if(d>1)return false;if(a.length>nw.length)k++;else if(nw.length>a.length)j++;else{k++;j++}}return true});
+      if(near>=0)w=SURAHS[near][0]}
+    if(w==="ختام"){out.push(last==="d"?"the end of the Qurʾan":"to the end of the Qurʾan");last="w";return}
+    if(w==="الى_آخر"){out.push("to");last="e";return}
+    w=w.replace(/_/g," ");
     for(const x of [w,w.replace(/^و/,"")]){const i=SURAHS.findIndex(su=>norm(su[0])===norm(x));
-      if(i>=0){if(last==="s"||last==="n")out.push("·");out.push(SURAHS[i][1]);last="s";return}}
-    if(/آخر|نهاية/.test(w)){out.push("to end");last="w"}else if(/^دعاء/.test(w)){out.push("Duʿāʾ");last="s"}else if(w==="إلى"||w==="الى"||w==="وحتى"){out.push("to");last="d"}
+      if(i>=0){
+        if(last==="e"){if(out.lastSurah===i){out[out.length-1]="to end"}else out.push(SURAHS[i][1]);out.lastSurah=i;last="w";return}
+        if(last==="s"||last==="n")out.push("·");out.push(SURAHS[i][1]);out.lastSurah=i;last="s";return}}
+    if(/^(آخر|اخر|نهاية)/.test(w)){if(out[out.length-1]==="to")out[out.length-1]="to end";else out.push("to end");last="w"}else if(/^دعاء/.test(w)){out.push("Duʿāʾ");last="s"}else if(w==="إلى"||w==="الى"||w==="وحتى"){out.push("to");last="d"}
   });
-  return out.join(" ").replace(/\s·\s(?=to\b)/g," ").replace(/^[–·]\s*|\s*[–·]$/g,"").trim()||s;
+  arToEn.last=out.lastSurah!=null?out.lastSurah:null;
+  return out.join(" ").replace(/\s·\s(?=to\b)/g," ").replace(/^\d+\s·\s(?=\D)/,"").replace(/^[–·]\s*|\s*[–·]$/g,"").trim()||s;
 }
 function qKey(label,name){
   const ws=label.replace(/[-–]+/g," ").split(/\s+/);
@@ -1124,9 +1160,17 @@ async function kTracks(K){
   }
   if(K.rec){const r=RECITATIONS.find(x=>x.id===K.rec);return Object.keys(r.surahs).map(Number).sort((a,b)=>a-b).map(n=>surahTrack(r,n))}
   const fs=await iaList(K.ia);
-  const items=fs.map(([name,title])=>{const ar=arLabel(name,title);return {name,ar,key:qKey(ar,name)}}).sort((a,b)=>a.key-b.key||a.name.localeCompare(b.name));
-  return items.map((it,i)=>({k:"kh:"+K.ia+":"+it.name,url:"https://archive.org/download/"+K.ia+"/"+it.name.split("/").map(encodeURIComponent).join("/"),eg:1,n:0,
-    tAr:it.ar,tEn:arToEn(it.ar),y:"",pAr:K.ar,pEn:K.en,aAr:"الختمات",aEn:"Khatmas",sAr:K.ar,sEn:K.en,kh:K.id,ki:i}));
+  const lead=n=>{const m=n.split("/").pop().match(/^\s*(\d+)(?:\s*-\s*(\d+)(?!\d*\s*-?\s*\d))?/);return m?[+m[1],m[2]?+m[2]:0]:null};
+  const numbered=fs.length>3&&fs.every(([name])=>lead(name));
+  const items=fs.map(([name,title])=>{const ar=arLabel(name,title);return {name,ar,key:qKey(ar,name),ld:lead(name)}})
+    .sort(numbered?(a,b)=>a.ld[0]-b.ld[0]||a.ld[1]-b.ld[1]||a.name.localeCompare(b.name):(a,b)=>a.key-b.key||a.name.localeCompare(b.name));
+  let prevSu=null;
+  return items.map((it,i)=>{
+    let en=arToEn(it.ar);const named=arToEn.last;
+    if(prevSu!=null&&/^\d/.test(en)&&/^\s*(من\s+(ال)?[اآ]ي|\d)/.test(it.ar)){en=SURAHS[prevSu][1]+" "+en}
+    if(named!=null)prevSu=named;
+    return {k:"kh:"+K.ia+":"+it.name,url:"https://archive.org/download/"+K.ia+"/"+it.name.split("/").map(encodeURIComponent).join("/"),eg:1,n:0,
+    tAr:it.ar,tEn:en,y:"",pAr:K.ar,pEn:K.en,aAr:"الختمات",aEn:"Khatmas",sAr:K.ar,sEn:K.en,kh:K.id,ki:i}});
 }
 function renderKhatam(){
   $("#klist").innerHTML=Object.keys(KGRP).map(g=>`<div class="kgrp">${isAr()?KGRP[g][1]:KGRP[g][0]}</div>`+KHATMAS.filter(K=>K.grp===g).map(K=>{
