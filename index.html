@@ -176,7 +176,7 @@ input[type=range]::-moz-range-thumb{width:13px;height:13px;border-radius:50%;bac
 .empty b{display:block;color:var(--text);font-weight:500;font-size:15px;margin-bottom:4px}
 
 /* bottom nav */
-.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;display:none;grid-template-columns:repeat(4,1fr);
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;display:none;grid-template-columns:repeat(3,1fr);
   background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   border-top:1px solid var(--line2);padding:8px 6px calc(8px + var(--sb));z-index:20}
 .nav.on{display:grid}
@@ -635,7 +635,7 @@ body.lang-ar .mhead{font-family:'Amiri',var(--ar);font-weight:700;font-size:16px
 
 <!-- MORE -->
 <section class="screen has-nav" id="more">
-  <div class="bar plain"><span></span><h1 data-i18n="more"></h1><span></span></div>
+  <div class="bar plain"><button class="ib" data-back aria-label="Back"><svg class="flip" data-ic="back"></svg></button><h1 data-i18n="more"></h1><span></span></div>
   <div class="body">
     <div class="card list">
       <button class="li" data-go="khatam"><svg data-ic="star"></svg><span class="tx" data-i18n="khatam"></span><svg class="chev flip" data-ic="chev"></svg></button>
@@ -736,7 +736,6 @@ body.lang-ar .mhead{font-family:'Amiri',var(--ar);font-weight:700;font-size:16px
   <button data-tab="home"><svg data-ic="home"></svg><span data-i18n="home"></span></button>
   <button data-tab="surahs"><svg data-ic="list"></svg><span data-i18n="surahs"></span></button>
   <button data-tab="favourites"><svg data-ic="star"></svg><span data-i18n="favourites"></span></button>
-  <button data-tab="more"><svg data-ic="bars"></svg><span data-i18n="more"></span></button>
 </nav>
 <div class="toast" id="toast"></div>
 <audio id="au" preload="metadata"></audio>
