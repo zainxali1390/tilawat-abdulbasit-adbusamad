@@ -134,6 +134,8 @@ body.lang-ar .splash-tag{font-family:var(--arui);font-size:16px;letter-spacing:0
 .np{padding:16px;margin-top:16px}
 .np-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .np-lbl{color:var(--gold);font-size:13px}
+.npshare{width:38px;height:38px;margin:-8px -8px -8px 0;color:var(--gold)}
+.npshare[hidden]{display:none}
 .sel{appearance:none;-webkit-appearance:none;background:var(--bg2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23d6b064' fill='none' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 8px center;
   border:1px solid var(--line);border-radius:10px;padding:4px 24px 4px 9px;font-size:11.5px;color:var(--text);max-width:150px}
 [dir=rtl] .sel{background-position:left 8px center;padding:4px 9px 4px 24px}
@@ -586,7 +588,7 @@ body.light .tapd{box-shadow:inset 0 0 0 999px rgba(120,90,30,.13)!important}
     <div class="card np" id="npCard">
       <div class="np-top">
         <span class="np-lbl" data-i18n="nowPlaying"></span>
-        
+        <button class="ib npshare" id="npShare" aria-label="Share this recitation" hidden><svg data-ic="share"></svg></button>
       </div>
       <h3 id="npTitle"></h3>
       <div class="sub" id="npSub"></div>
@@ -1443,7 +1445,7 @@ function updatePlayer(){
   const has=!!cur;
   const title=has?trTitle(cur):t("nothing");
   const sub=has?trSub(cur):t("nothingSub");
-  $("#npTitle").textContent=title;$("#npSub").textContent=sub;
+  $("#npTitle").textContent=title;$("#npSub").textContent=sub;$("#npShare").hidden=!cur;
   $("#plTitle").textContent=title;$("#plSub").textContent=sub;
   $("#plAr").textContent=has&&cur.n&&!cur.eg&&!isAr()?SURAHS[cur.n-1][0]:"";
   $("#npCard").classList.toggle("idle",!has);
@@ -1863,6 +1865,7 @@ $("#plShare").addEventListener("click",()=>{
   </div>`;
   $("#scrim").classList.add("on");$("#sheet").classList.add("on");
 });
+$("#npShare").addEventListener("click",()=>$("#plShare").click());
 $("#sheetBody").addEventListener("click",e=>{const b=e.target.closest("[data-shr]");if(b){e.stopPropagation();shareRecitation(+b.dataset.shr||0)}},true);
 /* open a shared link, or bring back the last recitation where it was left */
 (function(){
