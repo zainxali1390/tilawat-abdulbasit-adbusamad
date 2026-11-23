@@ -1,5 +1,5 @@
 /* Screens and back/forward navigation (hash names) */
-const SCREENS=["khatma","collections","area","home","surahs","player","mushaf","translation","favourites","khatam","more","prefs","appearance","audio","notifs","about","language"];
+const SCREENS=["khatma","collections","area","home","surahs","player","mushaf","translation","favourites","khatam","more","prefs","appearance","audio","notifs","about","language","finder"];
 const TABS=["home","surahs","favourites","more"];
 let navDepth=0;
 function show(id){

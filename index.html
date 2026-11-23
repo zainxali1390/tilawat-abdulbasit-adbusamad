@@ -67,7 +67,7 @@
 
 <!-- HOME -->
 <section class="screen has-nav" id="home">
-  <div class="bar homebar"><button class="ib" data-go="more" aria-label="Menu"><svg data-ic="menu"></svg></button><span></span><span class="ibs"><button class="ib" data-share aria-label="Share the app"><svg data-ic="share"></svg></button><button class="ib" data-go="prefs" aria-label="Settings"><svg data-ic="gear"></svg></button></span></div>
+  <div class="bar homebar"><button class="ib" data-go="more" aria-label="Menu"><svg data-ic="menu"></svg></button><span></span><span class="ibs"><button class="ib" data-go="finder" aria-label="Find a recitation from a clip"><svg data-ic="wave"></svg></button><button class="ib" data-share aria-label="Share the app"><svg data-ic="share"></svg></button><button class="ib" data-go="prefs" aria-label="Settings"><svg data-ic="gear"></svg></button></span></div>
   <div class="body">
     <div class="home-title">
       <h1 class="ttl-ar">تلاوات عبد الباسط عبد الصمد</h1>
@@ -278,6 +278,7 @@
       <button class="li" data-go="khatam"><svg data-ic="star"></svg><span class="tx" data-i18n="khatam"></span><svg class="chev flip" data-ic="chev"></svg></button>
       <button class="li" data-go="mushaf"><svg data-ic="mushaf"></svg><span class="tx" data-i18n="mushaf"></span><svg class="chev flip" data-ic="chev"></svg></button>
       <button class="li" data-go="translation"><svg data-ic="bookmark"></svg><span class="tx" data-i18n="translation"></span><svg class="chev flip" data-ic="chev"></svg></button>
+      <button class="li" data-go="finder"><svg data-ic="wave"></svg><span class="tx" data-i18n="fTitle"></span><svg class="chev flip" data-ic="chev"></svg></button>
       <button class="li" data-go="prefs"><svg data-ic="gear"></svg><span class="tx" data-i18n="settings"></span><svg class="chev flip" data-ic="chev"></svg></button>
       <button class="li" id="shareApp" data-share><svg data-ic="share"></svg><span class="tx" data-i18n="shareApp"></span><svg class="chev flip" data-ic="chev"></svg></button>
       <button class="li" data-go="about"><svg data-ic="info"></svg><span class="tx" data-i18n="about"></span><svg class="chev flip" data-ic="chev"></svg></button>
@@ -343,6 +344,25 @@
   </div>
 </section>
 
+<!-- FIND A RECITATION (from a clip) -->
+<section class="screen" id="finder">
+  <div class="bar"><button class="ib" data-back aria-label="Back"><svg class="flip" data-ic="back"></svg></button><h1 data-i18n="fTitle"></h1><span></span></div>
+  <div class="body">
+    <div class="card fhero">
+      <svg class="fwave" data-ic="wave"></svg>
+      <p data-i18n="fIntro"></p>
+      <div class="fbtns">
+        <label class="btn-gold fpick"><input type="file" id="fFile" accept="audio/*,video/*" hidden><svg data-ic="upload"></svg><span data-i18n="fChoose"></span></label>
+        <button class="fbtn2" id="fRec"><svg data-ic="mic"></svg><span id="fRecTx"></span></button>
+      </div>
+      <p class="fnote" data-i18n="fTip"></p>
+    </div>
+    <div class="card fstatus" id="fStatus" hidden><div class="sp"></div><div class="ftx"><b id="fStep"></b><small id="fStepSub"></small></div></div>
+    <div id="fResults"></div>
+    <p class="fnote fabout" id="fAbout"></p>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section class="screen" id="about">
   <div class="bar"><button class="ib" data-back aria-label="Back"><svg class="flip" data-ic="back"></svg></button><h1 data-i18n="about"></h1><span></span></div>
@@ -395,6 +415,8 @@
 <script src="js/navigation.js"></script>
 <script src="js/pins.js"></script>
 <script src="js/share.js"></script>
+<script src="js/fp.js"></script>
+<script src="js/finder.js"></script>
 <script src="js/app.js"></script>
 <script src="js/pwa.js"></script>
 </body>

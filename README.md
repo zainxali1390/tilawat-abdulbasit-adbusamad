@@ -35,6 +35,8 @@ js/                   loaded in this order (each file may use what the earlier o
   mushaf-book.js      tablet landscape: the Mushaf as an open book, two pages side by side
   navigation.js       screens and back button
   share.js            sharing the app, a recitation (optionally from a moment), opening shared links
+  fp.js               audio fingerprints of a clip (same method as tools/fingerprint/fpcore.py)
+  finder.js           Find a recitation: search the recording index, results screen
   app.js              start-up, splash, press feedback
   pwa.js              registers the service worker
 data/
@@ -93,6 +95,15 @@ there, so the offline copy includes it.
 - Mushaf pages, fonts and translations you have opened are saved and work offline.
 - Recitation audio is streamed from archive.org and mp3quran.net and needs internet. It is not downloaded
   automatically (the library is many gigabytes).
+
+## Find a recitation (recognising a clip)
+
+A clip (audio or video file, or the microphone) is fingerprinted on the phone and looked up in an index of
+every recording in the app. The index is built by GitHub Actions (`.github/workflows/fingerprint-index.yml`):
+each recording is downloaded, fingerprinted with `tools/fingerprint/fpcore.py` and deleted again; the
+fingerprints are committed to `fp/` (`manifest.json` plus 65,536 small files). When recordings are added to
+`data/areas.js`, run the workflow again (Actions → Build recording index → Run workflow).
+`js/fp.js` must stay identical in method to `fpcore.py`.
 
 ## Credits
 

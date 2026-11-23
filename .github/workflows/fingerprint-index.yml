@@ -1,0 +1,63 @@
+# Builds the recording index for "Find a recitation" (see tools/fingerprint/build_index.py).
+# Runs when the indexer changes, and can be started by hand (Actions → Build recording index → Run workflow).
+# Every recording is downloaded, fingerprinted and deleted again; only the fingerprints (fp/) are committed.
+name: Build recording index
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/new-session-lhlpar]
+    paths: ['tools/fingerprint/**', '.github/workflows/fingerprint-index.yml']
+permissions:
+  contents: write
+concurrency:
+  group: fingerprint-index
+  cancel-in-progress: true
+env:
+  PARTS: 24
+jobs:
+  list:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/fingerprint/build_index.py list --out recs.json
+      - uses: actions/upload-artifact@v4
+        with: {name: recs, path: recs.json, retention-days: 3}
+  part:
+    needs: list
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: tools}
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q numpy
+      - uses: actions/download-artifact@v4
+        with: {name: recs}
+      - run: python3 tools/fingerprint/build_index.py part --recs recs.json --part ${{ matrix.part }} --of $PARTS --out parts --workers 6
+      - uses: actions/upload-artifact@v4
+        with: {name: 'part-${{ matrix.part }}', path: parts/, retention-days: 3}
+  merge:
+    needs: part
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: '${{ github.ref_name }}', fetch-depth: 1}
+      - run: pip install -q numpy
+      - uses: actions/download-artifact@v4
+        with: {name: recs}
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'part-*', path: parts, merge-multiple: true}
+      - run: |
+          rm -rf fp
+          python3 tools/fingerprint/build_index.py merge --recs recs.json --parts parts --out fp
+      - run: |
+          git config user.name "recording-index bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A fp
+          git commit -q -m "Update the recording index for Find a recitation" || { echo "no change"; exit 0; }
+          for i in 1 2 3 4 5; do git pull -q --rebase origin "${{ github.ref_name }}" && git push -q origin "HEAD:${{ github.ref_name }}" && exit 0; sleep $((i*10)); done
+          exit 1
