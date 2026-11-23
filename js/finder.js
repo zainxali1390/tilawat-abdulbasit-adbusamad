@@ -13,7 +13,7 @@ Object.assign(I18N.en,{fTitle:"Find a recitation",fIntro:"Have a clip of Sheikh 
   fChoose:"Choose audio or video",fRecord:"Record",fStop:"Stop recording",fTip:"10–30 seconds of clear recitation works best. The clip stays on your phone; only small parts of the recording index are downloaded.",
   fReading:"Reading the audio…",fListening:"Listening…",fSearching:"Searching the library…",fSpeed:"Trying the clip at a different speed…",fOf:"{a} of {b} index parts",
   fConfirmed:"Confirmed match",fPossible:"Possible match",fNone:"No reliable match",fNoneTx:"This clip doesn't match any recording in the library. It may come from a recording the app doesn't have, or it may be too short, too noisy or changed too much. Try 15–30 seconds of clear recitation.",
-  fAt:"In the recording: {a} – {b}",fLen:"{n} s matched",fConf:"Confidence {n}%",fPts:"{a} matching points (next best {b})",fSec:"Section {n}",fClip:"from {a} to {b} in your clip",
+  fAt:"In the recording: {a} – {b}",fLen:"{n} s matched",fConf:"Confidence {n}%",fPts:"{a} moments of your clip agree (next best recording: {b})",fSec:"Section {n}",fClip:"from {a} to {b} in your clip",
   fPlayFrom:"Play from here",fPlaySec:"Play this section",fFull:"Full recitation",fVerses:"Read the surah",fSave:"Save",fSaved:"Saved to Favourites, with a pin at the match",
   fAlso:"Also found in another copy of this recording:",fSpeedNote:"The clip seems to be {n}% faster or slower than the original.",
   fNoIndex:"The recording index isn't available yet. Please try again later.",fOffline:"Searching needs an internet connection.",fBad:"This file couldn't be read as audio. Try another file, or record the clip instead.",
@@ -23,7 +23,7 @@ Object.assign(I18N.ar,{fTitle:"ابحث عن تلاوة بمقطع",fIntro:"لد
   fChoose:"اختر ملف صوت أو فيديو",fRecord:"تسجيل",fStop:"إيقاف التسجيل",fTip:"الأفضل من ١٠ إلى ٣٠ ثانية من تلاوة واضحة. يبقى المقطع على هاتفك؛ يُنزَّل فقط جزء صغير من فهرس التسجيلات.",
   fReading:"جارٍ قراءة الصوت…",fListening:"جارٍ الاستماع…",fSearching:"جارٍ البحث في المكتبة…",fSpeed:"تجربة المقطع بسرعة مختلفة…",fOf:"{a} من {b} من أجزاء الفهرس",
   fConfirmed:"تطابق مؤكد",fPossible:"تطابق محتمل",fNone:"لا يوجد تطابق موثوق",fNoneTx:"لا يطابق هذا المقطع أي تسجيل في المكتبة. قد يكون من تسجيل غير موجود في التطبيق، أو قصيرًا جدًا أو كثير الضجيج أو مُعدَّلًا كثيرًا. جرّب ١٥–٣٠ ثانية من تلاوة واضحة.",
-  fAt:"في التسجيل: {a} – {b}",fLen:"{n} ث متطابقة",fConf:"نسبة الثقة {n}٪",fPts:"{a} نقطة متطابقة (التالي {b})",fSec:"المقطع {n}",fClip:"من {a} إلى {b} في مقطعك",
+  fAt:"في التسجيل: {a} – {b}",fLen:"{n} ث متطابقة",fConf:"نسبة الثقة {n}٪",fPts:"{a} لحظة من مقطعك متطابقة (أقرب تسجيل آخر: {b})",fSec:"المقطع {n}",fClip:"من {a} إلى {b} في مقطعك",
   fPlayFrom:"شغّل من هنا",fPlaySec:"شغّل هذا الجزء",fFull:"التلاوة كاملة",fVerses:"اقرأ السورة",fSave:"حفظ",fSaved:"حُفظت في المفضلة مع تثبيت عند الموضع",
   fAlso:"وُجد أيضًا في نسخة أخرى من هذا التسجيل:",fSpeedNote:"يبدو أن المقطع أسرع أو أبطأ من الأصل بنحو {n}٪.",
   fNoIndex:"فهرس التسجيلات غير متاح بعد. حاول لاحقًا.",fOffline:"البحث يحتاج إلى اتصال بالإنترنت.",fBad:"تعذّرت قراءة هذا الملف كصوت. جرّب ملفًا آخر أو سجّل المقطع.",
@@ -69,29 +69,28 @@ async function finderDecode(blob){
   return {x:out.getChannelData(0).slice(0),cut:ab.duration>maxS};
 }
 
-/* votes for one block of the clip: landmarks that agree on one recording at one time offset */
-function finderVote(lms,shards){
-  const votes=new Map();
+/* candidates for one block of the clip. A recording scores by how many DIFFERENT moments of the clip agree on
+   the same time offset (±1 frame), and over how many seconds of the clip they are spread: a real match agrees all
+   along the clip, while chance agreement comes from one or two moments only. */
+function finderVote(lms,shards,tunit){
+  const cells=new Map();   // rec*2^21 + offset → Set of clip moments
+  const add=(key,tq)=>{let s=cells.get(key);if(!s){s=new Set();cells.set(key,s)}s.add(tq)};
   for(const [h,tq] of lms){
     const sh=shards.get(h>>4);if(!sh)continue;
     const lo=h&15,a=sh.start[lo],b=sh.start[lo+1];
     if(b-a>4*600)continue;   /* a landmark found in hundreds of places says almost nothing */
-    for(let o=a;o<b;o+=4){const e=sh.dv.getUint32(o,true),rec=e>>>18,tr=e&262143;const key=rec*1048576+(tr-tq+524288);votes.set(key,(votes.get(key)||0)+1)}
+    for(let o=a;o<b;o+=4){const e=sh.dv.getUint32(o,true),rec=e>>>18,tr=(e&262143)*tunit;const key=rec*2097152+(tr-tq+1048576);
+      add(key-1,tq);add(key,tq);add(key+1,tq);if(tunit>1)add(key+2,tq)}
   }
-  /* each offset counts its neighbours too (±1 frame) */
-  const cands=[];
-  for(const [key,c] of votes){const s=c+(votes.get(key-1)||0)+(votes.get(key+1)||0);if(s>=3)cands.push([key,s])}
-  cands.sort((a,b)=>b[1]-a[1]);
-  const out=[];const seen=new Set();
-  for(const [key,s] of cands){const rec=Math.floor(key/1048576),off=key%1048576-524288;if([...seen].some(k=>k.rec===rec&&Math.abs(k.off-off)<=3))continue;const it={rec,off,s};seen.add(it);out.push(it);if(out.length>=12)break}
-  return out;
-}
-/* which clip frames agree with a candidate (to measure the matched part of the clip) */
-function finderSpan(lms,shards,rec,off){
-  let a=Infinity,b=-Infinity,n=0;
-  for(const [h,tq] of lms){const sh=shards.get(h>>4);if(!sh)continue;const lo=h&15;
-    for(let o=sh.start[lo];o<sh.start[lo+1];o+=4){const e=sh.dv.getUint32(o,true);if(e>>>18!==rec)continue;const d=(e&262143)-tq-off;if(d>=-1&&d<=1){if(tq<a)a=tq;if(tq>b)b=tq;n++;break}}}
-  return n?{a,b,n}:null;
+  const best=new Map();
+  for(const [key,ts] of cells){
+    if(ts.size<3)continue;
+    const rec=Math.floor(key/2097152),s=ts.size,b=best.get(rec);
+    if(b&&b.s>=s)continue;
+    let a=Infinity,z=-Infinity;const secs=new Set();for(const t of ts){if(t<a)a=t;if(t>z)z=t;secs.add(Math.floor(t/31))}
+    best.set(rec,{rec,off:key%2097152-1048576,s,sp:secs.size,a,b:z});
+  }
+  return [...best.values()].sort((x,y)=>y.s-x.s||y.sp-x.sp).slice(0,12);
 }
 
 /* search: the whole clip if short, otherwise 15 s blocks every 7.5 s (to find several sections in a long video) */
@@ -108,7 +107,7 @@ async function finderSearch(x,onStep,factor){
   const per=blocks.length>1?Math.max(90,Math.round(2400/blocks.length)):900;
   for(const b of blocks)if(b.lms.length>per){const step=b.lms.length/per;b.lms=Array.from({length:per},(_,i)=>b.lms[Math.floor(i*step)])}
   const shards=await finderFetchAll(blocks.flatMap(b=>b.lms.map(l=>l[0])),onStep);
-  for(const b of blocks){b.c=finderVote(b.lms,shards)}
+  for(const b of blocks){b.c=finderVote(b.lms,shards,man.tunit||1)}
   return {man,blocks,shards,dur,ydur:y.length/sr};
 }
 /* blocks agreeing on the same recording and offset become one section; scored against the best other recording */
@@ -122,15 +121,15 @@ function finderSections(res){
   }
   const out=[];
   for(const sc of secs){
-    let s=0,s2=0,copies=new Map(),a=Infinity,bb=-Infinity;
+    let s=0,sp=0,s2=0,copies=new Map(),a=Infinity,bb=-Infinity;
     for(const b of sc.blocks){
-      const me=b.c.find(c=>c.rec===sc.rec&&Math.abs(c.off-sc.off)<=3);if(!me)continue;s+=me.s;
-      /* another copy of the same recording (another file) scores almost as high: listed as a copy, not a rival */
-      for(const c of b.c){if(c===me)continue;if(c.s>=me.s*.5&&c.s>=6){copies.set(c.rec,Math.max(copies.get(c.rec)||0,c.s));continue}s2=Math.max(s2,c.s)}
-      const sp=finderSpan(b.lms,shards,sc.rec,sc.off);if(sp){a=Math.min(a,sp.a);bb=Math.max(bb,sp.b)}
+      const me=b.c.find(c=>c.rec===sc.rec&&Math.abs(c.off-sc.off)<=3);if(!me)continue;s+=me.s;sp+=me.sp;
+      /* another copy of the same recording (another file) agrees almost as well, all along the clip: listed as a copy, not a rival */
+      for(const c of b.c){if(c===me)continue;if(c.s>=me.s*.5&&c.s>=6&&c.sp>=3){copies.set(c.rec,Math.max(copies.get(c.rec)||0,c.s));continue}s2=Math.max(s2,c.s)}
+      a=Math.min(a,me.a);bb=Math.max(bb,me.b);
     }
     const nb=sc.blocks.length,rival=s2*Math.max(1,nb*.6);
-    const level=s>=7*Math.min(nb,2)&&s>=3*Math.max(rival,2)?"confirmed":(s>=5&&s>=2*Math.max(rival,2)?"possible":null);
+    const level=s>=6*Math.min(nb,2)&&sp>=3&&s>=2.5*Math.max(rival,2)?"confirmed":(s>=4&&sp>=2&&s>=1.8*Math.max(rival,2)?"possible":null);
     if(!level||!isFinite(a))continue;
     const code=man.recs[sc.rec]&&man.recs[sc.rec][0];const tr=code&&trFromCode(code);if(!tr)continue;
     const copiesTr=[...copies.keys()].map(r=>man.recs[r]&&trFromCode(man.recs[r][0])).filter(Boolean);

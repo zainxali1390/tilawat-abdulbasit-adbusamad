@@ -9,7 +9,7 @@
 Index file format (read by js/finder.js):
   a landmark hash has 20 bits; the file is chosen by its top 16 bits: fp/s/<hex of bits 19..12>/<hex of bits 11..4>.bin
   file = 16 little-endian uint16 counts (one per value of the low 4 bits), then the entries for low bits 0, 1, … 15,
-  each a little-endian uint32 = recording number << 18 | frame (32 ms frames, so up to 2 h 19 min per recording)
+  each a little-endian uint32 = recording number << 18 | time in steps of TUNIT frames (64 ms, up to 4 h 39 min)
 manifest.json lists the recordings in recording-number order as [code, seconds]; code is the app's share code
 ("e:<collection>:<file>" or "s:<set>:<surah>").
 """
@@ -25,6 +25,7 @@ from fpcore import PARAMS, INDEX_DENSITY, QUERY_DENSITY, fingerprint, load_audio
 
 MAX_RECS = 1 << 12        # 4096 recording numbers (12 bits)
 MAX_FRAMES = 1 << 18
+TUNIT = 2                 # stored time step, in 32 ms frames
 
 
 def enc(s):  # same as JavaScript encodeURIComponent
@@ -74,7 +75,9 @@ def one(rec_id, rec, tmpdir, local):
         lm = fingerprint(x, INDEX_DENSITY)
         h = np.fromiter((a for a, _ in lm), np.uint32, len(lm))
         t = np.fromiter((b for _, b in lm), np.uint32, len(lm))
-        t = np.minimum(t, MAX_FRAMES - 1)
+        if len(t) and t.max() // TUNIT >= MAX_FRAMES:
+            return rec_id, None, 'too long to index'
+        t = t // TUNIT
         return rec_id, (h, t, dur), 'ok %.0fs audio in %.0fs' % (dur, time.time() - t0)
     except Exception as e:
         return rec_id, None, 'error: %s' % str(e)[-200:]
@@ -128,7 +131,7 @@ def merge(recs, parts, out):
         with open(os.path.join(d, '%02x.bin' % (s & 255)), 'wb') as fh:
             fh.write(counts.tobytes()); fh.write(entry[a:b].astype('<u4').tobytes())
     ok = [i for i in range(len(recs)) if status.get(i, {}).get('ok')]
-    man = dict(v=1, built=datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d'), params=PARAMS,
+    man = dict(v=2, tunit=TUNIT, built=datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d'), params=PARAMS,
                index_density=INDEX_DENSITY, query_density=QUERY_DENSITY, shards=1 << 16, low_bits=4,
                hashes=int(len(h)), hours=round(sum(status[i]['dur'] for i in ok) / 3600, 1),
                recs=[[recs[i]['code'], status.get(i, {}).get('dur', 0) if status.get(i, {}).get('ok') else 0] for i in range(len(recs))],
