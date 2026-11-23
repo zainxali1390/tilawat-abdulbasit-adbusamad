@@ -63,17 +63,23 @@ async function drawPage(n){
     const fonts=new Set();lines.forEach(l=>l.words.forEach(w=>fonts.add(w.font)));
     await Promise.all([...fonts].map(qFont));
     let h=`<div class="ph"><span>${isAr()?"سورة "+SURAHS[su-1][0]:SURAHS[su-1][1]}</span><span>${fmtN("juzN",{n:juzOf(n)})}</span></div>`;
-    for(const l of lines){
-      const w0=l.words[0];
-      if(w0.type==="surah_header"||w0.type==="bismillah"){h+=`<div class="ql qc ${w0.type==="surah_header"?"qh":"qb"}"><span style="font-family:${w0.font}">${w0.char}</span></div>`;continue}
-      h+=`<div class="ql">`+l.words.map(w=>w.verse_key?`<span class="w${w.type==="end"?" qend":""}" data-v="${w.verse_key}" style="font-family:${w.font}">${w.char}</span>`:`<span style="font-family:${w.font}">${w.char}</span>`).join("")+`</div>`;
-    }
+    h+=qLinesHTML(lines);
     h+=`<div class="pf">${numFmt(n)}</div>`;
     el.innerHTML=h;el.classList.toggle("short",n<=2);el.classList.toggle("part",lines.length<d.lines.length);el._drawn=true;
     fitPage(el);markAll(el);
   }catch(e){el.innerHTML=`<div class="pl">${t("mOffline")}</div>`}
   el._busy=false;
   pgList.forEach(x=>{const q=pgMap[x];if(q&&q._drawn&&!q.hidden&&Math.abs(x-mCur)>8&&Math.abs(x-n)>8){q.innerHTML=`<div class="pl">${numFmt(x)}</div>`;q._drawn=false}});
+}
+/* the lines of a page, in the Mushaf font (shared by the phone view and the tablet book view) */
+function qLinesHTML(lines){
+  let h="";
+  for(const l of lines){
+    const w0=l.words[0];
+    if(w0.type==="surah_header"||w0.type==="bismillah"){h+=`<div class="ql qc ${w0.type==="surah_header"?"qh":"qb"}"><span style="font-family:${w0.font}">${w0.char}</span></div>`;continue}
+    h+=`<div class="ql">`+l.words.map(w=>w.verse_key?`<span class="w${w.type==="end"?" qend":""}" data-v="${w.verse_key}" style="font-family:${w.font}">${w.char}</span>`:`<span style="font-family:${w.font}">${w.char}</span>`).join("")+`</div>`;
+  }
+  return h;
 }
 function fitPage(el){
   const W=el.clientWidth;if(!W)return;
@@ -177,7 +183,7 @@ $("#mTr").addEventListener("click",e=>{
 async function verseAction(act,key){
   const [s,a]=key.split(":").map(Number);
   if(act==="play"||act==="from"){closeSheet();playVerse(key,act==="from");return}
-  if(act==="bm"){S.bm=S.bm||[];const i=S.bm.findIndex(b=>b.k===key);if(i>=0){S.bm.splice(i,1);toast(t("bmRemoved"))}else{S.bm.unshift({k:key,p:S.mMode==="tr"?await versePage(key):mCur});toast(t("bmAdded"))}save();closeSheet();return}
+  if(act==="bm"){S.bm=S.bm||[];const i=S.bm.findIndex(b=>b.k===key);if(i>=0){S.bm.splice(i,1);toast(t("bmRemoved"))}else{S.bm.unshift({k:key,p:(S.mMode==="tr"||(typeof bookActive==="function"&&bookActive()))?await versePage(key):mCur});toast(t("bmAdded"))}save();closeSheet();return}
   let d=null;try{d=await trData(s)}catch(e){}
   const v=d&&d.verses[a-1];const ref=sName(s)+" "+s+":"+a;
   const text=(v?v.text+" ﴿"+arNum(a)+"﴾\n"+(v.translation||"")+"\n":"")+"("+ref+")";

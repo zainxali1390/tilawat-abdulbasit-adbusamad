@@ -30,7 +30,9 @@ js/                   loaded in this order (each file may use what the earlier o
   ui.js               theme, language, surah list
   recitations.js      tracks, Live/Radio collections, favourites, khatmas, YouTube khatma, sheets
   player.js           audio player, queue, resume position, player screen
+  pins.js             pinned moments in a recitation
   mushaf.js           Mushaf reader, translation view, go-to sheet, ayah audio
+  mushaf-book.js      tablet landscape: the Mushaf as an open book, two pages side by side
   navigation.js       screens and back button
   share.js            sharing the app, a recitation (optionally from a moment), opening shared links
   app.js              start-up, splash, press feedback

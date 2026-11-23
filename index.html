@@ -178,6 +178,20 @@
     <span class="mbtns"><button class="ib" id="mAa" aria-label="Text size"><svg data-ic="aa"></svg></button><button class="ib" id="mNav" aria-label="Go to surah, juz or page"><svg data-ic="list"></svg></button></span></div>
   <div class="mseg" role="tablist"><button data-mmode="read" role="tab"></button><button data-mmode="tr" role="tab"></button></div>
   <div class="mscroll" id="mScroll"><div id="mPages"></div></div>
+  <div class="mbook" id="mBook" hidden>
+    <div class="bstage" id="bStage">
+      <div class="bspread" id="bSpread" dir="ltr">
+        <div class="bpage bleft" id="bLeft"></div>
+        <div class="bspine" aria-hidden="true"></div>
+        <div class="bpage bright" id="bRight"></div>
+      </div>
+    </div>
+    <div class="bfoot" dir="ltr">
+      <button class="bnav" id="bNext"><svg data-ic="chev" class="bflip"></svg><span id="bNextTx"></span></button>
+      <span class="bpos" id="bPos"></span>
+      <button class="bnav" id="bPrev"><span id="bPrevTx"></span><svg data-ic="chev"></svg></button>
+    </div>
+  </div>
   <div class="mscroll" id="mTr" hidden></div>
   <div class="vbar" id="vBar" hidden>
     <button class="ib" id="vPP" aria-label="Play or pause"><svg data-ic="pause" id="vPPic"></svg></button>
@@ -377,6 +391,7 @@
 <script src="js/recitations.js"></script>
 <script src="js/player.js"></script>
 <script src="js/mushaf.js"></script>
+<script src="js/mushaf-book.js"></script>
 <script src="js/navigation.js"></script>
 <script src="js/pins.js"></script>
 <script src="js/share.js"></script>

@@ -73,3 +73,61 @@ body.light .tapd{box-shadow:inset 0 0 0 999px rgba(120,90,30,.13)!important}
 .tapd.tlg{opacity:.8}
 .tapr{transition:transform .18s ease,box-shadow .25s ease,opacity .18s ease}
 @media (prefers-reduced-motion:reduce){.tapd.tsm,.tapd.tmd{transform:none}}
+/* ===== Mushaf as an open book (tablet-sized landscape screens; switched on in js/mushaf-book.js) =====
+   Same rule as the script: landscape, at least 880 × 560 CSS px, wider than 1.15 : 1. Phones never match. */
+.mbook[hidden]{display:none}
+@media (orientation:landscape) and (min-width:880px) and (min-height:560px) and (min-aspect-ratio:23/20){
+  body.mbook-on .app:has(#mushaf.on){max-width:none}
+  /* in the book view the Reading / Translation switch sits in the top bar, leaving the height to the pages */
+  #mushaf:has(.mbook:not([hidden])) .mseg{position:absolute;top:10px;inset-inline-start:58px;width:250px;max-width:none;margin:0;z-index:2}
+  #mushaf:has(.mbook:not([hidden])) .mtitle{padding:0 230px}
+  #mushaf:has(.mbook:not([hidden])){--bk-desk:color-mix(in srgb,var(--mp-bg) 72%,#000)}
+  body.light #mushaf:has(.mbook:not([hidden])){--bk-desk:color-mix(in srgb,var(--mp-bg) 82%,#8a7550)}
+  #mushaf:has(.mbook:not([hidden])){background:var(--bk-desk)}
+  #mushaf:has(.mbook:not([hidden])) .bar,#mushaf:has(.mbook:not([hidden])) .mseg{background:transparent}
+  #mushaf:has(.mbook:not([hidden])) .mseg{background:color-mix(in srgb,var(--mp-ban) 70%,transparent)}
+  .mbook{flex:1;min-height:0;display:flex;flex-direction:column;padding:0 max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px))}
+  .bstage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;touch-action:pan-y pinch-zoom;user-select:none;-webkit-user-select:none}
+  .bspread{--spine:30px;position:relative;display:flex;align-items:stretch;color:var(--mp-ink);
+    background:var(--mp-bg);border-radius:6px 6px 6px 6px;
+    box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 18px 42px rgba(0,0,0,.42),0 3px 10px rgba(0,0,0,.25)}
+  body.light .bspread{box-shadow:0 18px 40px rgba(60,40,10,.25),0 3px 10px rgba(60,40,10,.15)}
+  /* the page edges under the cover: a few thin layers along the outside */
+  .bspread::before,.bspread::after{content:"";position:absolute;top:3px;bottom:3px;width:5px;border-radius:2px;
+    background:repeating-linear-gradient(90deg,color-mix(in srgb,var(--mp-bg) 88%,var(--mp-acc)) 0 1px,color-mix(in srgb,var(--mp-bg) 70%,#000) 1px 2px);opacity:.8}
+  .bspread::before{left:-5px}.bspread::after{right:-5px}
+  .bpage{position:relative;width:var(--bw,480px);padding:10px var(--bpx,18px);display:flex;flex-direction:column;box-sizing:border-box}
+  .bpage.bmeasure{position:absolute;visibility:hidden;pointer-events:none;left:0;top:0}
+  /* the fold: a soft shadow that deepens towards the spine on both pages */
+  .bleft{background:linear-gradient(90deg,transparent 78%,rgba(0,0,0,.07) 93%,rgba(0,0,0,.16));border-radius:6px 0 0 6px}
+  .bright{background:linear-gradient(270deg,transparent 78%,rgba(0,0,0,.07) 93%,rgba(0,0,0,.16));border-radius:0 6px 6px 0}
+  body.light .bleft{background:linear-gradient(90deg,transparent 78%,rgba(90,60,20,.06) 93%,rgba(90,60,20,.14))}
+  body.light .bright{background:linear-gradient(270deg,transparent 78%,rgba(90,60,20,.06) 93%,rgba(90,60,20,.14))}
+  .bspine{width:var(--spine);flex:none;background:linear-gradient(90deg,rgba(0,0,0,.16),rgba(0,0,0,.34) 46%,rgba(255,255,255,.05) 50%,rgba(0,0,0,.34) 54%,rgba(0,0,0,.16))}
+  body.light .bspine{background:linear-gradient(90deg,rgba(90,60,20,.12),rgba(90,60,20,.26) 46%,rgba(255,255,255,.4) 50%,rgba(90,60,20,.26) 54%,rgba(90,60,20,.12))}
+  .bpage .ph{display:flex;justify-content:space-between;align-items:center;height:22px;font-size:12.5px;color:var(--mp-acc);font-family:'Amiri',var(--ar);padding:0 2px;border-bottom:1px solid var(--mp-line)}
+  .bpage .pf{height:26px;display:grid;place-items:center;font-size:12.5px;color:var(--mp-acc);font-variant-numeric:tabular-nums;border-top:1px solid var(--mp-line);margin-top:2px}
+  .blines{height:var(--blh,600px);display:flex;flex-direction:column;justify-content:space-between;padding:2px 0}
+  .bpage.short .blines{justify-content:center;gap:calc(var(--qfs,24px) * .35)}
+  .bpage .ql{font-size:var(--qfs,24px);height:var(--qlh,calc(var(--qfs,24px) * 1.75));line-height:1;flex:none}
+  .bpage.short .ql{justify-content:center;gap:.18em}
+  .bpage .ql.qh{font-size:calc(var(--qfs,24px) * 1.06);margin:0}
+  .bpage .ql.qh span{line-height:1.5}
+  .bpage .pl{position:static;display:grid;place-items:center;height:100%;min-height:200px;color:var(--muted);font-size:14px}
+  .bpage.blank{visibility:hidden}
+  .bpage .w{cursor:pointer}
+  /* turning: the new spread slides in from the side the page comes from */
+  .bspread.turn-next{animation:bkTurnNext .32s cubic-bezier(.2,.7,.2,1)}
+  .bspread.turn-prev{animation:bkTurnPrev .32s cubic-bezier(.2,.7,.2,1)}
+  .bspread.bump{animation:bkBump .3s ease}
+  @keyframes bkTurnNext{from{opacity:.25;transform:translateX(-26px)}to{opacity:1;transform:none}}
+  @keyframes bkTurnPrev{from{opacity:.25;transform:translateX(26px)}to{opacity:1;transform:none}}
+  @keyframes bkBump{30%{transform:translateX(6px)}60%{transform:translateX(-4px)}}
+  .bfoot{flex:none;height:46px;display:flex;align-items:center;justify-content:center;gap:22px;padding-bottom:var(--sb)}
+  .bnav{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 16px;border-radius:19px;border:1px solid var(--mp-line);color:var(--mp-acc);font-size:13.5px;background:color-mix(in srgb,var(--mp-ban) 60%,transparent)}
+  .bnav svg{width:16px;height:16px}
+  .bnav .bflip{transform:scaleX(-1)}
+  .bnav:disabled{opacity:.35}
+  .bpos{min-width:110px;text-align:center;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+}
+@media (prefers-reduced-motion:reduce){.bspread.turn-next,.bspread.turn-prev,.bspread.bump{animation:none}}
