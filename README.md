@@ -1,7 +1,7 @@
 # Tilawat Abdul Basit Abdul Samad
 
 An installable web app (PWA) for the recitations of Sheikh Abdul Basit Abdul Samad: every surah in Murattal and
-Mujawwad, 2,300+ live and radio recordings by country, complete khatmas, and the Madinah Mushaf with translation and
+Mujawwad, 2,100+ live and radio recordings by country, complete khatmas, and the Madinah Mushaf with translation and
 verse-by-verse audio.
 
 Plain HTML, CSS and JavaScript. No frameworks, no build step, no npm: the files in this folder are the app.
@@ -23,7 +23,7 @@ js/                   loaded in this order (each file may use what the earlier o
   i18n.js             interface text: English, Arabic, French, German, Turkish
   quran-data.js       surah names and verse counts, Al-Fatihah, first page of each surah / juz
   library-config.js   full-Quran sets, riwayat, archive.org collection links, colour themes
-  (data/areas.js)     the live and radio recordings by country
+  (data/areas.js, data/aliases.js)  the live and radio recordings by country
   icons.js            line icons and the mosque drawing
   storage.js          saved settings and progress (localStorage key "abq")
   utils.js            small shared helpers ($, t(), toast, time format, search normaliser)
@@ -36,6 +36,7 @@ js/                   loaded in this order (each file may use what the earlier o
   app.js              start-up, splash, press feedback
   pwa.js              registers the service worker
 data/
+  aliases.js          removed duplicates -> the copy kept (old links keep working)
   areas.js            recordings: area → section → [collection, file, surahs (ar/en), year, place (ar/en)]
 docs/
   REFACTOR-REPORT.md  audit, changes and test results of the November 2026 restructure

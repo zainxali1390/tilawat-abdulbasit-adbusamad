@@ -21,7 +21,11 @@ function trCode(tr){
 function trFromCode(code){
   if(code.startsWith("s:")){const [,rec,n]=code.split(":");const r=RECITATIONS.find(x=>x.id===rec)||RECITATIONS[0];return r&&r.surahs[+n]?surahTrack(r,+n):null}
   if(code.startsWith("e:")){const m=code.match(/^e:([^:]+):(.*)$/);if(!m)return null;
-    for(let ai=0;ai<AREAS.length;ai++)for(let si=0;si<AREAS[ai].secs.length;si++){const ii=AREAS[ai].secs[si].items.findIndex(it=>it[0]===m[1]&&it[1]===m[2]);if(ii>=0)return egTrack(ai,si,ii)}
+    const look=(key,file)=>{for(let ai=0;ai<AREAS.length;ai++)for(let si=0;si<AREAS[ai].secs.length;si++){const ii=AREAS[ai].secs[si].items.findIndex(it=>it[0]===key&&it[1]===file);if(ii>=0)return egTrack(ai,si,ii)}return null};
+    const hit=look(m[1],m[2]);if(hit)return hit;
+    /* a duplicate that was removed: open the copy that was kept */
+    const al=typeof AREA_ALIASES!=="undefined"&&AREA_ALIASES[m[1]+":"+m[2]];
+    if(al){const i=al.indexOf(":");return look(al.slice(0,i),al.slice(i+1))}
     return null}
   if(code.startsWith("j:")){try{const x=JSON.parse(code.slice(2));return validTr(x)?x:null}catch(e){return null}}
   return null;

@@ -38,13 +38,20 @@ function playTrack(tr,opt){
       navigator.mediaSession.setActionHandler("nexttrack",()=>step(1));
       navigator.mediaSession.setActionHandler("play",()=>au.play());
       navigator.mediaSession.setActionHandler("pause",()=>au.pause());}catch(e){}
+    /* lock-screen seek bar and ±10 s buttons (not every phone offers these) */
+    const ms=(n,f)=>{try{navigator.mediaSession.setActionHandler(n,f)}catch(e){}};
+    ms("seekto",d=>{if(isFinite(au.duration)&&d&&d.seekTime!=null){au.currentTime=Math.min(Math.max(d.seekTime,0),au.duration);mediaPos()}});
+    ms("seekbackward",d=>{au.currentTime=Math.max(0,au.currentTime-((d&&d.seekOffset)||10));mediaPos()});
+    ms("seekforward",d=>{if(isFinite(au.duration))au.currentTime=Math.min(au.duration,au.currentTime+((d&&d.seekOffset)||10));mediaPos()});
   }
 }
 function step(d){
   if(!cur){toast(t("noRec"));return}
   if(!Q.list.length){Q={list:[cur],i:0}}
+  /* "previous" part-way through a recitation goes back to its start, like other players */
+  if(d<0&&au.currentTime>5){au.currentTime=0;if(au.paused)updateTime();return}
   let i;
-  if(S.shuffle)i=Math.floor(Math.random()*Q.list.length);
+  if(S.shuffle){i=Math.floor(Math.random()*Q.list.length);if(Q.list.length>1&&i===Q.i)i=(i+1+Math.floor(Math.random()*(Q.list.length-1)))%Q.list.length}
   else{i=Q.i+d;if(i<0||i>=Q.list.length)return}
   Q.i=i;playTrack(Q.list[i]);
 }
@@ -85,6 +92,8 @@ function updateTime(){
   s.addEventListener("change",()=>{s._drag=false;if(cur&&au.duration)au.currentTime=s.value/1000*au.duration;else{s.value=0;s.style.setProperty("--p","0%")}});
 });
 au.addEventListener("timeupdate",updateTime);au.addEventListener("loadedmetadata",updateTime);
+function mediaPos(){try{if("mediaSession" in navigator&&navigator.mediaSession.setPositionState&&isFinite(au.duration)&&au.duration>0)navigator.mediaSession.setPositionState({duration:au.duration,playbackRate:au.playbackRate||1,position:Math.min(au.currentTime||0,au.duration)})}catch(e){}}
+["loadedmetadata","seeked","play","pause"].forEach(n=>au.addEventListener(n,mediaPos));
 au.addEventListener("loadedmetadata",()=>{if(pendingSeek==null)return;const t2=pendingSeek;pendingSeek=null;if(!isFinite(au.duration)||t2<au.duration-5)try{au.currentTime=t2}catch(e){}});
 /* remember where each recitation was stopped, so it continues from there next time */
 let posSaved=0;
