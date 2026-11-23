@@ -1,0 +1,29 @@
+/* Base: colour variables, fonts, page and screen frame */
+:root{
+  --bg:#07140d;--bg2:#0c1e14;--card:#0f2419;--card2:#132c1f;
+  --line:rgba(214,176,100,.32);--line2:rgba(214,176,100,.16);
+  --gold:#d6b064;--gold2:#f0d595;--on-gold:#1a1408;
+  --text:#efe6cf;--muted:#a59a7c;
+  --parch:#f3e7c9;--parch2:#e8d6a8;--ink:#2a2213;
+  --ui:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --ar:'Amiri','Scheherazade New','Traditional Arabic',serif;
+  --arui:'Tajawal','Segoe UI',Tahoma,sans-serif;
+  --st:env(safe-area-inset-top,0px);--sb:env(safe-area-inset-bottom,0px);
+}
+body.light{
+  --bg:#f3ead6;--bg2:#ebdfc4;--card:#fbf5e6;--card2:#f5ecd6;
+  --line:rgba(120,90,30,.30);--line2:rgba(120,90,30,.14);
+  --text:#1d2a20;--muted:#6b6047;--on-gold:#fff8e6;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--text);font-family:var(--ui);font-size:15px;overflow-x:hidden}
+body.lang-ar{font-family:var(--arui)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+input{font:inherit;color:inherit}
+svg{display:block}
+.app{position:relative;max-width:480px;margin:0 auto;min-height:100dvh;
+  background:radial-gradient(120% 60% at 50% 0%,var(--card2),var(--bg) 70%);overflow:hidden}
+body.light .app{background:radial-gradient(120% 60% at 50% 0%,var(--card),var(--bg) 70%)}
+@media(min-width:481px){.app{border-left:1px solid var(--line2);border-right:1px solid var(--line2)}}
