@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: pip install -q numpy
       - run: python3 tools/fingerprint/build_index.py list --out recs.json
       - uses: actions/upload-artifact@v4
         with: {name: recs, path: recs.json, retention-days: 3}
@@ -40,8 +41,8 @@ jobs:
       - uses: actions/upload-artifact@v4
         with: {name: 'part-${{ matrix.part }}', path: parts/, retention-days: 3}
   merge:
-    needs: part
-    if: ${{ !cancelled() }}
+    needs: [list, part]
+    if: ${{ !cancelled() && needs.list.result == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
