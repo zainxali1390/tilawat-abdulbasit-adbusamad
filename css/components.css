@@ -430,3 +430,27 @@ body.light #mushaf{--mp-bg:#fdfaf3;--mp-ink:#1b1810;--mp-acc:#a8823c;--mp-soft:#
 /* the recitation you came from, highlighted briefly when its list opens */
 .row.flash,.s.flash{animation:flashrow 1.6s ease}
 @keyframes flashrow{0%,35%{background:color-mix(in srgb,var(--gold) 22%,transparent)}100%{background:transparent}}
+/* pinned moments: ticks on the seek bar, a row of pins under it, and the list in Favourites */
+.seekw{position:relative}
+.pmarks{position:absolute;left:6.5px;right:6.5px;top:50%;height:0;pointer-events:none}
+.pmarks i{position:absolute;top:-1px;width:3px;height:11px;margin:-5px 0 0 -1.5px;border-radius:2px;background:var(--gold2);box-shadow:0 0 0 1.5px var(--bg2)}
+[dir=rtl] .pmarks i{margin:-5px -1.5px 0 0}
+.pins{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:10px 0 2px;margin-bottom:-4px;-webkit-overflow-scrolling:touch}
+.pins::-webkit-scrollbar{display:none}
+.pins[hidden]{display:none}
+.pinbtn,.pchip{flex:none;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:16px;font-size:13px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pinbtn{background:var(--gold);color:var(--bg);font-weight:600}
+.pinbtn svg{width:15px;height:15px}
+.pchip{border:1px solid var(--line);background:var(--card2);color:var(--text);padding-inline-end:4px}
+.pchip.near{border-color:var(--gold);color:var(--gold)}
+.pchip .pgo{display:inline-flex;align-items:center;gap:5px;height:100%;color:inherit}
+.pchip .pgo svg{width:12px;height:12px}
+.pchip .px{width:24px;height:24px;display:grid;place-items:center;border-radius:50%;color:var(--muted)}
+.pchip .px svg{width:13px;height:13px}
+.pinsec{margin-bottom:14px}
+.pinsec h5{margin:4px 4px 8px;color:var(--gold);font-size:13px;font-weight:600;letter-spacing:.3px}
+.pinrec{padding:12px 14px;border-top:1px solid var(--line2)}
+.pinrec:first-child{border-top:0}
+.pinrec .tx b{display:block;font-weight:600;font-size:14.5px}
+.pinrec .tx small{color:var(--muted);font-size:12px}
+.pinrec .pins{padding-top:8px}

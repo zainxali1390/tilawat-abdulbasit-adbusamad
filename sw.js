@@ -12,7 +12,7 @@
  * All paths are relative to this file, so the app works from a GitHub Pages sub-folder, a custom
  * domain or a local server without changes. Change VERSION whenever the list below changes.
  */
-const VERSION = 'v8';
+const VERSION = 'v9';
 const PREFIX = 'abdulbasit-';
 const SHELL_CACHE = PREFIX + 'shell-' + VERSION;
 const QURAN_CACHE = PREFIX + 'quran-v1';   // package versions are fixed, so these never go stale
@@ -25,7 +25,7 @@ const SHELL = [
   './css/style.css', './css/components.css', './css/responsive.css', './css/pages.css',
   './js/i18n.js', './js/quran-data.js', './js/library-config.js', './data/areas.js', './data/aliases.js',
   './js/icons.js', './js/storage.js', './js/utils.js', './js/ui.js', './js/recitations.js',
-  './js/player.js', './js/mushaf.js', './js/navigation.js', './js/share.js', './js/app.js', './js/pwa.js',
+  './js/player.js', './js/pins.js', './js/mushaf.js', './js/navigation.js', './js/share.js', './js/app.js', './js/pwa.js',
   './assets/images/splash.jpg',
   './assets/icons/basit-32.png', './assets/icons/basit-180.png', './assets/icons/basit-192.png',
   './assets/icons/basit-512.png', './assets/icons/basit-maskable-512.png'

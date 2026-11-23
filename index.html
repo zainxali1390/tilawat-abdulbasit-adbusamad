@@ -87,8 +87,9 @@
         <div class="sub" id="npSub"></div>
         <div class="np-more" id="npMore" hidden><span id="npMoreTx"></span><svg class="flip" data-ic="chev"></svg></div>
       </div>
-      <input type="range" id="npSeek" min="0" max="1000" value="0" aria-label="Seek">
+      <div class="seekw"><input type="range" id="npSeek" min="0" max="1000" value="0" aria-label="Seek"><div class="pmarks" id="npMarks"></div></div>
       <div class="times"><span id="npCur">0:00</span><span id="npDur">0:00</span></div>
+      <div class="pins" id="npPins" hidden></div>
       <div class="ctrls">
         <button class="ib" data-act="shuffle" aria-label="Shuffle"><svg data-ic="shuffle"></svg></button>
         <button class="ib" data-act="prev" aria-label="Previous"><svg class="flip" data-ic="prev"></svg></button>
@@ -151,8 +152,9 @@
       <button class="ib" data-act="next" aria-label="Next"><svg class="flip" data-ic="next"></svg></button>
       <button class="ib" data-act="repeat" aria-label="Repeat"><svg data-ic="repeat"></svg></button>
     </div>
-    <input type="range" id="plSeek" min="0" max="1000" value="0" aria-label="Seek">
+    <div class="seekw"><input type="range" id="plSeek" min="0" max="1000" value="0" aria-label="Seek"><div class="pmarks" id="plMarks"></div></div>
     <div class="times"><span id="plCur">0:00</span><span id="plDur">0:00</span></div>
+    <div class="pins" id="plPins" hidden></div>
 
     <div class="seg"><button class="on" data-ptab="info" data-i18n="info"></button><button data-ptab="text" data-i18n="text"></button></div>
     <div class="card info" id="ptInfo">
@@ -203,6 +205,7 @@
   <div class="bar"><button class="ib" data-back aria-label="Back"><svg class="flip" data-ic="back"></svg></button><h1 data-i18n="favourites"></h1><span></span></div>
   <div class="body">
     <label class="search"><svg data-ic="search"></svg><input id="fq" type="search" data-i18n-ph="searchFav" autocomplete="off"></label>
+    <div id="pinList"></div>
     <div id="favList"></div>
   </div>
 </section>
@@ -375,6 +378,7 @@
 <script src="js/player.js"></script>
 <script src="js/mushaf.js"></script>
 <script src="js/navigation.js"></script>
+<script src="js/pins.js"></script>
 <script src="js/share.js"></script>
 <script src="js/app.js"></script>
 <script src="js/pwa.js"></script>
