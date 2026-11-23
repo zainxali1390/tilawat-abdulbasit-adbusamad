@@ -45,14 +45,26 @@ function playTrack(tr,opt){
     ms("seekforward",d=>{if(isFinite(au.duration))au.currentTime=Math.min(au.duration,au.currentTime+((d&&d.seekOffset)||10));mediaPos()});
   }
 }
-function step(d){
+/* the list a recitation belongs to: its khatma, its section, or the full set of surahs */
+async function sourceQueue(tr){
+  if(tr.kh){const K=KHATMAS.find(x=>x.id===tr.kh);if(K&&!K.yt){try{const L=await kTracks(K);if(L.length)return L.map((x,j)=>Object.assign({},x,{kh:K.id,ki:j}))}catch(e){}}}
+  if(tr.eg&&tr.k&&tr.k.startsWith("eg:")){const m=tr.k.match(/^eg:([^:]+):(.*)$/);
+    for(let ai=0;ai<AREAS.length;ai++)for(let si=0;si<AREAS[ai].secs.length;si++){const sc=AREAS[ai].secs[si];if(sc.items.some(it=>it[0]===m[1]&&it[1]===m[2]))return sc.items.map((_,j)=>egTrack(ai,si,j))}}
+  if(!tr.eg&&tr.rec){const r=RECITATIONS.find(x=>x.id===tr.rec);if(r)return Object.keys(r.surahs).map(Number).sort((a,b)=>a-b).map(n=>surahTrack(r,n))}
+  return [tr];
+}
+let stepBusy=false;
+async function step(d){
   if(!cur){toast(t("noRec"));return}
-  if(!Q.list.length){Q={list:[cur],i:0}}
   /* "previous" part-way through a recitation goes back to its start, like other players */
   if(d<0&&au.currentTime>5){au.currentTime=0;if(au.paused)updateTime();return}
-  let i;
-  if(S.shuffle){i=Math.floor(Math.random()*Q.list.length);if(Q.list.length>1&&i===Q.i)i=(i+1+Math.floor(Math.random()*(Q.list.length-1)))%Q.list.length}
-  else{i=Q.i+d;if(i<0||i>=Q.list.length)return}
+  if(stepBusy)return;
+  let at=Q.list.findIndex(x=>x&&x.k===cur.k);
+  if(at<0||Q.list.length<2){stepBusy=true;try{const L=await sourceQueue(cur);at=Math.max(0,L.findIndex(x=>x.k===cur.k));Q={list:L,i:at}}finally{stepBusy=false}}
+  else Q.i=at;
+  const i=Q.i+d;
+  if(i<0){au.currentTime=0;toast(t("firstInList"));return}
+  if(i>=Q.list.length){toast(t("lastInList"));return}
   Q.i=i;playTrack(Q.list[i]);
 }
 function startPlay(spec){
@@ -78,8 +90,7 @@ function updatePlayer(){
   const fav=has&&S.favs.some(x=>x&&x.k===cur.k);
   $("#favBtn").classList.toggle("on",fav);
   $("#favBtn span").textContent=t(fav?"inFav":"addFav");
-  $$("[data-act=shuffle]").forEach(b=>b.classList.toggle("act",S.shuffle));
-  $$("[data-act=repeat]").forEach(b=>b.classList.toggle("act",S.repeat));
+  $$("[data-act=repeat]").forEach(b=>{b.classList.toggle("act",!!S.repeat);b.setAttribute("aria-pressed",S.repeat?"true":"false")});
   updatePP();
 }
 function updatePP(){const p=!au.paused&&!!cur;$$("[data-ppic]").forEach(s=>s.innerHTML=P[p?"pause":"play"])}
@@ -113,7 +124,7 @@ au.addEventListener("error",async()=>{if(!cur)return;const tr=cur;
   if(await repairUrl(tr)){if(cur===tr){au.src=tr.url;au.play().catch(()=>{})}return}
   toast(t("loadErr"))});
 au.addEventListener("play",()=>{updatePP();try{if(ytP&&ytP.pauseVideo)ytP.pauseVideo()}catch(e){}});au.addEventListener("pause",updatePP);
-au.addEventListener("ended",()=>{kMarkDone(cur);if(S.repeat){au.currentTime=0;au.play()}else if(S.autoNext)step(1);else updatePP()});
+au.addEventListener("ended",()=>{kMarkDone(cur);if(S.repeat){au.currentTime=0;au.play().catch(()=>{})}else if(S.autoNext){const n=Q.list.findIndex(x=>x&&x.k===cur.k);if(n>=0&&n===Q.list.length-1&&Q.list.length>1)updatePP();else step(1)}else updatePP()});
 document.addEventListener("visibilitychange",()=>{if(document.hidden&&!S.bg&&!au.paused)au.pause()});
 
 document.addEventListener("click",e=>{
@@ -121,8 +132,7 @@ document.addEventListener("click",e=>{
   if(a){const k=a.dataset.act;
     if(k==="toggle"){if(!cur){toast(t("noRec"));return}au.paused?au.play().catch(()=>{}):au.pause()}
     else if(k==="prev")step(-1);else if(k==="next")step(1);
-    else if(k==="shuffle"){S.shuffle=!S.shuffle;save();updatePlayer()}
-    else if(k==="repeat"){S.repeat=!S.repeat;save();updatePlayer()}
+    else if(k==="repeat"){S.repeat=!S.repeat;save();updatePlayer();toast(t(S.repeat?"repOn":"repOff"))}
     return}
   const p=e.target.closest("[data-play]");
   if(p){startPlay(p.dataset.play);if(cur)go("player");return}

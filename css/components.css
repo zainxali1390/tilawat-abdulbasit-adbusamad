@@ -93,6 +93,12 @@ body.lang-ar .splash-tag{font-family:var(--arui);font-size:16px;letter-spacing:0
 .ctrls{display:flex;align-items:center;justify-content:space-between;padding:4px 6px 0}
 .ctrls .ib{color:var(--text)}
 .ctrls .ib.act{color:var(--gold)}
+.ctrls .ctrl-sp{visibility:hidden}
+/* repeat: clearly off (dim) or on (gold, tinted, with a 1) */
+.ctrls .rep{position:relative;color:var(--muted);border-radius:50%}
+.ctrls .rep i{display:none;position:absolute;top:5px;right:4px;min-width:14px;height:14px;border-radius:7px;background:var(--gold);color:var(--bg);font:700 9px/14px var(--ui);font-style:normal;text-align:center}
+.ctrls .rep.act{color:var(--gold);background:color-mix(in srgb,var(--gold) 16%,transparent)}
+.ctrls .rep.act i{display:block}
 .pp{width:46px;height:46px;border-radius:50%;background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--on-gold);display:grid;place-items:center}
 .pp svg{width:20px;height:20px}
 .big .pp{width:64px;height:64px}
