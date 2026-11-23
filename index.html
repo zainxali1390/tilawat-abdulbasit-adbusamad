@@ -82,8 +82,11 @@
         <span class="np-lbl" data-i18n="nowPlaying"></span>
         <button class="ib npshare" id="npShare" aria-label="Share this recitation" hidden><svg data-ic="share"></svg></button>
       </div>
-      <h3 id="npTitle"></h3>
-      <div class="sub" id="npSub"></div>
+      <div class="np-src" id="npSrc" role="button" tabindex="0">
+        <h3 id="npTitle"></h3>
+        <div class="sub" id="npSub"></div>
+        <div class="np-more" id="npMore" hidden><span id="npMoreTx"></span><svg class="flip" data-ic="chev"></svg></div>
+      </div>
       <input type="range" id="npSeek" min="0" max="1000" value="0" aria-label="Seek">
       <div class="times"><span id="npCur">0:00</span><span id="npDur">0:00</span></div>
       <div class="ctrls">

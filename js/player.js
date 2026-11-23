@@ -67,6 +67,7 @@ function updatePlayer(){
   const title=has?trTitle(cur):t("nothing");
   const sub=has?trSub(cur):t("nothingSub");
   $("#npTitle").textContent=title;$("#npSub").textContent=sub;$("#npShare").hidden=!cur;
+  $("#npMore").hidden=!has;if(has)$("#npMoreTx").textContent=t(cur.kh?"openKhatma":cur.eg?"moreFromSec":"allSurahs");
   $("#plTitle").textContent=title;$("#plSub").textContent=sub;
   $("#plAr").textContent=has&&cur.n&&!cur.eg&&!isAr()?SURAHS[cur.n-1][0]:"";
   $("#npCard").classList.toggle("idle",!has);
@@ -139,3 +140,25 @@ $$("[data-ptab]").forEach(b=>b.addEventListener("click",()=>{
   $$("[data-ptab]").forEach(x=>x.classList.toggle("on",x===b));
   $("#ptInfo").hidden=b.dataset.ptab!=="info";$("#ptText").hidden=b.dataset.ptab!=="text";
 }));
+
+/* tapping the Now Playing card opens where the recitation comes from, scrolled to it */
+function openSource(tr){
+  if(!tr){go("player");return}
+  const scrollTo=sel=>{let n=0;const tick=()=>{const el=document.querySelector(sel);if(el){const r=el.closest(".row,.s")||el;r.scrollIntoView({block:"center"});r.classList.add("flash");setTimeout(()=>r.classList.remove("flash"),1600)}else if(++n<25)setTimeout(tick,120)};setTimeout(tick,80)};
+  if(tr.kh){S.kid=tr.kh;save();go("khatma");scrollTo("#kList .row.playing");return}
+  if(tr.eg&&tr.k&&tr.k.startsWith("eg:")){
+    const m=tr.k.match(/^eg:([^:]+):(.*)$/);
+    for(let ai=0;ai<AREAS.length;ai++)for(let si=0;si<AREAS[ai].secs.length;si++){
+      const ii=AREAS[ai].secs[si].items.findIndex(it=>it[0]===m[1]&&it[1]===m[2]);
+      if(ii<0)continue;
+      S.area=ai;S.colMode=isRadioSec(AREAS[ai],AREAS[ai].secs[si])?"radio":"live";save();
+      $("#eq").value="";egOpen.clear();egOpen.add(ai+":"+si);
+      if(location.hash==="#area")renderArea();go("area");
+      scrollTo(`#eglist [data-play="eg:${ai}:${si}:${ii}"]`);return;
+    }
+  }
+  if(!tr.eg&&tr.n){go("surahs");scrollTo(`#slist [data-play="surah:${tr.n}"]`);return}
+  go("player");
+}
+$("#npSrc").addEventListener("click",()=>{if(cur)openSource(cur)});
+$("#npSrc").addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&cur){e.preventDefault();openSource(cur)}});

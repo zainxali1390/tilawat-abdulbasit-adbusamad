@@ -85,6 +85,11 @@ body.lang-ar .splash-tag{font-family:var(--arui);font-size:16px;letter-spacing:0
 [dir=rtl] .sel{background-position:left 8px center;padding:4px 9px 4px 24px}
 .np h3{margin:8px 0 2px;font-size:19px;font-weight:600}
 .np .sub{color:var(--muted);font-size:13px}
+.np-src{cursor:pointer;border-radius:12px;margin:0 -8px;padding:0 8px 2px}
+.np.idle .np-src{cursor:default}
+.np-more{display:inline-flex;align-items:center;gap:2px;margin-top:6px;color:var(--gold);font-size:13px;font-weight:500}
+.np-more[hidden]{display:none}
+.np-more svg{width:15px;height:15px}
 .ctrls{display:flex;align-items:center;justify-content:space-between;padding:4px 6px 0}
 .ctrls .ib{color:var(--text)}
 .ctrls .ib.act{color:var(--gold)}
@@ -422,3 +427,6 @@ body.light #mushaf{--mp-bg:#fdfaf3;--mp-ink:#1b1810;--mp-acc:#a8823c;--mp-soft:#
 .pl.pl-wait{height:200px!important;display:grid!important;place-items:center!important;color:var(--muted)!important}
 .pl.pl-msg{padding:40px 10px!important;text-align:center!important;color:var(--muted)!important}
 .privlink{display:inline-block;margin-top:16px;color:var(--muted);font-size:13px;text-decoration:underline;text-underline-offset:3px}
+/* the recitation you came from, highlighted briefly when its list opens */
+.row.flash,.s.flash{animation:flashrow 1.6s ease}
+@keyframes flashrow{0%,35%{background:color-mix(in srgb,var(--gold) 22%,transparent)}100%{background:transparent}}
