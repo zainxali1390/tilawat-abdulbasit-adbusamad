@@ -34,6 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: {ref: '${{ github.ref_name }}', fetch-depth: 1, sparse-checkout: tools}
+      - run: pip install -q numpy
       - uses: actions/download-artifact@v4
         with: {pattern: 'archive-candidates-*', path: parts-c, merge-multiple: true}
       - uses: actions/download-artifact@v4
