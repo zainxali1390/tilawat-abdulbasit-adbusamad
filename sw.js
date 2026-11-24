@@ -12,7 +12,7 @@
  * All paths are relative to this file, so the app works from a GitHub Pages sub-folder, a custom
  * domain or a local server without changes. Change VERSION whenever the list below changes.
  */
-const VERSION = 'v14';
+const VERSION = 'v15';
 const PREFIX = 'abdulbasit-';
 const SHELL_CACHE = PREFIX + 'shell-' + VERSION;
 const QURAN_CACHE = PREFIX + 'quran-v1';   // package versions are fixed, so these never go stale
@@ -71,7 +71,9 @@ async function putSafe(cacheName, req, res) {
 // App files: network first (always the newest set together), saved copy when offline.
 async function networkFirst(req, fallbackToApp) {
   try {
-    const res = await fetch(req);
+    // 'no-cache': always ask the site whether the file changed (GitHub Pages lets browsers keep files for
+    // 10 minutes, which would hide an update such as new recordings in data/areas.js)
+    const res = await fetch(new Request(req, { cache: 'no-cache' }));
     if (res.ok && res.type === 'basic') putSafe(SHELL_CACHE, req, res.clone());
     return res;
   } catch (e) {
