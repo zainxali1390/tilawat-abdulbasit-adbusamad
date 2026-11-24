@@ -1,0 +1,84 @@
+# Evidence for the places of recordings whose location is not known (tools/library/research.py). Manual runs only.
+name: Location research
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/location-research.yml']
+permissions:
+  contents: write
+concurrency:
+  group: location-research
+  cancel-in-progress: false
+env:
+  PARTS: 24
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            tools
+            js
+      - run: python3 tools/library/research.py meta --out meta.json
+      - run: python3 tools/library/research.py search --out candidates.json
+      - uses: actions/upload-artifact@v4
+        with: {name: found, path: '*.json', retention-days: 5}
+  check:
+    needs: find
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q numpy
+      - uses: actions/download-artifact@v4
+        with: {name: found}
+      - run: python3 tools/library/research.py check --cands candidates.json --part ${{ matrix.part }} --of $PARTS --out parts
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: {name: 'check-${{ matrix.part }}', path: parts/, retention-days: 5}
+  announce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            tools
+            js
+            audio
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q faster-whisper numpy
+      - env: {HF_HUB_DISABLE_XET: "1"}
+        run: python3 tools/library/research.py announce --part ${{ matrix.part }} --of $PARTS --out parts
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: {name: 'announce-${{ matrix.part }}', path: parts/, retention-days: 5}
+  merge:
+    needs: [find, check, announce]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: '${{ github.ref_name }}', fetch-depth: 1}
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'check-*', path: parts, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'announce-*', path: parts, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        with: {name: found, path: parts}
+      - run: python3 tools/library/research.py merge --parts parts
+      - run: |
+          git config user.name "location-research bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/library/research
+          git commit -q -m "Location research: evidence gathered" || exit 0
+          for i in 1 2 3 4; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((i*10)); done
