@@ -15,7 +15,7 @@ manifest.json lists the recordings in recording-number order as [code, seconds];
 """
 import argparse, json, os, re, sys, time, subprocess, tempfile, datetime
 from concurrent.futures import ThreadPoolExecutor
-from urllib.parse import quote
+from urllib.parse import quote, unquote
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -34,7 +34,7 @@ def enc(s):  # same as JavaScript encodeURIComponent
 
 def list_recs():
     cfg = open(os.path.join(ROOT, 'js', 'library-config.js'), encoding='utf-8').read()
-    base = dict(re.findall(r'(\w+):"(https?://[^"]+)"', cfg[cfg.index('const EG_BASE='):cfg.index('\n', cfg.index('const EG_BASE='))]))
+    base = dict(re.findall(r'(\w+):"([^"]+)"', cfg[cfg.index('const EG_BASE='):cfg.index('\n', cfg.index('const EG_BASE='))]))
     recs = []
     for rid, b in re.findall(r'\{id:"(\w+)".*?surahs:surahSet\("([^"]+)"\)', cfg):
         for n in range(1, 115):
@@ -60,6 +60,8 @@ def one(rec_id, rec, tmpdir, local):
     path = local.get(rec['code']) if local else None
     tmp = None
     try:
+        if not path and not rec['url'].startswith('http'):   # audio kept in this repository (EG_BASE L:"audio/")
+            path = os.path.join(ROOT, unquote(rec['url']))
         if not path:
             tmp = os.path.join(tmpdir, 'a%d' % rec_id)
             r = subprocess.run(['curl', '-sS', '-L', '--fail', '--retry', '6', '--retry-delay', '10', '--retry-all-errors',

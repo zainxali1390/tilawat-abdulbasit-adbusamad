@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:
     branches: [claude/new-session-lhlpar]
-    paths: ['tools/fingerprint/fpcore.py', 'tools/fingerprint/build_index.py', 'data/areas.js', 'js/library-config.js', '.github/workflows/fingerprint-index.yml']
+    paths: ['audio/**', 'tools/fingerprint/fpcore.py', 'tools/fingerprint/build_index.py', 'data/areas.js', 'js/library-config.js', '.github/workflows/fingerprint-index.yml']
 permissions:
   contents: write
 concurrency:
@@ -33,7 +33,10 @@ jobs:
         part: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
     steps:
       - uses: actions/checkout@v4
-        with: {sparse-checkout: tools}
+        with:
+          sparse-checkout: |
+            tools
+            audio
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q numpy
       - uses: actions/download-artifact@v4
         with: {name: recs}

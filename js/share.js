@@ -30,6 +30,18 @@ function trFromCode(code){
   if(code.startsWith("j:")){try{const x=JSON.parse(code.slice(2));return validTr(x)?x:null}catch(e){return null}}
   return null;
 }
+/* favourites, recent and the last recording saved before an entry was merged into another copy or had its audio
+   replaced (data/aliases.js) now open the entry that is kept */
+(function migrateAliases(){
+  if(typeof AREA_ALIASES==="undefined")return;
+  const fix=tr=>{if(!tr||!tr.eg||!tr.k)return tr;const m=tr.k.match(/^eg:([^:]+):(.*)$/);if(!m||!AREA_ALIASES[m[1]+":"+m[2]])return tr;return trFromCode("e:"+m[1]+":"+m[2])||tr};
+  let changed=false;const ch=(a,b)=>{if(a!==b)changed=true;return b};
+  if(Array.isArray(S.favs))S.favs=S.favs.map(x=>ch(x,fix(x)));
+  if(Array.isArray(S.recent))S.recent=S.recent.map(x=>ch(x,fix(x)));
+  if(S.last&&S.last.tr)S.last.tr=ch(S.last.tr,fix(S.last.tr));else if(S.last&&S.last.k)S.last=ch(S.last,fix(S.last));
+  /* pins are left as they are: their times belong to the old audio */
+  if(changed)save();
+})();
 function shareLink(tr,at){return APP_URL+"?r="+b64e(trCode(tr))+(at?"&t="+Math.floor(at):"")}
 async function shareRecitation(at){
   if(!cur){toast(t("noRec"));return}
