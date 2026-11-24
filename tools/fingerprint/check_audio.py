@@ -58,7 +58,7 @@ def merge(lst, parts, out):
             res += json.load(open(os.path.join(parts, f)))
     byid = {c['id']: c for c in lst}
     for r in res:
-        r.update({k: v for k, v in byid[r['id']].items() if k not in ('id',)})
+        r.update({k: v for k, v in byid[r['id']].items() if k not in ('id', 'windows')})
         conf = [w['res'] for w in r['windows'] if w.get('res') and w['res'].get('level') == 'confirmed']
         poss = [w['res'] for w in r['windows'] if w.get('res') and w['res'].get('level') == 'possible']
         errs = sum(1 for w in r['windows'] if w.get('err'))
