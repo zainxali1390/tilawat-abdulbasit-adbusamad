@@ -12,7 +12,7 @@
  * All paths are relative to this file, so the app works from a GitHub Pages sub-folder, a custom
  * domain or a local server without changes. Change VERSION whenever the list below changes.
  */
-const VERSION = 'v16';
+const VERSION = 'v17';
 const PREFIX = 'abdulbasit-';
 const SHELL_CACHE = PREFIX + 'shell-' + VERSION;
 const QURAN_CACHE = PREFIX + 'quran-v1';   // package versions are fixed, so these never go stale
@@ -146,7 +146,7 @@ self.addEventListener('fetch', event => {
 
   // Find a recitation: the recording index (thousands of small files) and the speech model (63 MB) are
   // kept by the browser and by Find a recitation itself, not in the app cache
-  if (url.origin === self.location.origin && /\/(fp|models)\//.test(url.pathname)) return;
+  if (url.origin === self.location.origin && /\/(fp|models|vm)\//.test(url.pathname)) return;
   if (url.origin === self.location.origin) {
     event.respondWith(networkFirst(req, req.mode === 'navigate'));
     return;

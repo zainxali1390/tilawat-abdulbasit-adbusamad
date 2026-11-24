@@ -41,7 +41,7 @@ Object.assign(I18N.en,{
   fVLbl:"Verses",fVersesConf:"Verses recognised",fVersesPoss:"Verses: possible",fVersesNone:"The verses couldn't be recognised from this clip.",fAyat:"ayah {a}",fAyatN:"ayahs {a}",
   fOrPlace:"The same words also occur at:",fFromLabel:"(from the recording's label)",fWithin:"(placed within the surahs of the recording found)",fAgree:"The recognised verses agree with the recording's label.",
   fDisagree:"The recording's label doesn't list Sūrah {s}. The label may be incomplete.",fDropped:"A weak sound match was left out because the verses heard are from another surah.",
-  fNet:"Part of the recording index couldn't be downloaded (the connection dropped or the site was busy).",fRetry:"Try again",fShared:"Clip received",fCat:"Category",fDate:"Date",fNoDate:"date not given",fStart:"Starts",fEnd:"Ends",fCopy:"Copy link",fOrig:"Original file",fLinkCopied:"Link copied (opens the recording at {t})",
+  fNet:"Part of the recording index couldn't be downloaded (the connection dropped or the site was busy).",fRetry:"Try again",fShared:"Clip received",fVmAgree:"The verses heard match the library's analysis of this recording at this point.",fVmDisagree:"The verses heard ({s}) don't match the library's analysis of this recording at this point, so this is shown only as a possible match.",fVmDropped:"A sound match was left out because the verses heard don't match that recording at that point.",fFromMap:"(around this point, from the library's analysis of the recording)",fAround:"around {t}",fCat:"Category",fDate:"Date",fNoDate:"date not given",fStart:"Starts",fEnd:"Ends",fCopy:"Copy link",fOrig:"Original file",fLinkCopied:"Link copied (opens the recording at {t})",
   fSame:"The same recording, also in the library:",fNotFound:"The original recording wasn't found",
   fNotFoundTx:"Your clip was compared by sound with {n} recordings in the library and none of them is the same recording. It may be a recording the app doesn't have yet, or the clip may be too short, noisy or changed to match.",
   fOthers:"Recordings in the library that contain this passage, by their labels ({n}). These are other recordings: the sound of your clip didn't match them.",fShowAll:"Show all {n}",
@@ -54,7 +54,7 @@ Object.assign(I18N.ar,{
   fVLbl:"الآيات",fVersesConf:"الآيات المعروفة",fVersesPoss:"الآيات: محتملة",fVersesNone:"تعذّر التعرّف على الآيات من هذا المقطع.",fAyat:"الآية {a}",fAyatN:"الآيات {a}",
   fOrPlace:"الكلمات نفسها تأتي أيضًا في:",fFromLabel:"(من بيانات التسجيل)",fWithin:"(حُدِّدت ضمن سور التسجيل الذي وُجد)",fAgree:"الآيات المعروفة توافق بيانات التسجيل.",
   fDisagree:"بيانات التسجيل لا تذكر سورة {s}. قد تكون البيانات ناقصة.",fDropped:"استُبعد تطابق صوتي ضعيف لأن الآيات المسموعة من سورة أخرى.",
-  fNet:"تعذّر تنزيل جزء من فهرس التسجيلات (انقطع الاتصال أو كان الموقع مشغولًا).",fRetry:"حاول مجددًا",fShared:"تم استلام المقطع",fCat:"التصنيف",fDate:"التاريخ",fNoDate:"بدون تاريخ",fStart:"البداية",fEnd:"النهاية",fCopy:"نسخ الرابط",fOrig:"الملف الأصلي",fLinkCopied:"نُسخ الرابط (يفتح التسجيل عند {t})",
+  fNet:"تعذّر تنزيل جزء من فهرس التسجيلات (انقطع الاتصال أو كان الموقع مشغولًا).",fRetry:"حاول مجددًا",fShared:"تم استلام المقطع",fVmAgree:"الآيات المسموعة توافق تحليل المكتبة لهذا التسجيل في هذا الموضع.",fVmDisagree:"الآيات المسموعة ({s}) لا توافق تحليل المكتبة لهذا التسجيل في هذا الموضع، لذا يُعرض كتطابق محتمل فقط.",fVmDropped:"استُبعد تطابق صوتي لأن الآيات المسموعة لا توافق ذلك التسجيل في ذلك الموضع.",fFromMap:"(في هذا الموضع تقريبًا، من تحليل المكتبة للتسجيل)",fAround:"قرب {t}",fCat:"التصنيف",fDate:"التاريخ",fNoDate:"بدون تاريخ",fStart:"البداية",fEnd:"النهاية",fCopy:"نسخ الرابط",fOrig:"الملف الأصلي",fLinkCopied:"نُسخ الرابط (يفتح التسجيل عند {t})",
   fSame:"التسجيل نفسه موجود أيضًا في المكتبة:",fNotFound:"لم يُعثر على التسجيل الأصلي",
   fNotFoundTx:"قورن مقطعك بالصوت مع {n} تسجيلًا في المكتبة ولم يكن أيٌّ منها التسجيلَ نفسه. قد يكون تسجيلًا غير موجود في التطبيق بعد، أو أن المقطع قصير أو كثير الضجيج أو معدّل بحيث لا يتطابق.",
   fOthers:"تسجيلات في المكتبة تتضمن هذا الموضع بحسب بياناتها ({n}). هذه تسجيلات أخرى: صوت مقطعك لم يطابقها.",fShowAll:"عرض الكل ({n})",
@@ -181,7 +181,10 @@ async function finderSearch(x,onStep,factor,mode,budget){
   return {man,blocks,shards,dur,ydur,all,T,dense,sig};
 }
 /* blocks agreeing on the same recording and offset become one section; scored against the best other recording */
-function finderSections(res){
+/* strict: a search with the clip's speed changed. Trying several speeds gives chance agreement several chances, so
+   only a confirmed result counts from such a search (a "possible" one is not shown); measured with 150 clips whose
+   recording was hidden, the confirmed bar itself gave no false identification at any speed */
+function finderSections(res,strict){
   const {man,blocks}=res;const secs=[];
   for(const b of blocks){
     const top=b.c[0];if(!top)continue;
@@ -191,21 +194,24 @@ function finderSections(res){
   }
   const out=[];
   for(const sc of secs){
-    let s=0,sp=0,s2=0,copies=new Map(),a=Infinity,bb=-Infinity;
+    let s=0,sp=0,s2=0,nb=0,copies=new Map(),a=Infinity,bb=-Infinity;
     for(const b of sc.blocks){
-      const me=b.c.find(c=>c.rec===sc.rec&&Math.abs(c.off-sc.off)<=3);if(!me)continue;s+=me.s;sp+=me.sp;
-      /* another copy of the same recording (another file) agrees almost as well, all along the clip: listed as a copy, not a rival */
-      for(const c of b.c){if(c===me)continue;if(c.s>=me.s*.5&&c.s>=6&&c.sp>=3){const p=copies.get(c.rec);if(!p||p.s<c.s)copies.set(c.rec,{rec:c.rec,off:c.off,s:c.s});continue}s2=Math.max(s2,c.s)}
+      const me=b.c.find(c=>c.rec===sc.rec&&Math.abs(c.off-sc.off)<=3);if(!me)continue;s+=me.s;sp+=me.sp;nb++;
+      /* another file that agrees almost as well in this block may be a copy of the same recording: not a rival */
+      for(const c of b.c){if(c===me)continue;if(c.s>=me.s*.5&&c.s>=6&&c.sp>=3){const p=copies.get(c.rec)||{rec:c.rec,off:c.off,s:0,n:0,best:0};if(c.s>p.best){p.best=c.s;p.off=c.off}p.s+=c.s;p.n++;copies.set(c.rec,p);continue}s2=Math.max(s2,c.s)}
       a=Math.min(a,me.a);bb=Math.max(bb,me.b);
     }
-    const nb=sc.blocks.length,rival=s2*Math.max(1,nb*.6);
-    const level=s>=6*Math.min(nb,2)&&sp>=3&&s>=2.5*Math.max(rival,2)?"confirmed":(s>=4&&sp>=2&&s>=1.8*Math.max(rival,2)?"possible":null);
+    /* a copy is only shown as "the same recording" (and can be shown first) when it agrees in every block of the
+       section and nearly as strongly overall; a file that agrees only partly may be a different performance */
+    const sure=[...copies.values()].filter(c=>c.n===nb&&c.s>=0.7*s).map(c=>({rec:c.rec,off:c.off,s:c.s}));
+    const rival=s2*Math.max(1,nb*.6),need=6,ratio=2.5;
+    const level=s>=need*Math.min(nb,2)&&sp>=3&&s>=ratio*Math.max(rival,2)?"confirmed":(!strict&&s>=4&&sp>=2&&s>=1.8*Math.max(rival,2)?"possible":null);
     if(!level||!isFinite(a))continue;
     const code=man.recs[sc.rec]&&man.recs[sc.rec][0];const tr=code&&trFromCode(code);if(!tr)continue;
     /* first estimate; finderRefine() then finds where the section really starts and ends, and the exact offset */
     const whole=blocks.length===1;
     const r={tr,code,level,s,s2,conf:Math.max(1,Math.min(99,Math.round(100*(1-Math.max(rival,1.5)/s)))),
-      _rec:sc.rec,_off:sc.off,_a:a,_b:bb,_whole:whole,_cA:whole?0:a*SEC_PER_FRAME,_cB:whole?res.ydur:Math.min(res.ydur,bb*SEC_PER_FRAME+1.5),_copies:[...copies.values()]};
+      _rec:sc.rec,_off:sc.off,_a:a,_b:bb,_whole:whole,_cA:whole?0:a*SEC_PER_FRAME,_cB:whole?res.ydur:Math.min(res.ydur,bb*SEC_PER_FRAME+1.5),_copies:sure};
     finderPlace(res,r);
     out.push(r);
   }
@@ -301,6 +307,27 @@ async function finderRefine(res,list){
   return list;
 }
 
+/* ---------- the library's verse map (vm/, built for every recording by tools/verses/analyse.mjs) ----------
+   For each recording: one entry per 30 s stretch every 60 s, [time, surah, ayah, surah2, ayah2, confidence, level]
+   (level 2 confirmed, 1 possible, 0 not recognised). Downloaded in 64 small parts, only the parts needed. */
+const VMAP={man:null,sh:new Map()};
+function vmShard(code){let h=0x811c9dc5;for(const b of new TextEncoder().encode(code)){h^=b;h=Math.imul(h,0x01000193)>>>0}return h%64}
+async function vmManifest(){if(VMAP.man!==null)return VMAP.man;try{const r=await fetch("vm/manifest.json",{cache:"no-cache"});VMAP.man=r.ok?await r.json():false}catch(e){VMAP.man=false}return VMAP.man}
+function vmPart(s){if(!VMAP.sh.has(s))VMAP.sh.set(s,fetch("vm/"+hex2(s)+".json").then(r=>r.ok?r.json():{}).catch(()=>({})));return VMAP.sh.get(s)}
+async function vmOf(code){const m=await vmManifest();if(!m||!m.recs[code])return null;return (await vmPart(vmShard(code)))[code]||null}
+/* the stretches of a recording between a and b seconds that the analysis placed with at least this level */
+const vmPlaces=(w,a,b,lvl)=>(w||[]).filter(x=>x[0]<b&&x[0]+30>a&&x[6]>=lvl&&x[1]);
+/* recordings whose analysis places this passage (surah su, about ayah ay), with the time: all parts are read */
+async function vmFind(su,ay){
+  const m=await vmManifest();if(!m)return [];
+  const parts=await Promise.all(Array.from({length:64},(_,i)=>vmPart(i))),out=[];
+  for(const p of parts)for(const [code,ws] of Object.entries(p)){
+    const hit=ws.find(x=>x[6]===2&&((x[1]===su&&x[2]<=ay+3&&(x[3]!==su||x[4]>=ay-3))||(x[3]===su&&x[1]!==su&&x[4]>=ay-3)));
+    if(hit)out.push({code,at:hit[0]});
+  }
+  return out;
+}
+
 /* ---------- categories and the copy shown first ---------- */
 /* from the library's own filing (country and section, as labelled by the source), never guessed */
 function finderCat(tr){
@@ -378,11 +405,12 @@ function finderCardHTML(r,i,n){
   return `<div class="card fres ${r.level}">
       ${n>1?`<div class="fsecn">${fx("fSec",{n:numFmt(i+1)})} · ${fx("fClip",{a:fmtT(r.clipA),b:fmtT(r.clipB)})}</div>`:""}
       <div class="fhead"><span class="fbadge">${t(r.level==="confirmed"?"fConfirmed":"fPossible")}</span><span class="fconf">${fx("fConf",{n:numFmt(r.conf)})}</span></div>
-      ${r.verse?finderVerseHTML(vp,vp&&vp.within?t("fWithin"):""):""}
+      ${vp?finderVerseHTML(vp,vp.within?t("fWithin"):""):(r.mapVerse?finderVerseHTML(r.mapVerse,t("fFromMap")):(r.verse?finderVerseHTML(null):""))}
       <b class="ftitle">${trTitle(r.tr)}</b><small class="fsub">${sub}</small>
       <div class="fmeta"><span class="fcat c${cat.rank}">${fEsc(finderCatTx(r.tr))}</span><span>${t("fDate")}: ${r.tr.y?fEsc(r.tr.y):t("fNoDate")}</span>${riw?`<span>${t("fRiwaya")}: ${fEsc(riw)} ${t("fFromLabel")}</span>`:""}</div>
       <div class="ftime"><span>${t("fStart")} ${fmtT(r.start)}</span><span>${t("fEnd")} ${fmtT(r.end)}</span><span>${fx("fLen",{n:numFmt(Math.round(r.end-r.start))})}</span></div>
       <div class="fpts">${fx("fPts",{a:numFmt(r.s),b:numFmt(r.s2)})}</div>
+      ${r.vmAgree===true?`<div class="fpts fok">${t("fVmAgree")}</div>`:r.vmAgree===false?`<div class="fpts fwarn">${fx("fVmDisagree",{s:fEsc(isAr()?SURAHS[vp.surah-1][0]:SURAHS[vp.surah-1][1])})}</div>`:""}
       ${r.agree===true?`<div class="fpts fok">${t("fAgree")}</div>`:r.agree===false&&vp?`<div class="fpts fwarn">${fx("fDisagree",{s:fEsc(isAr()?SURAHS[vp.surah-1][0]:SURAHS[vp.surah-1][1])})}</div>`:""}
       <div class="facts">
         <button class="btn-gold" data-fact="from" data-fi="${i}">${ic("play")}${t("fPlayFrom")}</button>
@@ -399,22 +427,29 @@ function finderCardHTML(r,i,n){
 /* no recording found by sound, but the verses were recognised: say so plainly, and list the library's other
    recordings of that surah as OTHER recordings (never as the original) */
 function finderNotFoundHTML(verses,searched){
-  const places=[];for(const v of verses){const p=v.place;if(p&&!places.some(q=>q.surah===p.surah&&Math.abs(q.ayah-p.ayah)<=2))places.push(p)}
+  /* no recording found: a surah is named only from CONFIRMED verse places, and only when the stretches of the clip
+     that were recognised agree with each other (one surah, verses in order) */
+  const places=[];for(const v of verses){const p=v.place;if(p&&p.level==="confirmed"&&!places.some(q=>q.surah===p.surah&&Math.abs(q.ayah-p.ayah)<=2))places.push(p)}
+  if(places.length>1&&new Set(places.map(p=>p.surah)).size>1&&!places.every((p,i)=>!i||p.surah>=places[i-1].surah))places.length=0;
   let h=`<div class="card fres fnone"><b>${t("fNotFound")}</b><p>${fx("fNotFoundTx",{n:numFmt(searched)})}</p></div>`;
   if(!places.length)return h;
   h+=`<div class="card fres verses">${places.map(p=>finderVerseHTML(p)).join("")}
     <div class="facts"><button data-fact="mushaf" data-su="${places[0].surah}" data-ay="${places[0].ayah}">${ic("mushaf")}${t("fVerses")}</button></div></div>`;
   const su=places[0].surah;
-  finderOthers=finderSurahRecs(su,places[0].ayah);
+  finderOthers=finderSurahRecs(su,places[0].ayah).map(tr=>({tr,at:0}));
+  /* recordings the library's analysis heard reciting this passage come first, with where in them */
+  const seen=new Set(finderOthers.map(o=>o.tr.k)),byMap=[];
+  for(const x of FINDER.vmFound||[]){const tr=trFromCode(x.code);if(!tr)continue;byMap.push({tr,at:x.at,map:true});seen.delete(tr.k)}
+  if(byMap.length){const ks=new Set(byMap.map(o=>o.tr.k));byMap.sort((x,y)=>finderCat(x.tr).rank-finderCat(y.tr).rank);finderOthers=byMap.concat(finderOthers.filter(o=>!ks.has(o.tr.k)))}
   if(finderOthers.length){
     const nm=isAr()?SURAHS[su-1][0]:SURAHS[su-1][1];
     h+=`<div class="card fres fothers"><small>${fx("fOthers",{s:fEsc(nm),n:numFmt(finderOthers.length)})}</small>
-      <div class="foth">${finderOthers.slice(0,6).map((tr,k)=>finderOtherHTML(tr,k)).join("")}</div>
+      <div class="foth">${finderOthers.slice(0,6).map((o,k)=>finderOtherHTML(o,k)).join("")}</div>
       ${finderOthers.length>6?`<button class="fmore" data-fact="allothers">${fx("fShowAll",{n:numFmt(finderOthers.length)})}</button>`:""}</div>`;
   }
   return h;
 }
-function finderOtherHTML(tr,k){return `<div class="fcopy"><div class="tx"><span>${trTitle(tr)}</span><small>${finderSubTx(tr)}</small></div><button class="playc" data-fact="other" data-fk="${k}">${ic("play")}</button></div>`}
+function finderOtherHTML(o,k){return `<div class="fcopy"><div class="tx"><span>${trTitle(o.tr)}</span><small>${finderSubTx(o.tr)}${o.map?" · "+fx("fAround",{t:fmtT(o.at)}):""}</small></div><button class="playc" data-fact="other" data-fk="${k}">${ic("play")}</button></div>`}
 /* does a recording's label say it contains ayah ay of surah su? true / false / null (the label gives no verses) */
 function finderCovers(tr,su,ay){
   if(!tr.eg)return tr.n===su?true:false;
@@ -460,8 +495,8 @@ async function finderOpenVerse(su,ay){
 }
 $("#fResults").addEventListener("click",async e=>{
   const b=e.target.closest("[data-fact]");if(!b)return;const a=b.dataset.fact;
-  if(a==="other"){const tr=finderOthers[+b.dataset.fk];if(tr){finderStopAt=null;playTrack(tr,{at:0,quiet:true});go("player")}return}
-  if(a==="allothers"){const box=b.closest(".fothers");box.querySelector(".foth").innerHTML=finderOthers.map((tr,k)=>finderOtherHTML(tr,k)).join("");b.remove();return}
+  if(a==="other"){const o=finderOthers[+b.dataset.fk];if(o){finderStopAt=null;playTrack(o.tr,{at:Math.max(0,o.at-5),quiet:true});go("player")}return}
+  if(a==="allothers"){const box=b.closest(".fothers");box.querySelector(".foth").innerHTML=finderOthers.map((o,k)=>finderOtherHTML(o,k)).join("");b.remove();return}
   if(a==="mushaf"){finderOpenVerse(+b.dataset.su,+b.dataset.ay||1);return}
   const r=finderLast[+b.dataset.fi];if(!r)return;
   if(a==="copy"){const c=r.copies[+b.dataset.fj];if(c){finderStopAt=null;playTrack(c.tr,{at:c.start,quiet:true});go("player")}}
@@ -502,10 +537,10 @@ async function finderRun(blob){
   try{
     finderStatus(t("fReading"));
     const man=await finderManifest();
-    /* "p2": results remembered before exact placing (finderRefine) are not reused */
-    const key=await finderKey(blob),ck=key&&key+":"+(man.built||"")+":"+(useVerses?1:0)+":p2";
+    /* "p3": results remembered by earlier versions of the search are not reused */
+    const vmm=await vmManifest(),key=await finderKey(blob),ck=key&&key+":"+(man.built||"")+":"+((vmm&&vmm.built)||"")+":"+(useVerses?1:0)+":p3";
     const hit=ck&&finderCacheGet(ck);
-    if(hit){finderStatus();finderRender(finderUnpack(hit.list),(hit.notes||[]).concat(t("fCached")),hit.verses,hit.searched);return}
+    if(hit){FINDER.vmFound=hit.vmFound||[];finderStatus();finderRender(finderUnpack(hit.list),(hit.notes||[]).concat(t("fCached")),hit.verses,hit.searched);return}
     if(blob.size>400e6)toast(t("fBigFile"));
     let dec;try{dec=await finderDecode(blob)}catch(e){finderStatus();$("#fResults").innerHTML=`<div class="card fres fnone"><p>${t(blob.size>150e6?"fTooLong":"fBad")}</p></div>`;return}
     if(dec.x.length<4*FPRINT.FP.sr){finderStatus();$("#fResults").innerHTML=`<div class="card fres fnone"><p>${t("fTooShort")}</p></div>`;return}
@@ -521,7 +556,7 @@ async function finderRun(blob){
       if(dur<=90)tries.push(["t",1.1],["t",1/1.1],["t",1.25],["t",0.8]);
       for(let i=0;i<tries.length;i++){
         const [m,f]=tries[i];
-        const res2=await finderSearch(dec.x,(a,b)=>finderStatus(t("fSpeed"),fx("fOf",{a:numFmt(a),b:numFmt(b)}),(i+a/b)/tries.length),f,m,dur>90?1200:600),r2=finderSections(res2);
+        const res2=await finderSearch(dec.x,(a,b)=>finderStatus(t("fSpeed"),fx("fOf",{a:numFmt(a),b:numFmt(b)}),(i+a/b)/tries.length),f,m,dur>90?1200:600),r2=finderSections(res2,true);
         if(r2.some(r=>r.level==="confirmed")){list=r2;res=res2;const pct=numFmt(Math.round(Math.abs((m==="r"?1/f:f)-1)*100));notes.push(fx(m==="r"?"fSpeedNote":"fSpeedTempo",{n:pct}));break}
       }
     }
@@ -539,8 +574,9 @@ async function finderRun(blob){
           let dropped=false;
           list.forEach((r,i)=>{r.verse=verses[i]||{place:null};const ss=trSurahs(r.tr).concat(...r.copies.map(c=>trSurahs(c.tr)));
             if((!r.verse.place||r.verse.place.level!=="confirmed")&&r.verse.text){const w=ayahPlaceIn(r.verse.text,ss);if(w&&(!r.verse.place||w.score>=r.verse.place.score*0.6))r.verse.place=w}
-            /* an unclear verse guess that contradicts the label of a recording found by sound is not shown */
-            if(r.verse.place&&r.verse.place.level==="possible"&&!r.verse.place.within&&ss.length&&!ss.includes(r.verse.place.surah)&&!ss.includes(r.verse.place.surah2))r.verse.place=null;
+                        /* only a CONFIRMED verse place (or one placed within the recording's own surahs) names a surah on the card:
+               an unconfirmed guess from the speech model could be a completely different surah */
+            if(r.verse.place&&r.verse.place.level==="possible"&&!r.verse.place.within)r.verse.place=null;
             const p=r.verse.place;if(p&&p.within){return}
             if(p&&ss.length){const inL=ss.includes(p.surah)||ss.includes(p.surah2);if(inL)r.agree=true;else if(p.level==="confirmed")r.agree=false}
             /* a weak sound match that contradicts clearly recognised verses is left out */
@@ -549,9 +585,32 @@ async function finderRun(blob){
         }
       }catch(e){AYAH.onModel=null;notes.push(t("fVerseErr"));verses=null}
     }
+    /* the library's analysis of each recording found (vm/): what that recording recites at the matched point. It is
+       checked against the verses heard in the clip: a sound match they contradict is shown only as possible, or left
+       out if it was weak. When the clip's own verses weren't recognised, the analysis tells which verses they are. */
+    try{
+      let vmDropped=false;
+      for(const r of list){
+        const w=await vmOf(r.code);if(!w)continue;
+        const rp=vmPlaces(w,r.start-5,r.end+5,2);if(!rp.length)continue;
+        const rs=new Set(rp.flatMap(x=>[x[1],x[3]])),p=r.verse&&r.verse.place;
+        if(p&&p.level==="confirmed"&&!p.within){
+          r.vmAgree=rs.has(p.surah)||rs.has(p.surah2);
+          if(!r.vmAgree){if(r.level==="possible"){r.drop=true;vmDropped=true}else{r.level="possible";r.conf=Math.min(r.conf,49)}}
+        }else if(!p){
+          const inside=rp.filter(x=>x[0]<r.end&&x[0]+30>r.start),use=inside.length?inside:rp,su=use[0][1];
+          const same=use.filter(x=>x[1]===su);
+          r.mapVerse={surah:su,ayah:Math.min(...same.map(x=>x[2])),surah2:same[same.length-1][3],ayah2:Math.max(...same.filter(x=>x[3]===same[same.length-1][3]).map(x=>x[4])),level:"confirmed",conf:Math.round(same.reduce((a,x)=>a+x[5],0)/same.length),alts:[]};
+        }
+      }
+      if(vmDropped){list=list.filter(r=>!r.drop);notes.push(t("fVmDropped"))}
+    }catch(e){}
+    /* no recording found but the verses are clear: which recordings the analysis heard reciting them */
+    FINDER.vmFound=[];
+    if(!list.length&&verses){const p=verses.map(v=>v.place).find(p=>p&&p.level==="confirmed");if(p){try{FINDER.vmFound=await vmFind(p.surah,p.ayah)}catch(e){}}}
     const searched=man.recs.filter(r=>r[1]>0).length;
     finderStatus();finderRender(list,notes,verses,searched);
-    if(ck)finderCachePut(ck,{list:finderPack(list),notes,verses,searched});
+    if(ck)finderCachePut(ck,{list:finderPack(list),notes,verses,searched,vmFound:FINDER.vmFound});
   }catch(e){
     finderStatus();
     const k=e&&e.code==="noindex"?"fNoIndex":(e&&e.code==="net"?"fNet":"fOffline");
