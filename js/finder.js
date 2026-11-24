@@ -75,8 +75,15 @@ async function finderManifest(){
   const r=await fetch(FINDER.base+"manifest.json",{cache:"no-cache"});
   if(!r.ok)throw Object.assign(new Error("noindex"),{code:"noindex"});
   FINDER.man=await r.json();
-  /* index parts are kept on the phone (until the index is rebuilt), so a second search needs little or no download */
-  try{if(window.caches){const name="fp-index-"+(FINDER.man.built||"0");FINDER.cache=await caches.open(name);
+  /* index parts are kept on the phone until the index is rebuilt, so a second search needs little or no download. */
+  /* every build of the index numbers the recordings afresh (adding or removing one shifts the numbers of others),
+     so index parts must never be mixed between builds. The build is identified by its exact list of recordings,
+     not by its date (the index can be rebuilt several times a day): it names the parts kept on the phone and is
+     added to every part's address, so neither the phone's saved copy nor the browser's cache can hand back a part
+     of an earlier build. (Mixing them made a correct match show a neighbouring recording's title.) */
+  {let h=0x811c9dc5;const str=(FINDER.man.built||"")+"|"+FINDER.man.recs.map(r=>r[0]+"/"+r[1]).join("|");
+   for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,0x01000193)>>>0}FINDER.build=h.toString(36)}
+  try{if(window.caches){const name="fp-index-"+FINDER.build;FINDER.cache=await caches.open(name);
     caches.keys().then(ks=>ks.filter(k=>k.startsWith("fp-index-")&&k!==name).forEach(k=>caches.delete(k)))}}catch(e){FINDER.cache=null}
   return FINDER.man;
 }
@@ -103,7 +110,7 @@ async function finderShardBytes(url){
   throw err;
 }
 function finderShard(s){
-  if(!FINDER.shards.has(s))FINDER.shards.set(s,finderShardBytes(FINDER.base+"s/"+hex2(s>>8)+"/"+hex2(s&255)+".bin")
+  if(!FINDER.shards.has(s))FINDER.shards.set(s,finderShardBytes(FINDER.base+"s/"+hex2(s>>8)+"/"+hex2(s&255)+".bin?b="+FINDER.build)
     .then(buf=>{const dv=new DataView(buf),start=new Uint32Array(17);let o=32;for(let i=0;i<16;i++){start[i]=o;o+=4*dv.getUint16(i*2,true)}start[16]=o;return {dv,start}})
     .catch(e=>{FINDER.shards.delete(s);throw e}));
   return FINDER.shards.get(s);
@@ -313,7 +320,7 @@ async function finderRefine(res,list){
 const VMAP={man:null,sh:new Map()};
 function vmShard(code){let h=0x811c9dc5;for(const b of new TextEncoder().encode(code)){h^=b;h=Math.imul(h,0x01000193)>>>0}return h%64}
 async function vmManifest(){if(VMAP.man!==null)return VMAP.man;try{const r=await fetch("vm/manifest.json",{cache:"no-cache"});VMAP.man=r.ok?await r.json():false}catch(e){VMAP.man=false}return VMAP.man}
-function vmPart(s){if(!VMAP.sh.has(s))VMAP.sh.set(s,fetch("vm/"+hex2(s)+".json").then(r=>r.ok?r.json():{}).catch(()=>({})));return VMAP.sh.get(s)}
+function vmPart(s){if(!VMAP.sh.has(s))VMAP.sh.set(s,fetch("vm/"+hex2(s)+".json?b="+encodeURIComponent((VMAP.man&&VMAP.man.built)||"")).then(r=>r.ok?r.json():{}).catch(()=>({})));return VMAP.sh.get(s)}
 async function vmOf(code){const m=await vmManifest();if(!m||!m.recs[code])return null;return (await vmPart(vmShard(code)))[code]||null}
 /* the stretches of a recording between a and b seconds that the analysis placed with at least this level */
 const vmPlaces=(w,a,b,lvl)=>(w||[]).filter(x=>x[0]<b&&x[0]+30>a&&x[6]>=lvl&&x[1]);
@@ -537,8 +544,9 @@ async function finderRun(blob){
   try{
     finderStatus(t("fReading"));
     const man=await finderManifest();
-    /* "p3": results remembered by earlier versions of the search are not reused */
-    const vmm=await vmManifest(),key=await finderKey(blob),ck=key&&key+":"+(man.built||"")+":"+((vmm&&vmm.built)||"")+":"+(useVerses?1:0)+":p3";
+    /* results are remembered per index build ("p4": none remembered by earlier versions is reused, some of which
+       were wrong because index parts of two builds were mixed) */
+    const vmm=await vmManifest(),key=await finderKey(blob),ck=key&&key+":"+FINDER.build+":"+((vmm&&vmm.built)||"")+":"+(useVerses?1:0)+":p4";
     const hit=ck&&finderCacheGet(ck);
     if(hit){FINDER.vmFound=hit.vmFound||[];finderStatus();finderRender(finderUnpack(hit.list),(hit.notes||[]).concat(t("fCached")),hit.verses,hit.searched);return}
     if(blob.size>400e6)toast(t("fBigFile"));

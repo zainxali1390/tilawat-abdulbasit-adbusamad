@@ -24,6 +24,27 @@ recordings, 1,351 hours).
 | **A wrong surah named** (on a result or on the "not found" screen) | — (no verse recognition) | **9** (7 from unconfirmed guesses) | **1** (fixed since, see below) |
 
 ## What caused the wrong surahs (the regression)
+**1. Mixed index builds on the phone (the main cause of a wrong recording being shown).**
+
+The previous update (`5b7054d`) made the app keep the index parts it downloads on the phone. That saved copy was named after the index's build **date**.
+
+On 24 November the index was rebuilt twice in one day: first with 300 added recordings, then for the Al-Qamar replacement. Removing and adding entries shifts the numbers of other recordings.
+
+A phone that had searched earlier that day kept the earlier parts and read them with the new list of recordings. So a correct sound match was shown under a **neighbouring recording's title**.
+
+Example, reported with a TikTok clip of Al-Anfāl / Al-Infiṭār from Kuwait:
+- The search was right: "Al-Anfāl (1–21) · Al-Infiṭār, Kuwait", 15:10, 64 moments against 3.
+- The phone showed "Al-Mā'idah (67–79), Shuwaikh Mosque 1964", the entry next to it.
+
+This was reproduced exactly by filling a browser with the earlier build's parts.
+
+**Fixed:**
+- The saved copy and every part's address are now tied to the exact build (its list of recordings), not the date, so parts of two builds can never be mixed.
+- Results remembered from before the fix are not reused.
+
+The test harness opens a fresh browser for every run, so it could not see this. The "Mixed builds" test (`tools/finder-eval/mixed_builds.js`) now covers it.
+
+**2. Verse guesses shown as surahs.**
 The sound matching did not get worse. In every version, no clip was ever confirmed as a wrong recording, and no hidden recording was replaced by another.
 
 The wrong surahs came from the **verse recognition** added in `5b7054d`:
@@ -66,6 +87,7 @@ The "time off" cases in the test are:
 ## Every wrong or doubtful answer seen (kept to improve the system)
 | Clip | What happened | Status |
 |---|---|---|
+| TikTok clip, Al-Anfāl / Al-Infiṭār, Kuwait (reported) | Right recording found, but shown as "Al-Mā'idah (67–79), Shuwaikh 1964" on a phone holding index parts of an earlier same-day build | **Fixed** (index parts tied to the exact build) |
 | Al-Furqān clip at +5 % tempo (A 249) | Speech model looped "ما ما ما…" → "Hūd 11:48, confirmed" on the "not found" screen | **Fixed** (loops removed) |
 | 7 social-media clips, recording hidden | "Not found" screen named a surah from an unconfirmed guess (An-Nisāʾ, Al-Māʾidah, At-Tawbah, Al-Baqarah, Aṭ-Ṭūr, Al-Anʿām, Hūd) | **Fixed** (only confirmed places name a surah) |
 | Al-Qamar/Ar-Raḥmān phone-quality clip (A 770) | Earlier test: confirmed as X5 568, which the sound check shows is *not* the same audio (another performance of the same verses) | Not reproduced in this test set; copies must now agree all along |
