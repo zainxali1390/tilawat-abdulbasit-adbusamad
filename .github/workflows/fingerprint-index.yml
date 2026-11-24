@@ -1,12 +1,12 @@
 # Builds the recording index for "Find a recitation" (see tools/fingerprint/build_index.py).
-# Runs when the indexer changes, and can be started by hand (Actions → Build recording index → Run workflow).
+# Runs when the indexer or the recording list changes, and can be started by hand (Actions → Build recording index → Run workflow).
 # Every recording is downloaded, fingerprinted and deleted again; only the fingerprints (fp/) are committed.
 name: Build recording index
 on:
   workflow_dispatch:
   push:
     branches: [claude/new-session-lhlpar]
-    paths: ['tools/fingerprint/**', '.github/workflows/fingerprint-index.yml']
+    paths: ['tools/fingerprint/fpcore.py', 'tools/fingerprint/build_index.py', 'data/areas.js', 'js/library-config.js', '.github/workflows/fingerprint-index.yml']
 permissions:
   contents: write
 concurrency:

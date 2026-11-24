@@ -1,0 +1,51 @@
+# Duplicate check by sound: samples every file in a list and searches the recording index (fp/) for it.
+# Lists live in tools/fingerprint/lists/; each report is committed to tools/fingerprint/reports/.
+name: Check recordings against the index
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/new-session-lhlpar]
+    paths: ['tools/fingerprint/lists/*.json', 'tools/fingerprint/check_audio.py', 'tools/fingerprint/match.py', '.github/workflows/fingerprint-check.yml']
+permissions:
+  contents: write
+concurrency:
+  group: fingerprint-check
+  cancel-in-progress: true
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    strategy:
+      fail-fast: false
+      matrix:
+        list: [archive-candidates, library]
+        part: [0,1,2,3,4,5,6,7,8,9,10,11]
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: "tools\nfp"}
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q numpy
+      - run: python3 tools/fingerprint/check_audio.py part --list tools/fingerprint/lists/${{ matrix.list }}.json --part ${{ matrix.part }} --of 12 --out parts --workers 8
+      - uses: actions/upload-artifact@v4
+        with: {name: '${{ matrix.list }}-${{ matrix.part }}', path: parts/, retention-days: 3}
+  report:
+    needs: check
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: '${{ github.ref_name }}', fetch-depth: 1, sparse-checkout: tools}
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'archive-candidates-*', path: parts-c, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'library-*', path: parts-l, merge-multiple: true}
+      - run: |
+          mkdir -p tools/fingerprint/reports
+          python3 tools/fingerprint/check_audio.py merge --list tools/fingerprint/lists/archive-candidates.json --parts parts-c --out tools/fingerprint/reports/archive-candidates.json
+          python3 tools/fingerprint/check_audio.py merge --list tools/fingerprint/lists/library.json --parts parts-l --out tools/fingerprint/reports/library.json
+      - run: |
+          git config user.name "recording-index bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/fingerprint/reports
+          git commit -q -m "Duplicate check reports (by sound)" || exit 0
+          for i in 1 2 3 4 5; do git pull -q --rebase origin "${{ github.ref_name }}" && git push -q origin "HEAD:${{ github.ref_name }}" && exit 0; sleep $((i*10)); done
+          exit 1
