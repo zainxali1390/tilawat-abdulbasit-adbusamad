@@ -196,6 +196,8 @@ function openSource(tr){
   if(tr.kh){S.kid=tr.kh;save();go("khatma");scrollTo("#kList .row.playing");return}
   /* a library recording: its place (country → place), scrolled to it */
   const ll=libLocOf(tr);
+  /* a part of the shared khatma: it lives in the Khatmas section */
+  if(ll&&lib().refOf.get(tr.k.slice(3)).mode==="khatma"){S.kid="k-sh1";save();go("khatma");return}
   if(ll){
     S.libC=ll.c.id;S.libL=ll.l.id;S.libF={};S.colMode=libModeOf(...ll.l.refs.find(([ai,si,ii])=>{const it=AREAS[ai].secs[si].items[ii];return "eg:"+it[0]+":"+it[1]===tr.k}));save();$("#lq").value="";
     if(location.hash==="#loc")renderLoc();go("loc");

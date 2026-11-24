@@ -46,13 +46,13 @@ const LIB_UNKNOWN={en:"Location not known",ar:"المكان غير معروف"},
 Object.assign(I18N.en,{libTitle:"Recitations library",libSub:"By country and place: mosques, radio, television and venues",libCountries:"countries",libLocations:"places",libLocation:"place",
   libSearch:"Search all recordings",libSearchLoc:"Search this place",libAll:"All",libYear:"Year",libAllYears:"All years",libNoDate:"Date not given",libSurah:"Surah",libAllSurahs:"All surahs",
   libType:"Type",libLen:"Length",libAnyLen:"Any length",libShort:"Under 10 min",libMid:"10–30 min",libLong:"Over 30 min",libSort:"Sort",libSortList:"Archive order",libSortYear:"Oldest first",libSortYearD:"Newest first",
-  libSortSurah:"Surah order",libSortLen:"Longest first",libSortLenA:"Shortest first",libNone:"No recordings match these filters.",libInRadio:"{n} more in Radio recitations — show",libInLive:"{n} more in Live recitations — show",libMin:"{n} min",
+  libSortSurah:"Surah order",libSortLen:"Longest first",libSortLenA:"Shortest first",libNone:"No recordings match these filters.",libInRadio:"{n} more in Radio recitations — show",libInLive:"{n} more in Live recitations — show",libInKhatma:"{n} in the First Shared Khatma (Khatmas) — open",libMin:"{n} min",
   lkMosque:"Mosques",lkVenue:"Venues and occasions",lkRadio:"Radio",lkTv:"Television",lkStudio:"Record companies",lkCity:"Cities and regions (venue not named)",lkUnknown:"Place not known",
   tyPublic:"Public recitation",tyRadio:"Radio",tyTv:"Television",tyHome:"At home",tyStudio:"Studio record",tyKhatma:"Shared khatma",tyComp:"Compilation",tyLost:"Lost (fragment)",tyOther:"Not stated"});
 Object.assign(I18N.ar,{libTitle:"مكتبة التلاوات",libSub:"حسب البلد والمكان: المساجد والإذاعات والتلفزيون والأماكن",libCountries:"بلدان",libLocations:"أماكن",libLocation:"مكان",
   libSearch:"ابحث في كل التسجيلات",libSearchLoc:"ابحث في هذا المكان",libAll:"الكل",libYear:"السنة",libAllYears:"كل السنوات",libNoDate:"بدون تاريخ",libSurah:"السورة",libAllSurahs:"كل السور",
   libType:"النوع",libLen:"المدة",libAnyLen:"أي مدة",libShort:"أقل من ١٠ دقائق",libMid:"١٠–٣٠ دقيقة",libLong:"أكثر من ٣٠ دقيقة",libSort:"الترتيب",libSortList:"ترتيب الأرشيف",libSortYear:"الأقدم أولًا",libSortYearD:"الأحدث أولًا",
-  libSortSurah:"ترتيب السور",libSortLen:"الأطول أولًا",libSortLenA:"الأقصر أولًا",libNone:"لا توجد تسجيلات تطابق هذه الاختيارات.",libInRadio:"{n} أخرى في التلاوات الإذاعية — عرض",libInLive:"{n} أخرى في التلاوات الخارجية — عرض",libMin:"{n} د",
+  libSortSurah:"ترتيب السور",libSortLen:"الأطول أولًا",libSortLenA:"الأقصر أولًا",libNone:"لا توجد تسجيلات تطابق هذه الاختيارات.",libInRadio:"{n} أخرى في التلاوات الإذاعية — عرض",libInLive:"{n} أخرى في التلاوات الخارجية — عرض",libInKhatma:"{n} في الختمة المشتركة الأولى (الختمات) — فتح",libMin:"{n} د",
   lkMosque:"المساجد",lkVenue:"أماكن ومناسبات",lkRadio:"الإذاعة",lkTv:"التلفزيون",lkStudio:"شركات التسجيل",lkCity:"مدن ومناطق (المكان غير مسمّى)",lkUnknown:"المكان غير معروف",
   tyPublic:"تلاوة خارجية",tyRadio:"إذاعة",tyTv:"تلفزيون",tyHome:"في المنزل",tyStudio:"تسجيل أسطوانة",tyKhatma:"ختمة مشتركة",tyComp:"مختارات",tyLost:"مفقودة (مقطع)",tyOther:"غير مذكور"});
 Object.assign(I18N.fr,{libTitle:"Bibliothèque des récitations"});Object.assign(I18N.de,{libTitle:"Rezitationsbibliothek"});Object.assign(I18N.tr,{libTitle:"Kıraat kütüphanesi"});
@@ -81,7 +81,7 @@ const libSlug=s=>s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace
 let LIB=null;
 function libBuild(){
   const areaCountry={};LIB_COUNTRIES.forEach(c=>c.areas.forEach(a=>areaCountry[a]=c.id));
-  const countries=LIB_COUNTRIES.map(c=>({...c,locs:new Map(),n:0,m:{live:0,radio:0}}));const byId=Object.fromEntries(countries.map(c=>[c.id,c]));
+  const countries=LIB_COUNTRIES.map(c=>({...c,locs:new Map(),n:0,m:{live:0,radio:0,khatma:0}}));const byId=Object.fromEntries(countries.map(c=>[c.id,c]));
   const refOf=new Map();
   AREAS.forEach((a,ai)=>a.secs.forEach((sc,si)=>sc.items.forEach((it,ii)=>{
     const c=byId[areaCountry[a.id]]||byId.nocountry;
@@ -101,14 +101,15 @@ function libBuild(){
     let L=c.locs.get(id);
     if(!L){L={id,en,ar,kind,country:c.id,refs:[]};c.locs.set(id,L)}
     else if(!L.ar&&ar)L.ar=ar;
-    /* the shared khatma of the early 1950s is one numbered series (K 1–35), part of it filed as radio: kept together */
-    const mode=(a.id==="bbc"||libType(sc.en,kind)==="radio"||/^Shared khatma/.test(en))?"radio":"live";
-    L.refs.push([ai,si,ii]);c.n++;L.m=L.m||{live:0,radio:0};L.m[mode]++;c.m=c.m||{live:0,radio:0};c.m[mode]++;
+    /* the shared khatma of the early 1950s (K 1–35) is the same archive.org item the Khatmas section plays
+       ("First Shared Khatma"): it belongs to Khatmas, not to the Live or Radio collections */
+    const mode=/^Shared khatma/.test(en)?"khatma":(a.id==="bbc"||libType(sc.en,kind)==="radio")?"radio":"live";
+    L.refs.push([ai,si,ii]);c.n++;L.m=L.m||{live:0,radio:0,khatma:0};L.m[mode]++;c.m=c.m||{live:0,radio:0,khatma:0};c.m[mode]++;
     refOf.set(it[0]+":"+it[1],{c:c.id,l:id,mode});
   })));
   for(const c of countries){c.locList=[...c.locs.values()].sort((x,y)=>LIB_KINDS.indexOf(x.kind)-LIB_KINDS.indexOf(y.kind)||y.refs.length-x.refs.length||x.en.localeCompare(y.en))}
   countries.sort((x,y)=>(x.id==="nocountry")-(y.id==="nocountry")||y.n-x.n);
-  for(const c of countries)for(const l of c.locList)l.m=l.m||{live:0,radio:0};
+  for(const c of countries)for(const l of c.locList)l.m=l.m||{live:0,radio:0,khatma:0};
   LIB={countries,byId,refOf};
   return LIB;
 }
@@ -144,11 +145,12 @@ function renderCollections(){
   $("#colTitle").textContent=t(M==="radio"?"radioTitle":"liveTitle");
   if(q){
     /* search: this collection first; matches in the other collection are offered with one tap */
-    const hits=[];let other=0;
+    const hits=[];let other=0,kh=0;
     for(const c of L.countries)for(const l of c.locList)for(const [ai,si,ii] of l.refs){const it=AREAS[ai].secs[si].items[ii];
-      if(norm(it.slice(2).join(" ")+" "+c.en+" "+c.ar+" "+l.en+" "+l.ar+" "+AREAS[ai].secs[si].en+" "+AREAS[ai].secs[si].ar).includes(q)){if(libModeOf(ai,si,ii)===M)hits.push([ai,si,ii,c,l]);else other++}}
+      if(norm(it.slice(2).join(" ")+" "+c.en+" "+c.ar+" "+l.en+" "+l.ar+" "+AREAS[ai].secs[si].en+" "+AREAS[ai].secs[si].ar).includes(q)){const md=libModeOf(ai,si,ii);if(md===M)hits.push([ai,si,ii,c,l]);else if(md==="khatma")kh++;else other++}}
     $("#colList").innerHTML=(hits.length?`<div class="card">${hits.slice(0,200).map(([ai,si,ii,c,l])=>libRow(ai,si,ii,libName(c)+" · "+libName(l)+(AREAS[ai].secs[si].items[ii][4]?" · "+AREAS[ai].secs[si].items[ii][4]:""))).join("")}</div>${hits.length>200?`<p class="note u-note">${hits.length} …</p>`:""}`:`<div class="empty">${t("noResults")}</div>`)+
-      (other?`<button class="card libother" data-libswitch>${fx2(M==="radio"?"libInLive":"libInRadio",{n:numFmt(other)})}</button>`:"");
+      (other?`<button class="card libother" data-libswitch>${fx2(M==="radio"?"libInLive":"libInRadio",{n:numFmt(other)})}</button>`:"")+
+      (kh?`<button class="card libother" data-libkhatma>${fx2("libInKhatma",{n:numFmt(kh)})}</button>`:"");
   }else{
     const cs=L.countries.filter(c=>c.m[M]);
     $("#colList").innerHTML=`<div class="agrid">${cs.map(c=>{const np=c.locList.filter(l=>l.m[M]).length;return `<button class="card atile" data-libc="${c.id}"><span class="an">${libName(c)}</span>${isAr()?"":`<span class="aa">${c.ar}</span>`}<span class="ac">${nRec(c.m[M])} · ${np} ${t(np===1?"libLocation":"libLocations")}</span></button>`}).join("")}</div>`;
@@ -158,7 +160,7 @@ function renderCollections(){
 function libHomeCount(){const L=lib();for(const M of ["live","radio"]){const el=$(M==="live"?"#egCountLive":"#egCountRadio");if(!el)continue;
   el.textContent=nRec(L.countries.reduce((n,c)=>n+c.m[M],0))+" · "+L.countries.filter(c=>c.m[M]&&c.id!=="nocountry").length+" "+t("libCountries")}}
 document.addEventListener("click",e=>{const b=e.target.closest("[data-colmode]");if(!b)return;S.colMode=b.dataset.colmode;save();$("#cq").value="";go("collections")});
-$("#colList").addEventListener("click",e=>{if(!e.target.closest("[data-libswitch]"))return;S.colMode=colMode()==="radio"?"live":"radio";save();renderCollections()});
+$("#colList").addEventListener("click",e=>{if(e.target.closest("[data-libkhatma]")){S.kid="k-sh1";save();go("khatma");return}if(!e.target.closest("[data-libswitch]"))return;S.colMode=colMode()==="radio"?"live":"radio";save();renderCollections()});
 $("#cq").addEventListener("input",renderCollections);
 $("#colList").addEventListener("click",e=>{const b=e.target.closest("[data-libc]");if(!b)return;S.libC=b.dataset.libc;save();$("#eq").value="";go("area")});
 /* a country: its places, grouped (mosques, venues, radio, TV, record companies, cities, not known) */

@@ -12,7 +12,7 @@ No recording was deleted, duplicated or renamed, and no ID, file, link, title or
 - **Country:** the country the recording is filed under. Masjid al-Aqsa is filed under Palestine and BBC under United Kingdom. Place unknown, unnamed radio, the Sheikh's home and lost recitations go under **Country not known**.
 - **Place:** the recording's own place field, taken from its source label. The same place written two ways is one place (see Merges).
 - **Place not named:** when the field only names the country, the recording goes to that country's **Location not known**. For radio or TV it goes to **Radio · station not named** or **TV · channel not named**, as its source says. A venue is never guessed.
-- **Live or radio:** a recording is in Radio recitations when its source labels it radio or its place is a radio station; everything else (public recitations, TV, at home) is in Live recitations. The shared khatma of the early 1950s is one numbered series (K 1–35), part of which was filed as radio, so it is kept together under Radio. A search in one collection offers the matches in the other with one tap.
+- **Live or radio:** a recording is in Radio recitations when its source labels it radio or its place is a radio station; everything else (public recitations, TV, at home) is in Live recitations. The shared khatma of the early 1950s (35 parts, K 1–35) is the same archive.org item that the Khatmas section plays as "First Shared Khatma", so it stays in Khatmas and is not part of Live or Radio. A search that matches its parts offers to open it there. A search in one collection offers the matches in the other with one tap.
 - **Type:** taken from the recording's source label: public recitation, radio, television, at home, studio record, shared khatma, compilation or lost fragment. Recordings at a radio or TV place count as radio or TV.
 - **Repeatable:** corrections to the data are made by `tools/library/organise.py`, only where the recording's own file name proves them. Each correction is listed below. Running it again changes nothing.
 
@@ -465,7 +465,7 @@ They are now all filed under that mosque. None was deleted; choose which to keep
 
 ## Final checks (automatic)
 
-- 2,739 recordings before and after, each in exactly one place and in exactly one of Live (2,354) and Radio (385); none missing or added.
+- 2,739 recordings before and after, each in exactly one place, and in exactly one of Live (2,354), Radio (350) and the shared khatma in Khatmas (35); none missing or added.
 - No title, year, file or link changed.
 - Every place has an English and an Arabic name.
 - No duplicate place IDs, and no duplicate places by the name comparison (except Zamalek, kept on purpose).
