@@ -41,8 +41,9 @@ function manifest() { return readJSON(path.join(VM, 'manifest.json'), {v: 1, rec
 
 async function list() {
   const out = arg('out', 'todo.json');
-  execFileSync('python3', [path.join(ROOT, 'tools/fingerprint/build_index.py'), 'list', '--out', out + '.all']);
-  const all = JSON.parse(fs.readFileSync(out + '.all', 'utf8')), man = manifest();
+  const allf = out.replace(/\.json$/, '') + '-all.json';
+  execFileSync('python3', [path.join(ROOT, 'tools/fingerprint/build_index.py'), 'list', '--out', allf]);
+  const all = JSON.parse(fs.readFileSync(allf, 'utf8')), man = manifest();
   const todo = all.filter(r => !man.recs[r.code] && !(man.failed || {})[r.code]);
   if (process.argv.includes('--retry-failed')) todo.push(...all.filter(r => (man.failed || {})[r.code]));
   fs.writeFileSync(out, JSON.stringify(todo));
