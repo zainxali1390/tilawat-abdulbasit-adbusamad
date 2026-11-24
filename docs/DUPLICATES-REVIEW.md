@@ -418,3 +418,7 @@ Each group is the **same audio** (found by sound), listed under different entrie
 - At-Tawbah · Aṭ-Ṭāriq · Al-Balad  
 - Ar-Raḥmān · Aṭ-Ṭāriq · Al-Aʿlā · Al-Layl  
 - Al-Ḥashr · At-Takwīr  
+
+## Found in the place reorganisation (24 November 2026)
+
+- Al-Ṣāliḥīn Mosque, Cairo, Friday 24 March 1978 (Hūd 36–45 · Al-Qiyāmah): **A 426 = X1 168** (same audio, same speed) **= E "مسجد الصالحين القاهرة مصر 1978"** (the same performance about 11 % slower, labelled "better quality"). Fingerprint comparison over the whole length.

@@ -111,8 +111,7 @@
     <div class="hcol hcol2">
 
     <div class="sec"><h4 data-i18n="collections"></h4></div>
-    <button class="card coll" data-colmode="live"><span class="cic"><svg data-ic="live"></svg></span><span class="tx"><b data-i18n="liveTitle"></b><small id="egCountLive"></small></span><svg class="chev flip" data-ic="chev"></svg></button>
-    <button class="card coll" data-colmode="radio"><span class="cic"><svg data-ic="radio"></svg></span><span class="tx"><b data-i18n="radioTitle"></b><small id="egCountRadio"></small></span><svg class="chev flip" data-ic="chev"></svg></button>
+    <button class="card coll" data-go="collections"><span class="cic"><svg data-ic="live"></svg></span><span class="tx"><b data-i18n="libTitle"></b><small id="libCount"></small><small class="libsub" data-i18n="libSub"></small></span><svg class="chev flip" data-ic="chev"></svg></button>
 
     <div class="sec"><h4 data-i18n="recent"></h4><button id="clrRecent" data-i18n="clear"></button></div>
     <div class="card" id="recentList"></div>
@@ -228,7 +227,7 @@
 <section class="screen" id="collections">
   <div class="bar"><button class="ib" data-back aria-label="Back"><svg class="flip" data-ic="back"></svg></button><h1 id="colTitle"></h1><span></span></div>
   <div class="body">
-    <label class="search"><svg data-ic="search"></svg><input id="cq" type="search" data-i18n-ph="searchEg" autocomplete="off"></label>
+    <label class="search"><svg data-ic="search"></svg><input id="cq" type="search" data-i18n-ph="libSearch" autocomplete="off"></label>
     <p class="note u-note" data-i18n="egNote"></p>
     <div id="colList"></div>
   </div>
@@ -242,6 +241,18 @@
       <div class="orn"><i></i><svg viewBox="0 0 16 16"><path d="M8 1l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="currentColor"/></svg><i></i></div></div>
     <label class="search"><svg data-ic="search"></svg><input id="eq" type="search" data-i18n-ph="searchEg" autocomplete="off"></label>
     <div id="eglist"></div>
+  </div>
+</section>
+
+<!-- LIBRARY PLACE (one mosque, radio station, venue…) -->
+<section class="screen" id="loc">
+  <div class="bar"><button class="ib" data-back aria-label="Back"><svg class="flip" data-ic="back"></svg></button><h1 id="locTitle"></h1><span></span></div>
+  <div class="body">
+    <div class="area-head"><div class="ttl-ar" id="locAr" lang="ar" dir="rtl"></div><div class="caps" id="locCountry"></div>
+      <div class="orn"><i></i><svg viewBox="0 0 16 16"><path d="M8 1l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="currentColor"/></svg><i></i></div></div>
+    <div id="locFilters" class="lfil"></div>
+    <label class="search"><svg data-ic="search"></svg><input id="lq" type="search" data-i18n-ph="libSearchLoc" autocomplete="off"></label>
+    <div id="locList"></div>
   </div>
 </section>
 
@@ -411,6 +422,7 @@
 <script src="js/utils.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/recitations.js"></script>
+<script src="js/library.js"></script>
 <script src="js/player.js"></script>
 <script src="js/mushaf.js"></script>
 <script src="js/mushaf-book.js"></script>

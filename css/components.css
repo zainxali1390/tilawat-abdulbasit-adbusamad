@@ -531,3 +531,20 @@ body.light #mushaf{--mp-bg:#fdfaf3;--mp-ink:#1b1810;--mp-acc:#a8823c;--mp-soft:#
 .fcopy .tx small{font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
 .fothers>small{display:block;font-size:12.5px;line-height:1.5;color:var(--muted);margin-bottom:6px}
 .fmore{margin-top:8px;height:34px;padding:0 14px;border-radius:17px;border:1px solid var(--line);color:var(--gold);font-size:13px}
+/* Recitations library: places of a country, a place's filters */
+.libsub{display:block;font-size:11px;color:var(--muted);margin-top:1px}
+.llist{padding:0;overflow:hidden;margin-bottom:12px}
+.lrow{display:flex;align-items:center;gap:10px;width:100%;padding:12px 14px;text-align:start}
+.lrow+.lrow{border-top:1px solid var(--line2)}
+.lrow .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.lrow .tx b{font-weight:500;font-size:14.5px;line-height:1.3}
+.lrow .tx small{font-family:var(--ar);font-size:14px;color:var(--gold);line-height:1.35}
+.lrow .cnt{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:22px;text-align:end}
+.lrow .chev{width:16px;height:16px;color:var(--muted);flex:none}
+.lfil{margin:2px 0 10px}
+.lfil .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.lfil .chip{height:32px;padding:0 12px;border-radius:16px;border:1px solid var(--line);font-size:12.5px;color:var(--text)}
+.lfil .chip.on{background:color-mix(in srgb,var(--gold) 18%,transparent);border-color:var(--gold);color:var(--gold)}
+.lsel{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
+.lsel label{display:flex;flex-direction:column;gap:3px;font-size:11px;color:var(--muted)}
+.lsel select{height:36px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);padding:0 10px;font:inherit;font-size:13px;max-width:100%}

@@ -32,7 +32,7 @@ function playTrack(tr,opt){
   if(!opt.noplay)au.play().catch(()=>{if(opt.shared)toast(t("tapToPlay"))});
   S.recent=[tr,...S.recent.filter(x=>x&&x.k!==tr.k)].slice(0,20);save();
   updatePlayer();renderRecent();
-  if($("#area").classList.contains("on"))renderArea();if($("#collections").classList.contains("on")&&$("#cq").value)renderCollections();
+  if($("#loc").classList.contains("on"))renderLoc();if($("#collections").classList.contains("on")&&$("#cq").value)renderCollections();
   if("mediaSession" in navigator){
     try{navigator.mediaSession.metadata=new MediaMetadata({title:trTitle(tr),artist:"Abdul Basit Abdul Samad",album:trSub(tr)});
       navigator.mediaSession.setActionHandler("previoustrack",()=>step(-1));
@@ -46,11 +46,12 @@ function playTrack(tr,opt){
     ms("seekforward",d=>seekTo(shownTime()+((d&&d.seekOffset)||10)));
   }
 }
-/* the list a recitation belongs to: its khatma, its section, or the full set of surahs */
+/* the list a recitation belongs to: its khatma, its place in the library, or the full set of surahs */
 async function sourceQueue(tr){
   if(tr.kh){const K=KHATMAS.find(x=>x.id===tr.kh);if(K&&!K.yt){try{const L=await kTracks(K);if(L.length)return L.map((x,j)=>Object.assign({},x,{kh:K.id,ki:j}))}catch(e){}}}
-  if(tr.eg&&tr.k&&tr.k.startsWith("eg:")){const m=tr.k.match(/^eg:([^:]+):(.*)$/);
-    for(let ai=0;ai<AREAS.length;ai++)for(let si=0;si<AREAS[ai].secs.length;si++){const sc=AREAS[ai].secs[si];if(sc.items.some(it=>it[0]===m[1]&&it[1]===m[2]))return sc.items.map((_,j)=>egTrack(ai,si,j))}}
+  /* a library recording: the recordings of its place, in the order (and with the filters) last chosen there */
+  if(tr.eg&&tr.k&&tr.k.startsWith("eg:")){const ll=libLocOf(tr);if(ll){const same=S.libC===ll.c.id&&S.libL===ll.l.id;const rs=same?libView(ll.l):ll.l.refs.map(r=>({r}));
+    const L=rs.map(x=>egTrack(...x.r));if(L.some(x=>x.k===tr.k))return L;return ll.l.refs.map(r=>egTrack(...r))}}
   if(!tr.eg&&tr.rec){const r=RECITATIONS.find(x=>x.id===tr.rec);if(r)return Object.keys(r.surahs).map(Number).sort((a,b)=>a-b).map(n=>surahTrack(r,n))}
   return [tr];
 }
@@ -193,16 +194,13 @@ function openSource(tr){
   if(!tr){go("player");return}
   const scrollTo=sel=>{let n=0;const tick=()=>{const el=document.querySelector(sel);if(el){const r=el.closest(".row,.s")||el;r.scrollIntoView({block:"center"});r.classList.add("flash");setTimeout(()=>r.classList.remove("flash"),1600)}else if(++n<25)setTimeout(tick,120)};setTimeout(tick,80)};
   if(tr.kh){S.kid=tr.kh;save();go("khatma");scrollTo("#kList .row.playing");return}
-  if(tr.eg&&tr.k&&tr.k.startsWith("eg:")){
-    const m=tr.k.match(/^eg:([^:]+):(.*)$/);
-    for(let ai=0;ai<AREAS.length;ai++)for(let si=0;si<AREAS[ai].secs.length;si++){
-      const ii=AREAS[ai].secs[si].items.findIndex(it=>it[0]===m[1]&&it[1]===m[2]);
-      if(ii<0)continue;
-      S.area=ai;S.colMode=isRadioSec(AREAS[ai],AREAS[ai].secs[si])?"radio":"live";save();
-      $("#eq").value="";egOpen.clear();egOpen.add(ai+":"+si);
-      if(location.hash==="#area")renderArea();go("area");
-      scrollTo(`#eglist [data-play="eg:${ai}:${si}:${ii}"]`);return;
-    }
+  /* a library recording: its place (country → place), scrolled to it */
+  const ll=libLocOf(tr);
+  if(ll){
+    S.libC=ll.c.id;S.libL=ll.l.id;S.libF={};save();$("#lq").value="";
+    if(location.hash==="#loc")renderLoc();go("loc");
+    const r=ll.l.refs.find(([ai,si,ii])=>{const it=AREAS[ai].secs[si].items[ii];return "eg:"+it[0]+":"+it[1]===tr.k});
+    if(r)scrollTo(`#locList [data-play="eg:${r[0]}:${r[1]}:${r[2]}"]`);return;
   }
   if(!tr.eg&&tr.n){go("surahs");scrollTo(`#slist [data-play="surah:${tr.n}"]`);return}
   go("player");

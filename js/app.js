@@ -18,7 +18,7 @@ setTimeout(leaveSplash,2000);
 
 /* press feedback for every tappable thing */
 (function(){
-  const SEL='button,a,label,select,summary,[role=button],[data-go],[data-back],[data-play],[data-area],[data-act],[data-tab],[data-ntab],[data-k],[data-kind],[data-kplay],[data-lang],[data-colmode],[data-bgc],[data-egsec],[data-share],[data-shr],[data-pick],[data-np],[data-npgo],[data-riw],[data-sgo],[data-trgo],[data-vact],[data-vgo],[data-vmenu],[data-vplay],[data-vsu],[data-theme],.row,.w,.tv[data-v],.tile,.atile,.chip,.li';
+  const SEL='button,a,label,select,summary,[role=button],[data-go],[data-back],[data-play],[data-area],[data-act],[data-tab],[data-ntab],[data-k],[data-kind],[data-kplay],[data-lang],[data-colmode],[data-libc],[data-libl],[data-lft],[data-bgc],[data-egsec],[data-share],[data-shr],[data-pick],[data-np],[data-npgo],[data-riw],[data-sgo],[data-trgo],[data-vact],[data-vgo],[data-vmenu],[data-vplay],[data-vsu],[data-theme],.row,.w,.tv[data-v],.tile,.atile,.chip,.li';
   let cur=null,t0=0;
   function find(el){
     for(let e=el;e&&e!==document.body;e=e.parentElement){

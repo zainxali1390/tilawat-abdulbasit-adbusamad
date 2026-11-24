@@ -36,46 +36,8 @@ function renderFavs(){
 }
 /* Live and Radio are two views of the same collection: radio sections (and BBC) go to Radio, everything else to Live */
 const isRadioSec=(a,sc)=>a.id==="bbc"||/radio/i.test(sc.en);
-const colMode=()=>S.colMode==="radio"?"radio":"live";
-const inMode=(a,sc,m)=>((m||colMode())==="radio")===isRadioSec(a,sc);
-const areaCount=(a,m)=>a.secs.reduce((n,sc)=>n+(inMode(a,sc,m)?sc.items.length:0),0);
-const modeTotal=m=>AREAS.reduce((n,a)=>n+areaCount(a,m),0);
 const nRec=n=>n+" "+(n===1&&S.lang==="en"?"recording":t("recordings"));
-function colCounts(){
-  for(const m of ["live","radio"]){const el=$(m==="live"?"#egCountLive":"#egCountRadio");if(el)el.textContent=nRec(modeTotal(m))+" · "+AREAS.filter(a=>areaCount(a,m)).length+" "+t("areas")}
-}
-document.addEventListener("click",e=>{const b=e.target.closest("[data-colmode]");if(!b)return;S.colMode=b.dataset.colmode;save();$("#cq").value="";go("collections")});
-function renderCollections(){
-  const q=norm($("#cq").value||"");
-  if(q){ // search across all areas
-    const hits=[];AREAS.forEach((a,ai)=>a.secs.forEach((sc,si)=>inMode(a,sc)&&sc.items.forEach((it,ii)=>{if(norm(it.slice(2).join(" ")+a.ar+a.en+sc.en+sc.ar).includes(q))hits.push([ai,si,ii])})));
-    $("#colList").innerHTML=hits.length?`<div class="card">${hits.slice(0,150).map(([ai,si,ii])=>rowHTML(egTrack(ai,si,ii),`data-play="eg:${ai}:${si}:${ii}"`)).join("")}</div>`:`<div class="empty">${t("noResults")}</div>`;
-  }else{
-    $("#colList").innerHTML=`<div class="agrid">${AREAS.map((a,ai)=>{const c=areaCount(a);if(!c)return "";return `<button class="card atile${c?"":" zero"}" data-area="${ai}"><span class="an">${isAr()?a.ar:a.en}</span>${isAr()?"":`<span class="aa">${a.ar}</span>`}<span class="ac">${c?c+" "+(c===1&&S.lang==="en"?"recording":t("recordings")):t("notFound")}</span></button>`}).join("")}</div>`;
-  }
-  $("#colTitle").textContent=t(colMode()==="radio"?"radioTitle":"liveTitle");
-  colCounts();
-}
-$("#cq").addEventListener("input",renderCollections);
-$("#colList").addEventListener("click",e=>{const b=e.target.closest("[data-area]");if(!b)return;S.area=+b.dataset.area;save();$("#eq").value="";egOpen.clear();go("area")});
-const egOpen=new Set();
-function renderArea(){
-  const ai=Math.min(AREAS.length-1,Math.max(0,S.area|0)),a=AREAS[ai];
-  $("#areaTitle").textContent=isAr()?a.ar:a.en;
-  $("#areaAr").textContent=isAr()?"":a.ar;$("#areaAr").hidden=isAr();
-  $("#areaCount").textContent=nRec(areaCount(a))+" · "+(n=>n+" "+(n===1&&S.lang==="en"?"section":t("sections")))(a.secs.filter(sc=>sc.items.length&&inMode(a,sc)).length);
-  const q=norm($("#eq").value||"");
-  $("#eglist").innerHTML=a.secs.map((sc,si)=>{
-    if(!sc.items.length||!inMode(a,sc))return "";
-    const rows=sc.items.map((it,ii)=>[it,ii]).filter(([it])=>!q||norm(it.slice(2).join(" ")+sc.ar+sc.en).includes(q));
-    if(q&&!rows.length)return "";
-    const id=ai+":"+si,open=q||egOpen.has(id);
-    return `<div class="card esec${open?" open":""}${sc.items.length?"":" zero"}"><button data-egsec="${id}"><b>${isAr()?sc.ar:sc.en}</b><span class="cnt">${rows.length}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">${P.chev}</svg></button><div class="rows">${!open?"":rows.length?rows.map(([it,ii])=>rowHTML(egTrack(ai,si,ii),`data-play="eg:${ai}:${si}:${ii}"`)).join(""):`<div class="empty">${t("notFoundSec")}</div>`}</div></div>`;
-  }).join("")||`<div class="empty">${t("noResults")}</div>`;
-}
-function renderEgypt(){renderCollections();if($("#area").classList.contains("on"))renderArea()}
-$("#eq").addEventListener("input",renderArea);
-$("#eglist").addEventListener("click",e=>{const b=e.target.closest("[data-egsec]");if(!b)return;const id=b.dataset.egsec;egOpen.has(id)?egOpen.delete(id):egOpen.add(id);const y=window.scrollY;renderArea();window.scrollTo(0,y)});
+/* the library screens (countries, places, recordings) are in js/library.js */
 $("#fq").addEventListener("input",renderFavs);
 function lsGet(k){try{const v=localStorage.getItem(k);return v?JSON.parse(v):null}catch(e){return null}}
 function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}

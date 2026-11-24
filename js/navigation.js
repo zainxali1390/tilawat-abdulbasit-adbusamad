@@ -1,5 +1,5 @@
 /* Screens and back/forward navigation (hash names) */
-const SCREENS=["khatma","collections","area","home","surahs","player","mushaf","translation","favourites","khatam","more","prefs","appearance","audio","notifs","about","language","finder"];
+const SCREENS=["khatma","collections","area","loc","home","surahs","player","mushaf","translation","favourites","khatam","more","prefs","appearance","audio","notifs","about","language","finder"];
 const TABS=["home","surahs","favourites","more"];
 let navDepth=0;
 function show(id){
@@ -16,6 +16,7 @@ function show(id){
   if(id==="mushaf")mOpen();
   if(id!=="mushaf"&&typeof stopVerses==="function"&&vQ)stopVerses();
   if(id==="area")renderArea();
+  if(id==="loc")renderLoc();
   window.scrollTo(0,0);
 }
 function go(id,replace){
@@ -29,4 +30,4 @@ window.addEventListener("hashchange",()=>{
   if(SCREENS.includes(id)){if(id!=="language"&&!S.lang){go("language",true);return}show(id)}
 });
 
-function renderAll(){renderCollections();if($("#area").classList.contains("on"))renderArea();renderSurahs();renderRecent();renderFavs();renderKhatam();if($("#mushaf").classList.contains("on")&&typeof mLabels==="function"){mLabels()}if($("#khatma").classList.contains("on"))drawKhatma&&kCur.K&&drawKhatma();renderTranslation();renderRecSel();renderToggles();updatePlayer()}
+function renderAll(){LIB=null;renderCollections();if($("#area").classList.contains("on"))renderArea();if($("#loc").classList.contains("on"))renderLoc();renderSurahs();renderRecent();renderFavs();renderKhatam();if($("#mushaf").classList.contains("on")&&typeof mLabels==="function"){mLabels()}if($("#khatma").classList.contains("on"))drawKhatma&&kCur.K&&drawKhatma();renderTranslation();renderRecSel();renderToggles();updatePlayer()}
