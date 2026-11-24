@@ -61,12 +61,12 @@ const LIB_KINDS=["mosque","venue","radio","tv","studio","city","unknown"];
 const LIB_KIND_KEY={mosque:"lkMosque",venue:"lkVenue",radio:"lkRadio",tv:"lkTv",studio:"lkStudio",city:"lkCity",unknown:"lkUnknown"};
 const LIB_TYPE_KEY={public:"tyPublic",radio:"tyRadio",tv:"tyTv",home:"tyHome",studio:"tyStudio",khatma:"tyKhatma",comp:"tyComp",lost:"tyLost",other:"tyOther"};
 function libKind(en){
-  if(!en||en===LIB_UNKNOWN.en||/not known|country not given|not named\)|East Asian country/.test(en))return /Mosque/.test(en)?"mosque":(/Radio/.test(en)?"radio":"unknown");
+  if(!en||en===LIB_UNKNOWN.en||/not known|country not given|not named\)|East Asian country/.test(en))return /Mosque/.test(en)?"mosque":(/Radio/.test(en)?"radio":(/^TV\b/.test(en)?"tv":"unknown"));
   if(/\bRadio\b|Sawt al-Arab/i.test(en))return "radio";
   if(/\bTV\b|interview/i.test(en))return "tv";
   if(/Mosque|Masjid|Ḥaram|Haram|Jamiʿ/i.test(en))return "mosque";
   if(/Mourphon|Sawt al-Qahira|Records?\b/i.test(en))return "studio";
-  if(/Square|Palace|University|home|khatma|Pavilion|Hall|Theatre|Club/i.test(en))return "venue";
+  if(/Square|Palace|University|home|khatma|Pavilion|Hall|Theatre|Club|Association|Dar al-Aytam/i.test(en))return "venue";
   return "city";
 }
 function libType(sec,kind){

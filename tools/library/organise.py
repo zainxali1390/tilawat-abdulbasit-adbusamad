@@ -238,17 +238,47 @@ def main(apply):
                 if it[6] == was:
                     log.append(dict(kind='place', rec='%s:%s' % (it[0], it[1]), title=it[3], year=it[4], was=was, now=now, evidence=why))
                     it[5], it[6] = ar, now
+    # the audit of every "Location not known" recording (tools/library/locate.py): confirmed places only
+    audit = os.path.join(ROOT, 'tools', 'library', 'research', 'audit-changes.json')
+    for ch in (json.load(open(audit, encoding='utf-8')) if os.path.exists(audit) else []):
+        hit = [(a, sc, it) for a in A for sc in a['secs'] for it in sc['items'] if it[0] == ch['key'] and it[1] == ch['file']]
+        if len(hit) != 1:
+            print('!! audit entry not found exactly once:', ch['key'], ch['file'][:60], len(hit)); continue
+        a, sc, it = hit[0]
+        if it[6] == ch['en'] and (not ch['area'] or a['id'] == ch['area']):
+            continue
+        if it[6] and it[6] != a['en'] and not ch.get('type_only'):
+            print('!! audit would overwrite a known place, skipped:', ch['code'][:60], it[6]); continue
+        was = '%s / %s' % (a['en'], it[6] or '(none)')
+        it[5], it[6] = ch['ar'], ch['en']
+        kind = 'type' if ch.get('type_only') else 'place'
+        if ch['area'] and ch['area'] != a['id']:
+            sc['items'].remove(it)
+            dest = AREA[ch['area']]
+            tsec = next((x for x in dest['secs'] if x['en'] == ch['sec']), None)
+            if not tsec:
+                ar = next((x['ar'] for b in A for x in b['secs'] if x['en'] == ch['sec']), ch['sec'])
+                tsec = {'en': ch['sec'], 'ar': ar, 'items': []}; dest['secs'].append(tsec)
+            tsec['items'].append(it)
+            kind = 'moved'
+        log.append(dict(kind=kind, audit=True, rec='%s:%s' % (it[0], it[1]), title=it[3], year=it[4], was=was,
+                        now=('%s / %s' % (AREA[ch['area']]['en'], ch['en'])) if kind == 'moved' else ch['en'], evidence=ch['evidence']))
     for a in A:
         a['secs'] = [sc for sc in a['secs'] if sc['items']]
     after = Counter('%s:%s' % (it[0], it[1]) for a in A for sc in a['secs'] for it in sc['items'])
     assert before == after, 'recordings changed!'
     for x in log:
         print('%-6s %-48s %s -> %s   [%s]' % (x['kind'], x['title'][:48], x['was'], x['now'], x['evidence'][:70]))
-    print(len([x for x in log if x['kind'] == 'moved']), 'moved,', len([x for x in log if x['kind'] == 'place']), 'places made exact;', sum(after.values()), 'recordings, all kept')
+    print(len([x for x in log if x['kind'] == 'moved']), 'moved,', len([x for x in log if x['kind'] == 'place']), 'places made exact,',
+          len([x for x in log if x['kind'] == 'type']), 'types named;', len([x for x in log if x.get('audit')]), 'from the location audit;',
+          sum(after.values()), 'recordings, all kept')
     if apply:
         bk = os.path.join(ROOT, 'data', 'backups', 'areas.before-locations-2026-11-24.js')
         if not os.path.exists(bk):
             shutil.copy(AREAS_JS, bk)
+        bk2 = os.path.join(ROOT, 'data', 'backups', 'areas.before-location-audit-2026-11-24.js')   # before the "not known" audit
+        if not os.path.exists(bk2):
+            shutil.copy(AREAS_JS, bk2)
         open(AREAS_JS, 'w', encoding='utf-8').write(s[:i] + json.dumps(A, ensure_ascii=False, separators=(',', ':')) + s[j:])
         json.dump(log, open(os.path.join(ROOT, 'tools', 'library', 'organise-log.json'), 'w'), ensure_ascii=False, indent=1)
 
