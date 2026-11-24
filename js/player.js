@@ -69,10 +69,21 @@ async function step(d){
   if(i>=Q.list.length){toast(t("lastInList"));return}
   Q.i=i;playTrack(Q.list[i]);
 }
+/* the play queue of a library recording: the list it was started from — its place, in the collection (live or
+   radio), with the filters and order shown on that screen — so auto-play and next/previous follow what is on screen */
+function libQueue(ai,si,ii){
+  const tr=egTrack(ai,si,ii),ll=libLocOf(tr);
+  if(!ll)return [AREAS[ai].secs[si].items.map((_,j)=>egTrack(ai,si,j)),ii];
+  const md=libModeOf(ai,si,ii),onScreen=$("#loc").classList.contains("on")&&S.libC===ll.c.id&&S.libL===ll.l.id&&colMode()===md;
+  let refs=onScreen?libView(ll.l).map(x=>x.r):ll.l.refs.filter(r=>libModeOf(...r)===md);
+  let i=refs.findIndex(r=>r[0]===ai&&r[1]===si&&r[2]===ii);
+  if(i<0){refs=ll.l.refs.filter(r=>libModeOf(...r)===md);i=Math.max(0,refs.findIndex(r=>r[0]===ai&&r[1]===si&&r[2]===ii))}
+  return [refs.map(r=>egTrack(...r)),i];
+}
 function startPlay(spec){
   const [kind,a,b]=spec.split(":");
   if(kind==="surah")playSurah(+a);
-  else if(kind==="eg"){const [ai,si,ii]=spec.split(":").slice(1).map(Number);playQueue(AREAS[ai].secs[si].items.map((_,j)=>egTrack(ai,si,j)),ii)}
+  else if(kind==="eg"){const [ai,si,ii]=spec.split(":").slice(1).map(Number);playQueue(...libQueue(ai,si,ii))}
   else if(kind==="recent")playQueue(S.recent.slice(),+a);
   else if(kind==="fav")playQueue(S.favs.slice(),+a);
 }
