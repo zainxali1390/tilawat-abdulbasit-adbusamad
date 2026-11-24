@@ -1,0 +1,7 @@
+{
+  "name": "abdulbasit-verse-map",
+  "private": true,
+  "type": "module",
+  "description": "Verse map of the recording library (see analyse.mjs)",
+  "dependencies": { "@huggingface/transformers": "3.7.1" }
+}
