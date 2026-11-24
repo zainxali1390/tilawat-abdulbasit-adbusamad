@@ -41,9 +41,9 @@ All of them were checked by sound against the library:
   Every addition was checked by sound again after it was indexed; copies found then were removed again.
 - **Not added**: files that name no surah, processed/echo copies, repeats of the same new recording, and anything
   the sound check could not settle (flagged).
-- **Existing entries corrected from labelled copies of the same audio: 13** — country, mosque, year or radio
+- **Existing entries corrected from labelled copies of the same audio: 182** — country, mosque, year or radio
   station filled in or made exact, and entries moved out of "Place unknown" when a copy of the same audio names the
-  place. Where copies disagree with each other or with the entry, nothing was changed (4 cases, flagged).
+  place. Where copies disagree with each other or with the entry, nothing was changed (66 cases, flagged).
 
 **Library now: 2739 live and radio recordings** (351 radio; Egyptian radio 119, up from 68).
 
