@@ -4,7 +4,7 @@
   python check_audio.py merge --list candidates.json --parts parts/ --out report.json
 
 The list is [{"id": .., "url": .., "length": seconds, "self": recording number or null}, ...].
-Three 25 s samples of each file (at about 15 %, 50 % and 82 %) are read straight from the web address (ffmpeg
+Three 25 s samples of each file (at about 15 %, 50 % and 82 %; more if the list asks with "windows") are read straight from the web address (ffmpeg
 seeks inside the file, so the whole file is not downloaded) and searched in fp/. "self" is left out of the search,
 so a recording already in the library can be checked against all the others.
 """
@@ -18,15 +18,16 @@ from match import Index
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 
 
-def windows(L):
+def windows(L, n=3):
     if not L or L < 40:
         return [0]
-    return sorted(set(max(5, min(int(L * f), int(L) - 30)) for f in (0.15, 0.5, 0.82)))
+    fr = (0.15, 0.5, 0.82) if n == 3 else [0.06 + 0.88 * k / (n - 1) for k in range(n)]
+    return sorted(set(max(5, min(int(L * f), int(L) - 30)) for f in fr))
 
 
 def check(idx, c):
     out = []
-    for t in windows(c.get('length')):
+    for t in windows(c.get('length'), c.get('windows', 3)):
         try:
             x = load_audio(c['url'], start=t, dur=25)
         except Exception as e:
