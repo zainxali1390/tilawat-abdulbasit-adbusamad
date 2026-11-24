@@ -207,7 +207,7 @@ function renderLoc(){
   $("#locTitle").textContent=libName(l);$("#locAr").textContent=libOther(l);$("#locAr").hidden=isAr()||!l.ar;
   const M=colMode(),mine=l.refs.filter(inColMode);
   $("#locCountry").textContent=libName(c)+" · "+t(M==="radio"?"radioTitle":"liveTitle")+" · "+nRec(mine.length);
-  const f=S.libF=S.libF||{};
+  const f=S.libF=S.libF||{};delete f.len;delete f.sort;
   /* filters offer only what this place has */
   const types=[...new Set(mine.map(r=>libRecType(...r)))],years=[...new Set(mine.map(r=>libDecade(AREAS[r[0]].secs[r[1]].items[r[2]][4])||"none"))].sort();
   const surahs=[...new Set(mine.flatMap(r=>trSurahs(egTrack(...r))))].sort((a,b)=>a-b);
@@ -217,8 +217,6 @@ function renderLoc(){
     `<div class="lsel">`+
     (years.length>1?`<label><span>${t("libYear")}</span><select data-lf="year">${opt("",t("libAllYears"),f.year)}${years.map(y=>opt(y,y==="none"?t("libNoDate"):(isAr()?(LIB_DEC_AR[y]||y):y),f.year)).join("")}</select></label>`:"")+
     (surahs.length>1?`<label><span>${t("libSurah")}</span><select data-lf="surah">${opt("",t("libAllSurahs"),f.surah)}${surahs.map(n=>opt(n,numFmt(n)+". "+(isAr()?SURAHS[n-1][0]:SURAHS[n-1][1]),f.surah)).join("")}</select></label>`:"")+
-    (LIBLEN.map&&mine.length>1?`<label><span>${t("libLen")}</span><select data-lf="len">${opt("",t("libAnyLen"),f.len)}${opt("s",t("libShort"),f.len)}${opt("m",t("libMid"),f.len)}${opt("l",t("libLong"),f.len)}</select></label>`:"")+
-    (mine.length>1?`<label><span>${t("libSort")}</span><select data-lf="sort">${[["list","libSortList"],["year","libSortYear"],["yeard","libSortYearD"],["surah","libSortSurah"]].concat(LIBLEN.map?[["len","libSortLen"],["lena","libSortLenA"]]:[]).map(([v,k])=>opt(v,t(k),f.sort||"list")).join("")}</select></label>`:"")+
     `</div>`;
   const rs=libView(l);
   $("#locList").innerHTML=rs.length?`<div class="card">${rs.map(x=>libRow(...x.r)).join("")}</div>`:`<div class="empty">${t("libNone")}</div>`;
