@@ -22,6 +22,31 @@ A backup of the database before this audit is in `data/backups/areas.before-name
 - **The Quran text data** already in the app (surah names in Arabic and English, verse counts) to check names and verse ranges.
 - Not used: guesses, other websites' unsourced claims, or assumptions from a recording's collection when its own label said otherwise.
 
+## Second pass (after "Ghāfir is missing from Egyptian radio")
+
+The first pass only searched archive.org collections the app did **not** use. The collections the app already used
+still held **1,732 files that had never been imported** — for example "اذاعة مصر الستينات النصف ساعة – غافر 1-20"
+(Ghāfir 1–20, Egyptian radio, 1960s), which is now under Egypt → Radio recitations 1960s.
+
+All of them were checked by sound against the library:
+
+| Result | Files |
+|---|---|
+| Copies of recordings already in the library | 1,031 |
+| Not in the library | 415 |
+| Unclear (not added) | 100 |
+| Known duplicates removed earlier (skipped) | 183 |
+
+- **Added: 300 recordings** (238 after the first sound check, 62 more after look-alikes were settled by an 8-point sound check).
+  Every addition was checked by sound again after it was indexed; copies found then were removed again.
+- **Not added**: files that name no surah, processed/echo copies, repeats of the same new recording, and anything
+  the sound check could not settle (flagged).
+- **Existing entries corrected from labelled copies of the same audio: 13** — country, mosque, year or radio
+  station filled in or made exact, and entries moved out of "Place unknown" when a copy of the same audio names the
+  place. Where copies disagree with each other or with the entry, nothing was changed (4 cases, flagged).
+
+**Library now: 2739 live and radio recordings** (351 radio; Egyptian radio 119, up from 68).
+
 ## 1. Names corrected (25)
 
 | Was | Now | Why (source label) |
