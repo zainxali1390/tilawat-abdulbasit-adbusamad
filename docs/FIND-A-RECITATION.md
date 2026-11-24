@@ -1,59 +1,131 @@
 # Find a recitation — how it works, how well it works, and its limits
 
 ## What it does
-You give the app a clip of Sheikh Abdul Basit (an audio or video file, or a recording made with the microphone).
-It tells you which recording in the app's library the clip comes from, where in that recording (start and end
-time), how sure it is, and lets you play from that moment, play just that section, play the whole recitation,
-open the surah in the Mushaf or save it (favourite + pin at the moment).
+You give the app a clip of Sheikh Abdul Basit: an audio or video file, a recording made with the microphone, or a
+link to an audio or video file. It answers three questions:
+
+1. **Which recording is this, and where in it?** The recording in the library the clip comes from, and the exact start and end time in that recording.
+2. **What is being recited?** The surah (Arabic and English) and the ayah range, recognised from the recitation itself.
+3. **Where can I hear all of it?** Play from the moment, play just that section or the whole recitation, copy a link
+   that opens the recording at that moment, open the original file, read the verses in the Mushaf, or save it
+   (a favourite plus a pin at the moment).
+
+Each result shows:
+- surah and ayahs
+- recording title
+- category (Egyptian Radio, Egyptian recording, mosque, radio outside Egypt, …)
+- date
+- riwayah, when the label states it
+- start and end time
+- confidence, and whether it is a **confirmed** or **possible** match.
+
+## What changed in this version (review of the earlier finder)
+The earlier finder used sound fingerprints only. Its limits, and what was done about each:
+
+| Limit of the earlier finder | Now |
+|---|---|
+| It never knew *what* was recited: no surah or ayahs, only the recording's title | **Verse recognition** (below): surah and ayah range from the recitation itself |
+| A clip from a recording not in the library got only "no match" | It says plainly that the original was not found, still names the surah and ayahs, and lists the library's recordings that contain that passage by their labels, clearly marked as **other** recordings |
+| Copies of the same recording were listed in whatever order they scored | Copies are one result. The copy shown first follows Egyptian Radio → other Egyptian recordings → mosque → radio outside Egypt → radio (station not named) → other → studio sets, each copy with its own times |
+| Same recording at the same place could appear twice | Results are de-duplicated across copies |
+| Speed: only "faster and higher" (resampled) ±3 % / ±6 % | Also **tempo changes with the pitch kept** (what video apps do): ±3 %, ±6 %, ±10 %, ±25 % |
+| No links | Links to audio/video files (archive.org page links are converted to the file); video-site links get a clear explanation |
+| Every search downloaded the index parts again, and the same clip was searched again | Index parts are kept on the phone until the index is rebuilt, and results are remembered per clip (by its contents) |
+| Results had no category, ayahs, full-file link or shareable time link | Added |
+| "Read the surah" opened the first surah of the title | Opens the recognised ayah's page |
+| Little progress during long steps | Progress bar for the index download, the model download and the verse recognition |
 
 ## How it works
-1. **Fingerprints, not transcription.** Every recording is turned into "landmarks": pairs of the strongest points
-   of its spectrogram (time, pitch), as in Shazam-style recognition (`tools/fingerprint/fpcore.py`). Landmarks
-   survive compression, low quality, background noise, volume changes and trimming. They identify a *recording*,
-   not a voice.
-2. **The index** of all recordings (2,517 recordings, 1,078 hours, ~49 million landmarks, ~200 MB) is built by
-   GitHub Actions (`.github/workflows/fingerprint-index.yml`): each recording is downloaded, fingerprinted and
-   deleted; only the fingerprints are committed to `fp/`, split into 65,536 small files.
-3. **On the phone** (`js/fp.js`, `js/finder.js`) the clip is decoded, its landmarks are made with exactly the same
-   method (verified identical to the Python version), and only the index files those landmarks fall in are
-   downloaded (about 0.5–3.5 MB for a 15–20 s clip). The clip itself never leaves the phone.
-4. **Matching.** Landmarks that agree on the same recording at the same time offset vote for it. A recording scores
-   by how many *different moments* of the clip agree, and over how many seconds they are spread: a real match agrees
-   all along the clip, chance agreement comes from one or two moments. The offset gives the position (to ~0.05 s).
-5. **Verification.** "Confirmed" needs ≥ 6 agreeing moments over ≥ 3 seconds and at least 2.5 × the best other
-   recording; "possible" needs ≥ 4 moments over ≥ 2 seconds and 1.8 ×; anything less is "no reliable match".
-   If nothing is confirmed, the clip is tried again at ±3 % and ±6 % speed (social-media speed changes).
-6. **Long clips** (over 25 s) are searched in 15 s blocks; blocks that agree become sections, so a video with
-   several parts gives several results with their own times.
-7. **Copies.** The library contains some recordings more than once (different collections, different edits).
-   A second copy that agrees all along the clip is listed as "also found in another copy", not as a rival.
+### 1. Sound fingerprints: which recording, and where
+- **Landmarks.** Every recording is turned into "landmarks": pairs of the strongest points of its spectrogram (time, pitch), the method behind Shazam (`tools/fingerprint/fpcore.py`). They survive:
+  - compression and low quality
+  - noise and echo
+  - volume changes and trimming.
 
-## Test results (real Abdul Basit recordings, full index of 2,517 recordings)
-Clips cut from 14 real recordings and degraded the way real clips are:
-| Clip | Result |
+  They identify a *recording*, not a voice, so two performances of the same surah are never confused.
+- **The index** covers 3,080 recordings (1,351 hours) and is split into 65,536 small files in `fp/`. GitHub Actions builds it (`.github/workflows/fingerprint-index.yml`) whenever `data/areas.js` changes.
+- **On the phone** (`js/fp.js`, `js/finder.js`):
+  - The clip is fingerprinted the same way (verified identical to the Python version).
+  - Only the index files its landmarks fall in are downloaded.
+  - The clip never leaves the phone.
+- **Matching.** A recording scores by how many *different moments* of the clip agree on the same time offset, and how far apart they are spread. The offset gives the position to about 0.05 s.
+- **Levels:**
+  - **Confirmed** needs at least 6 agreeing moments over at least 3 s, and at least 2.5 × the best other recording.
+  - **Possible** needs at least 4 moments over at least 2 s, and 1.8 ×.
+  - Anything less is "no reliable match".
+- **Speed changes.** If nothing is confirmed, the clip is tried again with the speed changed both ways: resampled (speed and pitch change together), and time-stretched with the pitch kept.
+- **Long clips and edits.** Clips over 25 s are searched in 15 s blocks. Blocks that agree become sections, so a video edited from several recordings, or with cuts, gives one result per section with its own times.
+
+### 2. Verse recognition: which surah and ayahs (`js/ayah.js`)
+- **Speech model.** The clip is transcribed on the phone by `models/whisper-tiny-ar-quran`, a speech model trained on Quran recitation (Apache 2.0).
+  - It runs in a background worker, so the screen stays responsive.
+  - About 63 MB, downloaded once and then kept by the browser.
+  - It can be switched off on the screen.
+- **Placing the transcript.** The transcript is placed in the Quran text (`data/quran-uthmani.txt`) by matching 4-letter groups:
+  - Vowel marks, hamzas and alifs are removed on both sides, so small mistakes of the model and differences of spelling don't stop a match.
+  - Letter groups found in few places of the Quran fix the alignment.
+  - Repeats and going back (common in live recitation) still count.
+- **Levels:**
+  - **Confirmed** when most of the transcript lines up in one place and no other place comes close.
+  - Repeated verses (e.g. "فبأي آلاء ربكما تكذبان") come back as **possible**, with the other places listed.
+- **Working with the sound match:**
+  - When the recording is found by sound, its label is checked against the verses heard ("agrees with the label", or "the label doesn't list Sūrah X").
+  - If the transcript alone is unclear, it is placed within the surahs of the recording found. That is shown as such, never as independent agreement.
+  - A weak (possible) sound match that contradicts clearly recognised verses is left out.
+  - An unclear verse guess that contradicts the label of a confirmed recording is not shown.
+
+### 3. Categories and the copy shown first
+- **Where categories come from.** Only from the library's filing, which comes from the source labels:
+  - **Egyptian Radio** = filed under Egypt › Radio recitations.
+  - **Egyptian recording** = other Egypt sections.
+  - **Mosque** = Masjid al-Aqsa, or the place label names a mosque or Haram.
+  - **Radio outside Egypt**, **Radio · station not named**, **Other**, **Studio set**.
+- Nothing is labelled Egyptian Radio without that filing.
+
+## Test results
+The full index (3,080 recordings) was used, through the real screen in a browser. Clips were cut from 14 real recordings and changed the way real clips are:
+- MP3
+- MP4 video
+- voice note
+- noise, quiet, phone speaker
+- echo and noise
+- band-limited low bitrate
+- resampled +3 %
+- tempo ±5 % / +10 % (also in video)
+- 4.5 s and 6 s clips
+- a 70 s video edited from three recordings.
+
+| | Result |
 |---|---|
-| MP3 15 s, video (AAC in MP4) 15 s, WhatsApp-style voice note 20 s, pink noise 20 s, very quiet 15 s | all confirmed, correct recording and time (±0.1 s) |
-| Simulated phone recording of a speaker (band-limited, room echo, hiss, low bitrate) 20 s | 2 of 3 confirmed, 1 "no match" |
-| Sped up 3 % (pitch and tempo) | confirmed after the speed search |
-| 6 s clips | mostly confirmed, sometimes only "possible" or none |
-| 70 s video with three different recordings | all three sections found with times |
-| Clips from recordings not in the library (Khatmat al-Arbaʿ, quarter 2) | correctly "no reliable match" |
-No wrong recording was confirmed: every "wrong" result checked turned out to be another copy of the same
-recording in the library (for example X6 709 and X6 711 are the same Al-Infiṭār with pauses cut; the built-in
-Khatmat al-Arbaʿ quarter 1 is the same as C 0632).
+| Recording and time (sound) | 40 of 44 clips confirmed with the right recording and time (within 0.15 s), including all 3 sections of the edited video; every tempo-changed clip was found after the speed search |
+| The other 4 | 2 found a *copy* of the same audio (same recording, another file); 2 gave "no match" (a simulated phone-speaker recording, and a 4.5 s clip) |
+| Wrong recording confirmed | **none** |
+| Verses (clear recitation, e.g. Khatmat al-Arbaʿ) | right surah and ayah, confirmed |
+| Verses (old live recordings with long melodic passages and crowd noise) | often "not recognised" or "possible"; when the recording is found by sound, the verses are placed within its surahs |
+| Clip from a recording not in the library | "The original recording wasn't found", the right surah and ayah, and the library's recordings containing that passage by their labels (marked as other recordings) |
+| Video-site links | explained, not attempted; direct file links work |
+
+The verse matcher on its own was tested on 2,000 random Quran passages of 4–14 words with about 20 % of the words damaged:
+- 1,489 (74 %) were confirmed, all at the right place.
+- The rest came back possible or with no answer.
+- In earlier runs, about 1 in 2,000 confirmed answers had a starting ayah 2 off: a 5-word phrase that occurs in two nearby ayahs.
 
 ## Limits
-- It finds **recordings that are in the library**. A clip from a recording the app doesn't have gets "no reliable
-  match" — it cannot be placed in a recording that isn't there. It does not recognise "his voice" in general and
-  does not read the verses (no speech recognition).
-- Best with **10–30 s of clear recitation**. Very short clips, loud talking or music over the recitation, or a
-  phone held far from a speaker in a noisy room may not match.
-- Speed changes up to about ±6 % are handled; changing tempo without pitch (or pitch without tempo) is not.
-- One recording (`e:C:0959`) could not be downloaded when the index was built, so it can't be found.
-- "Read the surah" opens the first surah of the recording, not the exact verse (the fingerprint knows the time, not
-  the verse).
-- Searching needs an internet connection (to fetch the index parts).
+- **Recording identification** works only for recordings in the library. A clip from a recording the app doesn't have can't be placed in that recording. The app then says so, and gives the verses and other recordings of the passage.
+- **Verse recognition** depends on a small speech model that runs on a phone. It is good on clear recitation and weak on old, noisy live recordings with long melodic stretches. When it is unsure it says so, or shows nothing, rather than guess.
+- **Qirāʾāt / riwāyāt** are not recognised from the sound. The riwayah is shown only where the recording's label states it (the full sets: Hafs or Warsh). The verse matcher ignores hamzas, alifs and vowels, so a Warsh clip is still placed, but it is not *identified* as Warsh.
+- **Short or noisy clips.**
+  - Best with 10–30 s of clear recitation.
+  - Clips under about 5 s, loud talking or music over the recitation, or a phone far from a speaker may not match.
+  - Clips need at least 4 seconds.
+- **Long files.**
+  - Only the first 10 minutes of a clip are searched.
+  - Very long videos may not decode in a phone browser; trim them first.
+- **Links.** Videos on YouTube, Instagram, TikTok, Facebook and similar sites can't be read from a web app. Save the video, then choose the file.
+- **Copies not always shown.** Copies of a recording appear only when they also match the clip strongly. Known duplicates are listed in `docs/DUPLICATES-REVIEW.md`.
+- **Connection.** Searching needs an internet connection (index parts and, the first time, the speech model).
 
-## Adding recordings
-Add them to `data/areas.js` as usual, then run the workflow (Actions → Build recording index → Run workflow).
-A full rebuild takes about 10 minutes.
+## Adding recordings (the reference database grows with the library)
+Add recordings to `data/areas.js` as usual. The index workflow runs by itself, or from Actions → Build recording index → Run workflow, and takes about 10 minutes. New recordings are then found by sound, their category comes from where they are filed, and their verses from their titles.
+
+To check new files for duplicates before adding them, use `tools/fingerprint/check_audio.py` (workflow `fingerprint-check.yml`).

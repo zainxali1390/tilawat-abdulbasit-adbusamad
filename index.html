@@ -355,9 +355,11 @@
         <label class="btn-gold fpick"><input type="file" id="fFile" accept="audio/*,video/*" hidden><svg data-ic="upload"></svg><span data-i18n="fChoose"></span></label>
         <button class="fbtn2" id="fRec"><svg data-ic="mic"></svg><span id="fRecTx"></span></button>
       </div>
+      <form class="flink" id="fLinkF"><input type="url" id="fLink" inputmode="url" autocomplete="off" spellcheck="false"><button type="submit" id="fLinkGo"></button></form>
+      <label class="fopt"><input type="checkbox" id="fVerseOpt" checked><span data-i18n="fVerseOpt"></span></label>
       <p class="fnote" data-i18n="fTip"></p>
     </div>
-    <div class="card fstatus" id="fStatus" hidden><div class="sp"></div><div class="ftx"><b id="fStep"></b><small id="fStepSub"></small></div></div>
+    <div class="card fstatus" id="fStatus" hidden><div class="sp"></div><div class="ftx"><b id="fStep"></b><small id="fStepSub"></small><div class="fprog" id="fProg" hidden><i></i></div></div></div>
     <div id="fResults"></div>
     <p class="fnote fabout" id="fAbout"></p>
   </div>
@@ -416,6 +418,7 @@
 <script src="js/pins.js"></script>
 <script src="js/share.js"></script>
 <script src="js/fp.js"></script>
+<script src="js/ayah.js"></script>
 <script src="js/finder.js"></script>
 <script src="js/app.js"></script>
 <script src="js/pwa.js"></script>

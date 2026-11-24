@@ -51,5 +51,13 @@ function landmarks(pk,fan){
 function fingerprint(x,density){return landmarks(peaks(spectrogram(x),density[0]),density[1])}
 /* resample by a factor (for clips that were sped up or slowed down) — linear interpolation */
 function resample(x,factor){const n=Math.floor(x.length/factor),y=new Float32Array(n);for(let i=0;i<n;i++){const p=i*factor,a=Math.floor(p),f=p-a;y[i]=(x[a]||0)*(1-f)+(x[a+1]||0)*f}return y}
-G.FPRINT={FP,spectrogram,peaks,landmarks,fingerprint,resample,QUERY:[10,4],INDEX:[6,3]};
+/* a clip sped up or slowed down WITHOUT changing the pitch (what most video apps do): the peaks keep their
+   frequencies and only their times are stretched by k (original length / clip length) */
+function fingerprintTempo(x,density,k){
+  const pk=peaks(spectrogram(x),density[0]),seen=new Set(),out=[];
+  for(const [t,f,v] of pk){const t2=Math.round(t*k),key=t2*256+f;if(seen.has(key))continue;seen.add(key);out.push([t2,f,v])}
+  out.sort((a,b)=>a[0]-b[0]||a[1]-b[1]);
+  return landmarks(out,density[1]);
+}
+G.FPRINT={FP,spectrogram,peaks,landmarks,fingerprint,fingerprintTempo,resample,QUERY:[10,4],INDEX:[6,3]};
 })(typeof window!=="undefined"?window:globalThis);

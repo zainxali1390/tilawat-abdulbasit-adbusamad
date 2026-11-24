@@ -504,3 +504,33 @@ body.light #mushaf{--mp-bg:#fdfaf3;--mp-ink:#1b1810;--mp-acc:#a8823c;--mp-soft:#
 .facts .btn-gold svg{color:var(--on-gold)}
 .fstatus .sp{width:22px;height:22px;border-radius:50%;border:2.5px solid var(--line);border-top-color:var(--gold);animation:fspin .8s linear infinite}
 @keyframes fspin{to{transform:rotate(360deg)}}
+/* Find a recitation: link, verses option, progress, verses and categories */
+.flink{display:flex;gap:8px;margin:14px 0 0}
+.flink input{flex:1;min-width:0;height:40px;padding:0 12px;border-radius:20px;border:1px solid var(--line);background:var(--card2);color:var(--text);font:inherit;font-size:13.5px}
+.flink button{height:40px;padding:0 16px;border-radius:20px;border:1px solid var(--line);color:var(--gold);font-size:13.5px}
+.fopt{display:flex;align-items:flex-start;gap:8px;margin:12px 2px 0;text-align:start;font-size:12.5px;line-height:1.45;color:var(--muted);cursor:pointer}
+.fopt input{margin:2px 0 0;accent-color:var(--gold);flex:none}
+.fprog{height:4px;border-radius:2px;background:var(--line);margin-top:8px;overflow:hidden;width:min(240px,60vw)}
+.fprog i{display:block;height:100%;width:0;background:var(--gold);transition:width .2s}
+.fverse{margin:0 0 12px;padding:10px 12px;border-radius:12px;background:var(--card2);display:flex;flex-direction:column;gap:3px}
+.fverse small{font-size:11.5px;color:var(--muted)}
+.fverse.none span{font-size:13px;color:var(--muted)}
+.fverse.possible{border:1px dashed var(--line)}
+.fsura{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;font-size:15.5px;font-weight:600}
+.fsura span[lang=ar]{font-size:17px}
+.fay{font-size:13.5px;color:var(--gold);font-variant-numeric:tabular-nums}
+.falts{margin-top:2px}
+.fres.verses .fverse{margin-bottom:8px}
+.fmeta{display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:8px;font-size:12px;color:var(--muted)}
+.fcat{font-weight:600;color:var(--text);padding:2px 9px;border-radius:10px;background:color-mix(in srgb,var(--gold) 14%,transparent)}
+.fcat.c1{color:var(--gold)}
+.fok{color:var(--gold)}
+.fwarn{color:#e0a060}
+.facts .fbtnlink{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 13px;border-radius:18px;border:1px solid var(--line);font-size:13px;color:var(--text);text-decoration:none}
+.facts .fbtnlink svg{width:15px;height:15px;color:var(--gold);transform:rotate(45deg)}
+.fcopy{display:flex;align-items:center;gap:10px;padding:6px 0}
+.fcopy .tx{flex:1;min-width:0;display:flex;flex-direction:column}
+.fcopy .tx span{font-size:13px}
+.fcopy .tx small{font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.fothers>small{display:block;font-size:12.5px;line-height:1.5;color:var(--muted);margin-bottom:6px}
+.fmore{margin-top:8px;height:34px;padding:0 14px;border-radius:17px;border:1px solid var(--line);color:var(--gold);font-size:13px}
