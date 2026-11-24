@@ -95,6 +95,21 @@ The "time off" cases in the test are:
 | Verse matcher alone, 2,000 damaged passages | About 1 in 1,000 confirmed answers has the right surah but a start ayah 2–4 off | Phrases the Quran repeats a few ayahs apart (e.g. "ويل يومئذ للمكذبين") |
 
 ## The library's verse map
-Every recording is analysed once by the Quran speech model (`tools/verses/analyse.mjs`, workflow "Build verse map"), and the results are stored in `vm/`. The finder uses this map to check each sound match against what that recording recites at the matched point.
+Every recording in the library has been analysed: **3,081 recordings, none failed**. One 30 s stretch every 60 s, 82,442 stretches in all, was placed in the Quran text. The results are stored in `vm/`, with the raw transcripts kept so better matching never needs to listen again.
 
-The first full run was started on 24 November 2026; see the end of this file for its coverage once it finished.
+| | |
+|---|---|
+| Stretches confidently placed | 30,350 (37 %) |
+| Stretches placed as "possible" | 17,522 (21 %) |
+| Stretches not recognised (mostly old, noisy live recordings) | 34,570 (42 %) |
+| Recordings with at least one confirmed place | 2,406 of 3,081 (78 %) |
+| Recordings whose title names surahs, checked (2 or more confirmed stretches) | 1,857 |
+| … agreeing with their title | **1,839 (99 %)** |
+| … disagreeing entirely (listed for review in `docs/TITLE-CHECK.md`) | 18 |
+
+**How the finder uses the map:**
+- It checks each sound match against what that recording recites at the matched point, and demotes the match if the verses contradict it.
+- It shows the verses there when the clip's own speech recognition fails.
+- When the original isn't in the library, it lists recordings that contain the recognised passage, with the time in each.
+
+New recordings are analysed automatically when they are added.
