@@ -174,7 +174,11 @@ async function finderSearch(x,onStep,factor,mode,budget){
   for(const b of blocks)if(b.lms.length>per){const step=b.lms.length/per;b.lms=Array.from({length:per},(_,i)=>b.lms[Math.floor(i*step)])}
   const shards=await finderFetchAll(blocks.flatMap(b=>b.lms.map(l=>l[0])),onStep);
   for(const b of blocks){b.c=finderVote(b.lms,shards,man.tunit||1)}
-  return {man,blocks,shards,dur,ydur};
+  /* denser landmarks of the same signal, made only when a cut between two recordings has to be placed */
+  const dense=()=>mode==="t"&&factor!==1?FPRINT.fingerprintTempo(x,[20,8],factor):FPRINT.fingerprint(factor&&factor!==1?FPRINT.resample(x,factor):x,[20,8]);
+  /* the signal in the search's time frame (time-stretched clips: times scaled by k), for finding cuts */
+  const sig=mode==="t"&&factor!==1?{x,k:factor}:{x:factor&&factor!==1?FPRINT.resample(x,factor):x,k:1};
+  return {man,blocks,shards,dur,ydur,all,T,dense,sig};
 }
 /* blocks agreeing on the same recording and offset become one section; scored against the best other recording */
 function finderSections(res){
@@ -198,18 +202,103 @@ function finderSections(res){
     const level=s>=6*Math.min(nb,2)&&sp>=3&&s>=2.5*Math.max(rival,2)?"confirmed":(s>=4&&sp>=2&&s>=1.8*Math.max(rival,2)?"possible":null);
     if(!level||!isFinite(a))continue;
     const code=man.recs[sc.rec]&&man.recs[sc.rec][0];const tr=code&&trFromCode(code);if(!tr)continue;
-    /* a short clip is placed as a whole: where it starts and ends in the recording.
-       a section of a long clip runs from its first to its last matching moment */
+    /* first estimate; finderRefine() then finds where the section really starts and ends, and the exact offset */
     const whole=blocks.length===1;
-    const cA=whole?0:a*SEC_PER_FRAME,cB=whole?res.ydur:Math.min(res.ydur,bb*SEC_PER_FRAME+1.5);
-    const place=(rec,off)=>{const recDur=(man.recs[rec]&&man.recs[rec][1])||Infinity;return [Math.max(0,off*SEC_PER_FRAME+cA),Math.min(recDur,off*SEC_PER_FRAME+cB)]};
-    const [start,end]=place(sc.rec,sc.off);
-    const copiesTr=[];
-    for(const c of copies.values()){const cc=man.recs[c.rec]&&man.recs[c.rec][0],ct=cc&&trFromCode(cc);if(!ct||ct.k===tr.k)continue;const [st,en]=place(c.rec,c.off);copiesTr.push({tr:ct,code:cc,start:st,end:en,s:c.s})}
-    out.push({tr,code,level,s,s2,conf:Math.max(1,Math.min(99,Math.round(100*(1-Math.max(rival,1.5)/s)))),
-      start,end,clipA:cA*(res.dur/res.ydur),clipB:cB*(res.dur/res.ydur),copies:copiesTr});
+    const r={tr,code,level,s,s2,conf:Math.max(1,Math.min(99,Math.round(100*(1-Math.max(rival,1.5)/s)))),
+      _rec:sc.rec,_off:sc.off,_a:a,_b:bb,_whole:whole,_cA:whole?0:a*SEC_PER_FRAME,_cB:whole?res.ydur:Math.min(res.ydur,bb*SEC_PER_FRAME+1.5),_copies:[...copies.values()]};
+    finderPlace(res,r);
+    out.push(r);
   }
   return out;
+}
+
+/* times in the recording (start, end) and in the clip (clipA, clipB) of a section, for its recording and each copy.
+   offsets are in clip frames (32 ms); cA / cB are seconds in the (speed-corrected) clip */
+function finderPlace(res,r){
+  const man=res.man,k=res.dur/res.ydur;
+  const place=(rec,off)=>{const recDur=(man.recs[rec]&&man.recs[rec][1])||Infinity;return [Math.max(0,off*SEC_PER_FRAME+r._cA),Math.min(recDur,off*SEC_PER_FRAME+r._cB)]};
+  [r.start,r.end]=place(r._rec,r._off);
+  r.clipA=r._cA*k;r.clipB=r._cB*k;
+  r.copies=[];
+  for(const c of r._copies){const cc=man.recs[c.rec]&&man.recs[c.rec][0],ct=cc&&trFromCode(cc);if(!ct||ct.k===r.tr.k)continue;const [st,en]=place(c.rec,c.off);r.copies.push({tr:ct,code:cc,start:st,end:en,s:c.s})}
+}
+/* exact placing. The search works on a thinned-out sample of the clip's landmarks (to keep downloads small), and
+   long clips are searched in 15 s blocks. The earlier version took a long clip's start from the first SAMPLED
+   landmark that agreed with the recording. That landmark is always late: each moment of sound is "whitened" against
+   the 1.5 s around it (js/fp.js), so for about 1.5–2.5 s after the clip's start or a cut, the clip's landmarks don't
+   agree with the recording's, and thinning out the landmarks adds more delay. Start times were about a second late
+   (up to several seconds). Now:
+   - the offset (clip time → recording time) is the median of the exact offsets of all agreeing landmarks, plus half
+     of the index's 64 ms time step (times are stored rounded down), accurate to a few hundredths of a second
+   - a section with nothing found before it starts at the clip's first moment (the rule short clips have always
+     used), unless the clip's sound clearly changes before the first agreeing landmark (an intro); one with nothing
+     found after it ends at the clip's last moment
+   - a cut between two recordings lies between the last landmark that agrees with the first recording and the first
+     that agrees with the second; it is placed at the first clear change in the clip's sound in between
+     (finderCut), so it is never late. Without a clear change, at that first agreeing landmark */
+/* the moment between frames a and b (search frames) where the clip's sound clearly changes: the average spectrum
+   of the 0.75 s before against the 0.75 s after. Returned only when it clearly stands out (a cut, the end of an intro,
+   a voice starting after silence); otherwise null */
+function finderCut(res,a,b){
+  const {x,k}=res.sig,hop=FPRINT.FP.hop,W=24;
+  const fa=Math.max(0,Math.floor(a/k)-W),fb=Math.ceil(b/k)+W;
+  const seg=x.subarray(fa*hop,Math.min(x.length,fb*hop+FPRINT.FP.nfft));
+  const S=FPRINT.spectrogram(seg),NB=S.L.length/Math.max(1,S.T);
+  if(S.T<2*W+2)return null;
+  const cs=new Float64Array((S.T+1)*NB);for(let t=0;t<S.T;t++)for(let f=0;f<NB;f++)cs[(t+1)*NB+f]=cs[t*NB+f]+S.L[t*NB+f];
+  const D=[];
+  for(let t=W;t<=S.T-W;t++){let d=0;for(let f=0;f<NB;f++)d+=Math.abs((cs[t*NB+f]-cs[(t-W)*NB+f])-(cs[(t+W)*NB+f]-cs[t*NB+f]));D.push([t,d/(W*NB)])}
+  const lo=Math.floor(a/k)-fa,hi=Math.ceil(b/k)-fa,inside=D.filter(([t])=>t>=lo&&t<=hi);
+  if(!inside.length)return null;
+  /* the EARLIEST clear change (a peak at least 60 % of the strongest one): when a recording begins with a pause, the
+     voice starting after it is a second, later change, and the cut itself is the first */
+  const top=Math.max(...inside.map(v=>v[1])),med=D.map(v=>v[1]).sort((p,q)=>p-q)[D.length>>1];
+  if(!(top>=1.6*med&&top>=0.35))return null;
+  for(let i=0;i<inside.length;i++){const v=inside[i][1];if(v>=0.6*top&&v>=(inside[i-1]||[0,-1])[1]&&v>=(inside[i+1]||[0,-1])[1])return (inside[i][0]+fa)*k}
+  return null;
+}
+async function finderRefine(res,list){
+  if(!list.length)return list;
+  const tunit=res.man.tunit||1,F=SEC_PER_FRAME,T=res.T,S1=Math.round(1.5/F),S10=Math.round(10/F),GAP=Math.round(6/F);
+  const secs=list.slice().sort((x,y)=>x._a-y._a);
+  const cuts=secs.length>1;
+  const L=cuts?res.dense():res.all;
+  const inWin=[];
+  for(const r of secs){if(r._whole)inWin.push([0,T]);else{inWin.push([r._a-S10,r._a+S10]);inWin.push([r._b-S10,r._b+S10])}}
+  const lms=L.filter(([,tq])=>inWin.some(([a,b])=>tq>=a&&tq<=b));
+  let shards;try{shards=await finderFetchAll(lms.map(l=>l[0]))}catch(e){return list}
+  /* landmarks (clip time, exact offset, pair distance) that agree with recording rec at about offset off */
+  const agree=(rec,off,a,b)=>{const out=[];
+    for(const [h,tq] of lms){if(tq<a||tq>b)continue;const sh=shards.get(h>>4);if(!sh)continue;const lo=h&15;
+      for(let o=sh.start[lo];o<sh.start[lo+1];o+=4){const e=sh.dv.getUint32(o,true);if(e>>>18!==rec)continue;const d=(e&262143)*tunit-tq;if(Math.abs(d-off)<=tunit+1){out.push([tq,d,h&63]);break}}}
+    return out.sort((x,y)=>x[0]-y[0])};
+  const exact=(rec,off,a,b)=>{const g=agree(rec,off,a,b);if(g.length<3)return off;const d=g.map(x=>x[1]).sort((x,y)=>x-y);return d[d.length>>1]+(tunit-1)/2};
+  /* first / last agreeing landmark that has another one within 1.5 s (a lone chance agreement is ignored) */
+  const first=g=>{for(let j=0;j+1<g.length;j++)if(g[j+1][0]-g[j][0]<=S1)return g[j][0];return null};
+  const last=g=>{for(let j=g.length-1;j>0;j--)if(g[j][0]-g[j-1][0]<=S1)return g[j][0]+g[j][2];return null};
+  for(const r of secs){
+    const w=r._whole?[0,T]:[Math.max(0,r._a-S10),Math.min(T,r._b+S10)];
+    r._off=exact(r._rec,r._off,w[0],w[1]);for(const c of r._copies)c.off=exact(c.rec,c.off,w[0],w[1]);
+  }
+  for(let i=0;i<secs.length;i++){
+    const r=secs[i],prev=secs[i-1];
+    if(r._whole){finderPlace(res,r);continue}
+    const cs=first(agree(r._rec,r._off,Math.max(prev?prev._a:0,r._a-S10),r._a+S10))??r._a;
+    if(i===secs.length-1)r._cB=res.ydur;
+    if(!prev){
+      /* nothing before: the clip starts with this recording, unless its sound clearly changes before the first
+         agreeing landmark (an intro, or silence before the voice starts) */
+      const c=cs*F>=1?finderCut(res,0,cs):null;r._cA=c!=null&&c*F>=1?c*F:0;
+    }else{
+      /* a cut between two recordings: where the sound changes, between the last evidence of the first recording
+         and the first evidence of the second; without a clear change, the first evidence of the second */
+      const pe=last(agree(prev._rec,prev._off,prev._b-S10,r._a+S10))??prev._b;
+      const c=cs>pe?finderCut(res,Math.max(pe,cs-GAP),cs):null,m=(c!=null?c:cs)*F;
+      if(cs-pe<=GAP){prev._cB=m;r._cA=m}else{prev._cB=Math.min(res.ydur,pe*F);r._cA=m}
+    }
+  }
+  for(const r of secs)finderPlace(res,r);
+  return list;
 }
 
 /* ---------- categories and the copy shown first ---------- */
@@ -269,7 +358,7 @@ function finderVerseHTML(p,label){
 }
 
 /* ---------- screen ---------- */
-const fmtT=s=>{s=Math.max(0,Math.round(s));const h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;return (h?h+":"+String(m).padStart(2,"0"):m)+":"+String(x).padStart(2,"0")};
+const fmtT=s=>{s=Math.max(0,Math.floor(s+1e-6));const h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;return (h?h+":"+String(m).padStart(2,"0"):m)+":"+String(x).padStart(2,"0")};
 function finderStatus(step,sub,frac){
   const st=$("#fStatus");if(!step){st.hidden=true;return}st.hidden=false;$("#fStep").textContent=step;$("#fStepSub").textContent=sub||"";
   const pb=$("#fProg");if(pb){pb.hidden=frac==null;if(frac!=null)pb.firstElementChild.style.width=Math.round(Math.min(1,frac)*100)+"%"}
@@ -400,7 +489,7 @@ function finderCachePut(k,v){
     const ks=Object.keys(c).sort((a,b)=>c[b].at-c[a].at);for(const x of ks.slice(25))delete c[x];
     localStorage.setItem(FCACHE_KEY,JSON.stringify(c))}catch(e){}
 }
-const finderPack=list=>list.map(r=>Object.assign({},r,{tr:undefined,copies:r.copies.map(c=>({code:c.code,start:c.start,end:c.end,s:c.s}))}));
+const finderPack=list=>list.map(r=>Object.assign({},r,{tr:undefined,_copies:undefined,copies:r.copies.map(c=>({code:c.code,start:c.start,end:c.end,s:c.s}))}));
 function finderUnpack(list){
   return list.map(r=>{const tr=trFromCode(r.code);if(!tr)return null;return Object.assign({},r,{tr,copies:r.copies.map(c=>{const ct=trFromCode(c.code);return ct?Object.assign({},c,{tr:ct}):null}).filter(Boolean)})}).filter(Boolean);
 }
@@ -413,7 +502,8 @@ async function finderRun(blob){
   try{
     finderStatus(t("fReading"));
     const man=await finderManifest();
-    const key=await finderKey(blob),ck=key&&key+":"+(man.built||"")+":"+(useVerses?1:0);
+    /* "p2": results remembered before exact placing (finderRefine) are not reused */
+    const key=await finderKey(blob),ck=key&&key+":"+(man.built||"")+":"+(useVerses?1:0)+":p2";
     const hit=ck&&finderCacheGet(ck);
     if(hit){finderStatus();finderRender(finderUnpack(hit.list),(hit.notes||[]).concat(t("fCached")),hit.verses,hit.searched);return}
     if(blob.size>400e6)toast(t("fBigFile"));
@@ -423,7 +513,7 @@ async function finderRun(blob){
     finderStatus(t("fListening"));
     await new Promise(r=>setTimeout(r,30));
     const prog=(a,b)=>finderStatus(t("fSearching"),fx("fOf",{a:numFmt(a),b:numFmt(b)}),a/b);
-    let list=finderSections(await finderSearch(dec.x,prog,1,"r"));const notes=[dec.cut?t("fLong"):""];
+    let res=await finderSearch(dec.x,prog,1,"r"),list=finderSections(res);const notes=[dec.cut?t("fLong"):""];
     /* nothing certain: the clip may have been sped up or slowed down (common on social media), with the pitch
        changed too (resampled) or kept (time-stretched) */
     if(!list.some(r=>r.level==="confirmed")){
@@ -431,10 +521,11 @@ async function finderRun(blob){
       if(dur<=90)tries.push(["t",1.1],["t",1/1.1],["t",1.25],["t",0.8]);
       for(let i=0;i<tries.length;i++){
         const [m,f]=tries[i];
-        const r2=finderSections(await finderSearch(dec.x,(a,b)=>finderStatus(t("fSpeed"),fx("fOf",{a:numFmt(a),b:numFmt(b)}),(i+a/b)/tries.length),f,m,dur>90?1200:600));
-        if(r2.some(r=>r.level==="confirmed")){list=r2;const pct=numFmt(Math.round(Math.abs((m==="r"?1/f:f)-1)*100));notes.push(fx(m==="r"?"fSpeedNote":"fSpeedTempo",{n:pct}));break}
+        const res2=await finderSearch(dec.x,(a,b)=>finderStatus(t("fSpeed"),fx("fOf",{a:numFmt(a),b:numFmt(b)}),(i+a/b)/tries.length),f,m,dur>90?1200:600),r2=finderSections(res2);
+        if(r2.some(r=>r.level==="confirmed")){list=r2;res=res2;const pct=numFmt(Math.round(Math.abs((m==="r"?1/f:f)-1)*100));notes.push(fx(m==="r"?"fSpeedNote":"fSpeedTempo",{n:pct}));break}
       }
     }
+    await finderRefine(res,list);
     list=finderGroup(list);
     /* the verses: what the clip recites, checked against each recording's label */
     let verses=null;

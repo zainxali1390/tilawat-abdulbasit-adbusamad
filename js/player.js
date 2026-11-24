@@ -23,6 +23,7 @@ function playTrack(tr,opt){
   opt=opt||{};
   cur=tr;S.last=tr;
   const saved=(S.pos||{})[tr.k]||0;
+  seekT=null;
   if(opt.at!=null)pendingSeek=opt.at;
   else if(saved>15){pendingSeek=Math.max(0,saved-3);if(!opt.quiet)toast(fill2("resumeFrom",{t:fmt(saved)}))}
   else pendingSeek=null;
@@ -40,9 +41,9 @@ function playTrack(tr,opt){
       navigator.mediaSession.setActionHandler("pause",()=>au.pause());}catch(e){}
     /* lock-screen seek bar and ±10 s buttons (not every phone offers these) */
     const ms=(n,f)=>{try{navigator.mediaSession.setActionHandler(n,f)}catch(e){}};
-    ms("seekto",d=>{if(isFinite(au.duration)&&d&&d.seekTime!=null){au.currentTime=Math.min(Math.max(d.seekTime,0),au.duration);mediaPos()}});
-    ms("seekbackward",d=>{au.currentTime=Math.max(0,au.currentTime-((d&&d.seekOffset)||10));mediaPos()});
-    ms("seekforward",d=>{if(isFinite(au.duration))au.currentTime=Math.min(au.duration,au.currentTime+((d&&d.seekOffset)||10));mediaPos()});
+    ms("seekto",d=>{if(isFinite(au.duration)&&d&&d.seekTime!=null)seekTo(d.seekTime)});
+    ms("seekbackward",d=>seekTo(shownTime()-((d&&d.seekOffset)||10)));
+    ms("seekforward",d=>seekTo(shownTime()+((d&&d.seekOffset)||10)));
   }
 }
 /* the list a recitation belongs to: its khatma, its section, or the full set of surahs */
@@ -57,13 +58,13 @@ let stepBusy=false;
 async function step(d){
   if(!cur){toast(t("noRec"));return}
   /* "previous" part-way through a recitation goes back to its start, like other players */
-  if(d<0&&au.currentTime>5){au.currentTime=0;if(au.paused)updateTime();return}
+  if(d<0&&au.currentTime>5){seekTo(0);return}
   if(stepBusy)return;
   let at=Q.list.findIndex(x=>x&&x.k===cur.k);
   if(at<0||Q.list.length<2){stepBusy=true;try{const L=await sourceQueue(cur);at=Math.max(0,L.findIndex(x=>x.k===cur.k));Q={list:L,i:at}}finally{stepBusy=false}}
   else Q.i=at;
   const i=Q.i+d;
-  if(i<0){au.currentTime=0;toast(t("firstInList"));return}
+  if(i<0){seekTo(0);toast(t("firstInList"));return}
   if(i>=Q.list.length){toast(t("lastInList"));return}
   Q.i=i;playTrack(Q.list[i]);
 }
@@ -94,19 +95,55 @@ function updatePlayer(){
   updatePP();
 }
 function updatePP(){const p=!au.paused&&!!cur;$$("[data-ppic]").forEach(s=>s.innerHTML=P[p?"pause":"play"])}
-function updateTime(){
-  const d=au.duration||0,c=au.currentTime||0,v=d?Math.round(c/d*1000):0;
-  ["np","pl"].forEach(k=>{const s=$("#"+k+"Seek");if(!s._drag){s.value=v;s.style.setProperty("--p",v/10+"%")}$("#"+k+"Cur").textContent=fmt(c);$("#"+k+"Dur").textContent=fmt(d)});
+/* ---- position display and seeking ----
+   One place decides what time is shown (shownTime): a seek that is still in progress (seekT), a position waiting
+   for the recording to load (pendingSeek), otherwise the audio's own position. Reports of the old position that
+   arrive while a seek is in progress are ignored, and nothing overwrites the slider or the time while it is being
+   dragged. The DOM is only written when what is shown changes. */
+let seekT=null;
+const seekEls=["np","pl"].map(k=>({k,s:$("#"+k+"Seek"),cur:$("#"+k+"Cur"),dur:$("#"+k+"Dur"),txt:"",durTxt:"",v:-1}));
+const seekMax=()=>+seekEls[0].s.max||1000;
+const dragging=()=>seekEls.some(e=>e.s._drag);
+function shownTime(){return seekT!=null?seekT:(pendingSeek!=null&&!(au.readyState>=1)?pendingSeek:(au.currentTime||0))}
+function paintSeek(c,d,fromDrag){
+  const M=seekMax(),v=d?Math.min(M,Math.max(0,Math.round(c/d*M))):0,txt=fmt(c),dt=fmt(d);
+  for(const e of seekEls){
+    if(e.v!==v&&(fromDrag||!e.s._drag)){e.s.value=v;e.s.style.setProperty("--p",v/M*100+"%");e.v=v}
+    if(e.txt!==txt){e.cur.textContent=txt;e.txt=txt}
+    if(e.durTxt!==dt){e.dur.textContent=dt;e.durTxt=dt}
+  }
 }
-["npSeek","plSeek"].forEach(id=>{const s=$("#"+id);
-  s.addEventListener("input",()=>{s._drag=true;s.style.setProperty("--p",s.value/10+"%");const d=au.duration;if(cur&&d&&isFinite(d)){const k=id.slice(0,2);$("#"+k+"Cur").textContent=fmt(s.value/1000*d);const o=$("#"+(k==="np"?"pl":"np")+"Seek");o.value=s.value;o.style.setProperty("--p",s.value/10+"%")}});
-  ["pointerup","pointercancel","touchend"].forEach(n=>s.addEventListener(n,()=>setTimeout(()=>{if(s._drag){s._drag=false;updateTime()}},400)));
-  s.addEventListener("change",()=>{s._drag=false;if(cur&&au.duration)au.currentTime=s.value/1000*au.duration;else{s.value=0;s.style.setProperty("--p","0%")}});
+function updateTime(){if(dragging())return;paintSeek(shownTime(),au.duration||0)}
+/* every seek goes through here: the new time is shown at once, before the audio has caught up */
+function seekTo(t){
+  const d=au.duration;if(isFinite(d)&&d>0)t=Math.min(Math.max(0,t),d);else t=Math.max(0,t);
+  seekT=t;try{au.currentTime=t}catch(e){seekT=null}
+  updateTime();mediaPos();
+}
+au.addEventListener("seeked",()=>{if(seekT!=null&&Math.abs((au.currentTime||0)-seekT)<1.5)seekT=null;updateTime()});
+au.addEventListener("seeking",updateTime);
+au.addEventListener("emptied",()=>{seekT=null});
+/* the slider: while dragging, only the shown time and both sliders move (no seeking, so fast dragging can't queue
+   up seeks); the audio jumps once, when the finger or mouse lets go */
+seekEls.forEach(e=>{const s=e.s;
+  const commit=()=>{if(!s._drag)return;s._drag=false;const d=au.duration;
+    if(cur&&d&&isFinite(d))seekTo(s.value/seekMax()*d);else{s.value=0;s.style.setProperty("--p","0%");updateTime()}};
+  s.addEventListener("input",()=>{s._drag=true;const d=au.duration;
+    if(cur&&d&&isFinite(d))paintSeek(s.value/seekMax()*d,d,true);else s.style.setProperty("--p",s.value/seekMax()*100+"%")});
+  s.addEventListener("change",commit);
+  ["pointerup","pointercancel","touchend","touchcancel","lostpointercapture"].forEach(n=>s.addEventListener(n,()=>setTimeout(commit,0)));
+  s.addEventListener("keyup",commit);s.addEventListener("blur",commit);
 });
+/* "timeupdate" comes only about 4 times a second (less on some phones): while playing, the shown time follows the
+   audio every frame, but writes to the page only when the second or the slider position changes */
+let tickOn=false;
+function tick(){if(au.paused||document.hidden){tickOn=false;return}updateTime();requestAnimationFrame(tick)}
+au.addEventListener("playing",()=>{if(!tickOn){tickOn=true;requestAnimationFrame(tick)}});
+document.addEventListener("visibilitychange",()=>{if(!document.hidden&&!au.paused&&!tickOn){tickOn=true;requestAnimationFrame(tick)}});
 au.addEventListener("timeupdate",updateTime);au.addEventListener("loadedmetadata",updateTime);
 function mediaPos(){try{if("mediaSession" in navigator&&navigator.mediaSession.setPositionState&&isFinite(au.duration)&&au.duration>0)navigator.mediaSession.setPositionState({duration:au.duration,playbackRate:au.playbackRate||1,position:Math.min(au.currentTime||0,au.duration)})}catch(e){}}
 ["loadedmetadata","seeked","play","pause"].forEach(n=>au.addEventListener(n,mediaPos));
-au.addEventListener("loadedmetadata",()=>{if(pendingSeek==null)return;const t2=pendingSeek;pendingSeek=null;if(!isFinite(au.duration)||t2<au.duration-5)try{au.currentTime=t2}catch(e){}});
+au.addEventListener("loadedmetadata",()=>{if(pendingSeek==null)return;const t2=pendingSeek;pendingSeek=null;if(!isFinite(au.duration)||t2<au.duration-5)seekTo(t2);else updateTime()});
 /* remember where each recitation was stopped, so it continues from there next time */
 let posSaved=0;
 function savePos(force){
@@ -124,7 +161,7 @@ au.addEventListener("error",async()=>{if(!cur)return;const tr=cur;
   if(await repairUrl(tr)){if(cur===tr){au.src=tr.url;au.play().catch(()=>{})}return}
   toast(t("loadErr"))});
 au.addEventListener("play",()=>{updatePP();try{if(ytP&&ytP.pauseVideo)ytP.pauseVideo()}catch(e){}});au.addEventListener("pause",updatePP);
-au.addEventListener("ended",()=>{kMarkDone(cur);if(S.repeat){au.currentTime=0;au.play().catch(()=>{})}else if(S.autoNext){const n=Q.list.findIndex(x=>x&&x.k===cur.k);if(n>=0&&n===Q.list.length-1&&Q.list.length>1)updatePP();else step(1)}else updatePP()});
+au.addEventListener("ended",()=>{kMarkDone(cur);if(S.repeat){seekTo(0);au.play().catch(()=>{})}else if(S.autoNext){const n=Q.list.findIndex(x=>x&&x.k===cur.k);if(n>=0&&n===Q.list.length-1&&Q.list.length>1)updatePP();else step(1)}else updatePP()});
 document.addEventListener("visibilitychange",()=>{if(document.hidden&&!S.bg&&!au.paused)au.pause()});
 
 document.addEventListener("click",e=>{

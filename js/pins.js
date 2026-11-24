@@ -26,7 +26,7 @@ function delPin(k,at){
   save();renderPins(true);renderPinList();toast(t("pinDel"));
 }
 function goPin(k,at){
-  if(cur&&cur.k===k){au.currentTime=at;au.play().catch(()=>{});return}
+  if(cur&&cur.k===k){seekTo(at);au.play().catch(()=>{});return}
   const e=S.pins[k];if(!e)return;
   playTrack(e.tr,{at});
 }

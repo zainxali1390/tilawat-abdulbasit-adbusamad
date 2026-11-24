@@ -57,6 +57,11 @@ The earlier finder used sound fingerprints only. Its limits, and what was done a
   - Anything less is "no reliable match".
 - **Speed changes.** If nothing is confirmed, the clip is tried again with the speed changed both ways: resampled (speed and pitch change together), and time-stretched with the pitch kept.
 - **Long clips and edits.** Clips over 25 s are searched in 15 s blocks. Blocks that agree become sections, so a video edited from several recordings, or with cuts, gives one result per section with its own times.
+- **Exact timestamps** (`finderRefine` in `js/finder.js`).
+  - The search uses a thinned-out sample of the clip's landmarks. The offset between clip and recording comes from the median of the exact offsets of all agreeing landmarks, plus half of the index's 64 ms time step, so it is accurate to a few hundredths of a second.
+  - A section with nothing found before it starts at the clip's first moment, unless the sound clearly changes before the recording is first recognised (an intro).
+  - A cut between two recordings is placed at the first clear change in the sound between the last evidence of one recording and the first of the next, so it is never late.
+  - Before this fix, long clips (over 25 s) were placed from the first *sampled* landmark that agreed. That landmark is always late: each moment is compared with the 1.5 s around it, which doesn't match the recording right after a clip's start or a cut. Start times were about 1 s late on average, and up to 5 s.
 
 ### 2. Verse recognition: which surah and ayahs (`js/ayah.js`)
 - **Speech model.** The clip is transcribed on the phone by `models/whisper-tiny-ar-quran`, a speech model trained on Quran recitation (Apache 2.0).
@@ -102,6 +107,9 @@ The full index (3,080 recordings) was used, through the real screen in a browser
 | Recording and time (sound) | 40 of 44 clips confirmed with the right recording and time (within 0.15 s), including all 3 sections of the edited video; every tempo-changed clip was found after the speed search |
 | The other 4 | 2 found a *copy* of the same audio (same recording, another file); 2 gave "no match" (a simulated phone-speaker recording, and a 4.5 s clip) |
 | Wrong recording confirmed | **none** |
+| Start time, clips from one recording (40–90 s, with or without a 3 s intro) and short clips | within 0.04 s of the true start (before the fix: 0.3–5 s late on long clips) |
+| Start time at a cut between two recordings in an edited video | 0–1.5 s early, never late |
+| What is actually heard after "Play from here" (captured from the player) | within 0.02–0.16 s of the true start |
 | Verses (clear recitation, e.g. Khatmat al-Arbaʿ) | right surah and ayah, confirmed |
 | Verses (old live recordings with long melodic passages and crowd noise) | often "not recognised" or "possible"; when the recording is found by sound, the verses are placed within its surahs |
 | Clip from a recording not in the library | "The original recording wasn't found", the right surah and ayah, and the library's recordings containing that passage by their labels (marked as other recordings) |
