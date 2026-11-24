@@ -15,8 +15,8 @@ if(!P.wave)P.wave='<path d="M3 12h1.5M6.5 8v8M10 4.5v15M13.5 7.5v9M17 10v4M20.5 
 if(!P.upload)P.upload='<path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/>';
 if(!P.mic)P.mic='<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0013 0M12 17.5V21"/>';
 
-Object.assign(I18N.en,{fTitle:"Find a recitation",fIntro:"Have a clip of Sheikh Abdul Basit? Choose an audio or video file, record it playing, or paste a link. The app finds which recording in the library it comes from, where, and which verses are recited.",
-  fChoose:"Choose audio or video",fRecord:"Record",fStop:"Stop recording",fTip:"10–30 seconds of clear recitation works best. The clip stays on your phone; only small parts of the recording index are downloaded.",
+Object.assign(I18N.en,{fTitle:"Find a recitation",fIntro:"Have a clip of Sheikh Abdul Basit? Choose an audio or video file, or record it playing. You can also share a video to this app from your gallery. The app finds which recording in the library it comes from, where, and which verses are recited.",
+  fChoose:"Choose from gallery",fChooseA:"Audio file",fRecord:"Record",fStop:"Stop recording",fTip:"10–30 seconds of clear recitation works best. The clip stays on your phone; only small parts of the recording index are downloaded.",
   fReading:"Reading the audio…",fListening:"Listening…",fSearching:"Searching the library…",fSpeed:"Trying the clip at a different speed…",fOf:"{a} of {b} index parts",
   fConfirmed:"Confirmed match",fPossible:"Possible match",fNone:"No reliable match",fNoneTx:"This clip doesn't match any recording in the library. It may come from a recording the app doesn't have, or it may be too short, too noisy or changed too much. Try 15–30 seconds of clear recitation.",
   fAt:"In the recording: {a} – {b}",fLen:"{n} s matched",fConf:"Confidence {n}%",fPts:"{a} moments of your clip agree (next best recording: {b})",fSec:"Section {n}",fClip:"from {a} to {b} in your clip",
@@ -25,8 +25,8 @@ Object.assign(I18N.en,{fTitle:"Find a recitation",fIntro:"Have a clip of Sheikh 
   fNoIndex:"The recording index isn't available yet. Please try again later.",fOffline:"Searching needs an internet connection.",fBad:"This file couldn't be read as audio. Try another file, or record the clip instead.",
   fTooShort:"The clip is too short. At least 4 seconds are needed.",fMicNo:"Recording isn't available on this device or was not allowed.",fLong:"Only the first 10 minutes of the clip are searched.",
   fAboutTx:"Library searched: {n} recordings, {h} hours (index of {d}).",fFailed:"{n} recordings could not be indexed and can't be found."});
-Object.assign(I18N.ar,{fTitle:"ابحث عن تلاوة بمقطع",fIntro:"لديك مقطع للشيخ عبد الباسط؟ اختر ملف صوت أو فيديو، أو سجّله أثناء تشغيله، أو الصق رابطًا. يجد التطبيق التسجيل الذي جاء منه في المكتبة، وموضعه، والآيات المتلوّة.",
-  fChoose:"اختر ملف صوت أو فيديو",fRecord:"تسجيل",fStop:"إيقاف التسجيل",fTip:"الأفضل من ١٠ إلى ٣٠ ثانية من تلاوة واضحة. يبقى المقطع على هاتفك؛ يُنزَّل فقط جزء صغير من فهرس التسجيلات.",
+Object.assign(I18N.ar,{fTitle:"ابحث عن تلاوة بمقطع",fIntro:"لديك مقطع للشيخ عبد الباسط؟ اختر ملف صوت أو فيديو، أو سجّله أثناء تشغيله. ويمكنك أيضًا مشاركة فيديو من معرض الصور إلى هذا التطبيق. يجد التطبيق التسجيل الذي جاء منه في المكتبة، وموضعه، والآيات المتلوّة.",
+  fChoose:"اختر من معرض الصور",fChooseA:"ملف صوتي",fRecord:"تسجيل",fStop:"إيقاف التسجيل",fTip:"الأفضل من ١٠ إلى ٣٠ ثانية من تلاوة واضحة. يبقى المقطع على هاتفك؛ يُنزَّل فقط جزء صغير من فهرس التسجيلات.",
   fReading:"جارٍ قراءة الصوت…",fListening:"جارٍ الاستماع…",fSearching:"جارٍ البحث في المكتبة…",fSpeed:"تجربة المقطع بسرعة مختلفة…",fOf:"{a} من {b} من أجزاء الفهرس",
   fConfirmed:"تطابق مؤكد",fPossible:"تطابق محتمل",fNone:"لا يوجد تطابق موثوق",fNoneTx:"لا يطابق هذا المقطع أي تسجيل في المكتبة. قد يكون من تسجيل غير موجود في التطبيق، أو قصيرًا جدًا أو كثير الضجيج أو مُعدَّلًا كثيرًا. جرّب ١٥–٣٠ ثانية من تلاوة واضحة.",
   fAt:"في التسجيل: {a} – {b}",fLen:"{n} ث متطابقة",fConf:"نسبة الثقة {n}٪",fPts:"{a} لحظة من مقطعك متطابقة (أقرب تسجيل آخر: {b})",fSec:"المقطع {n}",fClip:"من {a} إلى {b} في مقطعك",
@@ -35,30 +35,26 @@ Object.assign(I18N.ar,{fTitle:"ابحث عن تلاوة بمقطع",fIntro:"لد
   fNoIndex:"فهرس التسجيلات غير متاح بعد. حاول لاحقًا.",fOffline:"البحث يحتاج إلى اتصال بالإنترنت.",fBad:"تعذّرت قراءة هذا الملف كصوت. جرّب ملفًا آخر أو سجّل المقطع.",
   fTooShort:"المقطع قصير جدًا. يلزم ٤ ثوانٍ على الأقل.",fMicNo:"التسجيل غير متاح على هذا الجهاز أو لم يُسمح به.",fLong:"يُبحث في أول ١٠ دقائق فقط من المقطع.",
   fAboutTx:"المكتبة التي يُبحث فيها: {n} تسجيلًا، {h} ساعة (فهرس {d}).",fFailed:"تعذّرت فهرسة {n} تسجيلًا ولا يمكن العثور عليها."});
-Object.assign(I18N.en,{fLinkPh:"Or paste a link to an audio or video file",fLinkGo:"Open",fLinkGet:"Opening the link…",
-  fLinkSocial:"Videos on {h} can't be opened from another app: the site doesn't allow it. Save the video to your phone, then choose it with the button above.",
-  fLinkFail:"This link couldn't be opened here (the site doesn't let other apps read its files, or it isn't an audio or video file). Download the clip, then choose it with the button above.",
+Object.assign(I18N.en,{
   fVerseOpt:"Also recognise the verses (a 63 MB speech model is downloaded once)",fModel:"Getting the verse recognition ready (about 63 MB, only the first time)…",
   fVersesStep:"Recognising the verses…",fVersesOf:"part {a} of {b}",fVerseErr:"The verses couldn't be recognised this time (the speech model didn't load). The sound match below is not affected.",
   fVLbl:"Verses",fVersesConf:"Verses recognised",fVersesPoss:"Verses: possible",fVersesNone:"The verses couldn't be recognised from this clip.",fAyat:"ayah {a}",fAyatN:"ayahs {a}",
   fOrPlace:"The same words also occur at:",fFromLabel:"(from the recording's label)",fWithin:"(placed within the surahs of the recording found)",fAgree:"The recognised verses agree with the recording's label.",
   fDisagree:"The recording's label doesn't list Sūrah {s}. The label may be incomplete.",fDropped:"A weak sound match was left out because the verses heard are from another surah.",
-  fCat:"Category",fDate:"Date",fNoDate:"date not given",fStart:"Starts",fEnd:"Ends",fCopy:"Copy link",fOrig:"Original file",fLinkCopied:"Link copied (opens the recording at {t})",
+  fNet:"Part of the recording index couldn't be downloaded (the connection dropped or the site was busy).",fRetry:"Try again",fShared:"Clip received",fCat:"Category",fDate:"Date",fNoDate:"date not given",fStart:"Starts",fEnd:"Ends",fCopy:"Copy link",fOrig:"Original file",fLinkCopied:"Link copied (opens the recording at {t})",
   fSame:"The same recording, also in the library:",fNotFound:"The original recording wasn't found",
   fNotFoundTx:"Your clip was compared by sound with {n} recordings in the library and none of them is the same recording. It may be a recording the app doesn't have yet, or the clip may be too short, noisy or changed to match.",
   fOthers:"Recordings in the library that contain this passage, by their labels ({n}). These are other recordings: the sound of your clip didn't match them.",fShowAll:"Show all {n}",
   fCached:"Shown from an earlier search of this clip.",fRiwaya:"Riwayah",fRiwayaNone:"not stated in the label",fSpeedTempo:"The clip seems to be {n}% faster or slower than the original (pitch unchanged).",
   fBigFile:"This file is very large. If it can't be read, trim it to the part with the recitation.",fTooLong:"This file is too long to read in the browser. Trim it to the part with the recitation (a few minutes) and try again.",
   cEgRadio:"Egyptian Radio",cEgHist:"Egyptian recording",cMosque:"Mosque recording",cIntlRadio:"Radio outside Egypt",cRadioUn:"Radio · station not named",cOther:"Other recording",cStudio:"Studio set"});
-Object.assign(I18N.ar,{fLinkPh:"أو الصق رابط ملف صوت أو فيديو",fLinkGo:"فتح",fLinkGet:"جارٍ فتح الرابط…",
-  fLinkSocial:"لا يمكن فتح مقاطع {h} من تطبيق آخر لأن الموقع لا يسمح بذلك. احفظ الفيديو على هاتفك ثم اختره بالزر أعلاه.",
-  fLinkFail:"تعذّر فتح هذا الرابط هنا (الموقع لا يسمح للتطبيقات الأخرى بقراءة ملفاته، أو ليس ملف صوت أو فيديو). نزّل المقطع ثم اختره بالزر أعلاه.",
+Object.assign(I18N.ar,{
   fVerseOpt:"تعرّف على الآيات أيضًا (يُنزَّل نموذج كلام بحجم ٦٣ ميغابايت مرة واحدة)",fModel:"جارٍ تجهيز التعرّف على الآيات (نحو ٦٣ ميغابايت، أول مرة فقط)…",
   fVersesStep:"جارٍ التعرّف على الآيات…",fVersesOf:"الجزء {a} من {b}",fVerseErr:"تعذّر التعرّف على الآيات هذه المرة (لم يُحمَّل نموذج الكلام). لا يتأثر التطابق الصوتي أدناه.",
   fVLbl:"الآيات",fVersesConf:"الآيات المعروفة",fVersesPoss:"الآيات: محتملة",fVersesNone:"تعذّر التعرّف على الآيات من هذا المقطع.",fAyat:"الآية {a}",fAyatN:"الآيات {a}",
   fOrPlace:"الكلمات نفسها تأتي أيضًا في:",fFromLabel:"(من بيانات التسجيل)",fWithin:"(حُدِّدت ضمن سور التسجيل الذي وُجد)",fAgree:"الآيات المعروفة توافق بيانات التسجيل.",
   fDisagree:"بيانات التسجيل لا تذكر سورة {s}. قد تكون البيانات ناقصة.",fDropped:"استُبعد تطابق صوتي ضعيف لأن الآيات المسموعة من سورة أخرى.",
-  fCat:"التصنيف",fDate:"التاريخ",fNoDate:"بدون تاريخ",fStart:"البداية",fEnd:"النهاية",fCopy:"نسخ الرابط",fOrig:"الملف الأصلي",fLinkCopied:"نُسخ الرابط (يفتح التسجيل عند {t})",
+  fNet:"تعذّر تنزيل جزء من فهرس التسجيلات (انقطع الاتصال أو كان الموقع مشغولًا).",fRetry:"حاول مجددًا",fShared:"تم استلام المقطع",fCat:"التصنيف",fDate:"التاريخ",fNoDate:"بدون تاريخ",fStart:"البداية",fEnd:"النهاية",fCopy:"نسخ الرابط",fOrig:"الملف الأصلي",fLinkCopied:"نُسخ الرابط (يفتح التسجيل عند {t})",
   fSame:"التسجيل نفسه موجود أيضًا في المكتبة:",fNotFound:"لم يُعثر على التسجيل الأصلي",
   fNotFoundTx:"قورن مقطعك بالصوت مع {n} تسجيلًا في المكتبة ولم يكن أيٌّ منها التسجيلَ نفسه. قد يكون تسجيلًا غير موجود في التطبيق بعد، أو أن المقطع قصير أو كثير الضجيج أو معدّل بحيث لا يتطابق.",
   fOthers:"تسجيلات في المكتبة تتضمن هذا الموضع بحسب بياناتها ({n}). هذه تسجيلات أخرى: صوت مقطعك لم يطابقها.",fShowAll:"عرض الكل ({n})",
@@ -85,13 +81,26 @@ async function finderManifest(){
   return FINDER.man;
 }
 /* one index file: 16 counts, then the entries grouped by the low 4 bits of the hash */
+/* each part is retried (phones drop connections, and the site can be busy when hundreds of parts are asked
+   for at once); a part that doesn't exist is empty */
+const FINDER_EMPTY=new ArrayBuffer(32);
 async function finderShardBytes(url){
   const c=FINDER.cache;
   if(c){try{const hit=await c.match(url);if(hit)return hit.arrayBuffer()}catch(e){}}
-  const r=await fetch(url);if(!r.ok)throw new Error("http "+r.status);
-  const buf=await r.arrayBuffer();
-  if(c){try{c.put(url,new Response(buf.slice(0),{headers:{"content-type":"application/octet-stream"}}))}catch(e){}}
-  return buf;
+  let err;
+  for(let k=0;k<4;k++){
+    if(k)await new Promise(r=>setTimeout(r,200*2**k+Math.random()*300));
+    const ac=window.AbortController?new AbortController():null;const to=ac&&setTimeout(()=>ac.abort(),20000);
+    try{
+      const r=await fetch(url,ac?{signal:ac.signal}:{});
+      if(r.status===404)return FINDER_EMPTY;
+      if(!r.ok)throw new Error("http "+r.status);
+      const buf=await r.arrayBuffer();
+      if(c){try{c.put(url,new Response(buf.slice(0),{headers:{"content-type":"application/octet-stream"}}))}catch(e){}}
+      return buf;
+    }catch(e){err=e}finally{if(to)clearTimeout(to)}
+  }
+  throw err;
 }
 function finderShard(s){
   if(!FINDER.shards.has(s))FINDER.shards.set(s,finderShardBytes(FINDER.base+"s/"+hex2(s>>8)+"/"+hex2(s&255)+".bin")
@@ -99,12 +108,15 @@ function finderShard(s){
     .catch(e=>{FINDER.shards.delete(s);throw e}));
   return FINDER.shards.get(s);
 }
+/* a few parts that still can't be downloaded only remove a few landmarks: the search goes on without them.
+   Only when many are missing (no connection) does it stop */
 async function finderFetchAll(hashes,onProgress){
   const need=[...new Set(hashes.map(h=>h>>4))];
-  let done=0,i=0;const total=need.length;
-  async function worker(){while(i<need.length){const s=need[i++];await finderShard(s);done++;if(onProgress&&(done%20===0||done===total))onProgress(done,total)}}
-  await Promise.all(Array.from({length:Math.min(16,need.length)},worker));
-  const m=new Map();for(const s of need)m.set(s,await finderShard(s));return m;
+  let done=0,i=0;const total=need.length,m=new Map();let failed=0;const limit=Math.max(3,total*0.1);
+  async function worker(){while(i<need.length&&failed<=limit){const s=need[i++];try{m.set(s,await finderShard(s))}catch(e){failed++}done++;if(onProgress&&failed<=limit&&(done%20===0||done===total))onProgress(done,total)}}
+  await Promise.all(Array.from({length:Math.min(8,need.length)},worker));
+  if(failed>limit)throw Object.assign(new Error("net"),{code:navigator.onLine===false?"offline":"net"});
+  return m;
 }
 
 /* decode any audio or video file the browser can play; the fingerprint uses mono 8 kHz, the verse recognition
@@ -395,7 +407,7 @@ function finderUnpack(list){
 
 /* ---------- the search ---------- */
 async function finderRun(blob){
-  if(FINDER.busy)return;FINDER.busy=true;
+  if(FINDER.busy)return;FINDER.busy=true;FINDER.last=blob;
   $("#fResults").innerHTML="";
   const useVerses=S.fVerses!==false;
   try{
@@ -408,8 +420,6 @@ async function finderRun(blob){
     let dec;try{dec=await finderDecode(blob)}catch(e){finderStatus();$("#fResults").innerHTML=`<div class="card fres fnone"><p>${t(blob.size>150e6?"fTooLong":"fBad")}</p></div>`;return}
     if(dec.x.length<4*FPRINT.FP.sr){finderStatus();$("#fResults").innerHTML=`<div class="card fres fnone"><p>${t("fTooShort")}</p></div>`;return}
     const dur=dec.x.length/FPRINT.FP.sr;
-    /* the speech model downloads while the sound search runs */
-    if(useVerses){loadQuran().catch(()=>{});try{ayahWorker()}catch(e){}}
     finderStatus(t("fListening"));
     await new Promise(r=>setTimeout(r,30));
     const prog=(a,b)=>finderStatus(t("fSearching"),fx("fOf",{a:numFmt(a),b:numFmt(b)}),a/b);
@@ -453,34 +463,22 @@ async function finderRun(blob){
     if(ck)finderCachePut(ck,{list:finderPack(list),notes,verses,searched});
   }catch(e){
     finderStatus();
-    $("#fResults").innerHTML=`<div class="card fres fnone"><p>${t(e&&e.code==="noindex"?"fNoIndex":"fOffline")}</p></div>`;
-  }finally{FINDER.busy=false;$("#fFile").value=""}
+    const k=e&&e.code==="noindex"?"fNoIndex":(e&&e.code==="net"?"fNet":"fOffline");
+    $("#fResults").innerHTML=`<div class="card fres fnone"><p>${t(k)}</p>${k!=="fNoIndex"?`<div class="facts"><button class="btn-gold" data-fretry>${ic("repeat")}${t("fRetry")}</button></div>`:""}</div>`;
+  }finally{FINDER.busy=false}
 }
-$("#fFile").addEventListener("change",e=>{const f=e.target.files&&e.target.files[0];if(f)finderRun(f)});
-/* a link to an audio or video file (for example on archive.org). Video sites don't let other apps read their files. */
-const FINDER_SOCIAL=/(^|\.)(youtube\.com|youtu\.be|instagram\.com|tiktok\.com|facebook\.com|fb\.watch|x\.com|twitter\.com|snapchat\.com|whatsapp\.com|threads\.net|vimeo\.com|dailymotion\.com)$/i;
-function finderLinkURL(u){
-  /* archive.org: a page link becomes the file's download link */
-  const m=u.match(/^https?:\/\/(?:www\.)?archive\.org\/details\/([^/?#]+)\/(.+?)(?:[?#].*)?$/i);
-  if(m)return "https://archive.org/download/"+m[1]+"/"+m[2];
-  return u;
+for(const id of ["#fFile","#fFileA"])$(id).addEventListener("change",e=>{const f=e.target.files&&e.target.files[0];e.target.value="";if(f)finderRun(f)});
+$("#fResults").addEventListener("click",e=>{if(e.target.closest("[data-fretry]")&&FINDER.last)finderRun(FINDER.last)});
+/* a video or audio shared to the app from the gallery or another app (Android: Share → Abdul Basit).
+   The service worker keeps the file for a moment and opens this screen (manifest share_target, sw.js) */
+async function finderShared(){
+  if(!/[?&]shared=1/.test(location.search))return;
+  history.replaceState(null,"",location.pathname+location.hash);
+  try{const c=await caches.open("abdulbasit-share");const r=await c.match("shared-file");if(!r)return;
+    const blob=await r.blob();await c.delete("shared-file");
+    go("finder");toast(t("fShared"));setTimeout(()=>finderRun(blob),300)}catch(e){}
 }
-async function finderLink(raw){
-  if(FINDER.busy)return;
-  let u;try{u=new URL(raw.trim())}catch(e){toast(t("fLinkFail"));return}
-  if(FINDER_SOCIAL.test(u.hostname)){$("#fResults").innerHTML=`<div class="card fres fnone"><p>${fEsc(fx("fLinkSocial",{h:u.hostname.replace(/^www\./,"")}))}</p></div>`;return}
-  finderStatus(t("fLinkGet"));
-  let blob;
-  try{
-    const r=await fetch(finderLinkURL(u.href),{mode:"cors"});if(!r.ok)throw new Error("http "+r.status);
-    const ct=r.headers.get("content-type")||"";if(/text\/html/i.test(ct))throw new Error("html");
-    const len=+r.headers.get("content-length")||0;
-    if(r.body&&len){const rd=r.body.getReader(),parts=[];let got=0;for(;;){const {done,value}=await rd.read();if(done)break;parts.push(value);got+=value.length;finderStatus(t("fLinkGet"),Math.round(got/1e6)+" / "+Math.round(len/1e6)+" MB",got/len)}blob=new Blob(parts,{type:ct})}
-    else blob=await r.blob();
-  }catch(e){finderStatus();$("#fResults").innerHTML=`<div class="card fres fnone"><p>${t("fLinkFail")}</p></div>`;return}
-  finderRun(blob);
-}
-$("#fLinkF").addEventListener("submit",e=>{e.preventDefault();const v=$("#fLink").value;if(v)finderLink(v)});
+window.addEventListener("load",finderShared);
 $("#fVerseOpt").addEventListener("change",e=>{S.fVerses=e.target.checked;save()});
 /* record the clip with the microphone */
 let finderRec=null;
@@ -498,11 +496,11 @@ $("#fRec").addEventListener("click",async()=>{
 /* what the index covers, under the buttons */
 async function finderAbout(){
   finderRecLabel();
-  $("#fVerseOpt").checked=S.fVerses!==false;$("#fLink").placeholder=t("fLinkPh");$("#fLinkGo").textContent=t("fLinkGo");
+  $("#fVerseOpt").checked=S.fVerses!==false;
   try{const m=await finderManifest();const n=m.recs.filter(r=>r[1]>0).length;
     $("#fAbout").textContent=fx("fAboutTx",{n:numFmt(n),h:numFmt(Math.round(m.hours)),d:m.built})+(m.failed&&m.failed.length?" "+fx("fFailed",{n:numFmt(m.failed.length)}):"")}
   catch(e){$("#fAbout").textContent=""}
 }
 const _showF=show;show=function(id){_showF(id);if(id==="finder")finderAbout()};
 /* labels set from code follow a change of language */
-const _applyLangF=applyLang;applyLang=function(){_applyLangF.apply(this,arguments);try{finderRecLabel();$("#fLink").placeholder=t("fLinkPh");$("#fLinkGo").textContent=t("fLinkGo")}catch(e){}};
+const _applyLangF=applyLang;applyLang=function(){_applyLangF.apply(this,arguments);try{finderRecLabel()}catch(e){}};

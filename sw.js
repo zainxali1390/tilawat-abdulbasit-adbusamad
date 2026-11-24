@@ -12,12 +12,13 @@
  * All paths are relative to this file, so the app works from a GitHub Pages sub-folder, a custom
  * domain or a local server without changes. Change VERSION whenever the list below changes.
  */
-const VERSION = 'v13';
+const VERSION = 'v14';
 const PREFIX = 'abdulbasit-';
 const SHELL_CACHE = PREFIX + 'shell-' + VERSION;
 const QURAN_CACHE = PREFIX + 'quran-v1';   // package versions are fixed, so these never go stale
 const FONT_CACHE = PREFIX + 'fonts-v1';
-const KEEP = [SHELL_CACHE, QURAN_CACHE, FONT_CACHE];
+const SHARE_CACHE = PREFIX + 'share';          // a clip shared to the app, kept until Find a recitation reads it
+const KEEP = [SHELL_CACHE, QURAN_CACHE, FONT_CACHE, SHARE_CACHE];
 const QURAN_MAX = 1600;                     // 604 pages + 604 fonts + translations, with room to spare
 
 const SHELL = [
@@ -114,8 +115,27 @@ async function staleWhileRevalidate(req) {
   return hit || update;
 }
 
+/* "Share → Abdul Basit" from the gallery or another app (manifest share_target): keep the video or audio
+   file and open Find a recitation, which picks it up */
+async function receiveShare(req) {
+  try {
+    const form = await req.formData();
+    const file = form.getAll('media').find(f => f && typeof f !== 'string');
+    if (file) {
+      const cache = await caches.open(SHARE_CACHE);
+      await cache.put('shared-file', new Response(file, { headers: { 'content-type': file.type || 'application/octet-stream' } }));
+      return Response.redirect('./?shared=1#finder', 303);
+    }
+  } catch (e) {}
+  return Response.redirect('./#finder', 303);
+}
+
 self.addEventListener('fetch', event => {
   const req = event.request;
+  if (req.method === 'POST' && new URL(req.url).pathname.endsWith('/share-target')) {
+    event.respondWith(receiveShare(req));
+    return;
+  }
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
 

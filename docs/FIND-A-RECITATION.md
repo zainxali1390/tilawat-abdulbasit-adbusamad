@@ -1,8 +1,9 @@
 # Find a recitation — how it works, how well it works, and its limits
 
 ## What it does
-You give the app a clip of Sheikh Abdul Basit: an audio or video file, a recording made with the microphone, or a
-link to an audio or video file. It answers three questions:
+You give the app a clip of Sheikh Abdul Basit: a video from the gallery / camera roll, an audio file, a recording
+made with the microphone, or a video or audio shared to the app from the gallery or another app (Share → Abdul Basit,
+when the app is installed). It answers three questions:
 
 1. **Which recording is this, and where in it?** The recording in the library the clip comes from, and the exact start and end time in that recording.
 2. **What is being recited?** The surah (Arabic and English) and the ayah range, recognised from the recitation itself.
@@ -29,7 +30,8 @@ The earlier finder used sound fingerprints only. Its limits, and what was done a
 | Copies of the same recording were listed in whatever order they scored | Copies are one result. The copy shown first follows Egyptian Radio → other Egyptian recordings → mosque → radio outside Egypt → radio (station not named) → other → studio sets, each copy with its own times |
 | Same recording at the same place could appear twice | Results are de-duplicated across copies |
 | Speed: only "faster and higher" (resampled) ±3 % / ±6 % | Also **tempo changes with the pitch kept** (what video apps do): ±3 %, ±6 %, ±10 %, ±25 % |
-| No links | Links to audio/video files (archive.org page links are converted to the file); video-site links get a clear explanation |
+| Clips only from the file picker | **Choose from gallery** (videos from the gallery / camera roll), **Audio file**, and **Share → Abdul Basit** from the gallery or another app (installed app, Android) |
+| One failed download of an index part stopped the whole search ("Searching needs an internet connection") | Each part is retried; a few missing parts don't stop the search; only a real outage stops it, with a **Try again** button |
 | Every search downloaded the index parts again, and the same clip was searched again | Index parts are kept on the phone until the index is rebuilt, and results are remembered per clip (by its contents) |
 | Results had no category, ayahs, full-file link or shareable time link | Added |
 | "Read the surah" opened the first surah of the title | Opens the recognised ayah's page |
@@ -103,7 +105,9 @@ The full index (3,080 recordings) was used, through the real screen in a browser
 | Verses (clear recitation, e.g. Khatmat al-Arbaʿ) | right surah and ayah, confirmed |
 | Verses (old live recordings with long melodic passages and crowd noise) | often "not recognised" or "possible"; when the recording is found by sound, the verses are placed within its surahs |
 | Clip from a recording not in the library | "The original recording wasn't found", the right surah and ayah, and the library's recordings containing that passage by their labels (marked as other recordings) |
-| Video-site links | explained, not attempted; direct file links work |
+| Unreliable connection (30 % of index downloads made to fail) | every clip still found, correctly |
+| Connection lost | stops after about 20 s with Try again; Try again then finds the match |
+| Video shared to the installed app | opens Find a recitation and finds the match |
 
 The verse matcher on its own was tested on 2,000 random Quran passages of 4–14 words with about 20 % of the words damaged:
 - 1,489 (74 %) were confirmed, all at the right place.
@@ -121,7 +125,8 @@ The verse matcher on its own was tested on 2,000 random Quran passages of 4–14
 - **Long files.**
   - Only the first 10 minutes of a clip are searched.
   - Very long videos may not decode in a phone browser; trim them first.
-- **Links.** Videos on YouTube, Instagram, TikTok, Facebook and similar sites can't be read from a web app. Save the video, then choose the file.
+- **Video sites.** Save the video from YouTube, TikTok, Instagram etc. to the gallery first, then choose it or share it to the app.
+- **Sharing to the app** needs the app installed (Add to Home screen). Android/Chrome support it; iPhone does not let web apps receive shares, so use Choose from gallery there.
 - **Copies not always shown.** Copies of a recording appear only when they also match the clip strongly. Known duplicates are listed in `docs/DUPLICATES-REVIEW.md`.
 - **Connection.** Searching needs an internet connection (index parts and, the first time, the speech model).
 

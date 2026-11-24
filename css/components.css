@@ -505,9 +505,6 @@ body.light #mushaf{--mp-bg:#fdfaf3;--mp-ink:#1b1810;--mp-acc:#a8823c;--mp-soft:#
 .fstatus .sp{width:22px;height:22px;border-radius:50%;border:2.5px solid var(--line);border-top-color:var(--gold);animation:fspin .8s linear infinite}
 @keyframes fspin{to{transform:rotate(360deg)}}
 /* Find a recitation: link, verses option, progress, verses and categories */
-.flink{display:flex;gap:8px;margin:14px 0 0}
-.flink input{flex:1;min-width:0;height:40px;padding:0 12px;border-radius:20px;border:1px solid var(--line);background:var(--card2);color:var(--text);font:inherit;font-size:13.5px}
-.flink button{height:40px;padding:0 16px;border-radius:20px;border:1px solid var(--line);color:var(--gold);font-size:13.5px}
 .fopt{display:flex;align-items:flex-start;gap:8px;margin:12px 2px 0;text-align:start;font-size:12.5px;line-height:1.45;color:var(--muted);cursor:pointer}
 .fopt input{margin:2px 0 0;accent-color:var(--gold);flex:none}
 .fprog{height:4px;border-radius:2px;background:var(--line);margin-top:8px;overflow:hidden;width:min(240px,60vw)}
