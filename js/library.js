@@ -211,12 +211,11 @@ function renderLoc(){
   /* filters offer only what this place has */
   const types=[...new Set(mine.map(r=>libRecType(...r)))],years=[...new Set(mine.map(r=>libDecade(AREAS[r[0]].secs[r[1]].items[r[2]][4])||"none"))].sort();
   const surahs=[...new Set(mine.flatMap(r=>trSurahs(egTrack(...r))))].sort((a,b)=>a-b);
-  const opt=(v,lab,cur)=>`<option value="${v}"${String(cur||"")===String(v)?" selected":""}>${lab}</option>`;
   $("#locFilters").innerHTML=
     (types.length>1?`<div class="chips">${[["",t("libAll")],...types.map(x=>[x,t(LIB_TYPE_KEY[x])])].map(([v,lab])=>`<button class="chip${(f.type||"")===v?" on":""}" data-lft="${v}">${lab}</button>`).join("")}</div>`:"")+
     `<div class="lsel">`+
-    (years.length>1?`<label><span>${t("libYear")}</span><select data-lf="year">${opt("",t("libAllYears"),f.year)}${years.map(y=>opt(y,y==="none"?t("libNoDate"):(isAr()?(LIB_DEC_AR[y]||y):y),f.year)).join("")}</select></label>`:"")+
-    (surahs.length>1?`<label><span>${t("libSurah")}</span><select data-lf="surah">${opt("",t("libAllSurahs"),f.surah)}${surahs.map(n=>opt(n,numFmt(n)+". "+(isAr()?SURAHS[n-1][0]:SURAHS[n-1][1]),f.surah)).join("")}</select></label>`:"")+
+    (years.length>1?`<label><span>${t("libYear")}</span><button class="lpick" data-lpick="year"><b>${f.year?(f.year==="none"?t("libNoDate"):(isAr()?(LIB_DEC_AR[f.year]||f.year):f.year)):t("libAllYears")}</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button></label>`:"")+
+    (surahs.length>1?`<label><span>${t("libSurah")}</span><button class="lpick" data-lpick="surah"><b>${f.surah&&surahs.includes(+f.surah)?numFmt(+f.surah)+". "+(isAr()?SURAHS[f.surah-1][0]:SURAHS[f.surah-1][1]):t("libAllSurahs")}</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button></label>`:"")+
     `</div>`;
   const rs=libView(l);
   $("#locList").innerHTML=rs.length?`<div class="card">${rs.map(x=>libRow(...x.r)).join("")}</div>`:`<div class="empty">${t("libNone")}</div>`;
@@ -224,6 +223,24 @@ function renderLoc(){
 }
 $("#lq").addEventListener("input",()=>{const {l}=libCur();const rs=libView(l);$("#locList").innerHTML=rs.length?`<div class="card">${rs.map(x=>libRow(...x.r)).join("")}</div>`:`<div class="empty">${t("libNone")}</div>`});
 $("#locFilters").addEventListener("click",e=>{const b=e.target.closest("[data-lft]");if(!b)return;S.libF=Object.assign(S.libF||{},{type:b.dataset.lft});save();renderLoc()});
-$("#locFilters").addEventListener("change",e=>{const s=e.target.closest("[data-lf]");if(!s)return;S.libF=Object.assign(S.libF||{},{[s.dataset.lf]:s.value});save();renderLoc()});
+/* Year and Surah are chosen in the app's own bottom sheet (like choosing a recitation), not the phone's picker */
+function libPickSheet(kind){
+  const {l}=libCur(),f=S.libF||{},dec=r=>libDecade(AREAS[r[0]].secs[r[1]].items[r[2]][4]);
+  /* only what can still be found with the other choices (type, and surah or year) */
+  const mine=l.refs.filter(r=>inColMode(r)&&(!f.type||libRecType(...r)===f.type)&&(kind==="year"?(!f.surah||trSurahs(egTrack(...r)).includes(+f.surah)):(!f.year||(f.year==="none"?!dec(r):dec(r)===f.year))));
+  let opts;
+  if(kind==="year"){const ys=[...new Set(mine.map(r=>libDecade(AREAS[r[0]].secs[r[1]].items[r[2]][4])||"none"))].sort();
+    opts=[["",t("libAllYears"),""]].concat(ys.map(y=>[y,y==="none"?t("libNoDate"):(isAr()?(LIB_DEC_AR[y]||y):y),""]))}
+  else{const ss=[...new Set(mine.flatMap(r=>trSurahs(egTrack(...r))))].sort((a,b)=>a-b);
+    opts=[["",t("libAllSurahs"),""]].concat(ss.map(n=>[String(n),numFmt(n)+". "+(isAr()?SURAHS[n-1][0]:SURAHS[n-1][1]),isAr()?"":SURAHS[n-1][0]]))}
+  const cnt=v=>mine.filter(r=>kind==="year"?(!v||(v==="none"?!libDecade(AREAS[r[0]].secs[r[1]].items[r[2]][4]):libDecade(AREAS[r[0]].secs[r[1]].items[r[2]][4])===v)):(!v||trSurahs(egTrack(...r)).includes(+v))).length;
+  sheetMode="libpick";$("#sheetTitle").textContent=t(kind==="year"?"libYear":"libSurah");
+  opts=opts.filter(([v])=>!v||cnt(v));
+  $("#sheetBody").innerHTML=`<div class="card sscroll">${opts.map(([v,lab,ar])=>`<button class="opt${String(f[kind]||"")===v?" on":""}" data-libpick="${kind}" data-v="${v}"><span class="dot"></span><span class="tx"><b>${lab}</b>${ar?`<small lang="ar" dir="rtl">${ar}</small>`:""}</span><span class="cnt">${numFmt(cnt(v))}</span></button>`).join("")}</div>`;
+  $("#scrim").classList.add("on");$("#sheet").classList.add("on");
+  const on=$("#sheetBody .opt.on");if(on)on.scrollIntoView({block:"center"});
+}
+$("#locFilters").addEventListener("click",e=>{const b=e.target.closest("[data-lpick]");if(b)libPickSheet(b.dataset.lpick)});
+$("#sheetBody").addEventListener("click",e=>{const b=e.target.closest("[data-libpick]");if(!b)return;S.libF=Object.assign(S.libF||{},{[b.dataset.libpick]:b.dataset.v});save();closeSheet();renderLoc()});
 /* older names used by other parts of the app */
 function renderEgypt(){renderCollections();if($("#area").classList.contains("on"))renderArea();if($("#loc").classList.contains("on"))renderLoc()}
