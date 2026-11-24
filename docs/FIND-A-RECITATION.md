@@ -79,7 +79,26 @@ The earlier finder used sound fingerprints only. Its limits, and what was done a
   - When the recording is found by sound, its label is checked against the verses heard ("agrees with the label", or "the label doesn't list Sūrah X").
   - If the transcript alone is unclear, it is placed within the surahs of the recording found. That is shown as such, never as independent agreement.
   - A weak (possible) sound match that contradicts clearly recognised verses is left out.
-  - An unclear verse guess that contradicts the label of a confirmed recording is not shown.
+  - **Only a confirmed verse place names a surah.** An unconfirmed guess of the speech model is never shown as a surah,
+    on a result or on the "not found" screen (it caused the wrong surahs reported in November 2026, see
+    `docs/FINDER-ACCURACY.md`). On the "not found" screen the confirmed places of the clip must also agree with each
+    other.
+
+### 2b. The library's verse map (`vm/`, `tools/verses/analyse.mjs`)
+- **Every recording in the library is analysed once** by the same Quran speech model: one 30 s stretch every 60 s,
+  each placed in the Quran text by the same matcher. Stored per recording: the surah and ayahs at each point, how
+  sure, and the raw transcripts (so a better matcher can re-place everything without listening again:
+  `node tools/verses/analyse.mjs replace`). The workflow "Build verse map" analyses only recordings not analysed yet
+  (new ones are picked up automatically when `data/areas.js` changes) and retries failed ones on request.
+- **Verification.** When a recording is found by sound, the map says what that recording recites at the matched point.
+  If the clip's confirmed verses contradict it, the match is shown only as **possible** (or left out if it was weak),
+  with the reason. If they agree, the card says so.
+- **Verses without the clip's own recognition.** If the clip's verses weren't recognised (noise, short clip, verse
+  recognition switched off), the card shows the verses the map found at that point, marked as coming from the map.
+- **Original not found.** The recordings the map heard reciting the recognised passage are listed first, with the
+  time in each, then those whose labels name it — always as other recordings, never as the original.
+- **Copies.** A file that agrees with the clip only partly is not called "the same recording"; only one that agrees
+  in every block of the clip and nearly as strongly is shown as a copy (and may be shown first by category).
 
 ### 3. Categories and the copy shown first
 - **Where categories come from.** Only from the library's filing, which comes from the source labels:

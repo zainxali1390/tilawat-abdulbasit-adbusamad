@@ -114,7 +114,26 @@ async function ayahPcm(ab,st,len){
   src.buffer=ab;src.connect(oc.destination);src.start(0,st,len);return (await oc.startRendering()).getChannelData(0).slice(0);
 }
 /* what a transcript says: the best place, how sure, and other places it could be */
+/* the speech model sometimes "hallucinates" on sound it can't make out: the same word or two over and over
+   ("ما ما ما ما …"). Such a loop can line up with some verse by chance, so it is removed before placing, and a
+   transcript with too little real variety is not placed at all */
+function ayahClean(text){
+  const w=(text||"").split(/\s+/).filter(Boolean),out=[];
+  for(let i=0;i<w.length;i++){
+    let loop=false;for(const n of [1,2,3]){if(out.length>=n*2&&w.slice(i,i+n).join(" ")===out.slice(-n).join(" ")&&out.slice(-n).join(" ")===out.slice(-2*n,-n).join(" ")){loop=true;break}}
+    if(!loop)out.push(w[i]);
+  }
+  /* a word repeated back to back more than twice is kept once */
+  const o2=[];for(const x of out){if(o2.length>=1&&o2[o2.length-1]===x&&o2.length>=2&&o2[o2.length-2]===x)continue;o2.push(x)}
+  return o2.join(" ");
+}
+function ayahVaried(text){
+  const q=QMATCH.skel(text);if(q.length<10)return false;
+  const g=new Set();for(let i=0;i+4<=q.length;i++)g.add(q.substr(i,4));
+  return new Set(q).size>=6&&g.size>=0.5*(q.length-3)&&new Set(text.split(/\s+/).filter(Boolean)).size>=3;
+}
 function ayahPlace(text){
+  text=ayahClean(text);if(!ayahVaried(text))return null;
   const r=QMATCH.find(text);const [a,b]=r.results;
   if(!a)return null;
   const ratio=b?a.score/Math.max(b.score,0.01):9;
@@ -127,7 +146,8 @@ function ayahPlace(text){
 /* the recording was found by sound: where in ITS surahs (from its label) the transcript fits best. Used only when
    the transcript alone is not clear; shown as "within the recording's surahs", never as independent agreement */
 function ayahPlaceIn(text,surahs){
-  if(!text||!surahs.length)return null;
+  text=ayahClean(text);
+  if(!text||!surahs.length||!ayahVaried(text))return null;
   const r=QMATCH.find(text,surahs);const a=r.results[0];
   if(!a||a.n<5||a.conf<0.25)return null;
   return {...a,level:"possible",within:true,text,conf:Math.round(Math.min(.9,a.conf)*100),alts:[]};

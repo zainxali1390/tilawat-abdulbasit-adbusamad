@@ -1,7 +1,7 @@
 import os
 import json,sys
 from collections import Counter,defaultdict
-CP=json.load(open(''+os.environ.get('EVAL_DIR','eval-work').rstrip('/')+'/eval_copies.json'))
+CP=json.load(open(os.environ.get('EVAL_DIR','eval-work').rstrip('/')+'/eval_copies.json'))
 def score(f):
     R=[json.loads(l) for l in open(f)]
     for r in R: r['copies']=sorted(set(r['copies'])|set(CP.get(r['code'],{})))
@@ -30,7 +30,7 @@ def score(f):
         nc['FALSE %s%s'%(top['level'],' (wrong surah)' if ws else ' (same surah, other performance)')]+=1;bad.append(('HIDDEN '+r['name'],top['code'][:40],top['level'],top['sur'],r['truth']))
     fc=Counter()
     for r in N+[x for x in P if not x['list']]:
-        for v in r.get('nf') or []:
+        for v in (r.get('nf') if isinstance(r.get('nf'),list) else []):
             if isinstance(v,dict): fc['not-found screen names %s surah (%s)'%('the RIGHT' if v['s'] in r['truth'] else 'a WRONG','confirmed' if v['l']=='c' else 'possible')]+=1
     vc=Counter()
     for r in R:
