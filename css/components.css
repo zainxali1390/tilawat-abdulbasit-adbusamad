@@ -548,3 +548,4 @@ body.light #mushaf{--mp-bg:#fdfaf3;--mp-ink:#1b1810;--mp-acc:#a8823c;--mp-soft:#
 .lsel{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
 .lsel label{display:flex;flex-direction:column;gap:3px;font-size:11px;color:var(--muted)}
 .lsel select{height:36px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);padding:0 10px;font:inherit;font-size:13px;max-width:100%}
+.libother{display:block;width:100%;padding:12px 14px;margin-top:10px;text-align:center;font-size:13px;color:var(--gold)}

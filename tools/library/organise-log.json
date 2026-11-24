@@ -720,6 +720,339 @@
   "evidence": "file name: \"اذاعة القران\""
  },
  {
+  "kind": "moved",
+  "rec": "C:1113-_up_by_muslem.mp3",
+  "title": "Maryam · At-Takwīr",
+  "year": "",
+  "was": "Place unknown / (none)",
+  "now": "Syria / Umayyad Mosque · Damascus",
+  "evidence": "same audio as \"المسجد الأموي بسوريا\" (AbdAlbasit_Syria-Tilawat_quran)"
+ },
+ {
+  "kind": "moved",
+  "rec": "C:0418-_up_by_muslem.mp3",
+  "title": "Al-Ḥajj · Al-Ḥāqqah",
+  "year": "",
+  "was": "Place unknown / (none)",
+  "now": "Egypt / Egypt",
+  "evidence": "same audio as \"مسجد سلامة الرضي 1962 - او الشافعي\" (5323411962); the label is unsure of the mosque, so only the country is taken"
+ },
+ {
+  "kind": "moved",
+  "rec": "R:15--الاحقاف 1-16  مبتورة.mp3",
+  "title": "Al-Aḥqāf (1–16) (incomplete)",
+  "year": "",
+  "was": "Radio · station not named / (none)",
+  "now": "Egypt / Egyptian Radio",
+  "evidence": "same audio as \"سورة الأحقاف 1-18 الإذاعة المصرية 1956\" (1-18-1956)"
+ },
+ {
+  "kind": "moved",
+  "rec": "C:0934-5_up_by_muslem.mp3",
+  "title": "An-Nūr",
+  "year": "",
+  "was": "Place unknown / (none)",
+  "now": "Saudi Arabia / Masjid al-Haram · Makkah",
+  "evidence": "same audio as three uploads labelled \"النور - المسجد الحرام - مكة المكرمة\" (E, N2 339, …)"
+ },
+ {
+  "kind": "place",
+  "rec": "X3:401-5-3 الفرقان 61-77 في السبعينات من الكويت.mp3",
+  "title": "Al-Furqān (61–77)",
+  "year": "1970s",
+  "was": "Kuwait / Kuwait",
+  "now": "Fahad al-Salem Mosque · Kuwait",
+  "evidence": "same audio as \"الفرقان تلاوة فجر من الكويت مسجد فهد السالم عام 1974\" (15611974)"
+ },
+ {
+  "kind": "place",
+  "rec": "C:0774-_up_by_muslem.mp3",
+  "title": "Al-Kahf",
+  "year": "1957",
+  "was": "Syria / Damascus",
+  "now": "Yalbugha Mosque · Damascus",
+  "evidence": "same audio as \"الكهف و قصار السور مسجد يلبغا بدمشق - 1956\" (two uploads; that label says 1956, ours 1957)"
+ },
+ {
+  "kind": "place",
+  "rec": "X2:226-2-1 ابراهيم 35-41 الغاشية الشمس  الضحى الشرح الفاتحة - في الخمسينيات من سوريا.mp3",
+  "title": "Ibrāhīm (35–41) · Al-Ghāshiyah · Ash-Shams · Aḍ-Ḍuḥā · Ash-Sharḥ · Al-Fātiḥah",
+  "year": "1950s",
+  "was": "Syria / Syria",
+  "now": "Bab Musalla Grand Mosque · Damascus",
+  "evidence": "same audio as \"ابراهيم مسجد باب مصلى الكبير عام 1952\" (two uploads)"
+ },
+ {
+  "kind": "moved",
+  "rec": "C:1123-_up_by_muslem.mp3",
+  "title": "Al-Qaṣaṣ · Al-Ḥāqqah",
+  "year": "",
+  "was": "Place unknown / (none)",
+  "now": "South Africa / Grand Mosque · Johannesburg",
+  "evidence": "same audio as \"القصص والحاقة والقدر المسجد الكبير بجوهانسبرغ عام 1966\" (0010011960)"
+ },
+ {
+  "kind": "moved",
+  "rec": "C:0154-2_up_by_muslem.mp3",
+  "title": "Al-Anʿām · part 2",
+  "year": "",
+  "was": "Place unknown / (none)",
+  "now": "Kuwait / Fahad al-Salem Mosque · Kuwait",
+  "evidence": "same audio as \"ما يتيسر من سورة الانعام من مسجد فهد السالم عام 1974\" (15611974)"
+ },
+ {
+  "kind": "moved",
+  "rec": "C:0830-2_up_by_muslem.mp3",
+  "title": "Al-Māʾidah · Al-Muzzammil",
+  "year": "",
+  "was": "Place unknown / (none)",
+  "now": "Masjid al-Aqsa / Al-Aqsa Mosque",
+  "evidence": "same audio as \"المائدة والمزمل - المسجد الاقصى 1964\" (E, and another upload)"
+ },
+ {
+  "kind": "place",
+  "rec": "C:0436-3_up_by_muslem.mp3",
+  "title": "Al-Ḥujurāt · part 3",
+  "year": "",
+  "was": "Egypt / Egypt",
+  "now": "Al-Azhar Mosque · Cairo",
+  "evidence": "same audio as \"سورة الحجرات - 1978م - ( مسجد الأزهر - مصر\" (Tilawat-kharijiya)"
+ },
+ {
+  "kind": "place",
+  "rec": "N2:279.mp3",
+  "title": "Al-Māʾidah (57–66)",
+  "year": "1964",
+  "was": "Kuwait / Kuwait",
+  "now": "Shuwaikh Secondary School Mosque · Kuwait",
+  "evidence": "same audio as \"المائدة 57-66 مسجد ثانوية الشويخ 1964 الكويت\" (X1 117)"
+ },
+ {
+  "kind": "place",
+  "rec": "N2:282.mp3",
+  "title": "Al-Māʾidah (77–89)",
+  "year": "1964",
+  "was": "Kuwait / Kuwait",
+  "now": "Shuwaikh Secondary School Mosque · Kuwait",
+  "evidence": "same audio as \"المائدة 77-89 مسجد ثانوية الشويخ 1964 الكويت\" (X1 119)"
+ },
+ {
+  "kind": "place",
+  "rec": "N2:320.mp3",
+  "title": "An-Nisāʾ (79–91)",
+  "year": "1964",
+  "was": "Kuwait / Kuwait",
+  "now": "Shuwaikh Secondary School Mosque · Kuwait",
+  "evidence": "same audio as \"النساء 80-91 مسجد ثانويةالشويخ 1964 الكويت\" (X1 90)"
+ },
+ {
+  "kind": "place",
+  "rec": "N2:327.mp3",
+  "title": "An-Nisāʾ (126–135)",
+  "year": "1964",
+  "was": "Kuwait / Kuwait",
+  "now": "Shuwaikh Secondary School Mosque · Kuwait",
+  "evidence": "same audio as \"النساء 126-135 مسجد ثانويةالشويخ 1964 الكويت\" (X1 94)"
+ },
+ {
+  "kind": "place",
+  "rec": "I8:00025.mp3",
+  "title": "An-Nisāʾ (100–125)",
+  "year": "1964",
+  "was": "Kuwait / Kuwait",
+  "now": "Shuwaikh Secondary School Mosque · Kuwait",
+  "evidence": "same audio as \"النساء 113-125 مسجد ثانويةالشويخ 1964 الكويت\" (X1 93)"
+ },
+ {
+  "kind": "place",
+  "rec": "I8:00035.mp3",
+  "title": "Al-Qamar (from 48) · Ar-Raḥmān (1–69)",
+  "year": "1974",
+  "was": "Kuwait / Kuwait",
+  "now": "Al-Salem Mosque · Kuwait",
+  "evidence": "same audio as \"القمر49-55-الرحمن1-69 من مسجد السالم 1974 الكويت\" (X5 572)"
+ },
+ {
+  "kind": "place",
+  "rec": "C:0060-5_up_by_muslem.mp3",
+  "title": "Ibrāhīm",
+  "year": "1976",
+  "was": "Kuwait / Kuwait",
+  "now": "Al-Othman Mosque · Kuwait",
+  "evidence": "same audio as \"ابراهيم مسجد العثمان بالكويت\" (E)"
+ },
+ {
+  "kind": "place",
+  "rec": "A:772-rad.mp3",
+  "title": "Ar-Raʿd",
+  "year": "1980s",
+  "was": "Qatar / Qatar",
+  "now": "Grand Mosque · Doha",
+  "evidence": "same audio as \"الرعد 1-16 منتصف الثمانينات من المسجد الكبير في قطر\" (X2 218)"
+ },
+ {
+  "kind": "place",
+  "rec": "A:744.mp3",
+  "title": "Al-Isrāʾ",
+  "year": "1972",
+  "was": "Libya / Libya",
+  "now": "Al-Atiq Mosque · Benghazi",
+  "evidence": "same audio as \"الاسراء1-14 المسجد العتيق في بنغازي 1968 - ليبيا\" (X2 276; that label says 1968, ours 1972)"
+ },
+ {
+  "kind": "place",
+  "rec": "C:0769-1_up_by_muslem.mp3",
+  "title": "Al-Kahf · part 1",
+  "year": "1957",
+  "was": "Syria / Damascus",
+  "now": "Umayyad Mosque · Damascus",
+  "evidence": "same audio as \"الكهف وقصار السور - المسجد الأموي - سوريا\" (N2 263)"
+ },
+ {
+  "kind": "place",
+  "rec": "C:0969-4_up_by_muslem.mp3",
+  "title": "Al-Wāqiʿah · part 4",
+  "year": "",
+  "was": "Place unknown / (none)",
+  "now": "Atef al-Sadat Mosque (country not given)",
+  "evidence": "same audio as \"الواقعة 10-70 مسجلة من مسجد عاطف السادات\" (X5 611)"
+ },
+ {
+  "kind": "place",
+  "rec": "B:2-1 القصص 5-24 تلاوات السعودية خمسينات-  نسخة مزامير .mp3",
+  "title": "Al-Qaṣaṣ (5–24)",
+  "year": "1950s",
+  "was": "Saudi Arabia / Saudi Arabia",
+  "now": "Saudi Radio",
+  "evidence": "same audio as the Saudi radio uploads \"اذاعة السعودية الخمسينات - القصص 5-24\" (R)"
+ },
+ {
+  "kind": "place",
+  "rec": "B:3-1 الملك1-30 والقدر- من تلاوات السعودية -نسخة الاستاذ الشعلان  .mp3",
+  "title": "Al-Mulk (1–30) · Al-Qadr",
+  "year": "1960s",
+  "was": "Saudi Arabia / Saudi Arabia",
+  "now": "Saudi Radio",
+  "evidence": "same audio as the Saudi radio uploads \"اذاعة السعودية الستينات - الملك 1-30 والقدر\" (R)"
+ },
+ {
+  "kind": "place",
+  "rec": "B:7 ال عمران 33-78 من تلاوات السعودية - رفعها الشعلان.mp3",
+  "title": "Āl ʿImrān (33–78)",
+  "year": "1960s",
+  "was": "Saudi Arabia / Saudi Arabia",
+  "now": "Saudi Radio",
+  "evidence": "same audio as the Saudi radio uploads \"اذاعة السعودية الستينات - آل عمران 33-78\" (R)"
+ },
+ {
+  "kind": "place",
+  "rec": "B:8 البقرة  183-188 -من تلاوات السعودية  1952- نسخة مزامير.mp3",
+  "title": "Al-Baqarah (183–188)",
+  "year": "1952",
+  "was": "Saudi Arabia / Saudi Arabia",
+  "now": "Saudi Radio",
+  "evidence": "same audio as the Saudi radio uploads \"اذاعة السعودية الخمسينات - البقرة 183-188\" (R)"
+ },
+ {
+  "kind": "place",
+  "rec": "B:1-2 الواقعة 1-26 السعودية بالخمسينات- مزامير .mp3",
+  "title": "Al-Wāqiʿah (1–26)",
+  "year": "1950s",
+  "was": "Saudi Arabia / Saudi Arabia",
+  "now": "Saudi Radio",
+  "evidence": "same audio as the Saudi radio uploads \"اذاعة السعودية الخمسينات - الواقعة 1-26\" (R)"
+ },
+ {
+  "kind": "place",
+  "rec": "C:0001--__--_uP_bY_mUSLEm.mp3",
+  "title": "Start of Al-Kahf",
+  "year": "1960s",
+  "was": "Saudi Arabia / Saudi Arabia",
+  "now": "Saudi Radio",
+  "evidence": "same audio as the Saudi radio uploads \"اذاعة السعودية الستينات - الكهف 1-31\" (R)"
+ },
+ {
+  "kind": "place",
+  "rec": "B:3 الصف 1-14 والجمعة 5 مبتورة اخرها- من تلاوات سوريا -رفعها الاخ طويل.mp3",
+  "title": "Aṣ-Ṣaff (1–14) · Al-Jumuʿah · part 5",
+  "year": "",
+  "was": "Syria / Syria",
+  "now": "Syrian Radio",
+  "evidence": "same audio as the Syrian radio upload \"اذاعة سوريا - الصف 1-14 والجمعة 1-5\" (R)"
+ },
+ {
+  "kind": "place",
+  "rec": "B:2 الصف 1-14 الجمعة 1-11 من تلاوات سوريا- رفعها الاخ طويل.mp3",
+  "title": "Aṣ-Ṣaff (1–14) · Al-Jumuʿah (1–11)",
+  "year": "",
+  "was": "Syria / Syria",
+  "now": "Syrian Radio",
+  "evidence": "same audio as the Syrian radio upload \"اذاعة سوريا - الصف 1-14 والجمعة 1-11\" (R)"
+ },
+ {
+  "kind": "place",
+  "rec": "B:3-1 المؤمنون 1-44 من تلاوات سوريا- نسخة الاستاذ طويل .mp3",
+  "title": "Al-Muʾminūn (1–44)",
+  "year": "",
+  "was": "Syria / Syria",
+  "now": "Syrian Radio",
+  "evidence": "same audio as the Syrian radio upload \"اذاعة سوريا - المؤمنون 1-44\" (R)"
+ },
+ {
+  "kind": "place",
+  "rec": "B:2-1  يس 1-40  من تلاوات سوريا  .mp3",
+  "title": "Yā Sīn (1–40)",
+  "year": "",
+  "was": "Syria / Syria",
+  "now": "Syrian Radio",
+  "evidence": "same audio as the Syrian radio upload \"اذاعة سوريا - يس 1-40\" (R)"
+ },
+ {
+  "kind": "place",
+  "rec": "B:2 الفتح 1-27 تلاوات سوريا - رفعها الاستاذ الطويل.mp3",
+  "title": "Al-Fatḥ (1–27)",
+  "year": "",
+  "was": "Syria / Syria",
+  "now": "Syrian Radio",
+  "evidence": "same audio as the Syrian radio upload \"اذاعة سوريا - الفتح 1-27\" (R)"
+ },
+ {
+  "kind": "place",
+  "rec": "B:6 النمل 15- 44 من تلاوات سوريا- الاستاذ محمد حسام الواحي.mp3",
+  "title": "An-Naml (15–44)",
+  "year": "",
+  "was": "Syria / Syria",
+  "now": "Syrian Radio",
+  "evidence": "same audio as the Syrian radio upload \"اذاعة سوريا - النمل 15-44\" (R)"
+ },
+ {
+  "kind": "place",
+  "rec": "B:1 الروم 1-28 من تلاوات سوريا- الاستاذ عبدالله سالم.mp3",
+  "title": "Ar-Rūm (1–28)",
+  "year": "",
+  "was": "Syria / Syria",
+  "now": "Syrian Radio",
+  "evidence": "same audio as the Syrian radio upload \"اذاعة سوريا - الروم 1-28\" (R)"
+ },
+ {
+  "kind": "place",
+  "rec": "B:3 الشعراء 1-68 من تلاوات سوريا - الاستاذعبدالله سالم   .mp3",
+  "title": "Ash-Shuʿarāʾ (1–68)",
+  "year": "",
+  "was": "Syria / Syria",
+  "now": "Syrian Radio",
+  "evidence": "same audio as the Syrian radio upload \"اذاعة سوريا - الشعراء 1-68\" (R)"
+ },
+ {
+  "kind": "place",
+  "rec": "B:4-1 مريم 1-52 - تلاوات سوريا- نسخة الاستاذ عبدالله سالم.mp3",
+  "title": "Maryam (1–52)",
+  "year": "",
+  "was": "Syria / Syria",
+  "now": "Syrian Radio",
+  "evidence": "same audio as the Syrian radio upload \"اذاعة سوريا - مريم 1-52\" (R)"
+ },
+ {
   "kind": "place",
   "rec": "A:426.mp3",
   "title": "Hūd · Al-Qiyāmah",

@@ -50,7 +50,7 @@ function playTrack(tr,opt){
 async function sourceQueue(tr){
   if(tr.kh){const K=KHATMAS.find(x=>x.id===tr.kh);if(K&&!K.yt){try{const L=await kTracks(K);if(L.length)return L.map((x,j)=>Object.assign({},x,{kh:K.id,ki:j}))}catch(e){}}}
   /* a library recording: the recordings of its place, in the order (and with the filters) last chosen there */
-  if(tr.eg&&tr.k&&tr.k.startsWith("eg:")){const ll=libLocOf(tr);if(ll){const same=S.libC===ll.c.id&&S.libL===ll.l.id;const rs=same?libView(ll.l):ll.l.refs.map(r=>({r}));
+  if(tr.eg&&tr.k&&tr.k.startsWith("eg:")){const ll=libLocOf(tr);if(ll){const same=S.libC===ll.c.id&&S.libL===ll.l.id;const md=lib().refOf.get(tr.k.slice(3)).mode,rs=same&&colMode()===md?libView(ll.l):ll.l.refs.filter(r=>libModeOf(...r)===md).map(r=>({r}));
     const L=rs.map(x=>egTrack(...x.r));if(L.some(x=>x.k===tr.k))return L;return ll.l.refs.map(r=>egTrack(...r))}}
   if(!tr.eg&&tr.rec){const r=RECITATIONS.find(x=>x.id===tr.rec);if(r)return Object.keys(r.surahs).map(Number).sort((a,b)=>a-b).map(n=>surahTrack(r,n))}
   return [tr];
@@ -197,7 +197,7 @@ function openSource(tr){
   /* a library recording: its place (country → place), scrolled to it */
   const ll=libLocOf(tr);
   if(ll){
-    S.libC=ll.c.id;S.libL=ll.l.id;S.libF={};save();$("#lq").value="";
+    S.libC=ll.c.id;S.libL=ll.l.id;S.libF={};S.colMode=libModeOf(...ll.l.refs.find(([ai,si,ii])=>{const it=AREAS[ai].secs[si].items[ii];return "eg:"+it[0]+":"+it[1]===tr.k}));save();$("#lq").value="";
     if(location.hash==="#loc")renderLoc();go("loc");
     const r=ll.l.refs.find(([ai,si,ii])=>{const it=AREAS[ai].secs[si].items[ii];return "eg:"+it[0]+":"+it[1]===tr.k});
     if(r)scrollTo(`#locList [data-play="eg:${r[0]}:${r[1]}:${r[2]}"]`);return;

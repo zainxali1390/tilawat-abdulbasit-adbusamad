@@ -24,6 +24,12 @@ SEC = {
     'qatarRadio': ('Radio recitations · date not given', 'تلاوات إذاعية · بدون تاريخ'),
     'syriaLost': ('Lost recitations', 'تلاوات مفقودة'),
     'egypt70': ('Public recitations 1970s', 'تلاوات خارجية السبعينيات'),
+    'syriaND': ('Public recitations · date not given', 'تلاوات خارجية · بدون تاريخ'),
+    'egyptRadioND': ('Radio recitations · date not given', 'تلاوات إذاعية · بدون تاريخ'),
+    'saudiND': ('Public recitations · date not given', 'تلاوات خارجية · بدون تاريخ'),
+    'safricaND': ('Public recitations · date not given', 'تلاوات خارجية · بدون تاريخ'),
+    'kuwaitND': ('Public recitations · date not given', 'تلاوات خارجية · بدون تاريخ'),
+    'aqsaND': ('Public recitations · date not given', 'تلاوات خارجية · بدون تاريخ'),
 }
 PAL_EN, PAL_AR = 'Presidential Palace · Baghdad', 'القصر الجمهوري · بغداد'
 R14_EN, R14_AR = '14 Ramadan Mosque · Baghdad', 'جامع 14 رمضان · بغداد'
@@ -116,6 +122,56 @@ SAME_PLACE = [
 ]
 
 
+# places from a copy of the SAME AUDIO (sound check reports in tools/fingerprint/reports/, "duplicate" verdicts) whose own
+# label names the venue or station, where ours only names the country or nothing, and the country agrees:
+# (key, file-name prefix, new country or None to keep, section key or None, place en, place ar, evidence)
+SAME_AUDIO = [
+    ('C', '1113-', 'syria', 'syriaND', 'Umayyad Mosque · Damascus', 'المسجد الأموي · دمشق', 'same audio as "المسجد الأموي بسوريا" (AbdAlbasit_Syria-Tilawat_quran)'),
+    ('C', '0418-', 'egypt', 'egyptND', 'Egypt', 'مصر', 'same audio as "مسجد سلامة الرضي 1962 - او الشافعي" (5323411962); the label is unsure of the mosque, so only the country is taken'),
+    ('R', '15--', 'egypt', 'egyptRadioND', 'Egyptian Radio', 'الإذاعة المصرية', 'same audio as "سورة الأحقاف 1-18 الإذاعة المصرية 1956" (1-18-1956)'),
+    ('C', '0934-', 'saudi', 'saudiND', 'Masjid al-Haram · Makkah', 'المسجد الحرام · مكة', 'same audio as three uploads labelled "النور - المسجد الحرام - مكة المكرمة" (E, N2 339, …)'),
+    ('X3', '401-5-3', None, None, 'Fahad al-Salem Mosque · Kuwait', 'مسجد فهد السالم · الكويت', 'same audio as "الفرقان تلاوة فجر من الكويت مسجد فهد السالم عام 1974" (15611974)'),
+    ('C', '0774-', None, None, 'Yalbugha Mosque · Damascus', 'مسجد يلبغا · دمشق', 'same audio as "الكهف و قصار السور مسجد يلبغا بدمشق - 1956" (two uploads; that label says 1956, ours 1957)'),
+    ('X2', '226-2-1', None, None, 'Bab Musalla Grand Mosque · Damascus', 'مسجد باب مصلى الكبير · دمشق', 'same audio as "ابراهيم مسجد باب مصلى الكبير عام 1952" (two uploads)'),
+    ('C', '1123-', 'safrica', 'safricaND', 'Grand Mosque · Johannesburg', 'المسجد الكبير · جوهانسبرغ', 'same audio as "القصص والحاقة والقدر المسجد الكبير بجوهانسبرغ عام 1966" (0010011960)'),
+    ('C', '0154-2', 'kuwait', 'kuwaitND', 'Fahad al-Salem Mosque · Kuwait', 'مسجد فهد السالم · الكويت', 'same audio as "ما يتيسر من سورة الانعام من مسجد فهد السالم عام 1974" (15611974)'),
+    ('C', '0830-2', 'aqsa', 'aqsaND', 'Al-Aqsa Mosque', 'المسجد الأقصى', 'same audio as "المائدة والمزمل - المسجد الاقصى 1964" (E, and another upload)'),
+    ('C', '0436-3', None, None, 'Al-Azhar Mosque · Cairo', 'الجامع الأزهر · القاهرة', 'same audio as "سورة الحجرات - 1978م - ( مسجد الأزهر - مصر" (Tilawat-kharijiya)'),
+    ('N2', '279.mp3', None, None, 'Shuwaikh Secondary School Mosque · Kuwait', 'مسجد ثانوية الشويخ · الكويت', 'same audio as "المائدة 57-66 مسجد ثانوية الشويخ 1964 الكويت" (X1 117)'),
+    ('N2', '282.mp3', None, None, 'Shuwaikh Secondary School Mosque · Kuwait', 'مسجد ثانوية الشويخ · الكويت', 'same audio as "المائدة 77-89 مسجد ثانوية الشويخ 1964 الكويت" (X1 119)'),
+    ('N2', '320.mp3', None, None, 'Shuwaikh Secondary School Mosque · Kuwait', 'مسجد ثانوية الشويخ · الكويت', 'same audio as "النساء 80-91 مسجد ثانويةالشويخ 1964 الكويت" (X1 90)'),
+    ('N2', '327.mp3', None, None, 'Shuwaikh Secondary School Mosque · Kuwait', 'مسجد ثانوية الشويخ · الكويت', 'same audio as "النساء 126-135 مسجد ثانويةالشويخ 1964 الكويت" (X1 94)'),
+    ('I8', '00025.mp3', None, None, 'Shuwaikh Secondary School Mosque · Kuwait', 'مسجد ثانوية الشويخ · الكويت', 'same audio as "النساء 113-125 مسجد ثانويةالشويخ 1964 الكويت" (X1 93)'),
+    ('I8', '00035.mp3', None, None, 'Al-Salem Mosque · Kuwait', 'مسجد السالم · الكويت', 'same audio as "القمر49-55-الرحمن1-69 من مسجد السالم 1974 الكويت" (X5 572)'),
+    ('C', '0060-5', None, None, 'Al-Othman Mosque · Kuwait', 'مسجد العثمان · الكويت', 'same audio as "ابراهيم مسجد العثمان بالكويت" (E)'),
+    ('A', '772-rad', None, None, 'Grand Mosque · Doha', 'المسجد الكبير · الدوحة', 'same audio as "الرعد 1-16 منتصف الثمانينات من المسجد الكبير في قطر" (X2 218)'),
+    ('A', '744.mp3', None, None, 'Al-Atiq Mosque · Benghazi', 'المسجد العتيق · بنغازي', 'same audio as "الاسراء1-14 المسجد العتيق في بنغازي 1968 - ليبيا" (X2 276; that label says 1968, ours 1972)'),
+    ('C', '0769-1', None, None, 'Umayyad Mosque · Damascus', 'المسجد الأموي · دمشق', 'same audio as "الكهف وقصار السور - المسجد الأموي - سوريا" (N2 263)'),
+    ('C', '0969-4', None, None, 'Atef al-Sadat Mosque (country not given)', 'مسجد عاطف السادات (البلد غير مذكور)', 'same audio as "الواقعة 10-70 مسجلة من مسجد عاطف السادات" (X5 611)'),
+] + [(k, f, None, None, 'Saudi Radio', 'الإذاعة السعودية', 'same audio as the Saudi radio uploads "%s" (R)' % lab) for k, f, lab in [
+    ('B', '2-1 القصص 5-24', 'اذاعة السعودية الخمسينات - القصص 5-24'), ('B', '3-1 الملك1-30', 'اذاعة السعودية الستينات - الملك 1-30 والقدر'),
+    ('B', '7 ال عمران 33-78', 'اذاعة السعودية الستينات - آل عمران 33-78'), ('B', '8 البقرة  183-188', 'اذاعة السعودية الخمسينات - البقرة 183-188'),
+    ('B', '1-2 الواقعة 1-26', 'اذاعة السعودية الخمسينات - الواقعة 1-26'), ('C', '0001-', 'اذاعة السعودية الستينات - الكهف 1-31')]
+] + [(k, f, None, None, 'Syrian Radio', 'الإذاعة السورية', 'same audio as the Syrian radio upload "%s" (R)' % lab) for k, f, lab in [
+    ('B', '3 الصف 1-14', 'اذاعة سوريا - الصف 1-14 والجمعة 1-5'), ('B', '2 الصف 1-14', 'اذاعة سوريا - الصف 1-14 والجمعة 1-11'),
+    ('B', '3-1 المؤمنون 1-44', 'اذاعة سوريا - المؤمنون 1-44'), ('B', '2-1  يس 1-40', 'اذاعة سوريا - يس 1-40'), ('B', '2 الفتح 1-27', 'اذاعة سوريا - الفتح 1-27'),
+    ('B', '6 النمل 15- 44', 'اذاعة سوريا - النمل 15-44'), ('B', '1 الروم 1-28', 'اذاعة سوريا - الروم 1-28'), ('B', '3 الشعراء 1-68', 'اذاعة سوريا - الشعراء 1-68'),
+    ('B', '4-1 مريم 1-52', 'اذاعة سوريا - مريم 1-52')]
+]
+# same audio, but the copy's label disagrees with ours (country or year): nothing changed, listed for review
+SAME_AUDIO_CONFLICTS = [
+    ('C 0795-3, Al-Māʾidah, Kuwait 1974', 'a copy is labelled "سورة المائدة - ( المسجد الاقصى" (Al-Aqsa)'),
+    ('C 0059-4, Ibrāhīm, Pakistan 1980s', 'a copy is labelled "ابراهيم من المسجد الاقصي" (Al-Aqsa)'),
+    ('A 346, An-Nisāʾ · Al-Māʾidah, Kuwait 1973', 'a copy is labelled "المائدة 5-13 مسجد ثانوية الشويخ 1964" (1964)'),
+    ('A 345, An-Nisāʾ, Kuwait 1974', 'a copy is labelled "النساء 46-59 مسجد ثانويةالشويخ 1964" (1964)'),
+    ('B 1-1 Al-Ḥajj 1-29, "من تلاوات سوريا"', 'a copy is labelled "اذاعة مصر الخمسينات - الحج 1-29" (Egyptian Radio)'),
+    ('B 11 Āl ʿImrān 75-96, "من تلاوات سوريا"', 'a copy is labelled "اذاعة مصر الخمسينات - آل عمران 75-96" (Egyptian Radio)'),
+    ('B 1-1 Al-ʿAnkabūt 1-32, "من تلاوات سوريا"', 'a copy is labelled "اذاعة مصر الخمسينات - العنكبوت 1-32" (Egyptian Radio)'),
+    ('B 1 Az-Zukhruf 29-63, "تلاوات السعودية"', 'a copy is labelled "اذاعة مصر الستينات - الزخرف 24-63" (Egyptian Radio)'),
+    ('I45 Al-Isrāʾ 1-98 (place not known)', 'parts match a Syrian radio upload and an Egyptian radio upload'),
+]
+
+
 def load():
     s = open(AREAS_JS, encoding='utf-8').read()
     i, j = s.index('[{'), s.index(';\n')
@@ -156,6 +212,26 @@ def main(apply):
                 if it[6] in allowed and re.search(rx, it[1]):
                     log.append(dict(kind='place', rec='%s:%s' % (it[0], it[1]), title=it[3], year=it[4], was=it[6] or '(none)', now=pen, evidence='file name: "%s"' % re.search(rx, it[1]).group(0)))
                     it[5], it[6] = par, pen
+    for key, pre, to, seck, pen, par, why in SAME_AUDIO:
+        hit = [(a, sc, it) for a in A for sc in a['secs'] for it in sc['items'] if it[0] == key and it[1].startswith(pre)]
+        if len(hit) != 1:
+            print('!! same-audio entry not found exactly once:', key, pre, len(hit)); continue
+        a, sc, it = hit[0]
+        if it[6] == pen and (to is None or a['id'] == to):
+            continue
+        was = '%s / %s' % (a['en'], it[6] or '(none)')
+        it[5], it[6] = par, pen
+        if to and to != a['id']:
+            sc['items'].remove(it)
+            en, ar = SEC[seck]
+            dest = AREA[to]
+            tsec = next((x for x in dest['secs'] if x['en'] == en), None)
+            if not tsec:
+                tsec = {'en': en, 'ar': ar, 'items': []}; dest['secs'].append(tsec)
+            tsec['items'].append(it)
+            log.append(dict(kind='moved', rec='%s:%s' % (it[0], it[1]), title=it[3], year=it[4], was=was, now='%s / %s' % (dest['en'], pen), evidence=why))
+        else:
+            log.append(dict(kind='place', rec='%s:%s' % (it[0], it[1]), title=it[3], year=it[4], was=was, now=pen, evidence=why))
     for aid, was, now, ar, why in SAME_PLACE:
         for sc in AREA[aid]['secs']:
             for it in sc['items']:

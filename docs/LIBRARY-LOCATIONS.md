@@ -1,6 +1,6 @@
 # Recitations library — country and place archive (24 November 2026)
 
-The library is now organised **country → place → recordings**:
+The library has **two collections, Live recitations and Radio recitations**, as before. Inside each one, recordings are organised **country → place → recordings**:
 
 - **Places** are mosques, radio stations, television, venues, record companies, or a city when no venue is named.
 - **Year, type, surah and length** are filters and sorting inside each place.
@@ -12,19 +12,21 @@ No recording was deleted, duplicated or renamed, and no ID, file, link, title or
 - **Country:** the country the recording is filed under. Masjid al-Aqsa is filed under Palestine and BBC under United Kingdom. Place unknown, unnamed radio, the Sheikh's home and lost recitations go under **Country not known**.
 - **Place:** the recording's own place field, taken from its source label. The same place written two ways is one place (see Merges).
 - **Place not named:** when the field only names the country, the recording goes to that country's **Location not known**. For radio or TV it goes to **Radio · station not named** or **TV · channel not named**, as its source says. A venue is never guessed.
+- **Live or radio:** a recording is in Radio recitations when its source labels it radio or its place is a radio station; everything else (public recitations, TV, at home) is in Live recitations. The shared khatma of the early 1950s is one numbered series (K 1–35), part of which was filed as radio, so it is kept together under Radio. A search in one collection offers the matches in the other with one tap.
 - **Type:** taken from the recording's source label: public recitation, radio, television, at home, studio record, shared khatma, compilation or lost fragment. Recordings at a radio or TV place count as radio or TV.
 - **Repeatable:** corrections to the data are made by `tools/library/organise.py`, only where the recording's own file name proves them. Each correction is listed below. Running it again changes nothing.
 
+
 ## Countries and places
 
-### Egypt (مصر) — 705 recordings, 70 places
+### Egypt (مصر) — 707 recordings, 70 places
 
 | Place | Arabic | Kind | Recordings |
 |---|---|---|---|
 | Imam al-Shafiʿi Mosque · Cairo | مسجد الإمام الشافعي · القاهرة | Mosque | 118 |
 | Imam al-Hussein Mosque · Cairo | مسجد الإمام الحسين · القاهرة | Mosque | 91 |
 | Sayyida Zaynab Mosque · Cairo | مسجد السيدة زينب · القاهرة | Mosque | 18 |
-| Al-Azhar Mosque · Cairo | الجامع الأزهر · القاهرة | Mosque | 8 |
+| Al-Azhar Mosque · Cairo | الجامع الأزهر · القاهرة | Mosque | 9 |
 | Al-Mursi Abu al-Abbas Mosque · Alexandria | مسجد المرسي أبو العباس · الإسكندرية | Mosque | 4 |
 | Abd al-Rahim al-Qinawi Mosque · Qena | مسجد عبد الرحيم القنائي · قنا | Mosque | 3 |
 | Ahmed el-Tawabi Mosque · El-Tawabiya | مسجد أحمد الطوابي · الطوابية | Mosque | 3 |
@@ -52,7 +54,7 @@ No recording was deleted, duplicated or renamed, and no ID, file, link, title or
 | Al-Khalifa Square · Cairo | ميدان الخليفة · القاهرة | Venue / occasion | 1 |
 | Cairo University | جامعة القاهرة | Venue / occasion | 1 |
 | El-Mahalla El-Kubra | المحلة الكبرى | Venue / occasion | 1 |
-| Egyptian Radio | الإذاعة المصرية | Radio | 101 |
+| Egyptian Radio | الإذاعة المصرية | Radio | 102 |
 | Middle East Radio · Cairo | إذاعة الشرق الأوسط · القاهرة | Radio | 1 |
 | Radio · station not named | إذاعة · المحطة غير مذكورة | Radio | 1 |
 | Radio Cairo | إذاعة القاهرة | Radio | 1 |
@@ -92,62 +94,64 @@ No recording was deleted, duplicated or renamed, and no ID, file, link, title or
 | Zamalek | الزمالك | City or region (venue not named) | 1 |
 | Location not known | المكان غير معروف | Not known | 140 |
 
-### Kuwait (الكويت) — 306 recordings, 7 places
+### Kuwait (الكويت) — 307 recordings, 8 places
 
 | Place | Arabic | Kind | Recordings |
 |---|---|---|---|
-| Shuwaikh Secondary School Mosque · Kuwait | مسجد ثانوية الشويخ · الكويت | Mosque | 30 |
-| Fahad al-Salem Mosque · Kuwait | مسجد فهد السالم · الكويت | Mosque | 16 |
+| Shuwaikh Secondary School Mosque · Kuwait | مسجد ثانوية الشويخ · الكويت | Mosque | 35 |
+| Fahad al-Salem Mosque · Kuwait | مسجد فهد السالم · الكويت | Mosque | 18 |
 | Souq Mosque · Kuwait | مسجد السوق · الكويت | Mosque | 7 |
-| Al-Salem Mosque · Kuwait | مسجد السالم · الكويت | Mosque | 2 |
+| Al-Salem Mosque · Kuwait | مسجد السالم · الكويت | Mosque | 3 |
+| Al-Othman Mosque · Kuwait | مسجد العثمان · الكويت | Mosque | 1 |
 | Kuwait Radio | إذاعة الكويت | Radio | 18 |
 | Kuwait TV | تلفزيون الكويت | Television | 12 |
-| Location not known | المكان غير معروف | Not known | 221 |
+| Location not known | المكان غير معروف | Not known | 213 |
 
-### Syria (سوريا) — 145 recordings, 14 places
+### Syria (سوريا) — 146 recordings, 15 places
 
 | Place | Arabic | Kind | Recordings |
 |---|---|---|---|
-| Umayyad Mosque · Damascus | المسجد الأموي · دمشق | Mosque | 31 |
+| Umayyad Mosque · Damascus | المسجد الأموي · دمشق | Mosque | 33 |
 | Abdullah ibn Rawaha Mosque · Damascus | جامع عبد الله بن رواحة · دمشق | Mosque | 2 |
+| Yalbugha Mosque · Damascus | مسجد يلبغا · دمشق | Mosque | 2 |
 | Al-Jamiʿ al-Aʿla · Hama | الجامع الأعلى · حماة | Mosque | 1 |
 | Al-Sultan Mosque · Hama | مسجد السلطان · حماة | Mosque | 1 |
+| Bab Musalla Grand Mosque · Damascus | مسجد باب مصلى الكبير · دمشق | Mosque | 1 |
 | Khalid ibn al-Walid Mosque · Homs | مسجد خالد بن الوليد · حمص | Mosque | 1 |
 | Lala Mustafa Pasha Mosque | مسجد لالا مصطفى باشا | Mosque | 1 |
-| Yalbugha Mosque · Damascus | مسجد يلبغا · دمشق | Mosque | 1 |
-| Syrian Radio | الإذاعة السورية | Radio | 53 |
+| Syrian Radio | الإذاعة السورية | Radio | 62 |
 | Aleppo | حلب | City or region (venue not named) | 8 |
-| Damascus | دمشق | City or region (venue not named) | 4 |
 | Latakia | اللاذقية | City or region (venue not named) | 4 |
+| Damascus | دمشق | City or region (venue not named) | 2 |
 | Hama | حماة | City or region (venue not named) | 2 |
-| Location not known | المكان غير معروف | Not known | 35 |
+| Location not known | المكان غير معروف | Not known | 25 |
 | Lost recitations | تلاوات مفقودة | Not known | 1 |
 
-### Palestine (فلسطين) — 124 recordings, 1 places
+### Palestine (فلسطين) — 125 recordings, 1 places
 
 | Place | Arabic | Kind | Recordings |
 |---|---|---|---|
-| Al-Aqsa Mosque | المسجد الأقصى | Mosque | 124 |
+| Al-Aqsa Mosque | المسجد الأقصى | Mosque | 125 |
 
-### South Africa (جنوب أفريقيا) — 89 recordings, 2 places
+### South Africa (جنوب أفريقيا) — 90 recordings, 3 places
 
 | Place | Arabic | Kind | Recordings |
 |---|---|---|---|
+| Grand Mosque · Johannesburg | المسجد الكبير · جوهانسبرغ | Mosque | 1 |
 | Johannesburg · South Africa | جوهانسبرغ · جنوب أفريقيا | City or region (venue not named) | 3 |
 | Location not known | المكان غير معروف | Not known | 86 |
 
-### Saudi Arabia (السعودية) — 66 recordings, 8 places
+### Saudi Arabia (السعودية) — 67 recordings, 7 places
 
 | Place | Arabic | Kind | Recordings |
 |---|---|---|---|
-| Masjid al-Haram · Makkah | المسجد الحرام · مكة | Mosque | 11 |
+| Masjid al-Haram · Makkah | المسجد الحرام · مكة | Mosque | 12 |
 | Masjid an-Nabawi · Madinah | المسجد النبوي · المدينة | Mosque | 1 |
-| Saudi Radio | الإذاعة السعودية | Radio | 20 |
+| Saudi Radio | الإذاعة السعودية | Radio | 26 |
 | Jeddah Radio | إذاعة جدة | Radio | 8 |
-| Radio · station not named | إذاعة · المحطة غير مذكورة | Radio | 2 |
 | Saudi TV | تلفزيون السعودية | Television | 2 |
 | Makkah | مكة | City or region (venue not named) | 1 |
-| Location not known | المكان غير معروف | Not known | 21 |
+| Location not known | المكان غير معروف | Not known | 17 |
 
 ### Pakistan (باكستان) — 64 recordings, 3 places
 
@@ -184,10 +188,10 @@ No recording was deleted, duplicated or renamed, and no ID, file, link, title or
 
 | Place | Arabic | Kind | Recordings |
 |---|---|---|---|
-| Grand Mosque · Doha | المسجد الكبير · الدوحة | Mosque | 2 |
+| Grand Mosque · Doha | المسجد الكبير · الدوحة | Mosque | 3 |
 | Qatar Radio | إذاعة قطر | Radio | 1 |
 | Qatar TV | تلفزيون قطر | Television | 4 |
-| Location not known | المكان غير معروف | Not known | 26 |
+| Location not known | المكان غير معروف | Not known | 25 |
 
 ### United States (الولايات المتحدة) — 16 recordings, 2 places
 
@@ -237,11 +241,12 @@ No recording was deleted, duplicated or renamed, and no ID, file, link, title or
 |---|---|---|---|
 | Location not known | المكان غير معروف | Not known | 3 |
 
-### Libya (ليبيا) — 2 recordings, 1 places
+### Libya (ليبيا) — 2 recordings, 2 places
 
 | Place | Arabic | Kind | Recordings |
 |---|---|---|---|
-| Location not known | المكان غير معروف | Not known | 2 |
+| Al-Atiq Mosque · Benghazi | المسجد العتيق · بنغازي | Mosque | 1 |
+| Location not known | المكان غير معروف | Not known | 1 |
 
 ### United Kingdom (المملكة المتحدة) — 2 recordings, 1 places
 
@@ -255,25 +260,24 @@ No recording was deleted, duplicated or renamed, and no ID, file, link, title or
 |---|---|---|---|
 | Location not known | المكان غير معروف | Not known | 1 |
 
-### Country not known (البلد غير معروف) — 1046 recordings, 11 places
+### Country not known (البلد غير معروف) — 1039 recordings, 12 places
 
 | Place | Arabic | Kind | Recordings |
 |---|---|---|---|
 | Al-Maghfira Mosque (country not given) | مسجد المغفرة (البلد غير مذكور) | Mosque | 1 |
 | Al-Tawba Mosque (country not given) | مسجد التوبة (البلد غير مذكور) | Mosque | 1 |
+| Atef al-Sadat Mosque (country not given) | مسجد عاطف السادات (البلد غير مذكور) | Mosque | 1 |
 | Martyr Salah Ashmawi Mosque (country not given) | مسجد الشهيد صلاح عشماوي (البلد غير مذكور) | Mosque | 1 |
 | At the Sheikh's home | منزل الشيخ | Venue / occasion | 4 |
-| Radio · station not named | إذاعة · المحطة غير مذكورة | Radio | 123 |
+| Radio · station not named | إذاعة · المحطة غير مذكورة | Radio | 122 |
 | Quran Radio (country not given) | إذاعة القرآن (البلد غير مذكور) | Radio | 1 |
 | Radio of the United Arab Republic | إذاعة الجمهورية العربية المتحدة | Radio | 1 |
 | El-Meamaria | المعمارية | City or region (venue not named) | 1 |
-| Location not known | المكان غير معروف | Not known | 909 |
+| Location not known | المكان غير معروف | Not known | 902 |
 | Lost recitations | تلاوات مفقودة | Not known | 3 |
 | An East Asian country (not named) | إحدى دول شرق آسيا (غير مسماة) | Not known | 1 |
 
-Total: 2739 recordings.
-
-## Recordings that were filed under the wrong country (19, corrected)
+## Recordings that were filed under the wrong country, or had none (26, corrected)
 
 | Recording | Year | Was | Now | Evidence |
 |---|---|---|---|---|
@@ -296,15 +300,24 @@ Total: 2739 recordings.
 | Al-Qamar · Ar-Raḥmān · Al-Fajr |  | Place unknown / Sūrah Al-Qamar /  | Qatar / Radio recitations · date not given / Qatar Radio | file name: "اذاعة قطر" |
 | Hūd (36–45) · Al-Qiyāmah | 1978 | Place unknown / Sūrah Hūd /  | Egypt / Public recitations 1970s / Al-Salihin Mosque · Cairo | same audio as A 426 "Al-Salihin Mosque" (Egypt) and E "مسجد الصالحين القاهرة مصر 1978", by fingerprint |
 | At-Tawbah (18–26) |  | Lost recitations / Lost recitations /  | Syria / Lost recitations / Syria | file name: "من تلاوات سوريا" |
+| Maryam · At-Takwīr |  | Place unknown / (none) | Syria / Umayyad Mosque · Damascus | same audio as "المسجد الأموي بسوريا" (AbdAlbasit_Syria-Tilawat_quran) |
+| Al-Ḥajj · Al-Ḥāqqah |  | Place unknown / (none) | Egypt / Egypt | same audio as "مسجد سلامة الرضي 1962 - او الشافعي" (5323411962); the label is unsure of the mosque, so only the country is taken |
+| Al-Aḥqāf (1–16) (incomplete) |  | Radio · station not named / (none) | Egypt / Egyptian Radio | same audio as "سورة الأحقاف 1-18 الإذاعة المصرية 1956" (1-18-1956) |
+| An-Nūr |  | Place unknown / (none) | Saudi Arabia / Masjid al-Haram · Makkah | same audio as three uploads labelled "النور - المسجد الحرام - مكة المكرمة" (E, N2 339, …) |
+| Al-Qaṣaṣ · Al-Ḥāqqah |  | Place unknown / (none) | South Africa / Grand Mosque · Johannesburg | same audio as "القصص والحاقة والقدر المسجد الكبير بجوهانسبرغ عام 1966" (0010011960) |
+| Al-Anʿām · part 2 |  | Place unknown / (none) | Kuwait / Fahad al-Salem Mosque · Kuwait | same audio as "ما يتيسر من سورة الانعام من مسجد فهد السالم عام 1974" (15611974) |
+| Al-Māʾidah · Al-Muzzammil |  | Place unknown / (none) | Masjid al-Aqsa / Al-Aqsa Mosque | same audio as "المائدة والمزمل - المسجد الاقصى 1964" (E, and another upload) |
 
 The five recordings filed as "Presidential Palace · Cairo" are all from the **Presidential Palace in Baghdad, 1964**:
 - Three of their file names say Baghdad or Iraq.
 - The other two belong to the same series: the collection numbers them -4- (its Iraq group), with the same palace and the same year.
 - That place label was wrong as a whole, probably an error in the 24 November name audit.
 
-## Places made exact from the file names (65)
+## Places made exact (95)
 
-Where the place field only named the country or a city, but the recording's own file name names the mosque, radio station or venue:
+Two kinds of evidence:
+- the recording's own file name names the mosque, radio station or venue;
+- a copy of the **same audio** elsewhere on archive.org, found by sound, carries a label that names it ("same audio as …").
 
 | Recording | Year | Was | Now | Evidence |
 |---|---|---|---|---|
@@ -369,10 +382,54 @@ Where the place field only named the country or a city, but the recording's own 
 | Az-Zumar · Al-Balad · Aḍ-Ḍuḥā · Ash-Sharḥ · At-Tīn · An-Naṣr | 1987 | (none) | Martyr Salah Ashmawi Mosque (country not given) | file name: "مسجد الشهيد صلاح عشماوي" |
 | Al-Baqarah |  | (none) | Radio of the United Arab Republic | file name: "إذاعة الجمهورية العربية المتحدة" |
 | An-Naḥl (90–127) |  | (none) | Quran Radio (country not given) | file name: "اذاعة القران" |
+| Al-Furqān (61–77) | 1970s | Kuwait / Kuwait | Fahad al-Salem Mosque · Kuwait | same audio as "الفرقان تلاوة فجر من الكويت مسجد فهد السالم عام 1974" (15611974) |
+| Al-Kahf | 1957 | Syria / Damascus | Yalbugha Mosque · Damascus | same audio as "الكهف و قصار السور مسجد يلبغا بدمشق - 1956" (two uploads; that label says 1956, ours 1957) |
+| Ibrāhīm (35–41) · Al-Ghāshiyah · Ash-Shams · Aḍ-Ḍuḥā · Ash-Sharḥ · Al-Fātiḥah | 1950s | Syria / Syria | Bab Musalla Grand Mosque · Damascus | same audio as "ابراهيم مسجد باب مصلى الكبير عام 1952" (two uploads) |
+| Al-Ḥujurāt · part 3 |  | Egypt / Egypt | Al-Azhar Mosque · Cairo | same audio as "سورة الحجرات - 1978م - ( مسجد الأزهر - مصر" (Tilawat-kharijiya) |
+| Al-Māʾidah (57–66) | 1964 | Kuwait / Kuwait | Shuwaikh Secondary School Mosque · Kuwait | same audio as "المائدة 57-66 مسجد ثانوية الشويخ 1964 الكويت" (X1 117) |
+| Al-Māʾidah (77–89) | 1964 | Kuwait / Kuwait | Shuwaikh Secondary School Mosque · Kuwait | same audio as "المائدة 77-89 مسجد ثانوية الشويخ 1964 الكويت" (X1 119) |
+| An-Nisāʾ (79–91) | 1964 | Kuwait / Kuwait | Shuwaikh Secondary School Mosque · Kuwait | same audio as "النساء 80-91 مسجد ثانويةالشويخ 1964 الكويت" (X1 90) |
+| An-Nisāʾ (126–135) | 1964 | Kuwait / Kuwait | Shuwaikh Secondary School Mosque · Kuwait | same audio as "النساء 126-135 مسجد ثانويةالشويخ 1964 الكويت" (X1 94) |
+| An-Nisāʾ (100–125) | 1964 | Kuwait / Kuwait | Shuwaikh Secondary School Mosque · Kuwait | same audio as "النساء 113-125 مسجد ثانويةالشويخ 1964 الكويت" (X1 93) |
+| Al-Qamar (from 48) · Ar-Raḥmān (1–69) | 1974 | Kuwait / Kuwait | Al-Salem Mosque · Kuwait | same audio as "القمر49-55-الرحمن1-69 من مسجد السالم 1974 الكويت" (X5 572) |
+| Ibrāhīm | 1976 | Kuwait / Kuwait | Al-Othman Mosque · Kuwait | same audio as "ابراهيم مسجد العثمان بالكويت" (E) |
+| Ar-Raʿd | 1980s | Qatar / Qatar | Grand Mosque · Doha | same audio as "الرعد 1-16 منتصف الثمانينات من المسجد الكبير في قطر" (X2 218) |
+| Al-Isrāʾ | 1972 | Libya / Libya | Al-Atiq Mosque · Benghazi | same audio as "الاسراء1-14 المسجد العتيق في بنغازي 1968 - ليبيا" (X2 276; that label says 1968, ours 1972) |
+| Al-Kahf · part 1 | 1957 | Syria / Damascus | Umayyad Mosque · Damascus | same audio as "الكهف وقصار السور - المسجد الأموي - سوريا" (N2 263) |
+| Al-Wāqiʿah · part 4 |  | Place unknown / (none) | Atef al-Sadat Mosque (country not given) | same audio as "الواقعة 10-70 مسجلة من مسجد عاطف السادات" (X5 611) |
+| Al-Qaṣaṣ (5–24) | 1950s | Saudi Arabia / Saudi Arabia | Saudi Radio | same audio as the Saudi radio uploads "اذاعة السعودية الخمسينات - القصص 5-24" (R) |
+| Al-Mulk (1–30) · Al-Qadr | 1960s | Saudi Arabia / Saudi Arabia | Saudi Radio | same audio as the Saudi radio uploads "اذاعة السعودية الستينات - الملك 1-30 والقدر" (R) |
+| Āl ʿImrān (33–78) | 1960s | Saudi Arabia / Saudi Arabia | Saudi Radio | same audio as the Saudi radio uploads "اذاعة السعودية الستينات - آل عمران 33-78" (R) |
+| Al-Baqarah (183–188) | 1952 | Saudi Arabia / Saudi Arabia | Saudi Radio | same audio as the Saudi radio uploads "اذاعة السعودية الخمسينات - البقرة 183-188" (R) |
+| Al-Wāqiʿah (1–26) | 1950s | Saudi Arabia / Saudi Arabia | Saudi Radio | same audio as the Saudi radio uploads "اذاعة السعودية الخمسينات - الواقعة 1-26" (R) |
+| Start of Al-Kahf | 1960s | Saudi Arabia / Saudi Arabia | Saudi Radio | same audio as the Saudi radio uploads "اذاعة السعودية الستينات - الكهف 1-31" (R) |
+| Aṣ-Ṣaff (1–14) · Al-Jumuʿah · part 5 |  | Syria / Syria | Syrian Radio | same audio as the Syrian radio upload "اذاعة سوريا - الصف 1-14 والجمعة 1-5" (R) |
+| Aṣ-Ṣaff (1–14) · Al-Jumuʿah (1–11) |  | Syria / Syria | Syrian Radio | same audio as the Syrian radio upload "اذاعة سوريا - الصف 1-14 والجمعة 1-11" (R) |
+| Al-Muʾminūn (1–44) |  | Syria / Syria | Syrian Radio | same audio as the Syrian radio upload "اذاعة سوريا - المؤمنون 1-44" (R) |
+| Yā Sīn (1–40) |  | Syria / Syria | Syrian Radio | same audio as the Syrian radio upload "اذاعة سوريا - يس 1-40" (R) |
+| Al-Fatḥ (1–27) |  | Syria / Syria | Syrian Radio | same audio as the Syrian radio upload "اذاعة سوريا - الفتح 1-27" (R) |
+| An-Naml (15–44) |  | Syria / Syria | Syrian Radio | same audio as the Syrian radio upload "اذاعة سوريا - النمل 15-44" (R) |
+| Ar-Rūm (1–28) |  | Syria / Syria | Syrian Radio | same audio as the Syrian radio upload "اذاعة سوريا - الروم 1-28" (R) |
+| Ash-Shuʿarāʾ (1–68) |  | Syria / Syria | Syrian Radio | same audio as the Syrian radio upload "اذاعة سوريا - الشعراء 1-68" (R) |
+| Maryam (1–52) |  | Syria / Syria | Syrian Radio | same audio as the Syrian radio upload "اذاعة سوريا - مريم 1-52" (R) |
 | Hūd · Al-Qiyāmah | 1978 | Al-Salihin Mosque | Al-Salihin Mosque · Cairo | A 426 is the same audio as the "مسجد الصالحين القاهرة مصر 1978" recording (fingerprint) |
 | Aṣ-Ṣāffāt | 1979 | Al-Rifaʿi Mosque | Al-Rifaʿi Mosque · Cairo | both labels: "مسجد أحمد الرفاعي"; the other names Cairo |
 | Al-Furqān · Al-Balad · Aḍ-Ḍuḥā · Ash-Sharḥ |  | Sheikh al-Banna Mosque | Sheikh al-Banna Mosque · Monufia | same mosque name in Egypt; the other label names Monufia |
 | Maryam | 1968 | Sinan Pasha Mosque | Sinan Pasha Mosque · Bulaq | same mosque name in Egypt; the other label names Bulaq |
+
+## Same audio, but the labels disagree (nothing changed; to check)
+
+- C 0795-3, Al-Māʾidah, Kuwait 1974: a copy is labelled "سورة المائدة - ( المسجد الاقصى" (Al-Aqsa)
+- C 0059-4, Ibrāhīm, Pakistan 1980s: a copy is labelled "ابراهيم من المسجد الاقصي" (Al-Aqsa)
+- A 346, An-Nisāʾ · Al-Māʾidah, Kuwait 1973: a copy is labelled "المائدة 5-13 مسجد ثانوية الشويخ 1964" (1964)
+- A 345, An-Nisāʾ, Kuwait 1974: a copy is labelled "النساء 46-59 مسجد ثانويةالشويخ 1964" (1964)
+- B 1-1 Al-Ḥajj 1-29, "من تلاوات سوريا": a copy is labelled "اذاعة مصر الخمسينات - الحج 1-29" (Egyptian Radio)
+- B 11 Āl ʿImrān 75-96, "من تلاوات سوريا": a copy is labelled "اذاعة مصر الخمسينات - آل عمران 75-96" (Egyptian Radio)
+- B 1-1 Al-ʿAnkabūt 1-32, "من تلاوات سوريا": a copy is labelled "اذاعة مصر الخمسينات - العنكبوت 1-32" (Egyptian Radio)
+- B 1 Az-Zukhruf 29-63, "تلاوات السعودية": a copy is labelled "اذاعة مصر الستينات - الزخرف 24-63" (Egyptian Radio)
+- I45 Al-Isrāʾ 1-98 (place not known): parts match a Syrian radio upload and an Egyptian radio upload
+
+Several uploads labelled "من تلاوات سوريا" ("from the Syrian recitations") are the same audio as uploads labelled Egyptian Radio, so either label could be wrong.
 
 ## Merges (one place written two ways)
 
@@ -408,7 +465,7 @@ They are now all filed under that mosque. None was deleted; choose which to keep
 
 ## Final checks (automatic)
 
-- 2,739 recordings before and after, each in exactly one place; none missing or added.
+- 2,739 recordings before and after, each in exactly one place and in exactly one of Live (2,354) and Radio (385); none missing or added.
 - No title, year, file or link changed.
 - Every place has an English and an Arabic name.
 - No duplicate place IDs, and no duplicate places by the name comparison (except Zamalek, kept on purpose).
