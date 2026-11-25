@@ -44,6 +44,18 @@ def duration(url):
         return None
 
 
+def secs(v):
+    """archive.org file length: seconds, or 'mm:ss' / 'hh:mm:ss'"""
+    try:
+        p = [float(x) for x in str(v or 0).split(':')]
+    except ValueError:
+        return 0.0
+    t = 0.0
+    for x in p:
+        t = t * 60 + x
+    return t
+
+
 def sid(*parts):
     return hashlib.sha1('|'.join(map(str, parts)).encode()).hexdigest()[:12]
 
@@ -106,12 +118,12 @@ def neg(spec, out, k, n):
                 if AB.search(json.dumps({x: m.get(x) for x in ('title', 'creator', 'description', 'subject')}, ensure_ascii=False)):
                     continue
                 mp3 = [f for f in meta.get('files', []) if f['name'].lower().endswith('.mp3') and not AB.search(f['name'])
-                       and float(f.get('length') or 0) > 120]
+                       and secs(f.get('length')) > 120]
                 if len(mp3) < 2:
                     continue
                 mp3 = mp3[::max(1, len(mp3) // 4)][:4]
                 for f in mp3:
-                    files.append((d['identifier'], f['name'], float(f['length'])))
+                    files.append((d['identifier'], f['name'], secs(f['length'])))
                 if len({x[0] for x in files}) >= 4:
                     break
             if len({x[0] for x in files}) >= 4:
