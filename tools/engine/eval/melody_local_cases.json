@@ -398,5 +398,165 @@
   "segs": null,
   "fpos": null,
   "kind": "control"
+ },
+ {
+  "name": "s03-noise10",
+  "a": "e:A:284.mp3",
+  "ua": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/284.mp3",
+  "b": "e:N1:245.mp3",
+  "ub": "https://archive.org/download/NawaderGroup-1/245.mp3",
+  "segs": [
+   {
+    "at": 454.55,
+    "len": 20,
+    "rate": 1
+   }
+  ],
+  "fpos": 816.2,
+  "kind": "melody"
+ },
+ {
+  "name": "s06-clean20",
+  "a": "e:X5:568-4-1 القمر 49-55 الرحمن 1-27- من تلاوات العراق 1956.mp3",
+  "ua": "https://archive.org/download/x5-hograt-to-hashr_202308/568-4-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%2049-55%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%201-27-%20%D9%85%D9%86%20%D8%AA%D9%84%D8%A7%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%201956.mp3",
+  "b": "e:X5:567-4-1 القمر 49-55 الرحمن 1-27- من العراق 1956.mp3",
+  "ub": "https://archive.org/download/x5-hograt-to-hashr_202308/567-4-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%2049-55%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%201-27-%20%D9%85%D9%86%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%201956.mp3",
+  "segs": [
+   {
+    "at": 1285.15,
+    "len": 20,
+    "rate": 1
+   }
+  ],
+  "fpos": 1533.5,
+  "kind": "melody"
+ },
+ {
+  "name": "s08-tempo1.1",
+  "a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+  "ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+  "b": "e:I4:- يوسف - تلاوات مصر_تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد.mp3",
+  "ub": "https://archive.org/download/wwwwwwwwwwwwwwwwwwwww831_20190831_1217/-%20%D9%8A%D9%88%D8%B3%D9%81%20-%20%D8%AA%D9%84%D8%A7%D9%88%D8%A7%D8%AA%20%D9%85%D8%B5%D8%B1_%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%D8%A7%D8%AA%20%D9%86%D8%A7%D8%AF%D8%B1%D8%A9_%D8%A7%D9%84%D8%B4%D9%8A%D8%AE%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%A8%D8%A7%D8%B3%D8%B7%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%B5%D9%85%D8%AF.mp3",
+  "segs": [
+   {
+    "at": 2061.15,
+    "len": 20,
+    "rate": 1.1
+   }
+  ],
+  "fpos": 1909.45,
+  "kind": "melody"
+ },
+ {
+  "name": "s02-pitch-1",
+  "a": "e:C:0729-_up_by_muslem.mp3",
+  "ua": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0729-_up_by_muslem.mp3",
+  "b": "e:A:293.mp3",
+  "ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/293.mp3",
+  "segs": [
+   {
+    "at": 841.3,
+    "len": 20,
+    "rate": 1
+   }
+  ],
+  "fpos": 808.7,
+  "kind": "melody"
+ },
+ {
+  "name": "s04-music_bed",
+  "a": "e:I1:almsjed-alaqsa (90).mp3",
+  "ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20%2890%29.mp3",
+  "b": "e:I1:almsjed-alaqsa (79).mp3",
+  "ub": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20%2879%29.mp3",
+  "segs": [
+   {
+    "at": 1075.95,
+    "len": 20,
+    "rate": 1
+   }
+  ],
+  "fpos": 844.25,
+  "kind": "melody"
+ },
+ {
+  "name": "s06-aac32",
+  "a": "e:X5:568-4-1 القمر 49-55 الرحمن 1-27- من تلاوات العراق 1956.mp3",
+  "ua": "https://archive.org/download/x5-hograt-to-hashr_202308/568-4-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%2049-55%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%201-27-%20%D9%85%D9%86%20%D8%AA%D9%84%D8%A7%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%201956.mp3",
+  "b": "e:A:287.mp3",
+  "ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/287.mp3",
+  "segs": [
+   {
+    "at": 297.7,
+    "len": 15,
+    "rate": 1
+   }
+  ],
+  "fpos": 284.05,
+  "kind": "melody"
+ },
+ {
+  "name": "s07-pitch-1",
+  "a": "e:C:0706-_up_by_muslem.mp3",
+  "ua": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0706-_up_by_muslem.mp3",
+  "b": "e:N1:245.mp3",
+  "ub": "https://archive.org/download/NawaderGroup-1/245.mp3",
+  "segs": [
+   {
+    "at": 91.65,
+    "len": 20,
+    "rate": 1
+   }
+  ],
+  "fpos": 460.25,
+  "kind": "melody"
+ },
+ {
+  "name": "s12-aac32",
+  "a": "e:I1:almsjed-alaqsa (79).mp3",
+  "ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20%2879%29.mp3",
+  "b": "e:A:239.mp3",
+  "ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/239.mp3",
+  "segs": [
+   {
+    "at": 1819.4,
+    "len": 15,
+    "rate": 1
+   }
+  ],
+  "fpos": 1566.9,
+  "kind": "melody"
+ },
+ {
+  "name": "s12-tempo0.9",
+  "a": "e:I1:almsjed-alaqsa (79).mp3",
+  "ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20%2879%29.mp3",
+  "b": "e:C:0628-_up_by_muslem.mp3",
+  "ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0628-_up_by_muslem.mp3",
+  "segs": [
+   {
+    "at": 1499,
+    "len": 20,
+    "rate": 0.9
+   }
+  ],
+  "fpos": 1073.7,
+  "kind": "melody"
+ },
+ {
+  "name": "s04-pitch+1",
+  "a": "e:I1:almsjed-alaqsa (90).mp3",
+  "ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20%2890%29.mp3",
+  "b": "e:C:0723-9_up_by_muslem.mp3",
+  "ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0723-9_up_by_muslem.mp3",
+  "segs": [
+   {
+    "at": 972.55,
+    "len": 20,
+    "rate": 1
+   }
+  ],
+  "fpos": 1323.6,
+  "kind": "melody"
  }
 ]

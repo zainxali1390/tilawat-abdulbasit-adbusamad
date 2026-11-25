@@ -44,6 +44,6 @@ for (const c of JSON.parse(fs.readFileSync(CASES))) {
   res.agrees = res.landmark != null && res.predicted != null && Math.abs(res.predicted - res.landmark) < 2;
   out.push(res);
   console.log(c.kind.padEnd(7), c.name.padEnd(20), c.b.slice(0, 32).padEnd(32), `${res.onLine}/${res.windows} on one line, k ${res.k},`,
-    `clip at ${res.predicted} (landmarks ${res.landmark})`, res.agrees ? 'AGREES' : '');
+    `clip at ${res.predicted} (search said ${res.landmark})`, res.agrees ? 'AGREES' : '');
 }
 fs.writeFileSync(OUT, JSON.stringify(out, null, 1));
