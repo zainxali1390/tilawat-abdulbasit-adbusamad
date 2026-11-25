@@ -9,13 +9,14 @@ const DIR=process.argv[2],OUT=process.argv[3],FFL=process.env.FFLOCAL||'';
    r.fulfill({body:fs.readFileSync(f),contentType:f.endsWith('.wasm')?'application/wasm':'text/javascript',headers:{'access-control-allow-origin':'*'}})});
  await ctx.route(/archive\.org|googleapis|gstatic|mp3quran/,r=>r.abort());
  await ctx.route(/\/__set\/(.+)$/,r=>{const f=path.join(DIR,decodeURIComponent(r.request().url().split('/__set/')[1]));r.fulfill({body:fs.readFileSync(f)})});
- const p=await ctx.newPage();const errs=[];p.on('pageerror',e=>errs.push(e.message));
+ const p=await ctx.newPage();const errs=[];p.on('pageerror',e=>errs.push(e.message));p.on('console',m=>{if(/ffmpeg|error/i.test(m.text()))console.log('  [page]',m.text().slice(0,200))});
  await p.goto('http://localhost:8765/');await p.waitForTimeout(500);
  await p.addScriptTag({url:'http://localhost:8765/js/engine/ingest.js'});
  const fmts=JSON.parse(fs.readFileSync(path.join(DIR,'formats.json'))),cases=JSON.parse(fs.readFileSync(path.join(DIR,'cases.json')));
  fs.writeFileSync(OUT,'');
  const run=async(file,noFf)=>p.evaluate(async([u,noFf])=>{const t0=performance.now();
-   try{const blob=await (await fetch(u)).blob();const r=await ENGINE.ingest(blob,{noFfmpeg:noFf});
+   try{const blob=await (await fetch(u)).blob();
+     const r=await Promise.race([ENGINE.ingest(blob,{noFfmpeg:noFf}),new Promise((_,rej)=>setTimeout(()=>rej(Object.assign(new Error('timeout 90 s'),{why:'timeout'})),90000))]);
      return {ok:true,decoder:r.decoder,format:r.format,dur:+r.dur.toFixed(3),start:r.start,sections:r.sections,ms:Math.round(performance.now()-t0)}}
    catch(e){return {ok:false,err:String(e.message),why:e.why||'',ms:Math.round(performance.now()-t0)}}},['/__set/'+encodeURIComponent(file),noFf]);
  for(const f of fmts){
@@ -25,6 +26,7 @@ const DIR=process.argv[2],OUT=process.argv[3],FFL=process.env.FFLOCAL||'';
  }
  for(const c of cases){
    const r=await run(c.file,false);
+   console.log('case',c.name,r.ok?('start '+r.start+' '+r.ms+'ms'):('FAILED '+r.err));
    fs.appendFileSync(OUT,JSON.stringify({kind:'case',name:c.name,variant:c.variant,intro:c.intro,segments:c.segments,...r})+'\n');
  }
  console.log('done; page errors',errs.slice(0,3));await b.close();
