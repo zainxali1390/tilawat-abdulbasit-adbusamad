@@ -1,6 +1,7 @@
 /* Verse recognition for "Find a recitation": which surah and ayahs a clip recites, from the recitation itself.
    1. the clip is turned into 16 kHz mono and transcribed on the phone by a Quran speech model
-      (whisper-tiny-ar-quran, Apache 2.0, in models/; about 63 MB, downloaded once and then kept by the browser)
+      (whisper-base-ar-quran by Tarteel, Apache 2.0, 8-bit, in models/; about 77 MB, downloaded once and then kept by the browser;
+      chosen by test in docs/RECOGNITION-CONTENT.md over whisper-tiny-ar-quran, which placed far fewer clips)
    2. the transcript is placed in the Quran text (data/quran-uthmani.txt) by matching letter sequences:
       vowel marks, hamzas and alifs are removed on both sides, so small mistakes of the speech model and
       differences of spelling (and many differences between riwayat) don't stop a match
@@ -83,7 +84,7 @@ const AYAH_SRC=`let pipe=null;
 self.onmessage=async e=>{const m=e.data;
   try{
     if(!pipe){const T=await import("${AYAH_TJS}");T.env.allowRemoteModels=false;T.env.allowLocalModels=true;T.env.localModelPath=m.base;
-      pipe=await T.pipeline("automatic-speech-recognition","whisper-tiny-ar-quran",{dtype:{encoder_model:"fp32",decoder_model_merged:"q8"},device:"wasm",
+      pipe=await T.pipeline("automatic-speech-recognition","whisper-base-ar-quran",{dtype:{encoder_model:"q8",decoder_model_merged:"q8"},device:"wasm",
         progress_callback:p=>{if(p.status==="progress")self.postMessage({type:"progress",file:p.file,loaded:p.loaded,total:p.total})}});
       self.postMessage({type:"ready"})}
     if(m.pcm){const o=await pipe(m.pcm,{language:"ar",task:"transcribe",chunk_length_s:30});self.postMessage({type:"text",id:m.id,text:o.text})}

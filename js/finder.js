@@ -36,7 +36,7 @@ Object.assign(I18N.ar,{fTitle:"ابحث عن تلاوة بمقطع",fIntro:"لد
   fTooShort:"المقطع قصير جدًا. يلزم ٤ ثوانٍ على الأقل.",fMicNo:"التسجيل غير متاح على هذا الجهاز أو لم يُسمح به.",fLong:"يُبحث في أول ١٠ دقائق فقط من المقطع.",
   fAboutTx:"المكتبة التي يُبحث فيها: {n} تسجيلًا، {h} ساعة (فهرس {d}).",fFailed:"تعذّرت فهرسة {n} تسجيلًا ولا يمكن العثور عليها."});
 Object.assign(I18N.en,{
-  fVerseOpt:"Also recognise the verses (a 63 MB speech model is downloaded once)",fModel:"Getting the verse recognition ready (about 63 MB, only the first time)…",
+  fVerseOpt:"Also recognise the verses (a 77 MB speech model is downloaded once)",fModel:"Getting the verse recognition ready (about 77 MB, only the first time)…",
   fVersesStep:"Recognising the verses…",fVersesOf:"part {a} of {b}",fVerseErr:"The verses couldn't be recognised this time (the speech model didn't load). The sound match below is not affected.",
   fVLbl:"Verses",fVersesConf:"Verses recognised",fVersesPoss:"Verses: possible",fVersesNone:"The verses couldn't be recognised from this clip.",fAyat:"ayah {a}",fAyatN:"ayahs {a}",
   fOrPlace:"The same words also occur at:",fFromLabel:"(from the recording's label)",fWithin:"(placed within the surahs of the recording found)",fAgree:"The recognised verses agree with the recording's label.",
@@ -49,7 +49,7 @@ Object.assign(I18N.en,{
   fBigFile:"This file is very large. If it can't be read, trim it to the part with the recitation.",fTooLong:"This file is too long to read in the browser. Trim it to the part with the recitation (a few minutes) and try again.",
   cEgRadio:"Egyptian Radio",cEgHist:"Egyptian recording",cMosque:"Mosque recording",cIntlRadio:"Radio outside Egypt",cRadioUn:"Radio · station not named",cOther:"Other recording",cStudio:"Studio set"});
 Object.assign(I18N.ar,{
-  fVerseOpt:"تعرّف على الآيات أيضًا (يُنزَّل نموذج كلام بحجم ٦٣ ميغابايت مرة واحدة)",fModel:"جارٍ تجهيز التعرّف على الآيات (نحو ٦٣ ميغابايت، أول مرة فقط)…",
+  fVerseOpt:"تعرّف على الآيات أيضًا (يُنزَّل نموذج كلام بحجم ٧٧ ميغابايت مرة واحدة)",fModel:"جارٍ تجهيز التعرّف على الآيات (نحو ٧٧ ميغابايت، أول مرة فقط)…",
   fVersesStep:"جارٍ التعرّف على الآيات…",fVersesOf:"الجزء {a} من {b}",fVerseErr:"تعذّر التعرّف على الآيات هذه المرة (لم يُحمَّل نموذج الكلام). لا يتأثر التطابق الصوتي أدناه.",
   fVLbl:"الآيات",fVersesConf:"الآيات المعروفة",fVersesPoss:"الآيات: محتملة",fVersesNone:"تعذّر التعرّف على الآيات من هذا المقطع.",fAyat:"الآية {a}",fAyatN:"الآيات {a}",
   fOrPlace:"الكلمات نفسها تأتي أيضًا في:",fFromLabel:"(من بيانات التسجيل)",fWithin:"(حُدِّدت ضمن سور التسجيل الذي وُجد)",fAgree:"الآيات المعروفة توافق بيانات التسجيل.",
