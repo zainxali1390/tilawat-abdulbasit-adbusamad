@@ -13,17 +13,6 @@ concurrency:
 env:
   SET_RUN: '45654495631'
 jobs:
-  convert:
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
-    steps:
-      - uses: actions/checkout@v4
-        with: {sparse-checkout: tools}
-      - uses: actions/setup-python@v5
-        with: {python-version: '3.11'}
-      - run: bash tools/engine/convert_model.sh tarteel-ai/whisper-base-ar-quran whisper-base-ar-quran
-      - uses: actions/upload-artifact@v4
-        with: {name: model-base, path: whisper-base-ar-quran, retention-days: 7}
   truth:
     runs-on: ubuntu-latest
     timeout-minutes: 240
@@ -43,7 +32,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         with: {name: 'ctruth-small-${{ matrix.part }}', path: 'truth-small-${{ matrix.part }}.json'}
   predict:
-    needs: convert
     runs-on: ubuntu-latest
     timeout-minutes: 240
     strategy:
@@ -56,8 +44,11 @@ jobs:
         with: {sparse-checkout: "tools\njs\ndata\nmodels"}
       - uses: actions/download-artifact@v4
         with: {name: testset, path: set, run-id: '${{ env.SET_RUN }}', github-token: '${{ github.token }}'}
-      - uses: actions/download-artifact@v4
-        with: {name: model-base, path: models/whisper-base-ar-quran}
+      - name: tarteel-ai/whisper-base-ar-quran, transformers.js conversion (yaltaieh/whisper-base-ar-quran-onnx)
+        run: |
+          M=models/whisper-base-ar-quran; mkdir -p $M/onnx
+          for f in config.json generation_config.json preprocessor_config.json tokenizer.json tokenizer_config.json special_tokens_map.json added_tokens.json vocab.json merges.txt normalizer.json onnx/encoder_model.onnx onnx/encoder_model_quantized.onnx onnx/decoder_model_merged_quantized.onnx; do
+            curl -sSL --fail --retry 4 -o $M/$f "https://huggingface.co/yaltaieh/whisper-base-ar-quran-onnx/resolve/main/$f"; done
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && (cd tools/verses && npm install --no-audit --no-fund --onnxruntime-node-install-cuda=skip)
       - run: node tools/engine/eval/content_eval.mjs set pred-base-${{ matrix.enc }}-${{ matrix.part }}.jsonl --mode app --model whisper-base-ar-quran --enc ${{ matrix.enc }} --part ${{ matrix.part }} --of 5
       - uses: actions/upload-artifact@v4
@@ -76,7 +67,7 @@ jobs:
       - run: |
           D=tools/engine/eval/results/content-$(date -u +%Y%m%d-%H%M)-$(git rev-parse --short HEAD)
           P=tools/engine/eval/results/content-20261125-1801-c201bb5
-          mkdir -p $D && cp res/*.json res/*.jsonl $D/
+          mkdir -p $D && cp res/*.json* $D/
           node tools/engine/eval/content_score.mjs set/cases.json $P/pred-app-*.jsonl $D/pred-*.jsonl --truth $P/truth-*.json $D/truth-small-*.json | tee $D/content-score.txt
           git config user.name "engine-eval bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
