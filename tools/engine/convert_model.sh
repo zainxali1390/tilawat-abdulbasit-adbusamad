@@ -4,6 +4,7 @@
 #   bash convert_model.sh tarteel-ai/whisper-base-ar-quran models/whisper-base-ar-quran
 set -e
 SRC=$1; DST=$2
+pip install -q "torch==2.5.1" --index-url https://download.pytorch.org/whl/cpu
 pip install -q "optimum[onnxruntime]==1.23.3" "transformers==4.46.3" "onnx==1.17.0" "onnxruntime==1.20.1"
 optimum-cli export onnx --model "$SRC" --task automatic-speech-recognition-with-past _out
 python3 - <<PY
