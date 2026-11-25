@@ -1,0 +1,37 @@
+variant          band(lo-hi Hz)   snr dB  reverb ms  echo  clip%   labels (share of clips)
+clean20          78-3234            23.2       544 0.005   0.05   narrow band 8/16, noisy 3/16
+aac32            78-2500            13.2      null 0.007   0.02   narrow band 9/16, noisy 7/16
+video_mp4        78-3563            16.6       320 0.003   0.06   narrow band 6/16, noisy 4/16
+video_mov        78-3328            15.7       448 0.013   0.04   narrow band 8/16, noisy 3/16
+phone            141-3094           11.9      null 0.017   0.01   narrow band 7/16, noisy 8/16
+len7             78-2688            12.6      null 0.012   0.10   narrow band 9/16, noisy 4/16
+len10            78-3203              10       256 0.014   0.05   narrow band 7/16, noisy 9/16
+len44            78-3328            27.1       448 0.003   0.04   narrow band 8/16
+pitch+1          78-2453              22       416 0.008   0.03   narrow band 9/16, noisy 3/16
+pitch-1          78-3031              21       384 0.002   0.01   narrow band 8/16, noisy 1/16
+pitch+2          78-3672            22.8       320 0.006   0.02   narrow band 7/16, noisy 4/16
+pitch-2          78-2703            20.5       736 0.003   0.02   narrow band 10/16
+pitch+3          78-4063            20.5       576  0.01   0.01   narrow band 7/16, noisy 2/16
+pitch-4          78-2672            21.7       416 0.008   0.02   narrow band 13/16, noisy 1/16
+tempo0.8         78-3328            15.9       672     0   0.03   narrow band 7/16, noisy 3/16
+tempo0.9         78-3359            17.3       192 0.003   0.07   narrow band 7/16, noisy 3/16
+tempo1.1         78-3375              17       704     0   0.08   narrow band 7/16, noisy 3/16
+tempo1.25        78-3375            22.7       608 0.005   0.04   narrow band 7/16, noisy 3/16
+speed0.9         78-3000            21.1       320 0.003   0.03   narrow band 8/16, noisy 4/16
+speed1.1         78-3766              20       800 0.006   0.08   narrow band 7/16, noisy 3/16
+speed1.25        78-3500            21.3       256 0.009   0.02   narrow band 7/16, noisy 3/16
+echo             78-3313            17.2       736  0.01   0.01   narrow band 7/16, noisy 3/16
+reverb_small     78-3234            20.3       832 0.012   0.05   narrow band 7/16, noisy 3/16
+reverb_large     78-2500            22.1      null 0.016   0.02   narrow band 9/16, noisy 3/16
+noise10          78-3563            14.7      null 0.005   0.03   narrow band 7/16, noisy 1/16
+noise3           78-5859             6.9      null 0.015   0.02   noisy 16/16
+bass             78-2813            17.8       480 0.006   0.02   narrow band 9/16, noisy 2/16
+treble_cut       78-2125            24.1       864 0.003   0.05   narrow band 14/16, noisy 4/16
+compress         78-3344             4.7      null  0.01   0.01   narrow band 6/16, noisy 9/16
+distort          78-3734            18.4       544 0.004   3.13   narrow band 4/16, noisy 4/16
+music_bed        78-3500            11.8      null 0.007   0.04   narrow band 8/16, noisy 7/16
+combo1           78-3719            15.1       736  0.01   0.01   narrow band 7/16, noisy 2/16
+combo2           78-2734               4      null 0.026   0.01   narrow band 11/16, noisy 12/16
+combo3           125-2594           26.2       640 0.007   0.02   narrow band 14/16
+narrow band: detected 46/64 of the clips with it; wrongly on 223/480 of the others
+noisy: detected 28/32 of the clips with it; wrongly on 109/512 of the others
