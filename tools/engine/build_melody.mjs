@@ -15,7 +15,7 @@ for (const r of lst) {
   const t0 = Date.now();
   let src = r.url;
   if (/^https?:/.test(src)) { const d = spawnSync('curl', ['-sSL', '--fail', '--retry', '5', '-o', tmp, src]); if (d.status) { console.log('download failed', r.code); continue; } src = tmp; }
-  const d = spawnSync('ffmpeg', ['-loglevel', 'error', '-i', src, '-vn', '-ac', '1', '-ar', '16000', '-f', 'f32le', '-'], {maxBuffer: 1 << 31});
+  const d = spawnSync('ffmpeg', ['-loglevel', 'error', '-i', src, '-vn', '-ac', '1', '-ar', '16000', '-f', 'f32le', '-'], {maxBuffer: 1 << 30});
   if (d.status) { console.log('decode failed', r.code); continue; }
   const x = new Float32Array(d.stdout.buffer, d.stdout.byteOffset, d.stdout.length >> 2);
   const mf = M.pack(M.f0(x));
