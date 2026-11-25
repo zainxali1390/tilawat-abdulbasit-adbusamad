@@ -1,4 +1,5 @@
-"""Score the Step 7 voice test.  python3 voice_score.py VOICESET_DIR EMB.jsonl... > voice-score.txt
+"""Score the Step 7 voice test.
+  python3 voice_score.py MANIFEST(.jsonl file or VOICESET_DIR) EMB.jsonl... [--exclude voice_exclude.json] [--export OUT.json]
 
 Abdul Basit samples are split into reference (60 %) and test (40 %) by (surahs, year), so copies and halves of one
 performance never sit on both sides. The reference is the mean embedding (1 centroid), or k-means centroids (4, 8: his
@@ -12,13 +13,22 @@ Then, for the best: per decade, per other reciter, and the closest other-reciter
 import json, sys, os, glob, hashlib, collections
 import numpy as np
 
-vset = sys.argv[1]
+args = sys.argv[1:]
+opt = {}
+for key in ('--exclude', '--export'):
+    if key in args:
+        i = args.index(key); opt[key] = args[i + 1]; del args[i:i + 2]
+vset = args[0]
+excl = set(json.load(open(opt['--exclude']))['items']) if '--exclude' in opt else set()
 man = {}
-for f in glob.glob(os.path.join(vset, 'manifest-*.jsonl')):
+for f in (glob.glob(os.path.join(vset, 'manifest-*.jsonl')) if os.path.isdir(vset) else [vset]):
     for l in open(f):
-        m = json.loads(l); man[m['id']] = m
+        m = json.loads(l)
+        if m.get('item') in excl:
+            continue
+        man[m['id']] = m
 E = collections.defaultdict(dict)   # model -> id -> (vec, rec)
-for f in sys.argv[2:]:
+for f in args[1:]:
     for l in open(f):
         r = json.loads(l)
         v = np.array(r['emb'], np.float64); v /= np.linalg.norm(v) + 1e-12
@@ -53,6 +63,7 @@ def eer(pos, neg):
 
 
 rows = []
+ops = []
 detail = {}
 for model, D in sorted(E.items()):
     ids = [i for i in D if D[i][1]['src'] == 'set' and i in man]
@@ -75,6 +86,9 @@ for model, D in sorted(E.items()):
         rej = float((N < t99).mean())
         cp = float((Q >= t99).mean()) if len(Q) else float('nan')
         rows.append((e, model, k, t99, rej, cp, len(ref), len(tst), len(oth), len(clips)))
+        # stricter points: the threshold below every Abdul Basit test sample, and below 99.5 % of the edited clips too
+        tmin = min(float(P.min()), float(np.percentile(Q, 0.5)) if len(Q) else 1)
+        ops.append((model, k, tmin, float((N < tmin).mean()), float((P < tmin).mean()), float((Q < tmin).mean()) if len(Q) else 0))
         detail[(model, k)] = dict(C=C, P=dict(zip(tst, P)), N=dict(zip(oth, N)), Q=dict(zip(clips, Q)), t99=t99)
 
 print('%-62s %3s %6s %7s %9s %9s   ref/test/other/clips' % ('model', 'k', 'EER', 'thr99', 'others', 'clips'))
@@ -112,3 +126,20 @@ dropped = [m for m in man.values() if m['kind'] == 'other' and m.get('fp_hit')]
 print('\nother-reciter samples dropped because the recording index matched them to the archive: %d' % len(dropped))
 for m in dropped[:20]:
     print('  %-28s %s / %s -> %s' % (m['reciter'], m['item'], m['file'][:40], m['fp_hit'][:50]))
+
+print('\nstrict threshold (no Abdul Basit test sample and at most 0.5 % of edited clips below it):')
+print('%-62s %3s %7s %10s %10s' % ('model', 'k', 'thr', 'others rej', 'clips rej'))
+for model, k, t, rej, pr, qr in sorted(ops):
+    print('%-62s %3d %7.3f %9.1f%% %9.1f%%' % (model[:62], k, t, 100 * rej, 100 * qr))
+if '--export' in opt:
+    # reference for the app: k-means centroids over ALL Abdul Basit samples, with the thresholds measured above
+    ex = {}
+    for model, D in E.items():
+        X = np.array([D[i][0] for i in D if D[i][1]['src'] == 'set' and i in man and man[i]['kind'] == 'ab'])
+        for k in (4, 8):
+            C = kmeans(X, k)
+            t = [o for o in ops if o[0] == model and o[1] == k]
+            ex['%s|%d' % (model, k)] = dict(centroids=[[round(float(v), 5) for v in c] for c in C], strict=t[0][2] if t else None,
+                                            t99=detail[(model, k)]['t99'] if (model, k) in detail else None, n=len(X))
+    json.dump(ex, open(opt['--export'], 'w'))
+    print('exported references for', len(ex), 'model/k pairs')

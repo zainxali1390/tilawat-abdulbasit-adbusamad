@@ -1,0 +1,31 @@
+# Recognition engine, step 7: rescore the voice test from a finished engine-voice.yml run (embeddings artifact) and the
+# committed sample list, without downloading or embedding again.
+name: Engine voice score
+on:
+  workflow_dispatch:
+  push:
+    paths: ['tools/engine/eval/VOICE_SCORE_RUN', '.github/workflows/engine-voice-score.yml']
+permissions:
+  contents: write
+  actions: read
+env:
+  EMB_RUN: '45717991562'
+  SET: 'tools/engine/eval/results/voice-20261125-2351-40682b9/voice-set.jsonl'
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: '${{ github.ref_name }}', fetch-depth: 1, sparse-checkout: tools}
+      - uses: actions/download-artifact@v4
+        with: {name: vemb-all, path: emb, run-id: '${{ env.EMB_RUN }}', github-token: '${{ github.token }}'}
+      - run: |
+          pip install -q numpy
+          D=tools/engine/eval/results/voice-rescore-$(date -u +%Y%m%d-%H%M)-$(git rev-parse --short HEAD)
+          mkdir -p $D
+          python3 tools/engine/eval/voice_score.py $SET emb/*.jsonl --exclude tools/engine/eval/voice_exclude.json --export $D/references.json | tee $D/voice-score.txt
+          git config user.name "engine-eval bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/engine/eval/results
+          git commit -q -m "Engine eval: voice rescore" || exit 0
+          for i in 1 2 3 4; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((i*10)); done
