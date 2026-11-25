@@ -19,6 +19,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: {sparse-checkout: tools}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
       - run: bash tools/engine/convert_model.sh tarteel-ai/whisper-base-ar-quran whisper-base-ar-quran
       - uses: actions/upload-artifact@v4
         with: {name: model-base, path: whisper-base-ar-quran, retention-days: 7}
@@ -33,6 +35,8 @@ jobs:
         with: {sparse-checkout: tools}
       - uses: actions/download-artifact@v4
         with: {name: testset, path: set, run-id: '${{ env.SET_RUN }}', github-token: '${{ github.token }}'}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q numpy "transformers==4.46.3" torch --extra-index-url https://download.pytorch.org/whl/cpu
       - env: {HF_HUB_DISABLE_XET: "1"}
         run: python3 tools/engine/eval/content_truth.py set tools/engine/eval/sources.json truth-small-${{ matrix.part }}.json --part ${{ matrix.part }} --of 10 --hf deepdml/whisper-small-ar-quran-mix-norm
