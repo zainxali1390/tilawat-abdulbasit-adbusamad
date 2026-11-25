@@ -1,0 +1,17 @@
+vmodels/full:
+total 120804
+drwxr-xr-x 2 runner runner     4096 Nov 25 23:51 .
+drwxr-xr-x 4 runner runner     4096 Nov 25 23:51 ..
+-rw-r--r-- 1 runner runner 28281165 Nov 25 23:51 3dspeaker_speech_campplus_sv_zh_en_16k-common_advanced.onnx
+-rw-r--r-- 1 runner runner 39593762 Nov 25 23:51 3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
+-rw-r--r-- 1 runner runner 29281639 Nov 25 23:51 wespeaker_en_voxceleb_CAM++_LM.onnx
+-rw-r--r-- 1 runner runner 26530550 Nov 25 23:51 wespeaker_en_voxceleb_resnet34_LM.onnx
+
+vmodels/q8:
+total 33060
+drwxr-xr-x 2 runner runner     4096 Nov 25 23:51 .
+drwxr-xr-x 4 runner runner     4096 Nov 25 23:51 ..
+-rw-r--r-- 1 runner runner  8595877 Nov 25 23:51 3dspeaker_speech_campplus_sv_zh_en_16k-common_advanced.onnx
+-rw-r--r-- 1 runner runner 10191272 Nov 25 23:51 3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx
+-rw-r--r-- 1 runner runner  8364203 Nov 25 23:51 wespeaker_en_voxceleb_CAM++_LM.onnx
+-rw-r--r-- 1 runner runner  6684146 Nov 25 23:51 wespeaker_en_voxceleb_resnet34_LM.onnx
