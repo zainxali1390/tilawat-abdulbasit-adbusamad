@@ -35,7 +35,10 @@ w('')
 w('| | Recordings |')
 w('|---|---|')
 w('| Audited | %d |' % len(au))
-w('| **Confirmed** place found, and changed in the library | **%d** |' % G['confirmed'])
+cc = {c['code'] for c in ch if c.get('country_only')}
+w('| **Confirmed**, and changed in the library | **%d** |' % G['confirmed'])
+w('| … the venue, station or town | %d |' % (G['confirmed'] - len(cc)))
+w('| … the country only (they had none, or a wrong one); the venue is still not known | %d |' % len(cc))
 w('| Highly likely (not changed) | %d |' % G['highly_likely'])
 w('| Possible (not changed) | %d |' % G['possible'])
 w('| Still unknown | %d |' % G['unknown'])
@@ -55,22 +58,37 @@ w('2. **The same audio elsewhere** in the library: all recordings were compared 
   'time line fitted over the whole length; `tools/library/same_audio_library.py`). Where an exact copy is labelled at a '
   'venue, that venue was taken, **only if** every copy and its own label agree on the country and place. If they disagree, nothing was changed.')
 w('3. **What is said in the recording**: the first 60 s and last 45 s of every recording were transcribed with an Arabic '
-  'speech model (`research/announcements.json`), looking for an announcer or the Sheikh naming a mosque, city, station or occasion.')
-w('4. **Other uploads on archive.org** labelled with a place, matched by sound against the library (`research/labelled-uploads-check.json`).')
+  'speech model (`research/announcements.json`), looking for an announcer or the Sheikh naming a mosque, city, station or occasion. '
+  'Every hit was read by hand and is quoted in the evidence (the recogniser misspells words; the quotes are corrected where the meaning is clear).')
+w('4. **Other uploads of the same audio on archive.org**: every other Abdul Basit upload on archive.org whose label names a place '
+  '(%d files) was matched by sound against the library (`research/labelled-uploads-check.json`); a match counts only when at least two '
+  '25-second windows agree at the same offset. Their labels were then read for a place.' % len(json.load(open(os.path.join(RES, 'candidates.json'), encoding='utf-8'))))
+w('')
+w('**Rules for "confirmed"**: every source that names a place must agree. A recording already filed under a country that its own '
+  'label does not name is moved to another country only on two independent kinds of evidence (e.g. its announcement and labelled '
+  'copies). "Al-Aqsa" labels on other uploads are not taken alone, because several uploaders attribute Kuwait and UAE recordings to '
+  'Al-Aqsa (their own notes say so). A label that says "A or B" is not an answer. Where a radio recording is identified, the place is the '
+  'station that broadcast it (as the library does for all radio recordings), and it stays in the Radio collection.')
 w('5. **Web search** (Arabic and English) about the tours with the most unplaced recordings (South Africa 1966, Kuwait 1964). '
   'It confirmed the tours but named no venue for any particular recording, so it changed nothing.')
 w('')
 w('Not used as evidence: recording quality, the surahs recited (the same passage was recited at many events), the '
-  'collection a file was uploaded in, or where a copy was later broadcast.')
+  'collection a file was uploaded in (one exception: an upload whose own title names the station, I12 "إذاعيات مصر"), '
+  'or where a copy was later broadcast.')
 w('')
-w('## Changes made (confirmed)')
-w('')
-w('| Recording | Title | Year | Was | Now | Evidence |')
-w('|---|---|---|---|---|---|')
-for x in log:
-    if x['kind'] == 'type':
-        continue
-    w('| %s | %s | %s | %s | %s | %s |' % (esc(short('e:' + x['rec'])), esc(x['title']), esc(x['year']), esc(x['was']), esc(x['now']), esc(x['evidence'])))
+CO = {c['code'] for c in ch if c.get('country_only')}
+for head, sel in (('Changes made: venue, station or town confirmed', lambda x: 'e:' + x['rec'] not in CO),
+                  ('Changes made: country confirmed (the venue is still not known)', lambda x: 'e:' + x['rec'] in CO)):
+    w('## ' + head)
+    w('')
+    w('| Recording | Title | Year | Was | Now | Evidence |')
+    w('|---|---|---|---|---|---|')
+    for x in log:
+        if x['kind'] == 'type' or not sel(x):
+            continue
+        now = x['now'] if not x['now'].endswith(' / ') else x['now'][:-3] + ' / location not known'
+        w('| %s | %s | %s | %s | %s | %s |' % (esc(short('e:' + x['rec'])), esc(x['title']), esc(x['year']), esc(x['was']), esc(now), esc(x['evidence'])))
+    w('')
 w('')
 w('## Type named, place still unknown')
 w('')

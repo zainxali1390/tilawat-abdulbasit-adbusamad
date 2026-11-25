@@ -8,7 +8,32 @@
   "en": "Egyptian Radio",
   "ar": "الإذاعة المصرية",
   "was": "Egypt / Egypt",
-  "evidence": "the upload's own title: \"إذاعيات مصر - فترة الخمسينات - تلاوات فئة 15 دقيقة\" (Egyptian radio, 1950s)"
+  "evidence": "the upload's own title: \"إذاعيات مصر - فترة الخمسينات - تلاوات فئة 15 دقيقة\" (Egyptian radio, 1950s)",
+  "country_only": false
+ },
+ {
+  "code": "e:A:342.mp3",
+  "key": "A",
+  "file": "342.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Al-Mahrousa Mosque · Egypt",
+  "ar": "مسجد المحروسة · مصر",
+  "was": "Egypt / Egypt",
+  "evidence": "same audio as the archive.org upload \"النحل والاسراء - مسجد مصر المحروسة - 1962 عمرو سعيد يونس  342.mp3\" (archive.org/abdelbasit_486)",
+  "country_only": false
+ },
+ {
+  "code": "e:E:الأحزاب والبلد والعلق - الستينات - مصر.mp3",
+  "key": "E",
+  "file": "الأحزاب والبلد والعلق - الستينات - مصر.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Imam al-Hussein Mosque · Cairo",
+  "ar": "مسجد الإمام الحسين · القاهرة",
+  "was": "Egypt / Egypt",
+  "evidence": "same audio as the archive.org upload \"darwishim.blogspot.com  Ahzab(38-48)_balad_alaq(1-8)_El-Hussein Mosque_.mp3\" (archive.org/abdulbaset-abdussamed-live-recitations); same audio as the archive.org upload \"مسجد الحسين عمرو سعيد يونس  58.mp3\" (archive.org/rabieaaa2015_yahoo_14666666666666666665); same audio as the archive.org upload \"الاحزاب والبلد والعلق - مسجد الحسين - 1960 عمرو سعيد يونس  58.mp3\" (archive.org/abdelbasit_931); same audio as the archive.org upload \"مسجد الحسين عمرو سعيد يونس  58.mp3\" (archive.org/rabieaaa2015_yahoo_144646)",
+  "country_only": false
  },
  {
   "code": "e:X3:390-1-9 الفرقان 58-77 سهرة في 14-11-1979 في سمنودصعيد مصر.mp3",
@@ -19,7 +44,8 @@
   "en": "Samannud",
   "ar": "سمنود",
   "was": "Egypt / Egypt",
-  "evidence": "own file name: \"سهرة في 14-11-1979 في سمنود\" (the label adds \"صعيد مصر\", Upper Egypt, but Samannud is in the Delta; the city named is kept, the region is not)"
+  "evidence": "own file name: \"سهرة في 14-11-1979 في سمنود\" (the label adds \"صعيد مصر\", Upper Egypt, but Samannud is in the Delta; the city named is kept, the region is not)",
+  "country_only": false
  },
  {
   "code": "e:X4:444-1-9  الأحزاب 21-35  بور سعيد 1979- مصر.mp3",
@@ -30,7 +56,32 @@
   "en": "Port Said",
   "ar": "بورسعيد",
   "was": "Egypt / Egypt",
-  "evidence": "own file name: \"بور سعيد 1979\"; N1 047, labelled separately \"الأحزاب - تلاوة 5 - بور سعيد - مصر\", is the same audio (landmark fit)"
+  "evidence": "own file name: \"بور سعيد 1979\"; N1 047, labelled separately \"الأحزاب - تلاوة 5 - بور سعيد - مصر\", is the same audio (landmark fit); its copy 047.mp3: own ID3 title: \"الأحزاب - تلاوة 5 - بور سعيد - مصر\"; X4 444 (\"بور سعيد 1979\", another collection) is the same audio (lan",
+  "country_only": false
+ },
+ {
+  "code": "e:X4:513-1-7 الفتح 27-29 والمزمل -مبتورة اخرها من مساجد مصر في السبعينات.mp3",
+  "key": "X4",
+  "file": "513-1-7 الفتح 27-29 والمزمل -مبتورة اخرها من مساجد مصر في السبعينات.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Al-Hamidiya al-Shadhiliya Mosque · Cairo",
+  "ar": "مسجد الحامدية الشاذلية · القاهرة",
+  "was": "Egypt / Egypt",
+  "evidence": "same audio as the archive.org upload \"من مصر/من الحامدية الشاذلية/الفتح والمزمل من مسجد الحامدية الشاذلية بجودة ضعيفة.mp3\" (archive.org/5-28_20260210_202602); same audio as the archive.org upload \"التلاوات الخارجية (الجزء الثاني)/من مصر (الجزء الأول)/من الحامدية الشاذلية/الفتح والمزمل من مسجد الحامدية الشاذلية بجودة ضعيفة.mp3\" (archive.org/20250928_20250928_0219); same audio as the archive.org upload \"269  - الفتح والمزمل من مسجد الحامدية الشاذلية بجودة ضعيفة.mp3\" (archive.org/a42-1962aaaaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
+  "code": "e:X6:677-1-9 التحريم8-12 الحاقة الانفطار-سهرة  في السبعينات بمصر.mp3",
+  "key": "X6",
+  "file": "677-1-9 التحريم8-12 الحاقة الانفطار-سهرة  في السبعينات بمصر.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Luxor",
+  "ar": "الأقصر",
+  "was": "Egypt / Egypt",
+  "evidence": "same audio as the archive.org upload \"التلاوات الخارجية (الجزء الثاني)/من مصر (الجزء الأول)/من الأقصر ومن إسنا/التحريم 8-12 والحاقة 1-24 والانفطار من شارع المحطة بالأقصر عام 1984م.mp3\" (archive.org/20250928_20250928_0219); same audio as the archive.org upload \"من مصر/من الأقصر ومن إسنا/التحريم 8-12 والحاقة 1-24 والانفطار من شارع المحطة بالأقصر عام 1984م.mp3\" (archive.org/5-28_20260210_202602); same audio as the archive.org upload \"119  - التحريم 8-12 والحاقة 1-24 والانفطار من شارع المحطة بالأقصر عام 1984م.mp3\" (archive.org/a35-1954aaaaaaaa)",
+  "country_only": false
  },
  {
   "code": "e:X2:210-1-9 الرعد 1-16 من أسنا 1979 مصر.mp3",
@@ -41,7 +92,44 @@
   "en": "Esna",
   "ar": "إسنا",
   "was": "Egypt / Egypt",
-  "evidence": "own file name: \"من أسنا 1979 مصر\""
+  "evidence": "own file name: \"من أسنا 1979 مصر\"",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0131-6_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0131-6_up_by_muslem.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Imam al-Shafiʿi Mosque · Cairo",
+  "ar": "مسجد الإمام الشافعي · القاهرة",
+  "was": "Egypt / Egypt",
+  "evidence": "same audio as the archive.org upload \"darwishim.blogspot.com  Ahzab(21-35)_1975_Shafie Mosque_NQ.mp3\" (archive.org/abdulbaset-abdussamed-live-recitations)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0386-_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0386-_uP_bY_mUSLEm.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Imam al-Shafiʿi Mosque · Cairo",
+  "ar": "مسجد الإمام الشافعي · القاهرة",
+  "was": "Egypt / Egypt",
+  "evidence": "same audio as the archive.org upload \"المسجد الشافعي تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0386-_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:N1:106.mp3",
+  "key": "N1",
+  "file": "106.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Imam al-Hussein Mosque · Cairo",
+  "ar": "مسجد الإمام الحسين · القاهرة",
+  "was": "Egypt / Egypt",
+  "evidence": "same audio as the archive.org upload \"1 البقرة ( 183 - 188 ) والبلد - مسجد الحسين 1963 ÇáãßÊÈÉ ÇáÔÇãáÉ áãäÊÏíÇÊ ÇáÔíÎ ÚÈÏ ÇáÈÇÓØ ÚÈÏ ÇáÕãÏ  1183-188-1963.mp3\" (archive.org/abuhemmo); same audio as the archive.org upload \"1 البقرة ( 183 - 188 ) والبلد - مسجد الحسين 1963 WwW.alKabbah.CoM_uP_bY_mUSLEm_مُسلم التونسي_facebook/Islamictape  1183-188-1963.mp3\" (archive.org/Torath_Abdel_Baset_Abd-Samad_uP_bY_ReDa_MoHamMeD_2)",
+  "country_only": false
  },
  {
   "code": "e:C:1171--_up_by_muslem.mp3",
@@ -52,7 +140,8 @@
   "en": "Imam al-Hussein Mosque · Cairo",
   "ar": "مسجد الإمام الحسين · القاهرة",
   "was": "Egypt / Egypt",
-  "evidence": "same audio as e:E:يوسف - الحسين مصر  تلاوة 3 سنة 1968.mp3, labelled at \"Imam al-Hussein Mosque · Cairo\" (Egypt)"
+  "evidence": "same audio as يوسف - الحسين مصر  تلاوة 3 سنة 1968.mp3, labelled \"Imam al-Hussein Mosque · Cairo\" (Egypt)",
+  "country_only": false
  },
  {
   "code": "e:C:0126-1_up_by_muslem.mp3",
@@ -63,7 +152,32 @@
   "en": "Imam al-Hussein Mosque · Cairo",
   "ar": "مسجد الإمام الحسين · القاهرة",
   "was": "Egypt / Egypt",
-  "evidence": "same audio as e:X4:446-1-11 الاحزاب 21-35  صلاة جمعة 1987 من الحسين.mp3, labelled at \"Imam al-Hussein Mosque · Cairo\" (Egypt)"
+  "evidence": "same audio as 446-1-11 الاحزاب 21-35  صلاة جمعة 1987 من الحسين.mp3, labelled \"Imam al-Hussein Mosque · Cairo\" (Egypt)",
+  "country_only": false
+ },
+ {
+  "code": "e:N2:457.mp3",
+  "key": "N2",
+  "file": "457.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Imam al-Shafiʿi Mosque · Cairo",
+  "ar": "مسجد الإمام الشافعي · القاهرة",
+  "was": "Egypt / Egypt",
+  "evidence": "same audio as the archive.org upload \"darwishim.blogspot.com  Zumar(73-75)_qiyamah_qadr_1982_Shafie Mosque_HQ.mp3\" (archive.org/abdulbaset-abdussamed-live-recitations)",
+  "country_only": false
+ },
+ {
+  "code": "e:X4:492-1-6 فصلت 30-40 مسجلة من أحد مساجد مصر.mp3",
+  "key": "X4",
+  "file": "492-1-6 فصلت 30-40 مسجلة من أحد مساجد مصر.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Imam al-Shafiʿi Mosque · Cairo",
+  "ar": "مسجد الإمام الشافعي · القاهرة",
+  "was": "Egypt / Egypt",
+  "evidence": "same audio as the archive.org upload \"من مصر/من مسجد الإمام الشافعي (الجزء الثاني)/فصلت 30-40 من مسجد الإمام الشافعي مختلفة 2.mp3\" (archive.org/5-28_20260210_202602); same audio as the archive.org upload \"388  - فصلت 30-40 من مسجد الإمام الشافعي مختلفة 2.mp3\" (archive.org/a42-1962aaaaaaaaaaaaa)",
+  "country_only": false
  },
  {
   "code": "e:A:296.MP3",
@@ -74,7 +188,20 @@
   "en": "Mourphon",
   "ar": "شركة مورفون",
   "was": "Egypt / Egypt",
-  "evidence": "same audio as e:B:3 القمر49-55 الرحمن 1-46 ستوديوهات موريفون -رفعها الاستاذ طويل.mp3, labelled at \"Mourphon\" (Egypt)"
+  "evidence": "same audio as 3 القمر49-55 الرحمن 1-46 ستوديوهات موريفون -رفعها الاستاذ طويل.mp3, labelled \"Mourphon\" (Egypt)",
+  "country_only": false
+ },
+ {
+  "code": "e:X6:699-1-3 النبأ 31-40 الطارق البلد الإخلاص -مسجلة من أحد مساجد مصر.mp3",
+  "key": "X6",
+  "file": "699-1-3 النبأ 31-40 الطارق البلد الإخلاص -مسجلة من أحد مساجد مصر.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Imam al-Shafiʿi Mosque · Cairo",
+  "ar": "مسجد الإمام الشافعي · القاهرة",
+  "was": "Egypt / Egypt",
+  "evidence": "same audio as the archive.org upload \"334  - النبأ والطارق والبلد والإخلاص من مسجد الإمام الشافعي.mp3\" (archive.org/a42-1962aaaaaaaaaaaaa); same audio as the archive.org upload \"من مصر/من مسجد الإمام الشافعي (الجزء الثاني)/النبأ والطارق والبلد والإخلاص من مسجد الإمام الشافعي.mp3\" (archive.org/5-28_20260210_202602)",
+  "country_only": false
  },
  {
   "code": "e:I3:28-1-10 القصص-مأخوذة من فيديو-سهرة من صعيد مصر.mp3",
@@ -85,7 +212,8 @@
   "en": "Upper Egypt",
   "ar": "الصعيد",
   "was": "Egypt / Egypt",
-  "evidence": "own file name: \"سهرة من صعيد مصر\" (an evening recitation in Upper Egypt, town not named)"
+  "evidence": "own file name: \"سهرة من صعيد مصر\" (an evening recitation in Upper Egypt, town not named)",
+  "country_only": false
  },
  {
   "code": "e:N1:047.mp3",
@@ -96,7 +224,32 @@
   "en": "Port Said",
   "ar": "بورسعيد",
   "was": "Egypt / Egypt",
-  "evidence": "own ID3 title: \"الأحزاب - تلاوة 5 - بور سعيد - مصر\"; X4 444 (\"بور سعيد 1979\", another collection) is the same audio (landmark fit)"
+  "evidence": "own ID3 title: \"الأحزاب - تلاوة 5 - بور سعيد - مصر\"; X4 444 (\"بور سعيد 1979\", another collection) is the same audio (landmark fit); its copy 444-1-9  الأحزاب 21-35  بور سعيد 1979- مصر.mp3: own file name: \"بور سعيد 1979\"; N1 047, labelled separately \"الأحزاب - تلاوة 5 - بور سعيد - مصر\", is the same audio (lan",
+  "country_only": false
+ },
+ {
+  "code": "e:X6:648-1-1 التحريم 1-12 مسجلة من أحد مساجد مصر.mp3",
+  "key": "X6",
+  "file": "648-1-1 التحريم 1-12 مسجلة من أحد مساجد مصر.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Imam al-Shafiʿi Mosque · Cairo",
+  "ar": "مسجد الإمام الشافعي · القاهرة",
+  "was": "Egypt / Egypt",
+  "evidence": "same audio as the archive.org upload \"112  - التحريم 1-12 من مسجد الإمام الشافعي.mp3\" (archive.org/a35-1954aaaaaaaa); same audio as the archive.org upload \"من مصر/من مسجد الإمام الشافعي (الجزء الأول)/التحريم 1-12 من مسجد الإمام الشافعي.mp3\" (archive.org/5-28_20260210_202602); same audio as the archive.org upload \"التلاوات الخارجية (الجزء الثاني)/من مصر (الجزء الأول)/من مسجد الإمام الشافعي (الجزء الأول)/التحريم 1-12 من مسجد الإمام الشافعي.mp3\" (archive.org/20250928_20250928_0219)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0639-1_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0639-1_up_by_muslem.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Imam al-Hussein Mosque · Cairo",
+  "ar": "مسجد الإمام الحسين · القاهرة",
+  "was": "Egypt / Egypt",
+  "evidence": "same audio as the archive.org upload \"darwishim.blogspot.com  Fath(27-29)_shams_duha_sharh_El-Hussein Mosque_.mp3\" (archive.org/abdulbaset-abdussamed-live-recitations)",
+  "country_only": false
  },
  {
   "code": "e:C:0879-2_up_by_muslem.mp3",
@@ -107,7 +260,32 @@
   "en": "Imam al-Shafiʿi Mosque · Cairo",
   "ar": "مسجد الإمام الشافعي · القاهرة",
   "was": "Egypt / Egypt",
-  "evidence": "same audio as e:A:338.mp3, labelled at \"Imam al-Shafiʿi Mosque · Cairo\" (Egypt)"
+  "evidence": "same audio as 338.mp3, labelled \"Imam al-Shafiʿi Mosque · Cairo\" (Egypt)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0128-3_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0128-3_up_by_muslem.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Imam al-Shafiʿi Mosque · Cairo",
+  "ar": "مسجد الإمام الشافعي · القاهرة",
+  "was": "Egypt / Egypt",
+  "evidence": "same audio as the archive.org upload \"darwishim.blogspot.com  Ahzab(21-35)_1970_Shafie Mosque_NQ.mp3\" (archive.org/abdulbaset-abdussamed-live-recitations)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0420-_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0420-_uP_bY_mUSLEm.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Imam al-Hussein Mosque · Cairo",
+  "ar": "مسجد الإمام الحسين · القاهرة",
+  "was": "Egypt / Egypt",
+  "evidence": "same audio as the archive.org upload \"darwishim.blogspot.com  Hajj(23-37)_1988_El-Hussein Mosque_NQ.mp3\" (archive.org/abdulbaset-abdussamed-live-recitations)",
+  "country_only": false
  },
  {
   "code": "e:I4:- يوسف - تلاوات مصر_تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد.mp3",
@@ -118,7 +296,8 @@
   "en": "Imam al-Hussein Mosque · Cairo",
   "ar": "مسجد الإمام الحسين · القاهرة",
   "was": "Egypt / Egypt",
-  "evidence": "same audio as e:E:يوسف - الحسين مصر  تلاوة 3 سنة 1968.mp3, labelled at \"Imam al-Hussein Mosque · Cairo\" (Egypt)"
+  "evidence": "same audio as يوسف - الحسين مصر  تلاوة 3 سنة 1968.mp3, labelled \"Imam al-Hussein Mosque · Cairo\" (Egypt)",
+  "country_only": false
  },
  {
   "code": "e:E:الإسراء - تلاوة 5 - مصر.mp3",
@@ -129,7 +308,8 @@
   "en": "Aswan",
   "ar": "أسوان",
   "was": "Egypt / Egypt",
-  "evidence": "same audio as e:A:504.mp3, labelled at \"Aswan\" (Egypt)"
+  "evidence": "same audio as 504.mp3, labelled \"Aswan\" (Egypt)",
+  "country_only": false
  },
  {
   "code": "e:I15:49-5-1  الحجرات 1-13 في 23-12-1967 من الكويت.mp3",
@@ -140,7 +320,8 @@
   "en": "Shuwaikh Secondary School Mosque · Kuwait",
   "ar": "مسجد ثانوية الشويخ · الكويت",
   "was": "Kuwait / Kuwait",
-  "evidence": "same audio as e:I16:019-49-11-181976.mp3, labelled at \"Shuwaikh Secondary School Mosque · Kuwait\" (Kuwait)"
+  "evidence": "same audio as 019-49-11-181976.mp3, labelled \"Shuwaikh Secondary School Mosque · Kuwait\" (Kuwait)",
+  "country_only": false
  },
  {
   "code": "e:I19:05-5-1 المائدة 109-120 والشمس 1964  الكويت.mp3",
@@ -151,7 +332,8 @@
   "en": "Souq Mosque · Kuwait",
   "ar": "مسجد السوق · الكويت",
   "was": "Kuwait / Kuwait",
-  "evidence": "own ID3 title (Comprehensive Library): \"Great Soq's Mosque 1966 KT.\" — the Great Souq Mosque, already a place here (\"مسجد السوق الكبير\", X1 173). The tag says 1966, the file name 1964: the year is not changed"
+  "evidence": "own ID3 title (Comprehensive Library): \"Great Soq's Mosque 1966 KT.\" — the Great Souq Mosque, already a place here (\"مسجد السوق الكبير\", X1 173). The tag says 1966, the file name 1964: the year is not changed",
+  "country_only": false
  },
  {
   "code": "e:X5:534-5-1  الحجرات 1-13 في 23-12-1967 من الكويت.mp3",
@@ -162,7 +344,56 @@
   "en": "Shuwaikh Secondary School Mosque · Kuwait",
   "ar": "مسجد ثانوية الشويخ · الكويت",
   "was": "Kuwait / Kuwait",
-  "evidence": "same audio as e:I16:019-49-11-181976.mp3, labelled at \"Shuwaikh Secondary School Mosque · Kuwait\" (Kuwait)"
+  "evidence": "same audio as 019-49-11-181976.mp3, labelled \"Shuwaikh Secondary School Mosque · Kuwait\" (Kuwait)",
+  "country_only": false
+ },
+ {
+  "code": "e:A:424.mp3",
+  "key": "A",
+  "file": "424.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Fahad al-Salem Mosque · Kuwait",
+  "ar": "مسجد فهد السالم · الكويت",
+  "was": "Kuwait / Kuwait",
+  "evidence": "same audio as the archive.org upload \"هود والانفطار - مسجد فهد السالم - 1976 عمرو سعيد يونس  424.mp3\" (archive.org/abdelbasit_486)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0663-1_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0663-1_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations 1970s",
+  "en": "Sheikh al-Banna Mosque · Monufia",
+  "ar": "مسجد الشيخ البنا · المنوفية",
+  "was": "Kuwait / Kuwait",
+  "evidence": "spoken at the start: \"نحييكم من قرية شبرا باص بمحافظة المنوفية حيث ننقل لكم شعائر صلاة الجمعة من مسجد المرحوم الشيخ محمود علي البنا\" (a live Friday-prayer broadcast from Sheikh Mahmoud Ali al-Banna's mosque, Shubra Bas, Monufia); its own label names no country; same audio as 765-forqan.mp3, labelled \"Sheikh al-Banna Mosque · Monufia\" (Egypt); same audio as 392-1-11 الفرقان 61-77 البلد والقصار- جمعة-ذي الحجة 1980 مسجد الشيخ البنا-المنوف, labelled \"Sheikh al-Banna Mosque · Monufia\" (Egypt)",
+  "country_only": false
+ },
+ {
+  "code": "e:A:336.mp3",
+  "key": "A",
+  "file": "336.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Grand Mosque · Kuwait",
+  "ar": "المسجد الكبير · الكويت",
+  "was": "Kuwait / Kuwait",
+  "evidence": "same audio as the archive.org upload \"من الكويت/النبأ والانفطار والطارق والبلد والشرح والقدر من الاحتفال بليلة القدر من الجامع الكبير بالكويت في السبعينات.mp3\" (archive.org/5-28_20260210_202602); same audio as the archive.org upload \"التلاوات الخارجية (الجزء الأول)/من الكويت (الجزء الأول)/النبأ والانفطار والطارق والبلد والشرح والقدر من الاحتفال بليلة القدر من الجامع الكبير بالكويت \" (archive.org/20250928_20250928_0219); same audio as the archive.org upload \"120 - النبأ والانفطار والطارق والبلد والشرح والقدر من الاحتفال بليلة القدر من الجامع الكبير بالكويت في السبعينات.mp3\" (archive.org/a075-1974aaaaaaaaaaaaaass); same audio as the archive.org upload \"التلاوات الخارجية/التلاوات الخارجية (الجزء الأول)/من الكويت (الجزء الأول)/النبأ والانفطار والطارق والبلد والشرح والقدر من الاحتفال بليلة القدر من الجا\" (archive.org/20250928_20250928_0219)",
+  "country_only": false
+ },
+ {
+  "code": "e:I33:5-12-11-241973.mp3",
+  "key": "I33",
+  "file": "5-12-11-241973.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Fahad al-Salem Mosque · Kuwait",
+  "ar": "مسجد فهد السالم · الكويت",
+  "was": "Kuwait / Kuwait",
+  "evidence": "same audio as the archive.org upload \"من الكويت/يوسف 1-24 من مسجد فهد السالم بالكويت عام 1974م.mp3\" (archive.org/5-28_20260210_202602); same audio as the archive.org upload \"التلاوات الخارجية (الجزء الأول)/من الكويت (الجزء الأول)/يوسف 1-24 من مسجد فهد السالم بالكويت عام 1974م.mp3\" (archive.org/20250928_20250928_0219); same audio as the archive.org upload \"168 - يوسف 1-24 من مسجد فهد السالم بالكويت عام 1974م.mp3\" (archive.org/a075-1974aaaaaaaaaaaaaass); same audio as the archive.org upload \"التلاوات الخارجية/التلاوات الخارجية (الجزء الأول)/من الكويت (الجزء الأول)/يوسف 1-24 من مسجد فهد السالم بالكويت عام 1974م.mp3\" (archive.org/20250928_20250928_0219)",
+  "country_only": false
  },
  {
   "code": "e:I10:8-39-11974.mp3",
@@ -173,7 +404,20 @@
   "en": "Fahad al-Salem Mosque · Kuwait",
   "ar": "مسجد فهد السالم · الكويت",
   "was": "Kuwait / Kuwait",
-  "evidence": "same audio as e:I10:8-39-2-1976.mp3, labelled at \"Fahad al-Salem Mosque · Kuwait\" (Kuwait)"
+  "evidence": "same audio as 8-39-2-1976.mp3, labelled \"Fahad al-Salem Mosque · Kuwait\" (Kuwait)",
+  "country_only": false
+ },
+ {
+  "code": "e:I8:00619.mp3",
+  "key": "I8",
+  "file": "00619.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Fahad al-Salem Mosque · Kuwait",
+  "ar": "مسجد فهد السالم · الكويت",
+  "was": "Kuwait / Kuwait",
+  "evidence": "same audio as the archive.org upload \"hamra ahmed   من الكويت/يوسف 1-24 من مسجد فهد السالم بالكويت عام 1974م نسخة أخرى أوضح.mp3\" (archive.org/5-28_20260210_202602); same audio as the archive.org upload \"hamra ahmed   التلاوات الخارجية (الجزء الأول)/من الكويت (الجزء الأول)/يوسف 1-24 من مسجد فهد السالم بالكويت عام 1974م نسخة أخرى أوضح.mp3\" (archive.org/20250928_20250928_0219); same audio as the archive.org upload \"hamra ahmed   التلاوات الخارجية/التلاوات الخارجية (الجزء الأول)/من الكويت (الجزء الأول)/يوسف 1-24 من مسجد فهد السالم بالكويت عام 1974م نسخة أخرى أوضح.\" (archive.org/20250928_20250928_0219); same audio as the archive.org upload \"hamra ahmed   169 - يوسف 1-24 من مسجد فهد السالم بالكويت عام 1974م نسخة أخرى أوضح.mp3\" (archive.org/a075-1974aaaaaaaaaaaaaass)",
+  "country_only": false
  },
  {
   "code": "e:E:النساء ( 100 - 112 ) - الكويت.mp3",
@@ -184,7 +428,20 @@
   "en": "Shuwaikh Secondary School Mosque · Kuwait",
   "ar": "مسجد ثانوية الشويخ · الكويت",
   "was": "Kuwait / Kuwait",
-  "evidence": "same audio as e:C:0894-2_up_by_muslem.mp3, labelled at \"Shuwaikh Secondary School Mosque · Kuwait\" (Kuwait)"
+  "evidence": "same audio as 0894-2_up_by_muslem.mp3, labelled \"Shuwaikh Secondary School Mosque · Kuwait\" (Kuwait)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0979-3_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0979-3_up_by_muslem.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Fahad al-Salem Mosque · Kuwait",
+  "ar": "مسجد فهد السالم · الكويت",
+  "was": "Kuwait / Kuwait",
+  "evidence": "spoken at the end: \"تنتهي إذاعتنا هذه من جامع فهد السالم\" (transcribed \"جامعة هادسان\")",
+  "country_only": false
  },
  {
   "code": "e:N2:382.mp3",
@@ -195,7 +452,8 @@
   "en": "Fahad al-Salem Mosque · Kuwait",
   "ar": "مسجد فهد السالم · الكويت",
   "was": "Kuwait / Kuwait",
-  "evidence": "same audio as e:I10:8-39-2-1976.mp3, labelled at \"Fahad al-Salem Mosque · Kuwait\" (Kuwait)"
+  "evidence": "same audio as 8-39-2-1976.mp3, labelled \"Fahad al-Salem Mosque · Kuwait\" (Kuwait)",
+  "country_only": false
  },
  {
   "code": "e:E:قصار السور - الكويت.mp3",
@@ -206,7 +464,56 @@
   "en": "Fahad al-Salem Mosque · Kuwait",
   "ar": "مسجد فهد السالم · الكويت",
   "was": "Kuwait / Kuwait",
-  "evidence": "same audio as e:I10:8-39-2-1976.mp3, labelled at \"Fahad al-Salem Mosque · Kuwait\" (Kuwait)"
+  "evidence": "same audio as 8-39-2-1976.mp3, labelled \"Fahad al-Salem Mosque · Kuwait\" (Kuwait)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0490-3_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0490-3_up_by_muslem.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Fahad al-Salem Mosque · Kuwait",
+  "ar": "مسجد فهد السالم · الكويت",
+  "was": "Kuwait / Kuwait",
+  "evidence": "same audio as the archive.org upload \"Hasher 18-24 Haqqa 1-24 Naba Dhuha- fahad alsalim mosque 1974Kuwait Abdel-Basset Abdel-Samad  12-1 Al-7ashr 18-24 Al-7aaqqa 1-24 An-Nab' Ad-Dhu7a As-S\" (archive.org/Nordarby_20151022_1445)",
+  "country_only": false
+ },
+ {
+  "code": "e:I26:إبراهيم ( 23 - 41 ) - تلاوة 1 - الكويت.mp3",
+  "key": "I26",
+  "file": "إبراهيم ( 23 - 41 ) - تلاوة 1 - الكويت.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Fahad al-Salem Mosque · Kuwait",
+  "ar": "مسجد فهد السالم · الكويت",
+  "was": "Kuwait / Kuwait",
+  "evidence": "same audio as the archive.org upload \"مسجد فهد السالم - الكويت - 1970 عمرو سعيد يونس  5.mp3\" (archive.org/rabieaaa2015_yahoo_14666666666666666665); same audio as the archive.org upload \"مسجد فهد السالم - الكويت - 1970 عمرو سعيد يونس  5.mp3\" (archive.org/rabieaaa2015_yahoo_144646)",
+  "country_only": false
+ },
+ {
+  "code": "e:X2:227-2-1 ابراهيم 35-41 الغاشية الشمس  الضحى الشرح الفاتحة -في الخمسينيات من سوريا.mp3",
+  "key": "X2",
+  "file": "227-2-1 ابراهيم 35-41 الغاشية الشمس  الضحى الشرح الفاتحة -في الخمسينيات من سوريا.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Umayyad Mosque · Damascus",
+  "ar": "المسجد الأموي · دمشق",
+  "was": "Syria / Syria",
+  "evidence": "same audio as the archive.org upload \"المسجد الأموى 1951 الشيخ عبدالباسط  ما تيسر من سورة ابراهيم وفصار السور بجودة عالية .mp3\" (archive.org/20250920_20250920_1243)",
+  "country_only": false
+ },
+ {
+  "code": "e:B:1 القصص3- 25 من تلاوات سوريا- رفعها د.محمد المصري .mp3",
+  "key": "B",
+  "file": "1 القصص3- 25 من تلاوات سوريا- رفعها د.محمد المصري .mp3",
+  "area": null,
+  "sec": null,
+  "en": "Syrian Radio",
+  "ar": "الإذاعة السورية",
+  "was": "Syria / Syria",
+  "evidence": "same audio as the archive.org upload \"الميراث الإذاعي تم الرفع بواسطة موقع معراج - uploaded by M3RAJ 062  - --اذاعة سوريا  -القصص 3-25.mp3\" (archive.org/a88-1-52aaaaaaaaaaaaaaaa); same audio as the archive.org upload \"التلاوات الإذاعية/التلاوات الإذاعية/تلاوات الإذاعة السورية في فترة الخمسينات/القصص 3-25.mp3\" (archive.org/20260208_20260208_2149); same audio as the archive.org upload \"التلاوات الإذاعية/التلاوات الإذاعية/تلاوات الإذاعة السورية في فترة الخمسينات/القصص 3-25.mp3\" (archive.org/20250928_20250928_0219)",
+  "country_only": false
  },
  {
   "code": "e:C:0828--_up_by_muslem.mp3",
@@ -217,7 +524,8 @@
   "en": "Umayyad Mosque · Damascus",
   "ar": "المسجد الأموي · دمشق",
   "was": "Syria / Syria",
-  "evidence": "same audio as e:N2:294.mp3, labelled at \"Umayyad Mosque · Damascus\" (Syria)"
+  "evidence": "same audio as 294.mp3, labelled \"Umayyad Mosque · Damascus\" (Syria)",
+  "country_only": false
  },
  {
   "code": "e:I15:49-7-8 الحجرات 1-18 وق 1-4 من مدينة دربن عام 1981 من جنوب افريقيا.mp3",
@@ -228,7 +536,44 @@
   "en": "Durban",
   "ar": "ديربان",
   "was": "South Africa / South Africa",
-  "evidence": "own file name: \"من مدينة دربن عام 1981 من جنوب افريقيا\"; ID3 title: \"derbon 1981 S.Africa\""
+  "evidence": "own file name: \"من مدينة دربن عام 1981 من جنوب افريقيا\"; ID3 title: \"derbon 1981 S.Africa\"; same audio as the archive.org upload \"التلاوات الخارجية (الجزء الأول)/من جنوب أفريقيا/الحجرات 1-18 وق 1-4 من مدينة دربن بجنوب أفريقيا عام 1981م نسخة أخرى.mp3\" (archive.org/20250928_20250928_0219); same audio as the archive.org upload \"من جنوب أفريقيا/الحجرات 1-18 وق 1-4 من مدينة دربن بجنوب أفريقيا عام 1981م نسخة أخرى.mp3\" (archive.org/5-28_20260210_202602); same audio as the archive.org upload \"التلاوات الخارجية (الجزء الأول)/من جنوب أفريقيا/الحجرات 1-18 وق 1-4 من مدينة دربن بجنوب أفريقيا عام 1981م.mp3\" (archive.org/20250928_20250928_0219); same audio as the archive.org upload \"من جنوب أفريقيا/الحجرات 1-18 وق 1-4 من مدينة دربن بجنوب أفريقيا عام 1981م.mp3\" (archive.org/5-28_20260210_202602); same audio as the archive.org upload \"التلاوات الخارجية/التلاوات الخارجية (الجزء الأول)/من جنوب أفريقيا/الحجرات 1-18 وق 1-4 من مدينة دربن بجنوب أفريقيا عام 1981م نسخة أخرى.mp3\" (archive.org/20250928_20250928_0219); same audio as the archive.org upload \"التلاوات الخارجية/التلاوات الخارجية (الجزء الأول)/من جنوب أفريقيا/الحجرات 1-18 وق 1-4 من مدينة دربن بجنوب أفريقيا عام 1981م.mp3\" (archive.org/20250928_20250928_0219); same audio as the archive.org upload \"الحجرات 1-18 وق 1-4 من مدينة دربن بجنوب أفريقيا عام 1981م نسخة أخرى.mp3\" (archive.org/5-28sssssssssssssssssd); same audio as the archive.org upload \"الحجرات 1-18 وق 1-4 من مدينة دربن بجنوب أفريقيا عام 1981م.mp3\" (archive.org/5-28sssssssssssssssssd)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0035----_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0035----_uP_bY_mUSLEm.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Saudi Radio",
+  "ar": "الإذاعة السعودية",
+  "was": "Saudi Arabia / Saudi Arabia",
+  "evidence": "same audio as the archive.org upload \"طه من إذاعة السعودية تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0035----_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0011----_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0011----_uP_bY_mUSLEm.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Nidaa al-Islam Radio · Makkah",
+  "ar": "إذاعة نداء الإسلام · مكة",
+  "was": "Saudi Arabia / Saudi Arabia",
+  "evidence": "spoken at the end: \"هذه إذاعة نداء الإسلام من مكة المكرمة\" (a radio broadcast; where it was recited is not said)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0030--_--_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0030--_--_uP_bY_mUSLEm.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Saudi Radio",
+  "ar": "الإذاعة السعودية",
+  "was": "Saudi Arabia / Saudi Arabia",
+  "evidence": "same audio as the archive.org upload \"الملك والقدر من إذاعة السعودية تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0030--_--_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
  },
  {
   "code": "e:E:الانعام وقصار السور - السعوديه.mp3",
@@ -239,7 +584,8 @@
   "en": "Masjid al-Haram · Makkah",
   "ar": "المسجد الحرام · مكة",
   "was": "Saudi Arabia / Saudi Arabia",
-  "evidence": "same audio as e:X1:127-6-3 الانعام 161-165 البلد والنصر-المسجد الحرام.mp3, labelled at \"Masjid al-Haram · Makkah\" (Saudi Arabia)"
+  "evidence": "same audio as 127-6-3 الانعام 161-165 البلد والنصر-المسجد الحرام.mp3, labelled \"Masjid al-Haram · Makkah\" (Saudi Arabia)",
+  "country_only": false
  },
  {
   "code": "e:C:0820-_up_by_muslem.mp3",
@@ -250,7 +596,8 @@
   "en": "Abu Dhabi · UAE",
   "ar": "أبوظبي · الإمارات",
   "was": "UAE / UAE",
-  "evidence": "same audio as e:A:324.mp3, labelled at \"Abu Dhabi · UAE\" (UAE)"
+  "evidence": "same audio as 324.mp3, labelled \"Abu Dhabi · UAE\" (UAE)",
+  "country_only": false
  },
  {
   "code": "e:I1:almsjed-alaqsa (93).mp3",
@@ -261,7 +608,8 @@
   "en": "Abu Dhabi · UAE",
   "ar": "أبوظبي · الإمارات",
   "was": "UAE / UAE",
-  "evidence": "same audio as e:A:324.mp3, labelled at \"Abu Dhabi · UAE\" (UAE)"
+  "evidence": "same audio as 324.mp3, labelled \"Abu Dhabi · UAE\" (UAE)",
+  "country_only": false
  },
  {
   "code": "e:I9:041--1954--.mp3",
@@ -272,7 +620,32 @@
   "en": "Al-Kadhimiya Mosque · Baghdad",
   "ar": "مسجد الكاظمين · الكاظمية، بغداد",
   "was": "Iraq / Iraq",
-  "evidence": "own ID3 title: \"سورة الحشر والتكوير والفجر - 1954م - ( مسجد الكاظمين - العراق\""
+  "evidence": "own ID3 title: \"سورة الحشر والتكوير والفجر - 1954م - ( مسجد الكاظمين - العراق\"",
+  "country_only": false
+ },
+ {
+  "code": "e:X1:71-ال عمران 185-195.mp3",
+  "key": "X1",
+  "file": "71-ال عمران 185-195.mp3",
+  "area": null,
+  "sec": null,
+  "en": "14 Ramadan Mosque · Baghdad",
+  "ar": "جامع 14 رمضان · بغداد",
+  "was": "Iraq / Iraq",
+  "evidence": "spoken at the start: \"من جامع أربعة عشر رمضان … ثلاثة أيام … فاتحة على روح الفقيد\"; an upload of the same audio is labelled \"العراق - مسجد 14 رمضان 1986\"; same audio as the archive.org upload \"Al-emran 189-200 ÇáãßÊÈÉ ÇáÔÇãáÉ áÊÑÇË ÇáÔíÎ ÚÈÏ ÇáÈÇÓØ  11 آل عمران 189-200 - العراق - مسجد 14 رمضان1986.mp3\" (archive.org/621892001959); same audio as the archive.org upload \"11 آل عمران 189-200 - العراق - مسجد 14 رمضان1986 WwW.alKabbah.CoM_uP_bY_mUSLEm_مُسلم التونسي_facebook/Islamictape  11189-200--141986.mp3\" (archive.org/Torath_Abdel_Baset_Abd-Samad_uP_bY_ReDa_MoHamMeD_2)",
+  "country_only": false
+ },
+ {
+  "code": "e:A:768-israazan.mp3",
+  "key": "A",
+  "file": "768-israazan.mp3",
+  "area": null,
+  "sec": null,
+  "en": "14 Ramadan Mosque · Baghdad",
+  "ar": "جامع 14 رمضان · بغداد",
+  "was": "Iraq / Iraq",
+  "evidence": "same audio as the archive.org upload \"Isra 9-17 IRQ 1986 المكتبة الشاملة لتراث الشيخ عبدالباسط  18 الاسراء 9-17 والاذان - مسجد 14 رمضان 1986 العراق.mp3\" (archive.org/11112519551957)",
+  "country_only": false
  },
  {
   "code": "e:N2:388.mp3",
@@ -283,7 +656,56 @@
   "en": "Baghdad",
   "ar": "بغداد",
   "was": "Iraq / Iraq",
-  "evidence": "own ID3 title: \"لقمان - بغداد - العراق\""
+  "evidence": "own ID3 title: \"لقمان - بغداد - العراق\"",
+  "country_only": false
+ },
+ {
+  "code": "e:X5:538-6-2 الحجرات 1-6 مبتورة  فترة الثمانينات من قطر.mp3",
+  "key": "X5",
+  "file": "538-6-2 الحجرات 1-6 مبتورة  فترة الثمانينات من قطر.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Grand Mosque · Doha",
+  "ar": "المسجد الكبير · الدوحة",
+  "was": "Qatar / Qatar",
+  "evidence": "spoken at the start: \"ننتقل إلى إذاعة خارجية … من المسجد الكبير بالدوحة\"",
+  "country_only": false
+ },
+ {
+  "code": "e:A:286.mp3",
+  "key": "A",
+  "file": "286.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Qatar Radio",
+  "ar": "إذاعة قطر",
+  "was": "Qatar / Qatar",
+  "evidence": "same audio as اذاعة قطر - القمر و الرحمن و اذان الفجر_تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد, labelled \"Qatar Radio\" (Qatar)",
+  "country_only": false
+ },
+ {
+  "code": "e:N1:249.mp3",
+  "key": "N1",
+  "file": "249.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Qatar Radio",
+  "ar": "إذاعة قطر",
+  "was": "Qatar / Qatar",
+  "evidence": "same audio as اذاعة قطر - القمر و الرحمن و اذان الفجر_تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد, labelled \"Qatar Radio\" (Qatar)",
+  "country_only": false
+ },
+ {
+  "code": "e:E:القمر والرحمن وأذان الفجر - قطر.mp3",
+  "key": "E",
+  "file": "القمر والرحمن وأذان الفجر - قطر.mp3",
+  "area": null,
+  "sec": null,
+  "en": "Qatar Radio",
+  "ar": "إذاعة قطر",
+  "was": "Qatar / Qatar",
+  "evidence": "same audio as اذاعة قطر - القمر و الرحمن و اذان الفجر_تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد, labelled \"Qatar Radio\" (Qatar)",
+  "country_only": false
  },
  {
   "code": "e:X1:106-3-1 المائدة 20-40 اربد الاردن 1965 - رفعها الاخ فارس.mp3",
@@ -294,7 +716,8 @@
   "en": "Irbid",
   "ar": "إربد",
   "was": "Jordan / Jordan",
-  "evidence": "own file name: \"اربد الاردن 1965\""
+  "evidence": "own file name: \"اربد الاردن 1965\"",
+  "country_only": false
  },
  {
   "code": "e:X4:451-3-2 لأحزاب26 -35  مبتورة اولها- من تلاوات عمان1980 -الاردن.mp3",
@@ -305,7 +728,8 @@
   "en": "Amman",
   "ar": "عمّان",
   "was": "Jordan / Jordan",
-  "evidence": "own file name: \"من تلاوات عمان1980 -الاردن\""
+  "evidence": "own file name: \"من تلاوات عمان1980 -الاردن\"",
+  "country_only": false
  },
  {
   "code": "e:X2:193-2-2 يوسف 1-22  في الستينات- جمعية المقاصد الخيرية لبنان.mp3",
@@ -316,7 +740,8 @@
   "en": "Al-Maqasid Islamic Charitable Association · Lebanon",
   "ar": "جمعية المقاصد الخيرية الإسلامية · لبنان",
   "was": "Lebanon / Lebanon",
-  "evidence": "own file name: \"في الستينات- جمعية المقاصد الخيرية لبنان\""
+  "evidence": "own file name: \"في الستينات- جمعية المقاصد الخيرية لبنان\"",
+  "country_only": false
  },
  {
   "code": "e:X1:14-6-1 آل عمران 189-200  حمزة بن حبيب دار الايتام 6-4-1972 - لبنان -بشار الحمويه.mp3",
@@ -327,7 +752,8 @@
   "en": "Dar al-Aytam al-Islamiyya · Lebanon",
   "ar": "دار الأيتام الإسلامية · لبنان",
   "was": "Lebanon / Lebanon",
-  "evidence": "own file name: \"دار الايتام 6-4-1972 - لبنان\""
+  "evidence": "own file name: \"دار الايتام 6-4-1972 - لبنان\"",
+  "country_only": false
  },
  {
   "code": "e:X1:164-6-1 التوبة 111-112 - 128-129و الضحى دار الايتام 6 نيسان1972-لبنان.mp3",
@@ -338,7 +764,8 @@
   "en": "Dar al-Aytam al-Islamiyya · Lebanon",
   "ar": "دار الأيتام الإسلامية · لبنان",
   "was": "Lebanon / Lebanon",
-  "evidence": "own file name: \"دار الايتام 6 نيسان1972-لبنان\""
+  "evidence": "own file name: \"دار الايتام 6 نيسان1972-لبنان\"",
+  "country_only": false
  },
  {
   "code": "e:I34:1-12 عبد الباسط عبد الصمد - يوسف لبنان دار الايتام خام لاول مرة.mp3",
@@ -349,18 +776,188 @@
   "en": "Dar al-Aytam al-Islamiyya · Lebanon",
   "ar": "دار الأيتام الإسلامية · لبنان",
   "was": "Lebanon / Lebanon",
-  "evidence": "own file name and ID3 title: \"يوسف لبنان دار الايتام\""
+  "evidence": "own file name and ID3 title: \"يوسف لبنان دار الايتام\"",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0709-2_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0709-2_up_by_muslem.mp3",
+  "area": "qatar",
+  "sec": "Public recitations · date not given",
+  "en": "Qatar Radio",
+  "ar": "إذاعة قطر",
+  "was": "India / India",
+  "evidence": "same audio as اذاعة قطر - القمر و الرحمن و اذان الفجر_تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد, labelled \"Qatar Radio\" (Qatar)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:1142-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1142-_up_by_muslem.mp3",
+  "area": "uae",
+  "sec": "Radio recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Radio · station not named / (none)",
+  "evidence": "its copy هود والانفطار - الإمارات.mp3 is labelled with the country UAE; its copy 411.mp3 is labelled with the country UAE (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0503-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0503-_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Egyptian Radio",
+  "ar": "الإذاعة المصرية",
+  "was": "Radio · station not named / (none)",
+  "evidence": "same audio as the archive.org upload \"ختمة الأرباع النادرة (199) الشيخ عبدالباسط عبدالصمد سورتا الدخان والجاثية الإذاعة المصرية ف الستينات   ختمة الأرباع مقسمة حلقات ختمة نادرة لكبار قراء \" (archive.org/105.-105-1-48)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0847-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0847-_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Imam al-Shafiʿi Mosque · Cairo",
+  "ar": "مسجد الإمام الشافعي · القاهرة",
+  "was": "Radio · station not named / (none)",
+  "evidence": "same audio as the archive.org upload \"المسجد الشافعي تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0847-_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:1072-2_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1072-2_up_by_muslem.mp3",
+  "area": "iraq",
+  "sec": "Radio recitations · date not given",
+  "en": "Baghdad",
+  "ar": "بغداد",
+  "was": "Radio · station not named / (none)",
+  "evidence": "its copy 388.mp3: own ID3 title: \"لقمان - بغداد - العراق\"",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0794-2_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0794-2_up_by_muslem.mp3",
+  "area": "safrica",
+  "sec": "Radio recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Radio · station not named / (none)",
+  "evidence": "its copy 320.mp3 is labelled with the country South Africa; its copy 274.mp3 is labelled with the country South Africa (the country only: the venue is not named)",
+  "country_only": true
  },
  {
   "code": "e:C:0157-_up_by_muslem.mp3",
   "key": "C",
   "file": "0157-_up_by_muslem.mp3",
   "area": "saudi",
-  "sec": "Makkah · public recitations · date not given",
+  "sec": "Radio recitations · date not given",
   "en": "Masjid al-Haram · Makkah",
   "ar": "المسجد الحرام · مكة",
   "was": "Radio · station not named / (none)",
-  "evidence": "same audio as e:X1:127-6-3 الانعام 161-165 البلد والنصر-المسجد الحرام.mp3, labelled at \"Masjid al-Haram · Makkah\" (Saudi Arabia)"
+  "evidence": "same audio as 127-6-3 الانعام 161-165 البلد والنصر-المسجد الحرام.mp3, labelled \"Masjid al-Haram · Makkah\" (Saudi Arabia)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:1201-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1201-_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Radio · station not named / (none)",
+  "evidence": "its copy يوسف والانفطار تلاوة 7 - مصر.mp3 is labelled with the country Egypt (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0423-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0423-_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Radio · station not named / (none)",
+  "evidence": "its copy 147.mp3 is labelled with the country Egypt (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:R:369--شركة موريفون  -مريم 73-65.mp3",
+  "key": "R",
+  "file": "369--شركة موريفون  -مريم 73-65.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Mourphon",
+  "ar": "شركة مورفون",
+  "was": "Radio · station not named / (none)",
+  "evidence": "own file name: \"شركة موريفون\" (the Mourphon record company, Cairo)",
+  "country_only": false
+ },
+ {
+  "code": "e:R:366--شركة موريفون  -القمر 49-55 والرحمن 1-46.mp3",
+  "key": "R",
+  "file": "366--شركة موريفون  -القمر 49-55 والرحمن 1-46.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Mourphon",
+  "ar": "شركة مورفون",
+  "was": "Radio · station not named / (none)",
+  "evidence": "own file name: \"شركة موريفون\" (the Mourphon record company, Cairo)",
+  "country_only": false
+ },
+ {
+  "code": "e:R:368--شركة موريفون  -مريم 1-36.mp3",
+  "key": "R",
+  "file": "368--شركة موريفون  -مريم 1-36.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Mourphon",
+  "ar": "شركة مورفون",
+  "was": "Radio · station not named / (none)",
+  "evidence": "own file name: \"شركة موريفون\" (the Mourphon record company, Cairo)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0034--_-_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0034--_-_uP_bY_mUSLEm.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Egyptian Radio",
+  "ar": "الإذاعة المصرية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"البقرة من الإذاعة المصرية تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0034--_-_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0282-3_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0282-3_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"الكويت  (XXX) البقرة/البقرة AbdelBasit3bdalSamad/basit_Live/114_mono.mp3\" (archive.org/quran-recitations_202603) (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0290-24_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0290-24_up_by_muslem.mp3",
+  "area": "saudi",
+  "sec": "Radio recitations · date not given",
+  "en": "Saudi Radio",
+  "ar": "الإذاعة السعودية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"البقرة من الإذاعة السعودية تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0283-4_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
  },
  {
   "code": "e:B:19 البقرة الاية 182 فقط - تلاوة فيديوية من قناة المستقلة.mp3",
@@ -395,7 +992,8 @@
   "en": "Umayyad Mosque · Damascus",
   "ar": "المسجد الأموي · دمشق",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:N1:028.mp3, labelled at \"Umayyad Mosque · Damascus\" (Syria)"
+  "evidence": "same audio as 028.mp3, labelled \"Umayyad Mosque · Damascus\" (Syria)",
+  "country_only": false
  },
  {
   "code": "e:C:0054-_up_by_muslem.mp3",
@@ -406,7 +1004,44 @@
   "en": "Umayyad Mosque · Damascus",
   "ar": "المسجد الأموي · دمشق",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:N1:028.mp3, labelled at \"Umayyad Mosque · Damascus\" (Syria)"
+  "evidence": "same audio as 028.mp3, labelled \"Umayyad Mosque · Damascus\" (Syria)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0089-2_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0089-2_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy آل عمران - مصر.mp3 is labelled with the country Egypt (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0108-22_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0108-22_up_by_muslem.mp3",
+  "area": "lebanon",
+  "sec": "Public recitations · date not given",
+  "en": "Lebanon",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 021.mp3 is labelled with the country Lebanon (the country only: the venue is not named)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0114-3_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0114-3_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Egyptian Radio",
+  "ar": "الإذاعة المصرية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"خادم القرآن الكريم - الحلقة (26) من ختمة الأرباع النادرة للسبعة قراء المذاعة على إذاعة القرآن الكريم من القاهرة القارئ : الشيخ عبدالباسط عبدالصمد رحمة\" (archive.org/20250827_20250827_2044)",
+  "country_only": false
  },
  {
   "code": "e:C:0101-14_up_by_muslem.mp3",
@@ -417,7 +1052,56 @@
   "en": "Umayyad Mosque · Damascus",
   "ar": "المسجد الأموي · دمشق",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:N1:028.mp3, labelled at \"Umayyad Mosque · Damascus\" (Syria)"
+  "evidence": "same audio as 028.mp3, labelled \"Umayyad Mosque · Damascus\" (Syria)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0111-28-101_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0111-28-101_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"06    آل عمران    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa); same audio as the archive.org upload \"06    آل عمران    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/06-1976_202211)",
+  "country_only": false
+ },
+ {
+  "code": "e:B:9 ال عمران 36-53 مبتورة بدايتها - تلاوة من احد المساجد   .mp3",
+  "key": "B",
+  "file": "9 ال عمران 36-53 مبتورة بدايتها - تلاوة من احد المساجد   .mp3",
+  "area": "algeria",
+  "sec": "Public recitations · date not given",
+  "en": "Omar ibn al-Khattab Mosque · Algeria",
+  "ar": "مسجد عمر بن الخطاب · الجزائر",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"الشيخ عبد الباسط عبد الصمد  آل عمران مسجد عمر بن الخطاب - الجزائر.mp3\" (archive.org/20_www-abdulbasit.blogspot.com0123_1530)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0107-171-23_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0107-171-23_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"08    آل عمران و النساء    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
+  "code": "e:X1:35-ال عمران 193-200 والحاقة.mp3",
+  "key": "X1",
+  "file": "35-ال عمران 193-200 والحاقة.mp3",
+  "area": "syria",
+  "sec": "Public recitations · date not given",
+  "en": "Umayyad Mosque · Damascus",
+  "ar": "المسجد الأموي · دمشق",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"0162-آل عمران والحاقة - المسجد الاموي سوريا جودة افضل مع نقص_uP_bY_mUSLEm WwW.alKabbah.CoM_uP_bY_mUSLEm  0162--_up_by_muslem.mp3\" (archive.org/Abdel_Baset_Abd-Sammad_TilawaT_Nadira_uP_bY_mUSLEm); same audio as the archive.org upload \"المسجد الاموى - 1958 عمرو سعيد يونس  42.mp3\" (archive.org/rabieaaa2015_yahoo_14666666666666666665); same audio as the archive.org upload \"0162-آل عمران والحاقة - المسجد الاموي سوريا جودة افضل مع نقص_uP_bY_mUSLEm WwW.alKabbah.CoM_uP_bY_mUSLEm  0162--_up_by_muslem.mp3\" (archive.org/Abdel_Baset_Abd-Samad_TilawaT_Nadira_uP_bY_mUSLEm); same audio as the archive.org upload \"ال عمران والحاقة - المسجد الاموى - 1958 عمرو سعيد يونس  42.mp3\" (archive.org/abdelbasit_931); same audio as the archive.org upload \"المسجد الاموى - 1958 عمرو سعيد يونس  42.mp3\" (archive.org/rabieaaa2015_yahoo_144646)",
+  "country_only": false
  },
  {
   "code": "e:X1:49-ال عمران 189-200.mp3",
@@ -428,30 +1112,152 @@
   "en": "Umayyad Mosque · Damascus",
   "ar": "المسجد الأموي · دمشق",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:N1:028.mp3, labelled at \"Umayyad Mosque · Damascus\" (Syria)"
+  "evidence": "same audio as 028.mp3, labelled \"Umayyad Mosque · Damascus\" (Syria)",
+  "country_only": false
  },
  {
   "code": "e:C:0899-1_up_by_muslem.mp3",
   "key": "C",
   "file": "0899-1_up_by_muslem.mp3",
   "area": "kuwait",
-  "sec": "Public recitations 1960s",
+  "sec": "Public recitations · date not given",
   "en": "Shuwaikh Secondary School Mosque · Kuwait",
   "ar": "مسجد ثانوية الشويخ · الكويت",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:C:0894-2_up_by_muslem.mp3, labelled at \"Shuwaikh Secondary School Mosque · Kuwait\" (Kuwait)"
+  "evidence": "same audio as 0894-2_up_by_muslem.mp3, labelled \"Shuwaikh Secondary School Mosque · Kuwait\" (Kuwait)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0904-2_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0904-2_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 307.mp3 is labelled with the country Kuwait (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0907-32_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0907-32_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 325.mp3 is labelled with the country Kuwait (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0911-42_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0911-42_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 307.mp3 is labelled with the country Kuwait (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0906-24-79_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0906-24-79_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"09    النساء    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/09-1976); same audio as the archive.org upload \"09    النساء    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
  },
  {
   "code": "e:B:5 النساء 58-78   - تلاوة تلفزيونية - رفعها عمربن الخطاب الجزائري.mp3",
   "key": "B",
   "file": "5 النساء 58-78   - تلاوة تلفزيونية - رفعها عمربن الخطاب الجزائري.mp3",
-  "area": null,
-  "sec": null,
-  "en": "TV · channel and country not given",
-  "ar": "تلفزيون · القناة والبلد غير مذكورين",
+  "area": "algeria",
+  "sec": "Public recitations · date not given",
+  "en": "Omar ibn al-Khattab Mosque · Algeria",
+  "ar": "مسجد عمر بن الخطاب · الجزائر",
   "was": "Place unknown / (none)",
-  "evidence": "own label: \"تلاوة تلفزيونية\" — the type is known (television), the place is not",
-  "type_only": true
+  "evidence": "same audio as the archive.org upload \"سورة النساء 58_73من مسجد عمر بن الخطاب بالجزائر.mp3\" (archive.org/20_www-abdulbasit.blogspot.com0123_1530)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0916-75-134_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0916-75-134_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"10    النساء    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa); same audio as the archive.org upload \"10    النساء    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/10-1976)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0900-145-7_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0900-145-7_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"11    النساء و المائدة    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa); same audio as the archive.org upload \"11    النساء و المائدة    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/11-1976)",
+  "country_only": false
+ },
+ {
+  "code": "e:I29:الشيخ عبد الباسط عبد الصمد  سورة النساء 12-28  تلاوة نادرة من مفقودات ختمة الأرباع 2-1-1963م.mp3",
+  "key": "I29",
+  "file": "الشيخ عبد الباسط عبد الصمد  سورة النساء 12-28  تلاوة نادرة من مفقودات ختمة الأرباع 2-1-1963م.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Egyptian Radio",
+  "ar": "الإذاعة المصرية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"ختمة الأرباع النادرة (32) الشيخ عبدالباسط عبدالصمد سورةالنساء 12-28 الإذاعة المصرية 2-1-1963م   ختمة الأرباع مقسمة حلقات ختمة نادرة لكبار قراء مصر 196\" (archive.org/105.-105-1-48)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0796-4_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0796-4_up_by_muslem.mp3",
+  "area": "iraq",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 273.mp3 is labelled with the country Iraq (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0797-5_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0797-5_up_by_muslem.mp3",
+  "area": "uae",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 316.mp3 is labelled with the country UAE (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0829-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0829-_up_by_muslem.mp3",
+  "area": "syria",
+  "sec": "Public recitations · date not given",
+  "en": "Damascus",
+  "ar": "دمشق",
+  "was": "Place unknown / (none)",
+  "evidence": "spoken at the start (a radio programme of rare recordings, sent in by a listener in Cairo): \"سجلت هذه التلاوة من المسجد الأموي بالجمهورية السورية\"; uploads of the same audio are labelled \"المائدة والنبأ والشمس-جامع يلبغا بدمشق1957 (برنامج من التسجيلات النادرة)\". Both say Damascus; they disagree on the mosque, so only the city is taken",
+  "country_only": false
  },
  {
   "code": "e:C:0822-_up_by_muslem.mp3",
@@ -462,7 +1268,92 @@
   "en": "Umayyad Mosque · Damascus",
   "ar": "المسجد الأموي · دمشق",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:N2:294.mp3, labelled at \"Umayyad Mosque · Damascus\" (Syria)"
+  "evidence": "same audio as 294.mp3, labelled \"Umayyad Mosque · Damascus\" (Syria)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0825-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0825-_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "Imam al-Shafiʿi Mosque · Cairo",
+  "ar": "مسجد الإمام الشافعي · القاهرة",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"المسجد الشافعي تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0825-_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0043-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0043-_up_by_muslem.mp3",
+  "area": "syria",
+  "sec": "Radio recitations · date not given",
+  "en": "Syrian Radio",
+  "ar": "الإذاعة السورية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"المائدة إذاعة سوريا تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0043-_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0804-22_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0804-22_up_by_muslem.mp3",
+  "area": "iraq",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 273.mp3 is labelled with the country Iraq (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0808-4_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0808-4_up_by_muslem.mp3",
+  "area": "iraq",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 273.mp3 is labelled with the country Iraq (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0810-5_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0810-5_up_by_muslem.mp3",
+  "area": "uae",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 316.mp3 is labelled with the country UAE (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0814-7_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0814-7_up_by_muslem.mp3",
+  "area": "safrica",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 320.mp3 is labelled with the country South Africa; its copy 274.mp3 is labelled with the country South Africa (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0815-8-54_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0815-8-54_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"12    المائدة    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/12-1976); same audio as the archive.org upload \"12    المائدة    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
  },
  {
   "code": "e:B:1 المائدة 20-32 تلاوة تلفزيونية.mp3",
@@ -477,6 +1368,18 @@
   "type_only": true
  },
  {
+  "code": "e:C:0811-55-181_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0811-55-181_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"13    المائدة    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/13-1976); same audio as the archive.org upload \"13    المائدة    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
   "code": "e:I4:المائدة و قصار السور _تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد.mp3",
   "key": "I4",
   "file": "المائدة و قصار السور _تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد.mp3",
@@ -485,18 +1388,104 @@
   "en": "Umayyad Mosque · Damascus",
   "ar": "المسجد الأموي · دمشق",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:N2:294.mp3, labelled at \"Umayyad Mosque · Damascus\" (Syria)"
+  "evidence": "same audio as 294.mp3, labelled \"Umayyad Mosque · Damascus\" (Syria)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0252-122-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0252-122-_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"16    الأنعام و الأعراف   تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/16-1976); same audio as the archive.org upload \"16    الأنعام و الأعراف   مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
  },
  {
   "code": "e:C:0234-_up_by_muslem.mp3",
   "key": "C",
   "file": "0234-_up_by_muslem.mp3",
   "area": "egypt",
-  "sec": "Radio recitations 1950s",
+  "sec": "Radio recitations · date not given",
   "en": "Egyptian Radio",
   "ar": "الإذاعة المصرية",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:R:294--اذاعة مصر الخمسينات النصف ساعة   -الأعراف 189 والأنفال 11 خمسينات النسخة الأصلية., labelled at \"Egyptian Radio\" (Egypt)"
+  "evidence": "same audio as 294--اذاعة مصر الخمسينات النصف ساعة   -الأعراف 189 والأنفال 11 خمسينات النسخة ال, labelled \"Egyptian Radio\" (Egypt)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0005---1_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0005---1_uP_bY_mUSLEm.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Egyptian Radio",
+  "ar": "الإذاعة المصرية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"الأعراف من إذاعة مصر تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0005---1_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0003---2_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0003---2_uP_bY_mUSLEm.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Egyptian Radio",
+  "ar": "الإذاعة المصرية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"الأعراف من الإذاعة المصرية تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0003---2_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0221-19-97_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0221-19-97_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"17    الأعراف    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/17-1976_202211); same audio as the archive.org upload \"17    الأعراف    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0233-80-153_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0233-80-153_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"18    الأعراف    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/18-1976); same audio as the archive.org upload \"18    الأعراف    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0220-154-16_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0220-154-16_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"19    الأعراف و الأنفال    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/19-1976); same audio as the archive.org upload \"19    الأعراف و الأنفال    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0266-16-5_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0266-16-5_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"20    الأنفال و التوبة    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/20-1976); same audio as the archive.org upload \"20    الأنفال و التوبة    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
  },
  {
   "code": "e:C:0381-_up_by_muslem.mp3",
@@ -507,7 +1496,8 @@
   "en": "Umayyad Mosque · Damascus",
   "ar": "المسجد الأموي · دمشق",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:N1:130.mp3, labelled at \"Umayyad Mosque · Damascus\" (Syria)"
+  "evidence": "same audio as 130.mp3, labelled \"Umayyad Mosque · Damascus\" (Syria)",
+  "country_only": false
  },
  {
   "code": "e:C:0379-_up_by_muslem.mp3",
@@ -518,40 +1508,248 @@
   "en": "Umayyad Mosque · Damascus",
   "ar": "المسجد الأموي · دمشق",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:N1:130.mp3, labelled at \"Umayyad Mosque · Damascus\" (Syria)"
+  "evidence": "same audio as 130.mp3, labelled \"Umayyad Mosque · Damascus\" (Syria)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0372-5-62_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0372-5-62_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"21     التوبة    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/21-1976); same audio as the archive.org upload \"21     التوبة    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
  },
  {
   "code": "e:C:0364-17-34_up_by_muslem.mp3",
   "key": "C",
   "file": "0364-17-34_up_by_muslem.mp3",
   "area": "saudi",
-  "sec": "Radio recitations 1960s",
+  "sec": "Radio recitations · date not given",
   "en": "Saudi Radio",
   "ar": "الإذاعة السعودية",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:R:196--اذاعة السعودية الستينات -التوبة 17-36.mp3, labelled at \"Saudi Radio\" (Saudi Arabia)"
+  "evidence": "same audio as 196--اذاعة السعودية الستينات -التوبة 17-36.mp3, labelled \"Saudi Radio\" (Saudi Arabia)",
+  "country_only": false
  },
  {
   "code": "e:B:1 التوبة 17-34 مبتورة آخرها  .mp3",
   "key": "B",
   "file": "1 التوبة 17-34 مبتورة آخرها  .mp3",
   "area": "saudi",
-  "sec": "Radio recitations 1960s",
+  "sec": "Radio recitations · date not given",
   "en": "Saudi Radio",
   "ar": "الإذاعة السعودية",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:R:196--اذاعة السعودية الستينات -التوبة 17-36.mp3, labelled at \"Saudi Radio\" (Saudi Arabia)"
+  "evidence": "same audio as 196--اذاعة السعودية الستينات -التوبة 17-36.mp3, labelled \"Saudi Radio\" (Saudi Arabia)",
+  "country_only": false
+ },
+ {
+  "code": "e:X1:156-1-10 التوبة 23-33 مبتورة اولها واخرها والقيامة.mp3",
+  "key": "X1",
+  "file": "156-1-10 التوبة 23-33 مبتورة اولها واخرها والقيامة.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"مصر  (XXX) التوبة والقيامة/التوبة والقيامة AbdelBasit3bdalSamad/basit_Live/143_mono.mp3\" (archive.org/quran-recitations_202603) (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0369-34-59_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0369-34-59_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Egyptian Radio",
+  "ar": "الإذاعة المصرية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"خادم القرآن الكريم - الحلقة (77) من ختمة الأرباع النادرة للسبعة قراء المذاعة على إذاعة القرآن الكريم من القاهرة القارئ : الشيخ عبدالباسط عبدالصمد رحمة\" (archive.org/20250901_20250901_1955)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0374-63-113_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0374-63-113_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"22     التوبة    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/22-1976); same audio as the archive.org upload \"22     التوبة    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0363-114-33_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0363-114-33_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"23    التوبة ويونس    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/23-1976); same audio as the archive.org upload \"23    التوبة ويونس    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:1215-34-104_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1215-34-104_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"24     يونس    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/24-1976); same audio as the archive.org upload \"24     يونس    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:1213-105-64_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1213-105-64_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"25    يونس وهود    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa); same audio as the archive.org upload \"25    يونس وهود    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/25-1976_202211)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:1130--1_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1130--1_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Quran Radio · Cairo",
+  "ar": "إذاعة القرآن الكريم · القاهرة",
+  "was": "Place unknown / (none)",
+  "evidence": "spoken at the end: \"… الشيخ عبد الباسط عبد الصمد ما تيسر من سورتي … إذاعة القرآن الكريم من القاهرة\" (a radio broadcast)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:1133-22_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1133-22_up_by_muslem.mp3",
+  "area": "uae",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"Sheekh Abdul Baset Abdul Samad www.elforqaan.com  من سورة هود 2 من الحفلات النادرة جدا للشيخ عبد الباسط عبد الصمد بالإمارات.mp3\" (archive.org/20200112_www-abdulbasit.blogspot.com_1336) (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:1137-3_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1137-3_up_by_muslem.mp3",
+  "area": "uae",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy هود والانفطار - الإمارات.mp3 is labelled with the country UAE; its copy 411.mp3 is labelled with the country UAE (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0038--_36-45-_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0038--_36-45-_uP_bY_mUSLEm.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Egyptian Radio",
+  "ar": "الإذاعة المصرية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"هود من الإذاعة المصرية تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0038--_36-45-_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:1141-61-6_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1141-61-6_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"26    هود ويوسف    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa); same audio as the archive.org upload \"26    هود ويوسف    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/26-1976)",
+  "country_only": false
+ },
+ {
+  "code": "e:I4:هود و الانفطار_تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد.mp3",
+  "key": "I4",
+  "file": "هود و الانفطار_تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد.mp3",
+  "area": "uae",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy هود والانفطار - الإمارات.mp3 is labelled with the country UAE; its copy 411.mp3 is labelled with the country UAE (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:1166-5_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1166-5_up_by_muslem.mp3",
+  "area": "pakistan",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 417.mp3 is labelled with the country Pakistan (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:1173-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1173-_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 421.mp3 is labelled with the country Kuwait (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:1184-24_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1184-24_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 424.mp3 is labelled with the country Kuwait (the country only: the venue is not named)",
+  "country_only": true
  },
  {
   "code": "e:C:1190-4_up_by_muslem.mp3",
   "key": "C",
   "file": "1190-4_up_by_muslem.mp3",
   "area": "egypt",
-  "sec": "Public recitations 1960s",
+  "sec": "Public recitations · date not given",
   "en": "Imam al-Hussein Mosque · Cairo",
   "ar": "مسجد الإمام الحسين · القاهرة",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:E:يوسف - الحسين مصر  تلاوة 3 سنة 1968.mp3, labelled at \"Imam al-Hussein Mosque · Cairo\" (Egypt)"
+  "evidence": "same audio as يوسف - الحسين مصر  تلاوة 3 سنة 1968.mp3, labelled \"Imam al-Hussein Mosque · Cairo\" (Egypt)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:1191-5_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1191-5_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 424.mp3 is labelled with the country Kuwait (the country only: the venue is not named)",
+  "country_only": true
  },
  {
   "code": "e:C:1199-8_up_by_muslem.mp3",
@@ -562,7 +1760,56 @@
   "en": "Latakia",
   "ar": "اللاذقية",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:N2:422.mp3, labelled at \"Latakia\" (Syria)"
+  "evidence": "same audio as 1203-_up_by_muslem.mp3, labelled \"Latakia\" (Syria); same audio as 422.mp3, labelled \"Latakia\" (Syria)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:1200-9_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1200-9_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 421.mp3 is labelled with the country Kuwait (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:1194-65-14_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1194-65-14_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"28    يوسف و الرعد    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0534-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0534-_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 727.mp3 is labelled with the country Egypt; its copy 185.mp3 is labelled with the country Egypt (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0526-16-27_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0526-16-27_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"29    الرعد و إبراهيم    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa); same audio as the archive.org upload \"29    الرعد و إبراهيم    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/29-1976)",
+  "country_only": false
  },
  {
   "code": "e:B:3 الرعد 36-42 تلاوة تلفزيونية - مبتورة اولها.mp3",
@@ -581,11 +1828,12 @@
   "key": "X2",
   "file": "245 -ابراهيموالقصارواولالبقرة.mp3",
   "area": "saudi",
-  "sec": "Public recitations 1950s",
+  "sec": "Public recitations · date not given",
   "en": "Masjid al-Haram · Makkah",
   "ar": "المسجد الحرام · مكة",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:E:ابراهيم - مكة 1951جودة عالية.mp3, labelled at \"Masjid al-Haram · Makkah\" (Saudi Arabia)"
+  "evidence": "same audio as 0080-_up_by_muslem.mp3, labelled \"Masjid al-Haram · Makkah\" (Saudi Arabia); same audio as ابراهيم - مكة 1951جودة عالية.mp3, labelled \"Masjid al-Haram · Makkah\" (Saudi Arabia); same audio as ما تيسر من سورة إبراهيم و قصار السور تسجيل نادر سجل من المسجد الحرام سنة 1951م.m, labelled \"Masjid al-Haram · Makkah\" (Saudi Arabia)",
+  "country_only": false
  },
  {
   "code": "e:B:2 ابراهيم 23-34 تلاوة تلفزيونية 1970.mp3",
@@ -600,15 +1848,100 @@
   "type_only": true
  },
  {
+  "code": "e:C:0066-27-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0066-27-_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"30    إبراهيم و الحجر    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/30-1976); same audio as the archive.org upload \"30    إبراهيم و الحجر    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
   "code": "e:C:0063-22_up_by_muslem.mp3",
   "key": "C",
   "file": "0063-22_up_by_muslem.mp3",
   "area": "aqsa",
-  "sec": "Public recitations 1965",
+  "sec": "Public recitations · date not given",
   "en": "Al-Aqsa Mosque",
   "ar": "المسجد الأقصى",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:C:0058-3_up_by_muslem.mp3, labelled at \"Al-Aqsa Mosque\" (Masjid al-Aqsa)"
+  "evidence": "same audio as 0058-3_up_by_muslem.mp3, labelled \"Al-Aqsa Mosque\" (Masjid al-Aqsa)",
+  "country_only": false
+ },
+ {
+  "code": "e:X2:253-7-1 الحجر 85-99 القيامة النصر الاخلاص المعوذتين الفاتحة افريقيا 1966.mp3",
+  "key": "X2",
+  "file": "253-7-1 الحجر 85-99 القيامة النصر الاخلاص المعوذتين الفاتحة افريقيا 1966.mp3",
+  "area": "safrica",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 735.mp3 is labelled with the country South Africa (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:X2:254-7-1 الحجر 85-99 القيامة النصر الاخلاص المعوذتين الفاتحة افريقيا 1966  صدا.mp3",
+  "key": "X2",
+  "file": "254-7-1 الحجر 85-99 القيامة النصر الاخلاص المعوذتين الفاتحة افريقيا 1966  صدا.mp3",
+  "area": "safrica",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"جنوب افريقيا - 1966  (XXX) الحجر وقصار السور/الحجر وقصار السور AbdelBasit3bdalSamad/basit_Live/151_mono.mp3\" (archive.org/quran-recitations_202603) (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0887-1-74_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0887-1-74_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"31     النحل    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/31-1976); same audio as the archive.org upload \"31     النحل    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
+  "code": "e:B:5-1 النحل 63-103 من تلاوات شركة موريفون- نسخة الاستاذ هشام عبدالقادر.mp3",
+  "key": "B",
+  "file": "5-1 النحل 63-103 من تلاوات شركة موريفون- نسخة الاستاذ هشام عبدالقادر.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "Mourphon",
+  "ar": "شركة مورفون",
+  "was": "Place unknown / (none)",
+  "evidence": "own file name: \"من تلاوات شركة موريفون\" (the Mourphon record company, Cairo)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0210-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0210-_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "Mohamed Farag Mosque · Egypt",
+  "ar": "مسجد محمد فرج · مصر",
+  "was": "Place unknown / (none)",
+  "evidence": "spoken at the end: \"… بالذكرى السنوية للمرحوم الشيخ علي حزين … على الهواء من رحاب مسجد الحاج … بحي حدائق القبة مدينة القاهرة\"; C 0201-3 (the same audio) names \"مسجد الحاج محمد فرج\"",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0201-3_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0201-3_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "Mohamed Farag Mosque · Egypt",
+  "ar": "مسجد محمد فرج · مصر",
+  "was": "Place unknown / (none)",
+  "evidence": "spoken at the end: \"في احتفال إذاعة القرآن الكريم بالذكرى السنوية للمرحوم الشيخ علي حزين … على الهواء مباشرة من رحاب مسجد الحاج محمد فرج بحي حدائق القبة مدينة القاهرة\"; C 0210 (the same audio) has the same announcement; X2 256 in the library is labelled \"ذكرى علي حزين- مسجد محمد فرج\"",
+  "country_only": false
  },
  {
   "code": "e:C:0206-8_up_by_muslem.mp3",
@@ -619,7 +1952,8 @@
   "en": "Aswan",
   "ar": "أسوان",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:A:504.mp3, labelled at \"Aswan\" (Egypt)"
+  "evidence": "same audio as 504.mp3, labelled \"Aswan\" (Egypt)",
+  "country_only": false
  },
  {
   "code": "e:C:0195-15_up_by_muslem.mp3",
@@ -630,7 +1964,20 @@
   "en": "Aleppo",
   "ar": "حلب",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:C:0212-_up_by_muslem.mp3, labelled at \"Aleppo\" (Syria)"
+  "evidence": "same audio as 0212-_up_by_muslem.mp3, labelled \"Aleppo\" (Syria)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0208-94-54_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0208-94-54_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"34   الإسراء و الكهف    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa); same audio as the archive.org upload \"34   الإسراء و الكهف    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/34-1976)",
+  "country_only": false
  },
  {
   "code": "e:I4:الاسراء والتكوير و الشمس_تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد.mp3",
@@ -641,7 +1988,8 @@
   "en": "Aleppo",
   "ar": "حلب",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:C:0212-_up_by_muslem.mp3, labelled at \"Aleppo\" (Syria)"
+  "evidence": "same audio as 0212-_up_by_muslem.mp3, labelled \"Aleppo\" (Syria)",
+  "country_only": false
  },
  {
   "code": "e:C:0194-14_up_by_muslem.mp3",
@@ -652,7 +2000,8 @@
   "en": "Al-Aqsa Mosque",
   "ar": "المسجد الأقصى",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:N1:058.mp3, labelled at \"Al-Aqsa Mosque\" (Masjid al-Aqsa)"
+  "evidence": "same audio as 058.mp3, labelled \"Al-Aqsa Mosque\" (Masjid al-Aqsa)",
+  "country_only": false
  },
  {
   "code": "e:C:0204-6_up_by_muslem.mp3",
@@ -663,7 +2012,20 @@
   "en": "Al-Aqsa Mosque",
   "ar": "المسجد الأقصى",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:N1:058.mp3, labelled at \"Al-Aqsa Mosque\" (Masjid al-Aqsa)"
+  "evidence": "same audio as 058.mp3, labelled \"Al-Aqsa Mosque\" (Masjid al-Aqsa)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0772-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0772-_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "Imam al-Shafiʿi Mosque · Cairo",
+  "ar": "مسجد الإمام الشافعي · القاهرة",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"المسجد الشافعي تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0772-_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
  },
  {
   "code": "e:C:0758-3_up_by_muslem.mp3",
@@ -674,7 +2036,56 @@
   "en": "Umayyad Mosque · Damascus",
   "ar": "المسجد الأموي · دمشق",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:A:311.mp3, labelled at \"Umayyad Mosque · Damascus\" (Syria)"
+  "evidence": "same audio as 311.mp3, labelled \"Umayyad Mosque · Damascus\" (Syria)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:1109-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1109-_up_by_muslem.mp3",
+  "area": "qatar",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 451.mp3 is labelled with the country Qatar; its copy مريم والنبأ والاخلاص - قطر.mp3 is labelled with the country Qatar (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:1110-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1110-_up_by_muslem.mp3",
+  "area": "qatar",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 451.mp3 is labelled with the country Qatar; its copy مريم والنبأ والاخلاص - قطر.mp3 is labelled with the country Qatar (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:1114-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1114-_up_by_muslem.mp3",
+  "area": "saudi",
+  "sec": "Public recitations · date not given",
+  "en": "Masjid al-Haram · Makkah",
+  "ar": "المسجد الحرام · مكة",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"المسجد الحرام تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  1114-_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:1108-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1108-_up_by_muslem.mp3",
+  "area": "uae",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"Sheekh Abdul Baset Abdul Samad www.elforqaan.com  من سورة مريم وسورة الطارق من الحفلات النادرة جدا للشيخ عبد الباسط عبد الصمد بالإمارات.mp3\" (archive.org/20200112_www-abdulbasit.blogspot.com_1336) (the country only: the venue is not named)",
+  "country_only": true
  },
  {
   "code": "e:B:1 مريم 1-23 تلاوة تلفزيونية - موقع العنكبوت التركي .mp3",
@@ -693,11 +2104,12 @@
   "key": "C",
   "file": "1094-2_up_by_muslem.mp3",
   "area": "egypt",
-  "sec": "Public recitations 1960s",
+  "sec": "Public recitations · date not given",
   "en": "Sinan Pasha Mosque · Bulaq",
   "ar": "مسجد سنان باشا · بولاق",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:A:406.mp3, labelled at \"Sinan Pasha Mosque · Bulaq\" (Egypt)"
+  "evidence": "same audio as 406.mp3, labelled \"Sinan Pasha Mosque · Bulaq\" (Egypt)",
+  "country_only": false
  },
  {
   "code": "e:C:1098-4_up_by_muslem.mp3",
@@ -708,7 +2120,56 @@
   "en": "Latakia",
   "ar": "اللاذقية",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:C:1082-_up_by_muslem.mp3, labelled at \"Latakia\" (Syria)"
+  "evidence": "same audio as 1082-_up_by_muslem.mp3, labelled \"Latakia\" (Syria)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:1100-6_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1100-6_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy مريم - مصر تلاوة 3.mp3 is labelled with the country Egypt (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:1097-38-64_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1097-38-64_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"36   مريم و طه    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/36-1976); same audio as the archive.org upload \"36   مريم و طه    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:1019-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1019-_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 375.mp3 is labelled with the country Kuwait (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:1016-55-96_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1016-55-96_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Egyptian Radio",
+  "ar": "الإذاعة المصرية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"خادم القرآن الكريم - الحلقة (126) من ختمة الأرباع النادرة للسبعة قراء المذاعة على إذاعة القرآن الكريم من القاهرة القارئ : الشيخ عبدالباسط عبدالصمد رحم\" (archive.org/20250804_20250804_1851)",
+  "country_only": false
  },
  {
   "code": "e:B:4 طه 111-122 تلاوة تلفزيونية - محمود62.mp3",
@@ -723,6 +2184,102 @@
   "type_only": true
  },
  {
+  "code": "e:C:0150--1982_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0150--1982_up_by_muslem.mp3",
+  "area": "qatar",
+  "sec": "Public recitations 1980s",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy الأنبياء وقصار السور - 1982 - قطر.mp3 is labelled with the country Qatar (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0248-_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0248-_uP_bY_mUSLEm.mp3",
+  "area": "safrica",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 080.mp3 is labelled with the country South Africa (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0411-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0411-_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "Imam al-Shafiʿi Mosque · Cairo",
+  "ar": "مسجد الإمام الشافعي · القاهرة",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"darwishim.blogspot.com  Nahl(123-128)_isra(1-14)_Shafie Mosque_NQ.mp3\" (archive.org/abdulbaset-abdussamed-live-recitations)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0401-1--29_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0401-1--29_up_by_muslem.mp3",
+  "area": "syria",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 1-1 الحج 1-29 من تلاوات سوريا .mp3 is labelled with the country Syria (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0016--2-_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0016--2-_uP_bY_mUSLEm.mp3",
+  "area": "syria",
+  "sec": "Radio recitations · date not given",
+  "en": "Syrian Radio",
+  "ar": "الإذاعة السورية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"الحج من إذاعة سوريا تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0016--2-_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0789-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0789-_up_by_muslem.mp3",
+  "area": "safrica",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 364-7-2 المؤمنون البروج الفاتحة النصر -نسخة خام- في عام 1966 is labelled with the country South Africa (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0781-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0781-_up_by_muslem.mp3",
+  "area": "safrica",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 364-7-2 المؤمنون البروج الفاتحة النصر -نسخة خام- في عام 1966 is labelled with the country South Africa (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0791-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0791-_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"39 - الحج والمؤمنون - المصحف المرتل من إذاعة الكويت - الشيخ عبد الباسط عبد الصمد   39 - الحج و المؤمنون  تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من \" (archive.org/39-1976); same audio as the archive.org upload \"39 - الحج والمؤمنون - المصحف المرتل من إذاعة الكويت - الشيخ عبد الباسط عبد الصمد   39 - الحج و المؤمنون  مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية ح\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
   "code": "e:C:0948-2_up_by_muslem.mp3",
   "key": "C",
   "file": "0948-2_up_by_muslem.mp3",
@@ -731,18 +2288,68 @@
   "en": "Al-Aqsa Mosque",
   "ar": "المسجد الأقصى",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:A:359.MP3, labelled at \"Al-Aqsa Mosque\" (Masjid al-Aqsa)"
+  "evidence": "same audio as 359.MP3, labelled \"Al-Aqsa Mosque\" (Masjid al-Aqsa)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0669-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0669-_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "Imam al-Shafiʿi Mosque · Cairo",
+  "ar": "مسجد الإمام الشافعي · القاهرة",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"المسجد الشافعي تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0669-_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0666-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0666-_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 262.mp3 is labelled with the country Egypt (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0664-2_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0664-2_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 230.mp3 is labelled with the country Egypt (the country only: the venue is not named)",
+  "country_only": true
  },
  {
   "code": "e:C:0665-3_up_by_muslem.mp3",
   "key": "C",
   "file": "0665-3_up_by_muslem.mp3",
   "area": "egypt",
-  "sec": "Public recitations 1960s",
+  "sec": "Public recitations · date not given",
   "en": "Imam al-Shafiʿi Mosque · Cairo",
   "ar": "مسجد الإمام الشافعي · القاهرة",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:A:263.mp3, labelled at \"Imam al-Shafiʿi Mosque · Cairo\" (Egypt)"
+  "evidence": "same audio as 263.mp3, labelled \"Imam al-Shafiʿi Mosque · Cairo\" (Egypt)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0024--58_70-_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0024--58_70-_uP_bY_mUSLEm.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Egyptian Radio",
+  "ar": "الإذاعة المصرية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"الفرقان من الإذاعة المصرية تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0024--58_70-_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
  },
  {
   "code": "e:B:4 الشعراء 69-76 مقطع من تلاوة تلفزيونية - عمرو سعيد.mp3",
@@ -755,6 +2362,66 @@
   "was": "Place unknown / (none)",
   "evidence": "own label: \"تلاوة تلفزيونية\" — the type is known (television), the place is not",
   "type_only": true
+ },
+ {
+  "code": "e:C:0926-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0926-_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 350.mp3 is labelled with the country Kuwait; its copy 336.mp3 is labelled with the country Kuwait (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0928-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0928-_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 350.mp3 is labelled with the country Kuwait; its copy 336.mp3 is labelled with the country Kuwait (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0682-3_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0682-3_up_by_muslem.mp3",
+  "area": "saudi",
+  "sec": "Radio recitations · date not given",
+  "en": "Saudi Radio",
+  "ar": "الإذاعة السعودية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"القصص من الإذاعة السعودية   القصص.mp3\" (archive.org/20200116_w-abdulbasit_0704); same audio as the archive.org upload \"القصص من الإذاعة السعودية تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0682-3_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0694-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0694-_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"45   القصص و العنكبوت    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/45-1976); same audio as the archive.org upload \"45   القصص و العنكبوت    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0623-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0623-_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"46   العنكبوت و الروم    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
  },
  {
   "code": "e:B:3 الروم 1-19 تلاوة تلفزيونية - موقع القراء.mp3",
@@ -785,11 +2452,24 @@
   "key": "C",
   "file": "0020--_17-26-_uP_bY_mUSLEm.mp3",
   "area": "egypt",
-  "sec": "Radio recitations 1970s",
+  "sec": "Radio recitations · date not given",
   "en": "Egyptian Radio",
   "ar": "الإذاعة المصرية",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:B:4 الروم 17-26 .mp3, labelled at \"Egyptian Radio\" (Egypt)"
+  "evidence": "same audio as 4 الروم 17-26 .mp3, labelled \"Egyptian Radio\" (Egypt)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:1075-3_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1075-3_up_by_muslem.mp3",
+  "area": "iraq",
+  "sec": "Public recitations · date not given",
+  "en": "Baghdad",
+  "ar": "بغداد",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 388.mp3: own ID3 title: \"لقمان - بغداد - العراق\"",
+  "country_only": false
  },
  {
   "code": "e:C:0137-_up_by_muslem.mp3",
@@ -800,18 +2480,284 @@
   "en": "Imam al-Hussein Mosque · Cairo",
   "ar": "مسجد الإمام الحسين · القاهرة",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:N1:052.mp3, labelled at \"Imam al-Hussein Mosque · Cairo\" (Egypt)"
+  "evidence": "same audio as 052.mp3, labelled \"Imam al-Hussein Mosque · Cairo\" (Egypt)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0127-2_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0127-2_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "Port Said",
+  "ar": "بورسعيد",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 047.mp3: own ID3 title: \"الأحزاب - تلاوة 5 - بور سعيد - مصر\"; X4 444 (\"بور سعيد 1979\", another collection) is the same audio (lan; its copy 444-1-9  الأحزاب 21-35  بور سعيد 1979- مصر.mp3: own file name: \"بور سعيد 1979\"; N1 047, labelled separately \"الأحزاب - تلاوة 5 - بور سعيد - مصر\", is the same audio (lan",
+  "country_only": false
+ },
+ {
+  "code": "e:C:1038-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1038-_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"50   فاطر و يس    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa); same audio as the archive.org upload \"50   فاطر و يس    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/50-1976)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0044--_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0044--_up_by_muslem.mp3",
+  "area": "syria",
+  "sec": "Radio recitations · date not given",
+  "en": "Syrian Radio",
+  "ar": "الإذاعة السورية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"آخر يس من إذاعة سوريا تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0044--_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0021---_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0021---_up_by_muslem.mp3",
+  "area": "saudi",
+  "sec": "Radio recitations · date not given",
+  "en": "Saudi Radio",
+  "ar": "الإذاعة السعودية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"الصافات من الإذاعة السعودية تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0021---_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad); same audio as the archive.org upload \"الصافات من الإذاعة السعودية   -الصافات الخمسنيات - نسخة كاملة.mp3\" (archive.org/20200116_w-abdulbasit_0704)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0556-2_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0556-2_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 194.mp3 is labelled with the country Egypt (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0564-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0564-_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "Imam al-Shafiʿi Mosque · Cairo",
+  "ar": "مسجد الإمام الشافعي · القاهرة",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"المسجد الشافعي تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0564-_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0559-2_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0559-2_up_by_muslem.mp3",
+  "area": "safrica",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 188.mp3 is labelled with the country South Africa (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0550-3_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0550-3_up_by_muslem.mp3",
+  "area": "safrica",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 188.mp3 is labelled with the country South Africa (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:1035-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1035-_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"54   غافر  و فصلت    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/54-1976); same audio as the archive.org upload \"54   غافر  و فصلت    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:1052-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1052-_up_by_muslem.mp3",
+  "area": "aqsa",
+  "sec": "Public recitations · date not given",
+  "en": "Al-Aqsa Mosque",
+  "ar": "المسجد الأقصى",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as 376.mp3, labelled \"Al-Aqsa Mosque\" (Masjid al-Aqsa)",
+  "country_only": false
  },
  {
   "code": "e:C:0583-_up_by_muslem.mp3",
   "key": "C",
   "file": "0583-_up_by_muslem.mp3",
   "area": "egypt",
-  "sec": "Public recitations 1960s",
+  "sec": "Public recitations · date not given",
   "en": "Imam al-Shafiʿi Mosque · Cairo",
   "ar": "مسجد الإمام الشافعي · القاهرة",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:A:227.mp3, labelled at \"Imam al-Shafiʿi Mosque · Cairo\" (Egypt)"
+  "evidence": "same audio as 227.mp3, labelled \"Imam al-Shafiʿi Mosque · Cairo\" (Egypt)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0585-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0585-_up_by_muslem.mp3",
+  "area": "india",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 200.mp3 is labelled with the country India (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0502-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0502-_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"57   الدخان و الجاثية و الأحقاف    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/57-1976); same audio as the archive.org upload \"57   الدخان و الجاثية و الأحقاف    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0430-2_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0430-2_up_by_muslem.mp3",
+  "area": "safrica",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 154.mp3 is labelled with the country South Africa (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0431-3_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0431-3_up_by_muslem.mp3",
+  "area": "safrica",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 154.mp3 is labelled with the country South Africa (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0454-3_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0454-3_up_by_muslem.mp3",
+  "area": "saudi",
+  "sec": "Public recitations · date not given",
+  "en": "Masjid al-Haram · Makkah",
+  "ar": "المسجد الحرام · مكة",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"المسجد الحرام تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0454-3_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0017--_-_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0017--_-_uP_bY_mUSLEm.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Egyptian Radio",
+  "ar": "الإذاعة المصرية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"الحجرات والحاقة من إذاعة مصر تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0017--_-_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:B:4 الحجرات 1-18  وق1-8  رفعها الاستاذ ابوهيمو .mp3",
+  "key": "B",
+  "file": "4 الحجرات 1-18  وق1-8  رفعها الاستاذ ابوهيمو .mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Quran Radio · Cairo",
+  "ar": "إذاعة القرآن الكريم · القاهرة",
+  "was": "Place unknown / (none)",
+  "evidence": "spoken at the start and end: \"إذاعة القرآن الكريم من القاهرة … القرآن السهرة لهذه الليلة\" (a radio broadcast)",
+  "country_only": false
+ },
+ {
+  "code": "e:I4:الحجرات_تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد.mp3",
+  "key": "I4",
+  "file": "الحجرات_تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد.mp3",
+  "area": "safrica",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 154.mp3 is labelled with the country South Africa (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0506---_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0506---_up_by_muslem.mp3",
+  "area": "saudi",
+  "sec": "Radio recitations · date not given",
+  "en": "Saudi Radio",
+  "ar": "الإذاعة السعودية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"الذاريات من الإذاعة السعودية تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0506---_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0874-2_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0874-2_up_by_muslem.mp3",
+  "area": "qatar",
+  "sec": "Public recitations · date not given",
+  "en": "Qatar Radio",
+  "ar": "إذاعة قطر",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as اذاعة قطر - القمر و الرحمن و اذان الفجر_تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد, labelled \"Qatar Radio\" (Qatar)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0025--_-_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0025--_-_uP_bY_mUSLEm.mp3",
+  "area": "syria",
+  "sec": "Radio recitations · date not given",
+  "en": "Syrian Radio",
+  "ar": "الإذاعة السورية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"القمر والرحمن من إذاعة سوريا تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0025--_-_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0710-3_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0710-3_up_by_muslem.mp3",
+  "area": "safrica",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 250.mp3 is labelled with the country South Africa (the country only: the venue is not named)",
+  "country_only": true
  },
  {
   "code": "e:C:0727-_up_by_muslem.mp3",
@@ -822,7 +2768,8 @@
   "en": "Umayyad Mosque · Damascus",
   "ar": "المسجد الأموي · دمشق",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:N2:254.mp3, labelled at \"Umayyad Mosque · Damascus\" (Syria)"
+  "evidence": "same audio as المسجد الاموي -رائعة وابداع - القمر و الرحمن و قصار السور_تسجيلات نادرة_الشيخ عب, labelled \"Umayyad Mosque · Damascus\" (Syria); same audio as 254.mp3, labelled \"Umayyad Mosque · Damascus\" (Syria)",
+  "country_only": false
  },
  {
   "code": "e:C:0732-2_up_by_muslem.mp3",
@@ -833,7 +2780,8 @@
   "en": "Umayyad Mosque · Damascus",
   "ar": "المسجد الأموي · دمشق",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:N2:254.mp3, labelled at \"Umayyad Mosque · Damascus\" (Syria)"
+  "evidence": "same audio as المسجد الاموي -رائعة وابداع - القمر و الرحمن و قصار السور_تسجيلات نادرة_الشيخ عب, labelled \"Umayyad Mosque · Damascus\" (Syria); same audio as 254.mp3, labelled \"Umayyad Mosque · Damascus\" (Syria)",
+  "country_only": false
  },
  {
   "code": "e:C:0733-_up_by_muslem.mp3",
@@ -844,7 +2792,8 @@
   "en": "Umayyad Mosque · Damascus",
   "ar": "المسجد الأموي · دمشق",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:N2:254.mp3, labelled at \"Umayyad Mosque · Damascus\" (Syria)"
+  "evidence": "same audio as المسجد الاموي -رائعة وابداع - القمر و الرحمن و قصار السور_تسجيلات نادرة_الشيخ عب, labelled \"Umayyad Mosque · Damascus\" (Syria); same audio as 254.mp3, labelled \"Umayyad Mosque · Damascus\" (Syria)",
+  "country_only": false
  },
  {
   "code": "e:E:من الاية 49 القمر واول الرحمن الى الاية 27.mp3",
@@ -855,7 +2804,32 @@
   "en": "Qena",
   "ar": "قنا",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:I4:إِنَّا كُلَّ شَيْءٍ خَلَقْنَاهُ بِقَدَر_القمر وبداية الرحمن_تسجيلات نادرة_الشيخ عبد ا, labelled at \"Qena\" (Egypt)"
+  "evidence": "same audio as إِنَّا كُلَّ شَيْءٍ خَلَقْنَاهُ بِقَدَر_القمر وبداية الرحمن_تسجيلات نادرة_الشيخ , labelled \"Qena\" (Egypt)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0724-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0724-_up_by_muslem.mp3",
+  "area": "safrica",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 250.mp3 is labelled with the country South Africa (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0708-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0708-_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 289.mp3 is labelled with the country Egypt (the country only: the venue is not named)",
+  "country_only": true
  },
  {
   "code": "e:C:0705-_up_by_muslem.mp3",
@@ -866,7 +2840,20 @@
   "en": "El-Hawamdeya",
   "ar": "الحوامدية",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:A:288.mp3, labelled at \"El-Hawamdeya\" (Egypt)"
+  "evidence": "same audio as 288.mp3, labelled \"El-Hawamdeya\" (Egypt)",
+  "country_only": false
+ },
+ {
+  "code": "e:X5:563-1-11 القمر -مبتورة- الرحمن 17-27 الانفطارو الشمس -مجهولة التوثيق.Mp3",
+  "key": "X5",
+  "file": "563-1-11 القمر -مبتورة- الرحمن 17-27 الانفطارو الشمس -مجهولة التوثيق.Mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"مصر  (XXX) الرحمن والانفطار والشمس/الرحمن والانفطار والشمس AbdelBasit3bdalSamad/basit_Live/189_mono.mp3\" (archive.org/quran-recitations_202603) (the country only: the venue is not named)",
+  "country_only": true
  },
  {
   "code": "e:N2:459.mp3",
@@ -877,7 +2864,20 @@
   "en": "Qena",
   "ar": "قنا",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:I4:إِنَّا كُلَّ شَيْءٍ خَلَقْنَاهُ بِقَدَر_القمر وبداية الرحمن_تسجيلات نادرة_الشيخ عبد ا, labelled at \"Qena\" (Egypt)"
+  "evidence": "same audio as إِنَّا كُلَّ شَيْءٍ خَلَقْنَاهُ بِقَدَر_القمر وبداية الرحمن_تسجيلات نادرة_الشيخ , labelled \"Qena\" (Egypt)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0516-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0516-_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"61   الرحمن و الواقعة و الحديد    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/61-1976); same audio as the archive.org upload \"61   الرحمن و الواقعة و الحديد    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
  },
  {
   "code": "e:I4:جزء نادر من الرحمن_تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد.mp3",
@@ -888,7 +2888,56 @@
   "en": "Qena",
   "ar": "قنا",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:I4:إِنَّا كُلَّ شَيْءٍ خَلَقْنَاهُ بِقَدَر_القمر وبداية الرحمن_تسجيلات نادرة_الشيخ عبد ا, labelled at \"Qena\" (Egypt)"
+  "evidence": "same audio as إِنَّا كُلَّ شَيْءٍ خَلَقْنَاهُ بِقَدَر_القمر وبداية الرحمن_تسجيلات نادرة_الشيخ , labelled \"Qena\" (Egypt)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0958---_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0958---_up_by_muslem.mp3",
+  "area": "saudi",
+  "sec": "Radio recitations · date not given",
+  "en": "Saudi Radio",
+  "ar": "الإذاعة السعودية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"الواقعة من الإذاعة السعودية   الواقعة - الخمسنيات - نسخة كاملة.mp3\" (archive.org/20200116_w-abdulbasit_0704); same audio as the archive.org upload \"الواقعة من الإذاعة السعودية تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0958---_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0975-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0975-_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 1-56-31974.mp3 is labelled with the country Kuwait (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0983-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0983-_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Egyptian Radio",
+  "ar": "الإذاعة المصرية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"ختمة الأرباع النادرة (215) الشيخ عبدالباسط عبدالصمد سورتا الواقعة والحديد الإذاعة المصرية ف الستينات   ختمة الأرباع مقسمة حلقات ختمة نادرة لكبار قراء \" (archive.org/105.-105-1-48)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0977-1_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0977-1_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 356.mp3 is labelled with the country Egypt (the country only: the venue is not named)",
+  "country_only": true
  },
  {
   "code": "e:X5:613-1-3 الواقعة 10-75 والحاقة والتكوير والشمس والفاتحة وأول البقرة وآخرها مسجلة من إسنا.mp3",
@@ -899,7 +2948,56 @@
   "en": "Esna",
   "ar": "إسنا",
   "was": "Place unknown / (none)",
-  "evidence": "own file name: \"مسجلة من إسنا\" (Esna, Egypt); it was filed under \"Country not known\""
+  "evidence": "own file name: \"مسجلة من إسنا\" (Esna, Egypt); it was filed under \"Country not known\"",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0491-4_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0491-4_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 171.mp3 is labelled with the country Egypt (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0483-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0483-_up_by_muslem.mp3",
+  "area": "safrica",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 167.mp3 is labelled with the country South Africa (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0493-3_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0493-3_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 170.mp3 is labelled with the country Egypt (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0347-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0347-_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"64 التغابن و الطلاق و التحريم و الملك و القلم  تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/64-1976); same audio as the archive.org upload \"64 التغابن و الطلاق و التحريم و الملك و القلم  مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
  },
  {
   "code": "e:X6:676-1-10 التحريم والحاقة والتكوير والفاتحة وأول البقرة وآخرها مسجلة من مركز إسنا 1970.mp3",
@@ -910,7 +3008,92 @@
   "en": "Esna",
   "ar": "إسنا",
   "was": "Place unknown / (none)",
-  "evidence": "own file name: \"مسجلة من مركز إسنا 1970\" (Esna district, Egypt); it was filed under \"Country not known\""
+  "evidence": "own file name: \"مسجلة من مركز إسنا 1970\" (Esna district, Egypt); it was filed under \"Country not known\"",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0341-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0341-_up_by_muslem.mp3",
+  "area": "pakistan",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 124.mp3 is labelled with the country Pakistan (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0344-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0344-_up_by_muslem.mp3",
+  "area": "pakistan",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 124.mp3 is labelled with the country Pakistan (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0345-_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0345-_uP_bY_mUSLEm.mp3",
+  "area": "safrica",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"جنوب افريقيا - 1966  (XXX) التحريم/التحريم AbdelBasit3bdalSamad/basit_Live/120_mono.mp3\" (archive.org/quran-recitations_202603) (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0326-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0326-_up_by_muslem.mp3",
+  "area": "safrica",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 111.mp3 is labelled with the country South Africa (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:N1:122.mp3",
+  "key": "N1",
+  "file": "122.mp3",
+  "area": "kuwait",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy التحريم والاخلاص والناس والفاتحة والبقرة - الكويت 1971.mp3 is labelled with the country Kuwait (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:E:التحريم وقصار السور  - مجهولة المكان.mp3",
+  "key": "E",
+  "file": "التحريم وقصار السور  - مجهولة المكان.mp3",
+  "area": "kuwait",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy التحريم والاخلاص والناس والفاتحة والبقرة - الكويت 1971.mp3 is labelled with the country Kuwait (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0858--_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0858--_up_by_muslem.mp3",
+  "area": "saudi",
+  "sec": "Radio recitations · date not given",
+  "en": "Saudi Radio",
+  "ar": "الإذاعة السعودية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"الملك من الإذاعة السعودية فى الستينات تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0858--_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad); same audio as the archive.org upload \"الملك من الإذاعة السعودية فى الستينات   المللك - الستينات.mp3\" (archive.org/20200116_w-abdulbasit_0704)",
+  "country_only": false
  },
  {
   "code": "e:C:0703-_uP_bY_mUSLEm.mp3",
@@ -921,7 +3104,92 @@
   "en": "Syrian Radio",
   "ar": "الإذاعة السورية",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:B:1 القلم 1-52  من اذاعة سوريا -الاستاذ محمد حسام الواحي .mp3, labelled at \"Syrian Radio\" (Syria)"
+  "evidence": "same audio as 1 القلم 1-52  من اذاعة سوريا -الاستاذ محمد حسام الواحي .mp3, labelled \"Syrian Radio\" (Syria)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0701-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0701-_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"65   القلم و الحاقة و المعارج و نوح و الجن   تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/65-1976); same audio as the archive.org upload \"65   القلم و الحاقة و المعارج و نوح و الجن   مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0395-2_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0395-2_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 133.mp3 is labelled with the country Egypt (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0846-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0846-_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"66   المزمل و المدثر و القيامة و الإنسان    تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/66-1976); same audio as the archive.org upload \"66   المزمل و المدثر و القيامة و الإنسان    مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0835-2_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0835-2_up_by_muslem.mp3",
+  "area": "safrica",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 295.mp3 is labelled with the country South Africa; its copy 693-7-1 المدثر 1-56  جنوب افريقيا 1981.mp3 is labelled with the country South Africa (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0029--_-_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0029--_-_uP_bY_mUSLEm.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Egyptian Radio",
+  "ar": "الإذاعة المصرية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"المدثر والقيامة من إذاعة مصر تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0029--_-_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0743-_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0743-_uP_bY_mUSLEm.mp3",
+  "area": "uae",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"Sheekh Abdul Baset Abdul Samad www.elforqaan.com  سورة القيامة من الحفلات النادرة جدا للشيخ عبد الباسط عبد الصمد بالإمارات.mp3\" (archive.org/20200112_www-abdulbasit.blogspot.com_1336) (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0026--____uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0026--____uP_bY_mUSLEm.mp3",
+  "area": "syria",
+  "sec": "Radio recitations · date not given",
+  "en": "Syrian Radio",
+  "ar": "الإذاعة السورية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"القيامة والقصار من إذاعة سوريا تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0026--____uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
  },
  {
   "code": "e:C:0866-_up_by_muslem.mp3",
@@ -932,7 +3200,44 @@
   "en": "Syrian Radio",
   "ar": "الإذاعة السورية",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:B:1 النبأ 1-40 والانفطار - تلاوات الاذاعة السورية - الاستاذ عبدالله سالم.mp3, labelled at \"Syrian Radio\" (Syria)"
+  "evidence": "same audio as 1 النبأ 1-40 والانفطار - تلاوات الاذاعة السورية - الاستاذ عبدالله سالم.mp3, labelled \"Syrian Radio\" (Syria)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0864-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0864-_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy النبأ والطارق والغاشية - مصر.mp3 is labelled with the country Egypt; its copy 269.mp3 is labelled with the country Egypt (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:I4:النبأ والطارق والغاشية_تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد.mp3",
+  "key": "I4",
+  "file": "النبأ والطارق والغاشية_تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد.mp3",
+  "area": "egypt",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy النبأ والطارق والغاشية - مصر.mp3 is labelled with the country Egypt; its copy 269.mp3 is labelled with the country Egypt (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0036--__uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0036--__uP_bY_mUSLEm.mp3",
+  "area": "syria",
+  "sec": "Radio recitations · date not given",
+  "en": "Syrian Radio",
+  "ar": "الإذاعة السورية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"عبس والتكوير من إذاعة سوريا تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0036--__uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
  },
  {
   "code": "e:B:1 الانفطار البروج والقدر - تلاوة تلفزيونية .mp3",
@@ -947,25 +3252,207 @@
   "type_only": true
  },
  {
+  "code": "e:C:0853-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0853-_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"68  من أول  المطففين إلى آخر  البلد تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/68-1976); same audio as the archive.org upload \"68  من أول  المطففين إلى آخر  البلد مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0033--___-_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0033--___-_uP_bY_mUSLEm.mp3",
+  "area": "syria",
+  "sec": "Radio recitations · date not given",
+  "en": "Syrian Radio",
+  "ar": "الإذاعة السورية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"البروج والطارق والأعلى والغاشية من إذاعة سوريا تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0033--___-_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
   "code": "e:B:3 البروج 1-11 .mp3",
   "key": "B",
   "file": "3 البروج 1-11 .mp3",
   "area": "egypt",
-  "sec": "Radio recitations 1950s",
+  "sec": "Radio recitations · date not given",
+  "en": "Quran Radio · Cairo",
+  "ar": "إذاعة القرآن الكريم · القاهرة",
+  "was": "Place unknown / (none)",
+  "evidence": "spoken at the start: \"إذاعة القرآن الكريم من القاهرة … سورة البروج\"; the same audio is R 261 \"اذاعة مصر الخمسينات\" (Egyptian Radio). Quran Radio is one of the Egyptian radio networks, so the two agree; the station named in the recording is kept",
+  "country_only": false
+ },
+ {
+  "code": "e:X6:697-1-1  البنأ 1-40 الطارق الغاشية الفاتحة والبقرة- مصنع السكر الحوامدية 1977.mp3",
+  "key": "X6",
+  "file": "697-1-1  البنأ 1-40 الطارق الغاشية الفاتحة والبقرة- مصنع السكر الحوامدية 1977.mp3",
+  "area": "egypt",
+  "sec": "Public recitations 1970s",
+  "en": "El-Hawamdeya",
+  "ar": "الحوامدية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"من مصر/من الحوامدية/النبأ 1-40 والطارق والغاشية والفاتحة وأول البقرة من مصنع السكر بمدينة الحوامدية عام عام 1977م نسخة أخرى.mp3\" (archive.org/5-28_20260210_202602); same audio as the archive.org upload \"046  - النبأ 1-40 والطارق والغاشية والفاتحة وأول البقرة من مصنع السكر بمدينة الحوامدية عام عام 1977م نسخة أخرى.mp3\" (archive.org/a35-1954aaaaaaaa)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0616-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0616-_up_by_muslem.mp3",
+  "area": "safrica",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 384.mp3 is labelled with the country South Africa (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0004---_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0004---_uP_bY_mUSLEm.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
   "en": "Egyptian Radio",
   "ar": "الإذاعة المصرية",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:R:261--اذاعة مصر الخمسينات قصيرة  -البروج نسخة أخرى.mp3, labelled at \"Egyptian Radio\" (Egypt)"
+  "evidence": "same audio as the archive.org upload \"سورة الأعلى من الإذاعة المصرية تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0004---_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0654-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0654-_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"060-سورة الفجر والضحى والشرح والتين والعلق والنصر والإخلاص والفلق والناس - حفلة مشتركة مع مصطفى إسماعيل- 1966م - ( مسجد العثمان - الكويت_uP_bY_mUSLEm \" (archive.org/Abdel_Baset_Abd-Samad_TilawaT-Nadira_uP_bY_mUSLEm) (the country only: the venue is not named)",
+  "country_only": true
  },
  {
   "code": "e:X6:725-1-1  البلد الشمس الضحى الشرح التين العلق- من بيت الشيخ 1961.mp3",
   "key": "X6",
   "file": "725-1-1  البلد الشمس الضحى الشرح التين العلق- من بيت الشيخ 1961.mp3",
   "area": "home",
-  "sec": "Home recitations 1961",
+  "sec": "Public recitations · date not given",
   "en": "At the Sheikh's home",
   "ar": "منزل الشيخ",
   "was": "Place unknown / (none)",
-  "evidence": "same audio as e:X6:726-1-1 البلد الشمس الضحى الشرح التين العلق- من بيت الشيخ1961.mp3, labelled at \"At the Sheikh's home\" (Abdul Basit's house)"
+  "evidence": "own file name: \"من بيت الشيخ 1961\" (at the Sheikh's home); X6 726, the same audio, is labelled the same; same audio as 726-1-1 البلد الشمس الضحى الشرح التين العلق- من بيت الشيخ1961.mp3, labelled \"At the Sheikh's home\" (Abdul Basit's house)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0577-_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0577-_up_by_muslem.mp3",
+  "area": "kuwait",
+  "sec": "Radio recitations · date not given",
+  "en": "Kuwait Radio",
+  "ar": "إذاعة الكويت",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"69   من أول  الشمس إلى آخر  الناس تلاوة عبد الباسط عبد الصمد مرتل عام 1976  من إذاعة الكويت.mp3\" (archive.org/69-1976); same audio as the archive.org upload \"69   من أول  الشمس إلى آخر  الناس مصحف عبد الباسط  مرتل نسخة الإذاعة الكويتية حلقة رقم .mp3\" (archive.org/a21104_202211aaaaaaaaaaa)",
+  "country_only": false
+ },
+ {
+  "code": "e:B:4 الشرح 1-8 التين العلق القدر- نادرة رفعها انيس عبدالخالق.mp3",
+  "key": "B",
+  "file": "4 الشرح 1-8 التين العلق القدر- نادرة رفعها انيس عبدالخالق.mp3",
+  "area": "jordan",
+  "sec": "Radio recitations · date not given",
+  "en": "Jordanian Radio · Amman",
+  "ar": "الإذاعة الأردنية · عمّان",
+  "was": "Place unknown / (none)",
+  "evidence": "spoken at the end: \"إذاعة المملكة الأردنية الهاشمية من عمان\" (a radio broadcast)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0013---_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0013---_up_by_muslem.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Egyptian Radio",
+  "ar": "الإذاعة المصرية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"التين والقدر من إذاعة مصر تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0013---_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0023--_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0023--_uP_bY_mUSLEm.mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Egyptian Radio",
+  "ar": "الإذاعة المصرية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"سورة العلق من الإذاعة المصرية تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0023--_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0677-_uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0677-_uP_bY_mUSLEm.mp3",
+  "area": "uae",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"Sheekh Abdul Baset Abdul Samad www.elforqaan.com  سورة القدر من الحفلات النادرة جدا للشيخ عبد الباسط عبد الصمد بالإمارات.mp3\" (archive.org/20200112_www-abdulbasit.blogspot.com_1336) (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:B:7 البينة 1- 8  .mp3",
+  "key": "B",
+  "file": "7 البينة 1- 8  .mp3",
+  "area": "egypt",
+  "sec": "Radio recitations · date not given",
+  "en": "Quran Radio · Cairo",
+  "ar": "إذاعة القرآن الكريم · القاهرة",
+  "was": "Place unknown / (none)",
+  "evidence": "spoken at the end: \"تلاها علينا القارئ الشيخ عبد الباسط عبد الصمد … سورة البينة. إذاعة القرآن الكريم من القاهرة\" (a radio broadcast)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:0022--._uP_bY_mUSLEm.mp3",
+  "key": "C",
+  "file": "0022--._uP_bY_mUSLEm.mp3",
+  "area": "syria",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 9 العاديات - نهاية القران الكريم ثم الفاتحة والبقرة 1-5- تلا is labelled with the country Syria (the country only: the venue is not named)",
+  "country_only": true
+ },
+ {
+  "code": "e:C:0032--_up_by_muslem.mp3",
+  "key": "C",
+  "file": "0032--_up_by_muslem.mp3",
+  "area": "syria",
+  "sec": "Radio recitations · date not given",
+  "en": "Syrian Radio",
+  "ar": "الإذاعة السورية",
+  "was": "Place unknown / (none)",
+  "evidence": "same audio as the archive.org upload \"النصر والناس والفاتحة والبقرة من إذاعة سوريا تم رفع هذه المادة بواسطة مُسلم التونسي_facebook/Islamictape  0032--_uP_bY_KAdim_Kitab_Alah.mp3\" (archive.org/Abdel_Baset_Abd-Samad)",
+  "country_only": false
+ },
+ {
+  "code": "e:C:1070-2_up_by_muslem.mp3",
+  "key": "C",
+  "file": "1070-2_up_by_muslem.mp3",
+  "area": "safrica",
+  "sec": "Public recitations · date not given",
+  "en": "",
+  "ar": "",
+  "was": "Place unknown / (none)",
+  "evidence": "its copy 385.mp3 is labelled with the country South Africa (the country only: the venue is not named)",
+  "country_only": true
  }
 ]

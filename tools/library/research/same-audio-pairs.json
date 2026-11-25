@@ -790,5 +790,77 @@
 "offset": -39.5,
 "span_s": 924,
 "same": false
+},
+{
+"u": "e:C:0108-22_up_by_muslem.mp3",
+"other": "e:X1:14-6-1 آل عمران 189-200  حمزة بن حبيب دار الايتام 6-4-1972 - لبنان -بشار الحمويه.mp3",
+"shared": 160,
+"inliers": 29,
+"u_len": 687,
+"other_len": 708,
+"speed": 1.005,
+"offset": 17.0,
+"span_s": 673,
+"same": false
+},
+{
+"u": "e:C:0210-_up_by_muslem.mp3",
+"other": "e:C:0201-3_up_by_muslem.mp3",
+"shared": 2461,
+"inliers": 1664,
+"u_len": 1756,
+"other_len": 1756,
+"speed": 1.0,
+"offset": -0.1,
+"span_s": 1741,
+"same": true
+},
+{
+"u": "e:C:0210-_up_by_muslem.mp3",
+"other": "e:X2:256-1-2 الاسراء 9-25 ذكرى علي حزين- مسجد محمدفرج مع مصطفى اسماعيل - مصر73.mp3",
+"shared": 1126,
+"inliers": 17,
+"u_len": 1756,
+"other_len": 1787,
+"speed": 1.0138,
+"offset": -1.0,
+"span_s": 1038,
+"same": false
+},
+{
+"u": "e:C:0201-3_up_by_muslem.mp3",
+"other": "e:X2:256-1-2 الاسراء 9-25 ذكرى علي حزين- مسجد محمدفرج مع مصطفى اسماعيل - مصر73.mp3",
+"shared": 941,
+"inliers": 46,
+"u_len": 1756,
+"other_len": 1787,
+"speed": 1.0135,
+"offset": -0.3,
+"span_s": 1139,
+"same": false
+},
+{
+"u": "e:C:0663-1_up_by_muslem.mp3",
+"other": "e:X3:392-1-11 الفرقان 61-77 البلد والقصار- جمعة-ذي الحجة 1980 مسجد الشيخ البنا-المنوفية.mp3",
+"shared": 1256,
+"inliers": 656,
+"u_len": 1603,
+"other_len": 1612,
+"speed": 1.0,
+"offset": -0.3,
+"span_s": 1599,
+"same": true
+},
+{
+"u": "e:C:0663-1_up_by_muslem.mp3",
+"other": "e:A:765-forqan.mp3",
+"shared": 838,
+"inliers": 156,
+"u_len": 1603,
+"other_len": 1613,
+"speed": 1.0002,
+"offset": -0.3,
+"span_s": 1586,
+"same": true
 }
 ]

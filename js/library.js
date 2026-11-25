@@ -24,6 +24,7 @@ const LIB_COUNTRIES=[
   {id:"bahrain",en:"Bahrain",ar:"البحرين",areas:["bahrain"]},
   {id:"libya",en:"Libya",ar:"ليبيا",areas:["libya"]},
   {id:"morocco",en:"Morocco",ar:"المغرب",areas:["morocco"]},
+  {id:"algeria",en:"Algeria",ar:"الجزائر",areas:["algeria"]},
   {id:"iran",en:"Iran",ar:"إيران",areas:["iran"]},
   {id:"pakistan",en:"Pakistan",ar:"باكستان",areas:["pakistan"]},
   {id:"india",en:"India",ar:"الهند",areas:["india"]},

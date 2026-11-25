@@ -254,6 +254,10 @@ def main(apply):
         kind = 'type' if ch.get('type_only') else 'place'
         if ch['area'] and ch['area'] != a['id']:
             sc['items'].remove(it)
+            if ch['area'] not in AREA:      # a country the library had no recordings from yet
+                NEW = {'algeria': ('Algeria', 'الجزائر')}
+                AREA[ch['area']] = {'id': ch['area'], 'en': NEW[ch['area']][0], 'ar': NEW[ch['area']][1], 'secs': []}
+                A.insert(next(i for i, b in enumerate(A) if b['id'] == 'morocco') + 1, AREA[ch['area']])
             dest = AREA[ch['area']]
             tsec = next((x for x in dest['secs'] if x['en'] == ch['sec']), None)
             if not tsec:
