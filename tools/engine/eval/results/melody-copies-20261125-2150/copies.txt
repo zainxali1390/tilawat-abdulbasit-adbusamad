@@ -1,0 +1,28 @@
+not  e:A:279.mp3 | e:C:0729-_up_by_muslem.mp3 32 windows, 0 on one line, span 0 s
+SAME e:A:279.mp3 | e:I8:00035.mp3 32 windows, 25 on one line, span 1800 s
+not  e:A:284.mp3 | e:I1:almsjed-alaqsa (90).mp3 12 windows, 0 on one line, span 0 s
+not  e:A:284.mp3 | e:N1:245.mp3 12 windows, 2 on one line, span 180 s
+not  e:B:2-2 الواقعة 1- 96 تم اكمال التل | e:C:0984-_uP_bY_mUSLEm.mp3 31 windows, 6 on one line, span 300 s
+SAME e:C:0706-_up_by_muslem.mp3 | e:A:284.mp3 14 windows, 8 on one line, span 780 s
+not  e:C:0706-_up_by_muslem.mp3 | e:X5:577-7-2 القمر49-55 والرحمن 1-2 14 windows, 1 on one line, span 0 s
+not  e:C:0729-_up_by_muslem.mp3 | e:A:284.mp3 33 windows, 0 on one line, span 0 s
+SAME e:C:0729-_up_by_muslem.mp3 | e:X5:586-1-5 القمر49-55 والرحمن الح 33 windows, 18 on one line, span 1380 s
+SAME e:C:0729-_up_by_muslem.mp3 | e:X5:586-1-5 القمر49-55 والرحمن الح 33 windows, 18 on one line, span 1380 s
+SAME e:I1:almsjed-alaqsa (79).mp3 | e:I1:almsjed-alaqsa (80).mp3 32 windows, 32 on one line, span 1860 s
+SAME e:I1:almsjed-alaqsa (79).mp3 | e:I1:almsjed-alaqsa (80).mp3 32 windows, 32 on one line, span 1860 s
+SAME e:I1:almsjed-alaqsa (90).mp3 | e:I6:سورالقمر والرحمن والقصار(الاقص 21 windows, 16 on one line, span 960 s
+SAME e:I1:almsjed-alaqsa (90).mp3 | e:I6:سورالقمر والرحمن والقصار(الاقص 21 windows, 16 on one line, span 960 s
+not  e:I1:almsjed-alaqsa (90).mp3 | e:X5:565-2-1 القمر49-55 والرحمن الن 21 windows, 0 on one line, span 0 s
+not  e:I1:almsjed-alaqsa (90).mp3 | e:X5:570-5-1  القمر 49-55والرحمن 1- 21 windows, 6 on one line, span 600 s
+SAME e:I53:عبد الباسط عبد الصمد  الزمر و | e:X4:477-1-12  الزمر69-75 البلد الض 27 windows, 21 on one line, span 1440 s
+SAME e:I53:عبد الباسط عبد الصمد  الزمر و | e:X4:477-1-12  الزمر69-75 البلد الض 27 windows, 21 on one line, span 1440 s
+not  e:X2:181-1-2 يوسف 1-27 في الستينات  | e:A:784-yousefhousen.mp3 41 windows, 14 on one line, span 1080 s
+not  e:X2:181-1-2 يوسف 1-27 في الستينات  | e:C:1121-_up_by_muslem.mp3 41 windows, 13 on one line, span 2160 s
+not  e:X2:181-1-2 يوسف 1-27 في الستينات  | e:C:1171--_up_by_muslem.mp3 41 windows, 14 on one line, span 1080 s
+not  e:X5:562-1-10 القمر والرحمن مبتورة  | e:A:279.mp3 6 windows, 0 on one line, span 0 s
+not  e:X5:565-2-1 القمر49-55 والرحمن الن | e:C:0736-_up_by_muslem.mp3 38 windows, 8 on one line, span 840 s
+not  e:X5:565-2-1 القمر49-55 والرحمن الن | e:C:0870-2_up_by_muslem.mp3 38 windows, 1 on one line, span 0 s
+not  e:X5:565-2-1 القمر49-55 والرحمن الن | e:E:القصار المشهورة وبها الاذان.mp3 38 windows, 7 on one line, span 780 s
+not  e:X5:565-2-1 القمر49-55 والرحمن الن | e:X5:568-4-1 القمر 49-55 الرحمن 1-2 38 windows, 0 on one line, span 0 s
+not  e:X5:568-4-1 القمر 49-55 الرحمن 1-2 | e:A:770-qamerelrahman.mp3 20 windows, 2 on one line, span 420 s
+not  e:X5:568-4-1 القمر 49-55 الرحمن 1-2 | e:X5:567-4-1 القمر 49-55 الرحمن 1-2 20 windows, 5 on one line, span 600 s
