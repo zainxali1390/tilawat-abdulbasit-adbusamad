@@ -7,20 +7,25 @@
 import fs from 'node:fs';
 import {makeMatcher} from './content_eval.mjs';
 const files = [], truthFiles = [];
-for (let i = 2, t = false; i < process.argv.length; i++) { if (process.argv[i] === '--truth') { t = true; continue; } (t ? truthFiles : files).push(process.argv[i]); }
+for (let i = 2, t = false; i < process.argv.length; i++) { if (process.argv[i] === '--truth') { t = true; continue; } if (process.argv[i].endsWith('cases.json')) continue; (t ? truthFiles : files).push(process.argv[i]); }
 const M = makeMatcher(), S = M.ctx.SURAHS, first = [];
 { let n = 0; for (const s of S) { first.push(n); n += s[2]; } }
 const lin = (su, ay) => first[su - 1] + ay - 1;
-const T = {}; let model = '';
-for (const f of truthFiles) { const j = JSON.parse(fs.readFileSync(f)); Object.assign(T, j.texts); model = j.model; }
+const T = {}; const models = new Set();
+for (const f of truthFiles) { const j = JSON.parse(fs.readFileSync(f)); models.add(j.model); for (const [k, v] of Object.entries(j.texts)) (T[k] = T[k] || []).push(v); }
+const model = [...models].join(' + ');
 const truthOf = (seg, title) => {
-  const text = T[`${seg.code}|${seg.at.toFixed(2)}|${((seg.b - seg.a) * seg.rate).toFixed(2)}`];
-  if (text == null) return {st: 'missing'};
-  const p = M.place(text);
-  if (!p || p.level !== 'confirmed') return {st: 'unplaced'};
-  const ts = M.titleSurahs(title);
-  if (ts.length && !ts.includes(p.surah) && !ts.includes(p.surah2)) return {st: 'title'};
-  return {st: 'ok', lo: lin(p.surah, p.ayah), hi: lin(p.surah2, p.ayah2), su: [p.surah, p.surah2], txt: `${p.surah}:${p.ayah}-${p.surah2}:${p.ayah2}`};
+  const texts = T[`${seg.code}|${seg.at.toFixed(2)}|${((seg.b - seg.a) * seg.rate).toFixed(2)}`];
+  if (!texts) return {st: 'missing'};
+  const ts = M.titleSurahs(title), ps = [];
+  for (const text of texts) { const p = M.place(text); if (p && p.level === 'confirmed') ps.push(p); }
+  if (!ps.length) return {st: 'unplaced'};
+  const good = ps.filter(p => !ts.length || ts.includes(p.surah) || ts.includes(p.surah2));
+  if (!good.length) return {st: 'title'};
+  const lo = Math.min(...good.map(p => lin(p.surah, p.ayah))), hi = Math.max(...good.map(p => lin(p.surah2, p.ayah2)));
+  if (good.length > 1 && good.some(p => lin(p.surah, p.ayah) > Math.min(...good.map(q => lin(q.surah2, q.ayah2))) + 3)) return {st: 'models disagree'};
+  const p = good[0];
+  return {st: 'ok', lo, hi, su: [...new Set(good.flatMap(p => [p.surah, p.surah2]))], txt: `${p.surah}:${p.ayah}-${p.surah2}:${p.ayah2}`};
 };
 const cases = Object.fromEntries(JSON.parse(fs.readFileSync(process.argv.find(a => a.endsWith('cases.json')) || 'cases.json')).map(c => [c.name, c]));
 const rows = {}, bad = [], tstat = {};

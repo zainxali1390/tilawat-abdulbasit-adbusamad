@@ -1,1 +1,1 @@
-content run 2 (npm cuda skip)
+content run 3: base model + second truth model

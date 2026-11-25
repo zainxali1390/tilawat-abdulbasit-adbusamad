@@ -12,7 +12,7 @@ import {fileURLToPath} from 'node:url';
 const HERE = path.dirname(fileURLToPath(import.meta.url)), ROOT = path.resolve(HERE, '..', '..', '..');
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const args = k => process.argv.flatMap((a, i) => a === '--' + k ? [process.argv[i + 1]] : []);
-const SET = process.argv[2], OUT = process.argv[3], MODE = arg('mode', 'app'), K = +arg('part', 0), N = +arg('of', 1);
+const SET = process.argv[2], OUT = process.argv[3], MODE = arg('mode', 'app'), K = +arg('part', 0), N = +arg('of', 1), MODEL = arg('model', 'whisper-tiny-ar-quran');
 
 export function makeMatcher() {
   const ctx = {console, isAr: () => false, numFmt: String};
@@ -47,7 +47,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     TF = await import(req.resolve('@huggingface/transformers')); }
   const {pipeline, env} = TF.pipeline ? TF : TF.default;
   env.allowRemoteModels = false; env.localModelPath = path.join(ROOT, 'models') + '/';
-  const asr = await pipeline('automatic-speech-recognition', 'whisper-tiny-ar-quran', {dtype: {encoder_model: 'fp32', decoder_model_merged: 'q8'}});
+  const asr = await pipeline('automatic-speech-recognition', MODEL, {dtype: {encoder_model: arg('enc', 'fp32'), decoder_model_merged: 'q8'}});
   fs.writeFileSync(OUT, '');
   for (const c of cases) {
     const d = spawnSync('ffmpeg', ['-loglevel', 'error', '-i', path.join(SET, c.file), '-vn', '-ac', '1', '-ar', '16000', '-f', 'f32le', '-'], {maxBuffer: 1 << 28});
@@ -68,7 +68,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       res.push({a, len, text, p: p ? [p.surah, p.ayah, p.surah2, p.ayah2, p.level, p.conf] : null});
     }
     const truth = c.segments.map(s => ({a: s.a, b: s.b, ...truthOf(s, c.title)}));
-    fs.appendFileSync(OUT, JSON.stringify({name: c.name, variant: c.variant, title: c.title, dur, mode: MODE, ms: Date.now() - t0, wins: res, truth}) + '\n');
+    fs.appendFileSync(OUT, JSON.stringify({name: c.name, variant: c.variant, title: c.title, dur, mode: MODE + (MODEL === 'whisper-tiny-ar-quran' ? '' : ':' + MODEL.replace('whisper-', '').replace('-ar-quran', '')) + (arg('enc', 'fp32') === 'fp32' ? '' : '-enc' + arg('enc')), ms: Date.now() - t0, wins: res, truth}) + '\n');
     console.log(c.name, res.map(r => r.p ? `${r.p[0]}:${r.p[1]}-${r.p[2]}:${r.p[3]} ${r.p[4]}` : '-').join(' | '), '| truth', truth.map(t => t.p ? `${t.p[0]}:${t.p[1]}-${t.p[2]}:${t.p[3]}` : t.status).join(' '));
   }
 }

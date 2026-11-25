@@ -20,13 +20,26 @@ for c in cases:
         segs.append((c['name'], i, s['code'], s['at'], (s['b'] - s['a']) * s['rate']))
 uniq = sorted({(code, round(at, 2), round(d, 2)) for _, _, code, at, d in segs})
 mine = [u for j, u in enumerate(uniq) if j % N == K]
-from faster_whisper import WhisperModel
-try:
-    model = WhisperModel('large-v3-turbo', device='cpu', compute_type='int8')
-    name = 'large-v3-turbo'
-except Exception as e:
-    print('turbo unavailable, using medium:', e)
-    model = WhisperModel('medium', device='cpu', compute_type='int8'); name = 'medium'
+HF = sys.argv[sys.argv.index('--hf') + 1] if '--hf' in sys.argv else None
+if HF:
+    # a Hugging Face Quran model (e.g. deepdml/whisper-small-ar-quran-mix-norm), run with transformers on the CPU
+    from transformers import pipeline
+    pipe = pipeline('automatic-speech-recognition', model=HF, device='cpu')
+    name = HF
+    class _M:
+        def transcribe(self, x, **k):
+            class _S: pass
+            s = _S(); s.text = pipe({'raw': x, 'sampling_rate': 16000}, generate_kwargs={'language': 'ar', 'task': 'transcribe'}, chunk_length_s=30)['text']
+            return [s], None
+    model = _M()
+else:
+    from faster_whisper import WhisperModel
+    try:
+        model = WhisperModel('large-v3-turbo', device='cpu', compute_type='int8')
+        name = 'large-v3-turbo'
+    except Exception as e:
+        print('turbo unavailable, using medium:', e)
+        model = WhisperModel('medium', device='cpu', compute_type='int8'); name = 'medium'
 os.makedirs('srcaudio', exist_ok=True)
 out = {}
 for code, at, d in mine:

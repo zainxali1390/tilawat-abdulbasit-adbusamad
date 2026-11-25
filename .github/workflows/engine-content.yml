@@ -13,6 +13,15 @@ concurrency:
 env:
   SET_RUN: '45654495631'
 jobs:
+  convert:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: tools}
+      - run: bash tools/engine/convert_model.sh tarteel-ai/whisper-base-ar-quran whisper-base-ar-quran
+      - uses: actions/upload-artifact@v4
+        with: {name: model-base, path: whisper-base-ar-quran, retention-days: 7}
   truth:
     runs-on: ubuntu-latest
     timeout-minutes: 240
@@ -24,28 +33,31 @@ jobs:
         with: {sparse-checkout: tools}
       - uses: actions/download-artifact@v4
         with: {name: testset, path: set, run-id: '${{ env.SET_RUN }}', github-token: '${{ github.token }}'}
-      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q faster-whisper numpy
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q numpy "transformers==4.46.3" torch --extra-index-url https://download.pytorch.org/whl/cpu
       - env: {HF_HUB_DISABLE_XET: "1"}
-        run: python3 tools/engine/eval/content_truth.py set tools/engine/eval/sources.json truth-${{ matrix.part }}.json --part ${{ matrix.part }} --of 10
+        run: python3 tools/engine/eval/content_truth.py set tools/engine/eval/sources.json truth-small-${{ matrix.part }}.json --part ${{ matrix.part }} --of 10 --hf deepdml/whisper-small-ar-quran-mix-norm
       - uses: actions/upload-artifact@v4
-        with: {name: 'ctruth-${{ matrix.part }}', path: 'truth-${{ matrix.part }}.json'}
+        with: {name: 'ctruth-small-${{ matrix.part }}', path: 'truth-small-${{ matrix.part }}.json'}
   predict:
+    needs: convert
     runs-on: ubuntu-latest
     timeout-minutes: 240
     strategy:
       fail-fast: false
       matrix:
         part: [0,1,2,3,4]
-        mode: [app, multi]
+        enc: [fp32, q8]
     steps:
       - uses: actions/checkout@v4
         with: {sparse-checkout: "tools\njs\ndata\nmodels"}
       - uses: actions/download-artifact@v4
         with: {name: testset, path: set, run-id: '${{ env.SET_RUN }}', github-token: '${{ github.token }}'}
+      - uses: actions/download-artifact@v4
+        with: {name: model-base, path: models/whisper-base-ar-quran}
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && (cd tools/verses && npm install --no-audit --no-fund --onnxruntime-node-install-cuda=skip)
-      - run: node tools/engine/eval/content_eval.mjs set pred-${{ matrix.mode }}-${{ matrix.part }}.jsonl --mode ${{ matrix.mode }} --part ${{ matrix.part }} --of 5
+      - run: node tools/engine/eval/content_eval.mjs set pred-base-${{ matrix.enc }}-${{ matrix.part }}.jsonl --mode app --model whisper-base-ar-quran --enc ${{ matrix.enc }} --part ${{ matrix.part }} --of 5
       - uses: actions/upload-artifact@v4
-        with: {name: 'cpred-${{ matrix.mode }}-${{ matrix.part }}', path: 'pred-${{ matrix.mode }}-${{ matrix.part }}.jsonl'}
+        with: {name: 'cpred-base-${{ matrix.enc }}-${{ matrix.part }}', path: 'pred-base-${{ matrix.enc }}-${{ matrix.part }}.jsonl'}
   score:
     needs: [truth, predict]
     if: ${{ !cancelled() }}
@@ -59,8 +71,9 @@ jobs:
         with: {name: testset, path: set, run-id: '${{ env.SET_RUN }}', github-token: '${{ github.token }}'}
       - run: |
           D=tools/engine/eval/results/content-$(date -u +%Y%m%d-%H%M)-$(git rev-parse --short HEAD)
+          P=tools/engine/eval/results/content-20261125-1801-c201bb5
           mkdir -p $D && cp res/*.json res/*.jsonl $D/
-          node tools/engine/eval/content_score.mjs set/cases.json $D/pred-*.jsonl --truth $D/truth-*.json | tee $D/content-score.txt
+          node tools/engine/eval/content_score.mjs set/cases.json $P/pred-app-*.jsonl $D/pred-*.jsonl --truth $P/truth-*.json $D/truth-small-*.json | tee $D/content-score.txt
           git config user.name "engine-eval bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add tools/engine/eval/results
