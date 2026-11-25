@@ -139,7 +139,7 @@ Thresholds are set on the **hidden-original** and **hard-negative** tests, so th
 - **Edits:** clean, pitch +2 and −3 semitones (tempo kept), tempo 1.15 and 0.85 (pitch kept), reverb, phone band and noise, and a combination (+1 semitone, 1.1× speed, echo, bass boost, treble cut).
 - **Search:** each clip's melody was searched against all 20 recordings.
 
-Results: see §7.1 (filled in from `tools/engine/proto-melody-results.json`).
+Results are in §7.1 (raw data: `tools/engine/proto-melody-results.json`).
 
 **Local check, before the run** (the one recording stored in the repository, against a decoy of its own melody rearranged):
 - **Pitch:** pitch shifts were measured exactly (+2 → −2.0, −3 → +3.0).
@@ -147,3 +147,56 @@ Results: see §7.1 (filled in from `tools/engine/proto-melody-results.json`).
 - **Timing:** time error 0–0.2 s.
 - **Combined edit:** recovered as 1.09× speed, −0.99 semitones.
 - **Cost:** the pitch tracker took about 1 s of CPU per 9 minutes of audio.
+
+### 7.1 Results (GitHub Actions run, 25 Nov 2026)
+
+**What was searched:** 40 clips × 8 versions = 320 searches, each against all 20 recordings (9.2 hours of audio).
+
+Six of the 40 clips (all from old, noisy live recordings) gave too little tracked pitch to search at all; §7.3 covers why. Leaving those out:
+
+| Version of the clip | Right recording first, time within 1 s | Median time error |
+|---|---|---|
+| Clean | **34/34** | 0.02 s |
+| Pitch +2 semitones (tempo kept) | **32/34** | 0.02 s |
+| Pitch −3 semitones (tempo kept) | **33/34** | 0.02 s |
+| Tempo 1.15 (pitch kept) | **32/34** | 0.04 s |
+| Tempo 0.85 (pitch kept) | **31/34** | 0.07 s |
+| Phone band and noise | **31/34** | 0.02 s |
+| Reverb | 26/34 | 0.02 s |
+| Combined (+1 semitone, 1.1× speed, echo, bass boost, treble cut) | **16/34** | 0.2 s |
+
+Two clips tied with another file at the same score in every version. That other file is almost certainly a copy of the same performance, and those ties are counted as right. The per-edit summary inside the results file counts them as wrong, and doesn't leave out the six clips.
+
+**Telling performances apart**, the key question:
+- **Clean clips from the 12 Al-Qamar/Ar-Raḥmān performances:**
+  - the right performance scored a median **0.77**;
+  - the best **other Al-Qamar/Ar-Raḥmān performance** scored **0.32**.
+- **Pitch-shifted and tempo-changed clips:** the gap stayed about as wide.
+
+The tune clearly separates different performances of the same verses.
+
+| Measure | Value |
+|---|---|
+| Size | **72 KB per hour → 97 MB for the whole archive** (as estimated) |
+| Pitch tracking | 2.6 s of CPU per hour of audio (about 1 hour for the whole archive on one runner) |
+| Brute-force melody search | 0.12 s per archive hour on a runner, which would be about 160 s for the whole archive, and the phone would need all 97 MB first |
+
+### 7.2 Pitch-shift correction for landmarks (local check, the repository recording, a 20 s clip)
+
+**The problem:** a shift of even one semitone destroys the landmark match. Matching points at the true time fell from 160 (clean) to 1. The current finder would miss **every** pitch-shifted clip.
+
+**The fix works.** Scaling the clip's spectrum by the right amount before peak picking restored:
+- 59 matching points for +1 semitone;
+- 40 matching points for +2 semitones;
+
+in both cases at exactly the true time, with no other offset getting more than 1. The −3 case wasn't in the shift grid tried, so its correction wasn't tested.
+
+### 7.3 What this means for the design
+
+1. **Melody is confirmed as an independent, edit-proof signal.** It is robust to pitch and tempo changes, which are the edits that defeat landmarks. It separates performances of the same verses. Its timestamps are as accurate as the landmarks' (0.02 s). It stays in the design as signal (B).
+2. **Brute force over the archive is too slow and too big for a phone.** So the melody needs its own hash index (`mh/`, §3.2), or else candidates from landmarks or verses first, then melody checks only on those (§4.1). Both are kept: candidates come from three searches, and the melody check runs on the short list only.
+3. **Weak points to fix in Step 6:**
+   - **(a) The pitch tracker on old, noisy tapes.** It found too little pitch in 6/40 clips. Plan: compare YIN with pYIN-style voicing and a harmonic-sum tracker; tune the voicing threshold on these recordings.
+   - **(b) Reverb and the combined edit** (26/34 and 16/34). Echo smears the pitch. Plan: median filtering, then a note-level contour that ignores echo tails. In the full engine, these clips also have landmarks (after pitch correction) and verses as further signals, so melody doesn't need to carry them alone.
+4. **The landmark pitch-shift correction (§4.1)** goes into Step 5 as planned. Its cost is one extra fingerprint per shift step, steered by the melody's measured shift.
+5. **Confirmed must not rely on melody alone.** "Other performance" scores reach about 0.4–0.5, and near-ties occur under heavy edits, so melody can't be the only basis for a Confirmed result. This matches §4.4 (two agreeing alignments).

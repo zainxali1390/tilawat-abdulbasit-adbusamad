@@ -10,7 +10,7 @@ Plan and assessment: `docs/RECOGNITION-ENGINE.md`.
 | # | Step | Status | Tests and results |
 |---|---|---|---|
 | 1 | Inspect the application; technical assessment | **Done** (25 Nov 2026) | Code, data, indexes, tooling and measured accuracy reviewed. Gaps found: pitch shift (never tested), reverb/EQ/combined edits (never tested), heavy echo 10/15, 7 s clips 12/15, 3 s-intro offset, verse map covers half of each recording, no melody or voice features, test audio lost, search time never measured, no MOV fallback, 1 file not indexed |
-| 2 | Detailed architecture design | Waiting for your review of Step 1 | |
+| 2 | Detailed architecture design | **Done** (25 Nov 2026), awaiting your review | Design in `docs/RECOGNITION-DESIGN.md`. Melody check on 20 recordings (12 performances of the same surahs): clean 34/34, pitch ±2–3 32–33/34, tempo ±15 % 31–32/34, reverb 26/34, combined edit 16/34; same-verses other performances 0.32 vs 0.77; size 97 MB for the archive. Landmark pitch-shift correction checked: 1 → 40–59 matching points |
 | 3 | Audio/video ingestion, test set, baseline | Not started | |
 | 4 | Quran surah/ayah recognition | Not started | |
 | 5 | Audio quality and transformation analysis | Not started | |
@@ -25,5 +25,6 @@ Plan and assessment: `docs/RECOGNITION-ENGINE.md`.
 | 14 | Integration into the app | Not started | |
 | 15 | Comprehensive tests and optimisation | Not started | |
 
-**Where I stopped:** Step 1 is complete. Waiting for your answers to the three decisions in `docs/RECOGNITION-ENGINE.md` §6
-(server or not; test environment; download sizes) before starting Step 2.
+**Decisions:** server-free (your answer, 25 Nov). Tests run on GitHub Actions (default). The melody stage is on by default (no model download); the voice stage's download is decided in Step 7.
+
+**Where I stopped:** Step 2 is complete and pushed. Next: **Step 3**, audio/video ingestion, the test set (built on GitHub Actions) and the baseline measurement of the current finder.
