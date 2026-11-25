@@ -1,0 +1,13 @@
+variant      n  uncorrected right/WRONG/none   corrected right/WRONG/none
+combo1       2    0/0/2                         1/0/1
+combo2       4    1/0/3                         2/0/2
+pitch+1      9    7/0/2                         6/0/3
+pitch+2      8    4/0/4                         3/0/5
+pitch+3      4    1/0/3                         1/0/3
+pitch-1      7    4/0/3                         5/0/2
+pitch-2      6    5/0/1                         5/0/1
+pitch-4      7    1/0/6                         4/0/3
+speed0.9     8    1/0/7                         5/0/3
+speed1.1     9    1/0/8                         8/0/1
+speed1.25    8    2/0/6                         6/0/2
+TOTAL 72 clips: uncorrected {"right":27,"WRONG":0,"none":45} | corrected {"right":46,"WRONG":0,"none":26}

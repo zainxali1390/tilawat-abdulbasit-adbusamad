@@ -588,7 +588,10 @@ async function finderRun(blob){
         AYAH.onModel=f=>finderStatus(t("fModel"),Math.round(f*100)+"%",f);
         const wins=finderVerseWins(list,dec.ab.duration);
         /* undo the edit the sound match found before listening for the verses */
-        const rate=!edit?1:edit.mode==="r"?edit.f:edit.mode==="p"?Math.pow(2,-edit.f/12):edit.mode==="pt"?Math.pow(2,-edit.f[0]/12):1;
+        /* measured (docs/RECOGNITION-TRANSFORMS.md): undoing a speed change helps a lot, and a pitch shift of 3 semitones
+           or more; a shift of 1-2 semitones is left as it is (the speech model copes, and resampling costs as much as it gains) */
+        const sm=!edit?0:edit.mode==="p"?edit.f:edit.mode==="pt"?edit.f[0]:0;
+        const rate=!edit?1:edit.mode==="r"?edit.f:Math.abs(sm)>=3?Math.pow(2,-sm/12):1;
         verses=await ayahRecognise(dec.ab,wins,(i,n)=>{if(AYAH.ready)finderStatus(t("fVersesStep"),n>1?fx("fVersesOf",{a:numFmt(i+1),b:numFmt(n)}):"",n>1?i/n:null)},rate);
         AYAH.onModel=null;
         if(list.length){
