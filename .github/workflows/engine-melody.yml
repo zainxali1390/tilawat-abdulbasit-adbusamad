@@ -1,0 +1,68 @@
+# Recognition engine, step 6: melody store for a pilot set (tools/engine/build_melody.mjs) and the melody matching test.
+name: Engine melody
+on:
+  workflow_dispatch:
+  push:
+    paths: ['tools/engine/eval/MELODY_RUN', '.github/workflows/engine-melody.yml']
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: engine-melody
+  cancel-in-progress: true
+env:
+  SET_RUN: '45686748504'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix: {part: [0,1,2,3,4,5]}
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: "tools\njs"}
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: node tools/engine/build_melody.mjs tools/engine/eval/melody_pilot.json store-${{ matrix.part }}.json --part ${{ matrix.part }} --of 6
+      - uses: actions/upload-artifact@v4
+        with: {name: 'mstore-${{ matrix.part }}', path: 'store-${{ matrix.part }}.json'}
+  eval:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix: {part: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]}
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: "tools\njs"}
+      - uses: actions/download-artifact@v4
+        with: {name: testset, path: set, run-id: '${{ env.SET_RUN }}', github-token: '${{ github.token }}'}
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'mstore-*', path: stores, merge-multiple: true}
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: node tools/engine/eval/melody_eval.mjs set mel-${{ matrix.part }}.jsonl stores/*.json --part ${{ matrix.part }} --of 16
+      - uses: actions/upload-artifact@v4
+        with: {name: 'mres-${{ matrix.part }}', path: 'mel-${{ matrix.part }}.jsonl'}
+  score:
+    needs: [eval]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: '${{ github.ref_name }}', fetch-depth: 1, sparse-checkout: tools}
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'mres-*', path: res, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'mstore-*', path: stores, merge-multiple: true}
+      - run: |
+          D=tools/engine/eval/results/melody-$(date -u +%Y%m%d-%H%M)-$(git rev-parse --short HEAD)
+          F=$(ls -d tools/engine/eval/results/2026*/ | sort | tail -1)
+          mkdir -p $D && cat res/*.jsonl > $D/melody.jsonl
+          python3 -c "import json,glob;d={};[d.update(json.load(open(f))) for f in glob.glob('stores/*.json')];print('stored',len(d),'recordings,',sum(len(v['mf'])*3//4 for v in d.values()),'bytes')" | tee $D/store-size.txt
+          python3 tools/engine/eval/melody_score.py $D/melody.jsonl --derived ${F}finder-new-score.txt | tee $D/melody-score.txt
+          git config user.name "engine-eval bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/engine/eval/results
+          git commit -q -m "Engine eval: melody results" || exit 0
+          for i in 1 2 3 4; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((i*10)); done
