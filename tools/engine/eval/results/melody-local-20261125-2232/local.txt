@@ -1,0 +1,26 @@
+hidden  s06-clean20          e:A:770-qamerelrahman.mp3        3/18 on one line, k 0.9708, clip at 1442.6 (landmarks 1442.6) AGREES
+hidden  s08-clean20          e:C:1171--_up_by_muslem.mp3      16/24 on one line, k 0.9417, clip at 2188.8 (landmarks 2188.9) AGREES
+hidden  s05-pitch-1          e:C:0736-_up_by_muslem.mp3       9/22 on one line, k 0.9192, clip at 1457.5 (landmarks 1456.7) AGREES
+hidden  s06-bass             e:X5:567-4-1 القمر 49-55 الرحمن  4/20 on one line, k 1.0244, clip at 1120.7 (landmarks 1120.6) AGREES
+hidden  s08-bass             e:A:784-yousefhousen.mp3         10/19 on one line, k 0.94, clip at 475.9 (landmarks 476.1) AGREES
+hidden  s05-speed1.1         e:E:القصار المشهورة وبها الاذان. 6/20 on one line, k 1.1128, clip at 3424.8 (landmarks 3400.9) 
+hidden  s09-combo2           e:C:0984-_uP_bY_mUSLEm.mp3       12/23 on one line, k 1.0978, clip at 1164.5 (landmarks 1162.7) AGREES
+hidden  s07-phone            e:X5:577-7-2 القمر49-55 والرحمن  3/19 on one line, k 1.0644, clip at 495.8 (landmarks 496.3) AGREES
+hidden  s08-distort          e:C:1171--_up_by_muslem.mp3      15/23 on one line, k 0.9367, clip at 1967.8 (landmarks 1968) AGREES
+hidden  s05-join3_same       e:E:القصار المشهورة وبها الاذان. 6/20 on one line, k 1.1128, clip at 3424.8 (landmarks 3400.9) 
+hidden  s07-reverb_small     e:X5:577-7-2 القمر49-55 والرحمن  3/20 on one line, k 1.0644, clip at 495.8 (landmarks 496.3) AGREES
+hidden  s05-len44            e:E:القصار المشهورة وبها الاذان. 7/22 on one line, k 0.9391, clip at 3480.3 (landmarks 3484.8) 
+hidden  s03-treble_cut       e:N1:245.mp3                     5/16 on one line, k 1.0023, clip at 460.2 (landmarks 460.3) AGREES
+hidden  s06-video_mov        e:X5:567-4-1 القمر 49-55 الرحمن  9/18 on one line, k 1.023, clip at 474.2 (landmarks 474) AGREES
+hidden  s03-pitch+3          e:N1:245.mp3                     5/16 on one line, k 1.0023, clip at 460.2 (landmarks 460.2) AGREES
+hidden  s04-echo             e:X5:570-5-1  القمر 49-55والرحمن 5/25 on one line, k 1.062, clip at 1109.8 (landmarks 1109.7) AGREES
+hidden  s05-intro_silence3   e:C:0870-2_up_by_muslem.mp3      3/20 on one line, k 1.1014, clip at 230.7 (landmarks 191.9) 
+hidden  s08-reverb_small     e:C:1121-_up_by_muslem.mp3       11/19 on one line, k 0.9425, clip at 120.6 (landmarks 120.6) AGREES
+hidden  s08-join3_same       e:A:784-yousefhousen.mp3         8/19 on one line, k 0.938, clip at 1388.3 (landmarks 894.6) 
+hidden  s08-noise10          e:C:1121-_up_by_muslem.mp3       15/22 on one line, k 0.94, clip at 560.9 (landmarks 560.9) AGREES
+control control              e:C:0729-_up_by_muslem.mp3       1/24 on one line, k 1.101, clip at 625.7 (landmarks null) 
+control control              e:I1:almsjed-alaqsa (90).mp3     0/22 on one line, k null, clip at null (landmarks null) 
+control control              e:A:284.mp3                      1/23 on one line, k 0.9467, clip at 377.4 (landmarks null) 
+control control              e:X5:565-2-1 القمر49-55 والرحمن  0/23 on one line, k null, clip at null (landmarks null) 
+control control              e:A:279.mp3                      0/21 on one line, k null, clip at null (landmarks null) 
+control control              e:X5:568-4-1 القمر 49-55 الرحمن  0/20 on one line, k null, clip at null (landmarks null) 
