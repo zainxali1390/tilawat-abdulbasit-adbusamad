@@ -1,0 +1,26 @@
+# Recognition engine, step 2 design check: melody features on 20 recordings (tools/engine/proto_melody.py).
+name: Engine prototype
+on:
+  workflow_dispatch:
+  push:
+    paths: ['tools/engine/proto_melody.py', 'tools/engine/proto-set.json', '.github/workflows/engine-prototype.yml']
+permissions:
+  contents: write
+concurrency:
+  group: engine-prototype
+  cancel-in-progress: true
+jobs:
+  melody:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: tools/engine}
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q numpy
+      - run: cd tools/engine && python3 proto_melody.py proto-set.json proto-melody-results.json
+      - run: |
+          git config user.name "engine-prototype bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/engine/proto-melody-results.json
+          git commit -q -m "Engine prototype: melody results on 20 recordings" || exit 0
+          for i in 1 2 3 4; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((i*10)); done
