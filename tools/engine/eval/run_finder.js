@@ -7,6 +7,9 @@ const cases=JSON.parse(fs.readFileSync(path.join(DIR,'cases.json'))).filter((c,i
 (async()=>{
  const b=await chromium.launch(process.env.CHANNEL?{channel:process.env.CHANNEL}:{});const ctx=await b.newContext({viewport:{width:390,height:844},serviceWorkers:'block'});
  await ctx.route(/archive\.org|googleapis|gstatic|mp3quran/,r=>r.abort());
+ /* OLD=dir: serve js/finder.js and js/fp.js from an earlier version (for before/after measurements) */
+ if(process.env.OLD)for(const f of ['finder.js','fp.js'])if(fs.existsSync(path.join(process.env.OLD,f)))
+   await ctx.route(new RegExp('/js/'+f.replace('.','\\.')+'(\\?|$)'),r=>r.fulfill({body:fs.readFileSync(path.join(process.env.OLD,f)),contentType:'text/javascript'}));
  const p=await ctx.newPage();const errs=[];p.on('pageerror',e=>errs.push(e.message));
  await p.goto('http://localhost:8765/');await p.evaluate(()=>{S.lang='en';save()});
  await p.goto('http://localhost:8765/#finder');await p.waitForTimeout(1500);

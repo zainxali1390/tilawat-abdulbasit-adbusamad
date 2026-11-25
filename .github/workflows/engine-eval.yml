@@ -47,15 +47,16 @@ jobs:
       fail-fast: false
       matrix:
         part: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+        ver: [old, new]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with: {name: testset, path: set}
       - run: npm i -q --no-save playwright@1.49.1 && npx playwright install --with-deps chrome
-      - run: (python3 -m http.server 8765 >/dev/null 2>&1 &) && sleep 2 && CHANNEL=chrome PART=${{ matrix.part }} OF=$PARTS node tools/engine/eval/run_finder.js set finder-${{ matrix.part }}.jsonl
+      - run: (python3 -m http.server 8765 >/dev/null 2>&1 &) && sleep 2 && if [ "${{ matrix.ver }}" = old ]; then export OLD=tools/engine/eval/old-finder; fi; CHANNEL=chrome PART=${{ matrix.part }} OF=$PARTS node tools/engine/eval/run_finder.js set finder-${{ matrix.ver }}-${{ matrix.part }}.jsonl
       - if: always()
         uses: actions/upload-artifact@v4
-        with: {name: 'res-finder-${{ matrix.part }}', path: 'finder-${{ matrix.part }}.jsonl'}
+        with: {name: 'res-finder-${{ matrix.ver }}-${{ matrix.part }}', path: 'finder-${{ matrix.ver }}-${{ matrix.part }}.jsonl'}
   merge:
     needs: [ingest, finder]
     if: ${{ !cancelled() }}
@@ -72,8 +73,7 @@ jobs:
           mkdir -p $D
           cp set/cases.json set/formats.json $D/
           cp res/ingest.jsonl res/ingest-score.txt $D/ 2>/dev/null || true
-          cat res/finder-*.jsonl > $D/finder.jsonl
-          python3 tools/engine/eval/score_finder.py $D/finder.jsonl | tee $D/finder-score.txt
+          for v in old new; do cat res/finder-$v-*.jsonl > $D/finder-$v.jsonl; python3 tools/engine/eval/score_finder.py $D/finder-$v.jsonl | tee $D/finder-$v-score.txt; done
           git config user.name "engine-eval bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add tools/engine/eval/results

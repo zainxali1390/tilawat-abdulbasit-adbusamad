@@ -40,11 +40,12 @@ def pitch(semis):
     r = 2 ** (semis / 12)
     if RUBBER:
         return 'rubberband=pitch=%.6f' % r
-    return 'asetrate=%d,aresample=%d,atempo=%.6f' % (round(SR * r), SR, 1 / r)
+    return 'aresample=%d,asetrate=%d,aresample=%d,atempo=%.6f' % (SR, round(SR * r), SR, 1 / r)
 
 
 def speed(k):          # pitch and tempo together (resampled), like a sped-up video
-    return 'asetrate=%d,aresample=%d' % (round(SR * k), SR)
+    # resample to SR FIRST: asetrate relabels the rate of whatever comes in (the source may be 44.1 kHz)
+    return 'aresample=%d,asetrate=%d,aresample=%d' % (SR, round(SR * k), SR)
 
 
 REVERB_S = 'aecho=0.8:0.8:23|37|53|71:0.5|0.4|0.3|0.2'
@@ -104,7 +105,7 @@ def rate(chain):
     for part in (chain or '').split(','):
         if part.startswith('atempo='):
             k *= float(part.split('=')[1])
-        elif part.startswith('asetrate=') and not part.startswith('asetrate=%d' % SR):
+        elif part.startswith('asetrate='):
             # pitch() without rubberband: asetrate r then atempo 1/r -> net 1; speed(): asetrate k only
             k *= float(part.split('=')[1]) / SR
     return k

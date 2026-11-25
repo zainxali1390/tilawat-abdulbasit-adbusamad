@@ -14,11 +14,18 @@ function frameSpec(x,off,out,o2){
   for(let size=2;size<=N;size<<=1){const half=size>>1,step=N/size;
     for(let s=0;s<N;s+=size)for(let k=0;k<half;k++){const a=s+k,b=a+half,c=cosT[k*step],d=sinT[k*step];
       const tr=re[b]*c-im[b]*d,ti=re[b]*d+im[b]*c;re[b]=re[a]-tr;im[b]=im[a]-ti;re[a]+=tr;im[a]+=ti}}
-  for(let f=0;f<NB;f++){const k=f+FP.fmin;out[o2+f]=Math.log(Math.hypot(re[k],im[k])+1e-3)}
+  if(!shiftR){for(let f=0;f<NB;f++){const k=f+FP.fmin;out[o2+f]=Math.log(Math.hypot(re[k],im[k])+1e-3)}return}
+  /* pitch-shifted clip: read each bin's magnitude at the frequency it was moved to (bin k of the original sits at
+     k·r in a clip raised by s semitones, r = 2^(s/12)), linearly interpolated; past the top of the clip's band: silence */
+  for(let k=0;k<=N/2;k++)mag[k]=Math.hypot(re[k],im[k]);
+  for(let f=0;f<NB;f++){const p=(f+FP.fmin)*shiftR,a=Math.floor(p),w=p-a;
+    const v=a+1<=N/2?mag[a]*(1-w)+mag[a+1]*w:0;out[o2+f]=Math.log(v+1e-3)}
 }
-function spectrogram(x){
+const mag=new Float64Array(N/2+1);let shiftR=0;
+function spectrogram(x,semis){
   const T=x.length<N?0:Math.floor((x.length-N)/FP.hop)+1,L=new Float32Array(T*NB);
-  for(let t=0;t<T;t++)frameSpec(x,t*FP.hop,L,t*NB);
+  shiftR=semis?Math.pow(2,semis/12):0;
+  try{for(let t=0;t<T;t++)frameSpec(x,t*FP.hop,L,t*NB)}finally{shiftR=0}
   return {T,L};
 }
 function peaks(S,perSec){
@@ -59,5 +66,15 @@ function fingerprintTempo(x,density,k){
   out.sort((a,b)=>a[0]-b[0]||a[1]-b[1]);
   return landmarks(out,density[1]);
 }
-G.FPRINT={FP,spectrogram,peaks,landmarks,fingerprint,fingerprintTempo,resample,QUERY:[10,4],INDEX:[6,3]};
+/* a clip whose pitch was shifted by `semis` semitones (with the tempo kept), and optionally time-stretched by k: the
+   spectrum is read back at the original frequencies before the peaks are picked, so the landmarks match the index again */
+function fingerprintShift(x,density,semis,k){
+  const pk=peaks(spectrogram(x,semis),density[0]);
+  if(!k||k===1)return landmarks(pk,density[1]);
+  const seen=new Set(),out=[];
+  for(const [t,f,v] of pk){const t2=Math.round(t*k),key=t2*256+f;if(seen.has(key))continue;seen.add(key);out.push([t2,f,v])}
+  out.sort((a,b)=>a[0]-b[0]||a[1]-b[1]);
+  return landmarks(out,density[1]);
+}
+G.FPRINT={FP,spectrogram,peaks,landmarks,fingerprint,fingerprintTempo,fingerprintShift,resample,QUERY:[10,4],INDEX:[6,3]};
 })(typeof window!=="undefined"?window:globalThis);

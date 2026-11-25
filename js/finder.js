@@ -21,7 +21,7 @@ Object.assign(I18N.en,{fTitle:"Find a recitation",fIntro:"Have a clip of Sheikh 
   fConfirmed:"Confirmed match",fPossible:"Possible match",fNone:"No reliable match",fNoneTx:"This clip doesn't match any recording in the library. It may come from a recording the app doesn't have, or it may be too short, too noisy or changed too much. Try 15–30 seconds of clear recitation.",
   fAt:"In the recording: {a} – {b}",fLen:"{n} s matched",fConf:"Confidence {n}%",fPts:"{a} moments of your clip agree (next best recording: {b})",fSec:"Section {n}",fClip:"from {a} to {b} in your clip",
   fPlayFrom:"Play from here",fPlaySec:"Play this section",fFull:"Full recitation",fVerses:"Read the surah",fSave:"Save",fSaved:"Saved to Favourites, with a pin at the match",
-  fAlso:"Also found in another copy of this recording:",fSpeedNote:"The clip seems to be {n}% faster or slower than the original.",
+  fAlso:"Also found in another copy of this recording:",fSpeedNote:"The clip seems to be {n}% faster or slower than the original.",fPitchNote:"The clip's pitch seems to have been changed ({n} semitones).",
   fNoIndex:"The recording index isn't available yet. Please try again later.",fOffline:"Searching needs an internet connection.",fBad:"This file couldn't be read as audio. Try another file, or record the clip instead.",
   fTooShort:"The clip is too short. At least 4 seconds are needed.",fMicNo:"Recording isn't available on this device or was not allowed.",fLong:"Only the first 10 minutes of the clip are searched.",
   fAboutTx:"Library searched: {n} recordings, {h} hours (index of {d}).",fFailed:"{n} recordings could not be indexed and can't be found."});
@@ -31,7 +31,7 @@ Object.assign(I18N.ar,{fTitle:"ابحث عن تلاوة بمقطع",fIntro:"لد
   fConfirmed:"تطابق مؤكد",fPossible:"تطابق محتمل",fNone:"لا يوجد تطابق موثوق",fNoneTx:"لا يطابق هذا المقطع أي تسجيل في المكتبة. قد يكون من تسجيل غير موجود في التطبيق، أو قصيرًا جدًا أو كثير الضجيج أو مُعدَّلًا كثيرًا. جرّب ١٥–٣٠ ثانية من تلاوة واضحة.",
   fAt:"في التسجيل: {a} – {b}",fLen:"{n} ث متطابقة",fConf:"نسبة الثقة {n}٪",fPts:"{a} لحظة من مقطعك متطابقة (أقرب تسجيل آخر: {b})",fSec:"المقطع {n}",fClip:"من {a} إلى {b} في مقطعك",
   fPlayFrom:"شغّل من هنا",fPlaySec:"شغّل هذا الجزء",fFull:"التلاوة كاملة",fVerses:"اقرأ السورة",fSave:"حفظ",fSaved:"حُفظت في المفضلة مع تثبيت عند الموضع",
-  fAlso:"وُجد أيضًا في نسخة أخرى من هذا التسجيل:",fSpeedNote:"يبدو أن المقطع أسرع أو أبطأ من الأصل بنحو {n}٪.",
+  fAlso:"وُجد أيضًا في نسخة أخرى من هذا التسجيل:",fSpeedNote:"يبدو أن المقطع أسرع أو أبطأ من الأصل بنحو {n}٪.",fPitchNote:"يبدو أن طبقة صوت المقطع غُيِّرت ({n} نصف درجة).",
   fNoIndex:"فهرس التسجيلات غير متاح بعد. حاول لاحقًا.",fOffline:"البحث يحتاج إلى اتصال بالإنترنت.",fBad:"تعذّرت قراءة هذا الملف كصوت. جرّب ملفًا آخر أو سجّل المقطع.",
   fTooShort:"المقطع قصير جدًا. يلزم ٤ ثوانٍ على الأقل.",fMicNo:"التسجيل غير متاح على هذا الجهاز أو لم يُسمح به.",fLong:"يُبحث في أول ١٠ دقائق فقط من المقطع.",
   fAboutTx:"المكتبة التي يُبحث فيها: {n} تسجيلًا، {h} ساعة (فهرس {d}).",fFailed:"تعذّرت فهرسة {n} تسجيلًا ولا يمكن العثور عليها."});
@@ -170,7 +170,10 @@ async function finderSearch(x,onStep,factor,mode,budget){
   const man=await finderManifest();
   const sr=FPRINT.FP.sr,dur=x.length/sr;
   let all,ydur,T;
-  if(mode==="t"&&factor!==1){all=FPRINT.fingerprintTempo(x,FPRINT.QUERY,factor);ydur=dur*factor;T=Math.ceil(x.length/FPRINT.FP.hop*factor)}
+  /* mode "p": pitch shifted by factor semitones (tempo kept); mode "pt": factor=[semitones, tempo k] */
+  const ps=mode==="p"?factor:mode==="pt"?factor[0]:0,pk=mode==="pt"?factor[1]:1;
+  if(ps){all=FPRINT.fingerprintShift(x,FPRINT.QUERY,ps,pk);ydur=dur*pk;T=Math.ceil(x.length/FPRINT.FP.hop*pk)}
+  else if(mode==="t"&&factor!==1){all=FPRINT.fingerprintTempo(x,FPRINT.QUERY,factor);ydur=dur*factor;T=Math.ceil(x.length/FPRINT.FP.hop*factor)}
   else{const y=factor&&factor!==1?FPRINT.resample(x,factor):x;all=FPRINT.fingerprint(y,FPRINT.QUERY);ydur=y.length/sr;T=Math.ceil(y.length/FPRINT.FP.hop)}
   const blocks=[];
   if(ydur<=25)blocks.push({t0:0,t1:Infinity,lms:all});
@@ -182,9 +185,9 @@ async function finderSearch(x,onStep,factor,mode,budget){
   const shards=await finderFetchAll(blocks.flatMap(b=>b.lms.map(l=>l[0])),onStep);
   for(const b of blocks){b.c=finderVote(b.lms,shards,man.tunit||1)}
   /* denser landmarks of the same signal, made only when a cut between two recordings has to be placed */
-  const dense=()=>mode==="t"&&factor!==1?FPRINT.fingerprintTempo(x,[20,8],factor):FPRINT.fingerprint(factor&&factor!==1?FPRINT.resample(x,factor):x,[20,8]);
+  const dense=()=>ps?FPRINT.fingerprintShift(x,[20,8],ps,pk):mode==="t"&&factor!==1?FPRINT.fingerprintTempo(x,[20,8],factor):FPRINT.fingerprint(factor&&factor!==1?FPRINT.resample(x,factor):x,[20,8]);
   /* the signal in the search's time frame (time-stretched clips: times scaled by k), for finding cuts */
-  const sig=mode==="t"&&factor!==1?{x,k:factor}:{x:factor&&factor!==1?FPRINT.resample(x,factor):x,k:1};
+  const sig=ps?{x,k:pk,semis:ps}:mode==="t"&&factor!==1?{x,k:factor}:{x:factor&&factor!==1?FPRINT.resample(x,factor):x,k:1};
   return {man,blocks,shards,dur,ydur,all,T,dense,sig};
 }
 /* blocks agreeing on the same recording and offset become one section; scored against the best other recording */
@@ -546,7 +549,7 @@ async function finderRun(blob){
     const man=await finderManifest();
     /* results are remembered per index build ("p4": none remembered by earlier versions is reused, some of which
        were wrong because index parts of two builds were mixed) */
-    const vmm=await vmManifest(),key=await finderKey(blob),ck=key&&key+":"+FINDER.build+":"+((vmm&&vmm.built)||"")+":"+(useVerses?1:0)+":p4";
+    const vmm=await vmManifest(),key=await finderKey(blob),ck=key&&key+":"+FINDER.build+":"+((vmm&&vmm.built)||"")+":"+(useVerses?1:0)+":p5";
     const hit=ck&&finderCacheGet(ck);
     if(hit){FINDER.vmFound=hit.vmFound||[];finderStatus();finderRender(finderUnpack(hit.list),(hit.notes||[]).concat(t("fCached")),hit.verses,hit.searched);return}
     if(blob.size>400e6)toast(t("fBigFile"));
@@ -556,27 +559,37 @@ async function finderRun(blob){
     finderStatus(t("fListening"));
     await new Promise(r=>setTimeout(r,30));
     const prog=(a,b)=>finderStatus(t("fSearching"),fx("fOf",{a:numFmt(a),b:numFmt(b)}),a/b);
-    let res=await finderSearch(dec.x,prog,1,"r"),list=finderSections(res);const notes=[dec.cut?t("fLong"):""];
+    let res=await finderSearch(dec.x,prog,1,"r"),list=finderSections(res);const notes=[dec.cut?t("fLong"):""];let edit=null;
     /* nothing certain: the clip may have been sped up or slowed down (common on social media), with the pitch
        changed too (resampled) or kept (time-stretched) */
     if(!list.some(r=>r.level==="confirmed")){
-      const tries=[["r",1/1.03],["t",1.03],["r",1/0.97],["t",0.97],["r",1/1.06],["t",1.06],["r",1/0.94],["t",0.94]];
-      if(dur<=90)tries.push(["t",1.1],["t",1/1.1],["t",1.25],["t",0.8]);
+      /* edits seen on social media, most common first: small speed changes; tempo changes (pitch kept); pitch
+         shifts (tempo kept), detected by reading the spectrum back at the original frequencies; larger speed changes
+         (pitch and tempo together); pitch shift and tempo change together */
+      const tries=[["r",1/1.03],["t",1.03],["r",1/0.97],["t",0.97],["p",1],["p",-1],["r",1/1.06],["t",1.06],["r",1/0.94],["t",0.94],["p",2],["p",-2]];
+      if(dur<=90){tries.push(["t",1.1],["t",1/1.1],["t",1.25],["t",0.8],["r",1/1.1],["r",1/0.9],["r",1/1.25],["r",1/0.8],["p",3],["p",-3],["p",4],["p",-4]);
+        for(const sm of [1,-1,2,-2])for(const k of [1.1,1/1.1])tries.push(["pt",[sm,k]])}
       for(let i=0;i<tries.length;i++){
         const [m,f]=tries[i];
         const res2=await finderSearch(dec.x,(a,b)=>finderStatus(t("fSpeed"),fx("fOf",{a:numFmt(a),b:numFmt(b)}),(i+a/b)/tries.length),f,m,dur>90?1200:600),r2=finderSections(res2,true);
-        if(r2.some(r=>r.level==="confirmed")){list=r2;res=res2;const pct=numFmt(Math.round(Math.abs((m==="r"?1/f:f)-1)*100));notes.push(fx(m==="r"?"fSpeedNote":"fSpeedTempo",{n:pct}));break}
+        if(r2.some(r=>r.level==="confirmed")){list=r2;res=res2;edit={mode:m,f};
+          if(m==="p"||m==="pt"){const sm=m==="p"?f:f[0];notes.push(fx("fPitchNote",{n:(sm>0?"+":"−")+numFmt(Math.abs(sm))})+(m==="pt"?" "+fx("fSpeedTempo",{n:numFmt(Math.round(Math.abs(f[1]-1)*100))}):""))}
+          else{const pct=numFmt(Math.round(Math.abs((m==="r"?1/f:f)-1)*100));notes.push(fx(m==="r"?"fSpeedNote":"fSpeedTempo",{n:pct}))}
+          break}
       }
     }
     await finderRefine(res,list);
     list=finderGroup(list);
+    if(edit)list.forEach(r=>{r.edit=edit.mode+":"+(Array.isArray(edit.f)?edit.f.join("/"):edit.f)});
     /* the verses: what the clip recites, checked against each recording's label */
     let verses=null;
     if(useVerses){
       try{
         AYAH.onModel=f=>finderStatus(t("fModel"),Math.round(f*100)+"%",f);
         const wins=finderVerseWins(list,dec.ab.duration);
-        verses=await ayahRecognise(dec.ab,wins,(i,n)=>{if(AYAH.ready)finderStatus(t("fVersesStep"),n>1?fx("fVersesOf",{a:numFmt(i+1),b:numFmt(n)}):"",n>1?i/n:null)});
+        /* undo the edit the sound match found before listening for the verses */
+        const rate=!edit?1:edit.mode==="r"?edit.f:edit.mode==="p"?Math.pow(2,-edit.f/12):edit.mode==="pt"?Math.pow(2,-edit.f[0]/12):1;
+        verses=await ayahRecognise(dec.ab,wins,(i,n)=>{if(AYAH.ready)finderStatus(t("fVersesStep"),n>1?fx("fVersesOf",{a:numFmt(i+1),b:numFmt(n)}):"",n>1?i/n:null)},rate);
         AYAH.onModel=null;
         if(list.length){
           let dropped=false;

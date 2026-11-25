@@ -108,11 +108,13 @@ function ayahTranscribe(pcm){
   return new Promise((res,rej)=>{AYAH.wait.set(id,{res,rej});w.postMessage({id,pcm,base:new URL("models/",location.href).href},[pcm.buffer])});
 }
 /* one stretch of the decoded clip as 16 kHz mono */
-async function ayahPcm(ab,st,len){
-  len=Math.max(1,Math.min(len,ab.duration-st));
+async function ayahPcm(ab,st,len,rate){
+  len=Math.max(1,Math.min(len,ab.duration-st));rate=rate||1;
   const OAC=window.OfflineAudioContext||window.webkitOfflineAudioContext;
-  const oc=new OAC(1,Math.ceil(len*16000),16000);const src=oc.createBufferSource();
-  src.buffer=ab;src.connect(oc.destination);src.start(0,st,len);return (await oc.startRendering()).getChannelData(0).slice(0);
+  /* rate ≠ 1: played faster or slower, which undoes a speed change or a pitch shift found by the sound match (a pitch
+     correction also changes the tempo, which the speech model tolerates far better than a wrong pitch) */
+  const oc=new OAC(1,Math.ceil(len/rate*16000),16000);const src=oc.createBufferSource();
+  src.buffer=ab;src.playbackRate.value=rate;src.connect(oc.destination);src.start(0,st,len);return (await oc.startRendering()).getChannelData(0).slice(0);
 }
 /* what a transcript says: the best place, how sure, and other places it could be */
 /* the speech model sometimes "hallucinates" on sound it can't make out: the same word or two over and over
@@ -154,13 +156,13 @@ function ayahPlaceIn(text,surahs){
   return {...a,level:"possible",within:true,text,conf:Math.round(Math.min(.9,a.conf)*100),alts:[]};
 }
 /* transcribe stretches of the clip (each up to 28 s) and place each one in the Quran */
-async function ayahRecognise(ab,wins,onStep){
+async function ayahRecognise(ab,wins,onStep,rate){
   await loadQuran();
   const out=[];
   for(let i=0;i<wins.length;i++){
     const [st,len]=wins[i];
     if(onStep)onStep(i,wins.length);
-    const pcm=await ayahPcm(ab,st,len);
+    const pcm=await ayahPcm(ab,st,len,rate);
     const text=(await ayahTranscribe(pcm)).trim();
     out.push({t0:st,t1:Math.min(ab.duration,st+len),text,place:text?ayahPlace(text):null});
   }
