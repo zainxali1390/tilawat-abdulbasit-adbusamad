@@ -57,7 +57,7 @@ V.fbank=function(x){
   for(let m=0;m<NMEL;m++){let s=0;for(let t=0;t<T;t++)s+=out[t*NMEL+m];s/=Math.max(1,T);for(let t=0;t<T;t++)out[t*NMEL+m]-=s}
   return {data:out,T};
 };
-/* voiced stretches: 3 s windows (1 s steps) whose loudness is within 20 dB of the clip's loud level, merged into
+/* voiced stretches: 3 s windows (1 s steps) whose loudness is within 20 dB of the clip's loud level (and above -55 dBFS), merged into
    segments of up to `sec` seconds; a recitation clip gives one or more, silence and music beds are skipped */
 V.segments=function(x,sec){
   sec=sec||6;const W=SR*3,S=SR,rms=[];
@@ -65,7 +65,7 @@ V.segments=function(x,sec){
   if(!rms.length)return x.length>=SR*2?[[0,x.length]]:[];
   const ref=Float64Array.from(rms).sort()[Math.floor(rms.length*0.9)],segs=[];
   let a=-1;
-  for(let i=0;i<=rms.length;i++){const ok=i<rms.length&&rms[i]>ref-20;
+  for(let i=0;i<=rms.length;i++){const ok=i<rms.length&&rms[i]>ref-20&&rms[i]>-55;   // and above an absolute floor: silence is not a voice
     if(ok&&a<0)a=i;
     if((!ok||i===rms.length)&&a>=0){const s0=a*S,s1=Math.min(x.length,(i-1)*S+W);for(let s=s0;s<s1;s+=sec*SR){const e=Math.min(s1,s+sec*SR);if(e-s>=SR*2)segs.push([s,e])}a=-1}}
   return segs;
@@ -74,4 +74,52 @@ V.cosine=function(a,b){let s=0,na=0,nb=0;for(let i=0;i<a.length;i++){s+=a[i]*b[i
 /* reference: {centroids:[[…],…]}; the score is the best cosine to any centroid (eras differ) */
 V.score=function(emb,ref){let best=-1;for(const c of ref.centroids)best=Math.max(best,V.cosine(emb,c));return best};
 V.mean=function(list){const n=list[0].length,m=new Float64Array(n);for(const e of list)for(let i=0;i<n;i++)m[i]+=e[i]/list.length;return Array.from(m)};
+/* one clip → one vector: the mean of the unit vectors of its voiced pieces (≤ 6 s each, at most `maxPieces`), with an
+   onnxruntime (web or node) `ort` and a session for models/voice/campplus-q8.onnx */
+V.embed=async function(ort,session,x,maxPieces){
+  const segs=V.segments(x,6).slice(0,maxPieces||5);if(!segs.length)return null;
+  let acc=null;
+  for(const [a,b] of segs){
+    const f=V.fbank(x.subarray(a,b));
+    const e=(await session.run({[session.inputNames[0]]:new ort.Tensor("float32",f.data,[1,f.T,80])}))[session.outputNames[0]].data;
+    let n=0;for(const v of e)n+=v*v;n=Math.sqrt(n)||1;
+    if(!acc)acc=new Float64Array(e.length);for(let i=0;i<e.length;i++)acc[i]+=e[i]/n/segs.length;
+  }
+  return {emb:acc,pieces:segs.length,secs:segs.reduce((s,[a,b])=>s+(b-a)/SR,0)};
+};
+/* the verdict, measured in docs/RECOGNITION-VOICE.md: below the threshold the voice is UNLIKE Abdul Basit's recordings
+   (no Abdul Basit test sample and 0.6 % of the edited test clips fell below it; 29 % of other reciters did). Above it, it
+   says nothing: Egyptian reciters of his era score above it too. So there is no "it is Abdul Basit" verdict. */
+V.judge=function(e,ref){
+  if(!e||e.secs<4)return {verdict:"unknown",score:null,secs:e?e.secs:0};
+  const score=V.score(e.emb,ref);
+  return {verdict:score<ref.threshold?"unlike":"no-objection",score:+score.toFixed(3),threshold:ref.threshold,secs:+e.secs.toFixed(1)};
+};
+/* browser: VOICE.check(pcm16k) → Promise<judge result>. The model (8.6 MB) and onnxruntime-web are loaded on first use,
+   in a worker, so nothing is downloaded unless a search ends without a reliable match. */
+V.ORT="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/";
+if(typeof window!=="undefined"&&typeof Worker!=="undefined"){
+  const SRC=`let sess=null,ref=null,ort=null;
+self.onmessage=async e=>{const m=e.data;
+  try{
+    if(!sess){ort=await import(m.ort+"ort.wasm.min.mjs");ort.env.wasm.wasmPaths=m.ort;ort.env.wasm.numThreads=1;
+      await import(m.base+"js/engine/voice.js");
+      /* kept in Cache Storage (models/ bypasses the service worker), keyed by the reference's build so a new model replaces it */
+      const get=async(u,keep)=>{let c=null;try{c=await caches.open("voice-"+keep)}catch(_){}
+        let r=c&&await c.match(u);if(!r){r=await fetch(u);if(!r.ok)throw new Error("voice model http "+r.status);if(c)try{await c.put(u,r.clone())}catch(_){}}return r};
+      const rj=await (await fetch(m.base+"models/voice/reference.json",{cache:"no-cache"})).json();
+      const mb=await (await get(m.base+"models/voice/campplus-q8.onnx",rj.build||"1")).arrayBuffer();
+      sess=await ort.InferenceSession.create(new Uint8Array(mb));ref=rj}
+    const v=self.VOICE,emb=await v.embed(ort,sess,m.pcm,5);self.postMessage({id:m.id,res:v.judge(emb,ref)})
+  }catch(err){self.postMessage({id:m.id,err:String(err&&err.message||err)})}
+};`;
+  let w=null,seq=0;const wait=new Map();
+  V.check=function(pcm){
+    if(!w){w=new Worker(URL.createObjectURL(new Blob([SRC],{type:"text/javascript"})),{type:"module"});
+      w.onmessage=e=>{const x=wait.get(e.data.id);if(!x)return;wait.delete(e.data.id);e.data.err?x.rej(new Error(e.data.err)):x.res(e.data.res)};
+      w.onerror=ev=>{wait.forEach(x=>x.rej(new Error("voice worker: "+(ev.message||"failed"))));wait.clear();w=null}}
+    const id=++seq,copy=pcm.slice(0);
+    return new Promise((res,rej)=>{wait.set(id,{res,rej});w.postMessage({id,pcm:copy,ort:V.ORT,base:new URL("./",location.href).href},[copy.buffer])});
+  };
+}
 })(typeof window!=="undefined"?window:globalThis);
