@@ -23,7 +23,7 @@ jobs:
           pip install -q numpy
           D=tools/engine/eval/results/voice-rescore-$(date -u +%Y%m%d-%H%M)-$(git rev-parse --short HEAD)
           mkdir -p $D
-          python3 tools/engine/eval/voice_score.py $SET emb/*.jsonl --exclude tools/engine/eval/voice_exclude.json --export $D/references.json | tee $D/voice-score.txt
+          python3 tools/engine/eval/voice_score.py $SET emb/*.jsonl --exclude tools/engine/eval/voice_exclude.json --export $D/references.json --detail 'q8/3dspeaker_speech_campplus_sv_zh_en_16k-common_advanced.onnx|4,q8/wespeaker_en_voxceleb_resnet34_LM.onnx|8,q8/wespeaker_en_voxceleb_CAM++_LM.onnx|4' | tee $D/voice-score.txt
           git config user.name "engine-eval bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add tools/engine/eval/results

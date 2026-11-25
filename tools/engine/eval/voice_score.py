@@ -15,7 +15,7 @@ import numpy as np
 
 args = sys.argv[1:]
 opt = {}
-for key in ('--exclude', '--export'):
+for key in ('--exclude', '--export', '--detail'):
     if key in args:
         i = args.index(key); opt[key] = args[i + 1]; del args[i:i + 2]
 vset = args[0]
@@ -143,3 +143,18 @@ if '--export' in opt:
                                             t99=detail[(model, k)]['t99'] if (model, k) in detail else None, n=len(X))
     json.dump(ex, open(opt['--export'], 'w'))
     print('exported references for', len(ex), 'model/k pairs')
+
+for spec in (opt.get('--detail') or '').split(','):
+    if not spec:
+        continue
+    model, k = spec.rsplit('|', 1); k = int(k)
+    d = detail[(model, k)]; t = [o for o in ops if o[0] == model and o[1] == k][0][2]
+    print('\n%s, %d centroids, strict threshold %.3f:' % (model, k, t))
+    by = collections.defaultdict(list)
+    for i, s_ in d['N'].items():
+        by[man[i]['reciter']].append(s_ < t)
+    print('  other reciters rejected: ' + ', '.join('%s %d/%d' % (r, sum(v), len(v)) for r, v in sorted(by.items())))
+    by = collections.defaultdict(list)
+    for i, s_ in d['Q'].items():
+        by[E[model][i][1].get('variant')].append(s_ < t)
+    print('  edited clips rejected (Abdul Basit, wrongly): ' + (', '.join('%s %d/%d' % (v, sum(x), len(x)) for v, x in sorted(by.items()) if sum(x)) or 'none'))
