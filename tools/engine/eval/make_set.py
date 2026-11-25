@@ -138,10 +138,10 @@ def find_copies(idx, codes, code, path):
     me = codes.index(code) if code in codes else None
     hits = {}
     n = len(x) // 8000
-    for t in range(10, max(11, n - 20), 60):
+    for t in range(10, max(11, n - 20), 30):
         seg = x[t * 8000:(t + 15) * 8000]
         got = set()
-        for f in (1, 1 / 1.03, 1 / 0.97):
+        for f in (1, 1 / 1.03, 1 / 0.97, 1 / 1.06, 1 / 0.94):
             s = seg if f == 1 else np.interp(np.arange(int(len(seg) / f)) * f, np.arange(len(seg)), seg).astype(np.float32)
             for mo, secs, rec, off in idx.search(s, exclude=me)[:4]:
                 if mo >= 6 and secs >= 3 and rec not in got:

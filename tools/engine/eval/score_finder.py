@@ -16,6 +16,49 @@ import statistics as st
 
 R = [json.loads(l) for f in sys.argv[1:] for l in open(f)]
 
+# Copies at a different tape speed (3-6 % is common for old transfers) are missed by the index-only copy check: with the
+# speed changed, the stored landmarks no longer line up. They are found here from the searches themselves: a candidate is a
+# copy of a source when >= 3 clips taken at different points of the source (spread over >= 300 s) map onto it along ONE
+# straight time line (time in candidate = k * time in source + b, 0.85 <= k <= 1.18, within 3 s). Two different
+# performances cannot line up like that at many far-apart points; partial or re-ordered copies give a line per part.
+pts = defaultdict(list)
+for r in R:
+    if len(r['segments']) != 1:
+        continue
+    s0 = r['segments'][0]
+    for x in r['list']:
+        if x.get('level') == 'confirmed' and x['code'] != s0['code'] and x.get('start') is not None:
+            pts[(s0['code'], x['code'])].append((s0['at'], x['start'], r['name']))
+derived = defaultdict(set)
+import random
+for (src, cand), P in pts.items():
+    P = list({(round(a, 1), round(b, 1)): (a, b) for a, b, _ in P}.values())
+    if len(P) < 3:
+        continue
+    best = []
+    for i in range(len(P)):
+        for j in range(len(P)):
+            if abs(P[j][0] - P[i][0]) < 60:
+                continue
+            k = (P[j][1] - P[i][1]) / (P[j][0] - P[i][0])
+            if not 0.85 <= k <= 1.18:
+                continue
+            b0 = P[i][1] - k * P[i][0]
+            inl = [p for p in P if abs(p[1] - (k * p[0] + b0)) < 3]
+            if len(inl) > len(best):
+                best = inl
+    if len(best) >= 3 and max(p[0] for p in best) - min(p[0] for p in best) >= 300:
+        derived[src].add(cand)
+if derived:
+    print('copies found by the searches (one time line through >= 3 far-apart clips):')
+    for k, v in derived.items():
+        print('   %s -> %s' % (k[:45], [x[:45] for x in sorted(v)]))
+for r in R:
+    r['copies'] = sorted(set(r['copies']) | derived.get(r['code'], set()))
+    oc = r.get('other_copies') or {}
+    for c in list(oc):
+        oc[c] = sorted(set(oc[c]) | derived.get(c, set()))
+
 
 def okset(seg, r):
     s = {seg['code']} | set((r.get('other_copies') or {}).get(seg['code'], []))
