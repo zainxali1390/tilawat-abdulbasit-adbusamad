@@ -1,0 +1,108 @@
+# Recognition engine, step 7: voice test. Abdul Basit samples from the archive and other reciters from archive.org
+# (tools/engine/eval/voice_set.py), embeddings by 4 speaker models x (full, 8-bit) (voice_eval.mjs), scoring (voice_score.py).
+name: Engine voice
+on:
+  workflow_dispatch:
+  push:
+    paths: ['tools/engine/eval/VOICE_RUN', '.github/workflows/engine-voice.yml']
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: engine-voice
+  cancel-in-progress: true
+env:
+  SET_RUN: '45686748504'
+  MODELS: 'wespeaker_en_voxceleb_resnet34_LM wespeaker_en_voxceleb_CAM++_LM 3dspeaker_speech_campplus_sv_zh_en_16k-common_advanced 3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k'
+jobs:
+  models:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          pip install -q onnx onnxruntime
+          mkdir -p full q8
+          for m in $MODELS; do curl -sSL --fail --retry 5 -o "full/$m.onnx" "https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/$m.onnx"; done
+          python3 -c "
+          import glob,os
+          from onnxruntime.quantization import quantize_dynamic, QuantType
+          for f in glob.glob('full/*.onnx'): quantize_dynamic(f, 'q8/'+os.path.basename(f), weight_type=QuantType.QUInt8)
+          "
+          ls -la full q8
+      - uses: actions/upload-artifact@v4
+        with: {name: vmodels, path: "full\nq8"}
+  pos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix: {part: [0,1,2,3,4,5]}
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: tools}
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q numpy
+      - run: python3 tools/engine/eval/voice_set.py pos tools/engine/eval/voice_pos.json vset --part ${{ matrix.part }} --of 6
+      - uses: actions/upload-artifact@v4
+        with: {name: 'vset-pos-${{ matrix.part }}', path: vset}
+  neg:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      matrix: {part: [0,1,2,3]}
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: "tools\nfp"}
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q numpy
+      - run: python3 tools/engine/eval/voice_set.py neg tools/engine/eval/voice_neg.json vset --part ${{ matrix.part }} --of 4
+      - uses: actions/upload-artifact@v4
+        with: {name: 'vset-neg-${{ matrix.part }}', path: vset}
+  eval:
+    needs: [models, pos, neg]
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        model: [0,1,2,3]
+        prec: [full, q8]
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: "tools\njs"}
+      - uses: actions/download-artifact@v4
+        with: {name: vmodels, path: vmodels}
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'vset-*', path: vset, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        with: {name: testset, path: set, run-id: '${{ env.SET_RUN }}', github-token: '${{ github.token }}'}
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && npm i --no-save onnxruntime-node@1.20.1 --onnxruntime-node-install-cuda=skip
+      - run: |
+          M=$(echo $MODELS | cut -d' ' -f$(( ${{ matrix.model }} + 1 )))
+          node tools/engine/eval/voice_eval.mjs "vmodels/${{ matrix.prec }}/$M.onnx" vset set emb-${{ matrix.model }}-${{ matrix.prec }}.jsonl
+      - uses: actions/upload-artifact@v4
+        with: {name: 'vemb-${{ matrix.model }}-${{ matrix.prec }}', path: 'emb-*.jsonl'}
+  score:
+    needs: [eval]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: '${{ github.ref_name }}', fetch-depth: 1, sparse-checkout: tools}
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'vemb-*', path: emb, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'vset-*', path: vset, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        with: {name: vmodels, path: vmodels}
+      - run: |
+          pip install -q numpy
+          D=tools/engine/eval/results/voice-$(date -u +%Y%m%d-%H%M)-$(git rev-parse --short HEAD)
+          mkdir -p $D && cat vset/manifest-*.jsonl > $D/voice-set.jsonl
+          ls -la vmodels/full vmodels/q8 > $D/model-sizes.txt
+          python3 tools/engine/eval/voice_score.py vset emb/*.jsonl | tee $D/voice-score.txt
+          git config user.name "engine-eval bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/engine/eval/results
+          git commit -q -m "Engine eval: voice results" || exit 0
+          for i in 1 2 3 4; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((i*10)); done
+      - uses: actions/upload-artifact@v4
+        with: {name: vemb-all, path: emb}
