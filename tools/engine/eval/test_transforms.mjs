@@ -11,7 +11,7 @@ await import(path.join(ROOT, 'js/engine/features.js'));
 const SET = process.argv[2];
 const cases = JSON.parse(fs.readFileSync(path.join(SET, 'cases.json')));
 const pcm = f => { const d = spawnSync('ffmpeg', ['-loglevel', 'error', '-i', path.join(SET, f), '-vn', '-ac', '1', '-ar', '16000', '-f', 'f32le', '-'], {maxBuffer: 1 << 28}); return new Float32Array(d.stdout.buffer, d.stdout.byteOffset, d.stdout.length >> 2); };
-const want = {'narrow band': ['phone', 'treble_cut', 'combo2', 'combo3'], noisy: ['noise3', 'combo2']};
+const want = {'very noisy': ['noise3', 'combo2'], distorted: ['distort']};
 const rows = {}, conf = {};
 for (const c of cases) {
   if (c.variant.startsWith('join') || c.variant.startsWith('intro')) continue;

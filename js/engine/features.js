@@ -66,8 +66,10 @@ E.transforms=function(x){
      clipping are measured but NOT labelled: the archive's own old recordings already carry room echo, tape noise and
      compression, so without the original an edit can't be told from the recording's character (compared with the matched
      original instead, in verification) */
-  if(h99*hz<3000)labels.push("narrow band");
-  if(snr<10)labels.push("noisy");
+  /* measured on 640 test clips (16 recordings): a narrow band says more about the old original than about an edit (half the
+     unedited clips have one), so it is not labelled; noise only when it is strong; clipping is clear (3 % vs <= 0.1 %) */
+  if(snr<8)labels.push("very noisy");
+  if(clip>0.01)labels.push("distorted");
   return {band:[Math.round(lo*hz),Math.round(h99*hz)],snr:+snr.toFixed(1),reverb:reverb==null?null:Math.round(reverb),echo:+echo.toFixed(3),echoLag,clip:+clip.toFixed(4),loud:+loud.toFixed(1),labels};
 };
 })(typeof window!=="undefined"?window:globalThis);
