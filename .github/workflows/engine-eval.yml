@@ -1,0 +1,81 @@
+# Recognition engine tests (tools/engine/eval/): build the test set from archive recordings, test ingestion in a real
+# browser, and run the app's "Find a recitation" on every clip (with the original present and hidden).
+name: Engine eval
+on:
+  workflow_dispatch:
+  push:
+    paths: ['tools/engine/eval/sources.json', 'tools/engine/eval/RUN', '.github/workflows/engine-eval.yml']
+permissions:
+  contents: write
+concurrency:
+  group: engine-eval
+  cancel-in-progress: true
+env:
+  PARTS: 16
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: "tools\nfp"}
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q numpy
+      - run: ffmpeg -hide_banner -filters | grep -c rubberband || true
+      - run: python3 tools/engine/eval/make_set.py tools/engine/eval/sources.json set
+      - run: rm -rf set/src
+      - uses: actions/upload-artifact@v4
+        with: {name: testset, path: set/, retention-days: 7}
+  ingest:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: "index.html\njs\ncss\ndata\nicons\nmanifest.webmanifest\nsw.js\ntools"}
+      - uses: actions/download-artifact@v4
+        with: {name: testset, path: set}
+      - run: npm i -q --no-save playwright@1.49.1 && npx playwright install --with-deps chromium
+      - run: (python3 -m http.server 8765 >/dev/null 2>&1 &) && sleep 2 && node tools/engine/eval/test_ingest.js set ingest.jsonl
+      - run: python3 tools/engine/eval/score_ingest.py ingest.jsonl | tee ingest-score.txt
+      - uses: actions/upload-artifact@v4
+        with: {name: res-ingest, path: "ingest.jsonl\ningest-score.txt"}
+  finder:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: testset, path: set}
+      - run: npm i -q --no-save playwright@1.49.1 && npx playwright install --with-deps chromium
+      - run: (python3 -m http.server 8765 >/dev/null 2>&1 &) && sleep 2 && PART=${{ matrix.part }} OF=$PARTS node tools/engine/eval/run_finder.js set finder-${{ matrix.part }}.jsonl
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: {name: 'res-finder-${{ matrix.part }}', path: 'finder-${{ matrix.part }}.jsonl'}
+  merge:
+    needs: [ingest, finder]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: '${{ github.ref_name }}', fetch-depth: 1, sparse-checkout: tools}
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'res-*', path: res, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        with: {name: testset, path: set}
+      - run: |
+          D=tools/engine/eval/results/$(date -u +%Y%m%d-%H%M)-$(git rev-parse --short HEAD)
+          mkdir -p $D
+          cp set/cases.json set/formats.json $D/
+          cp res/ingest.jsonl res/ingest-score.txt $D/ 2>/dev/null || true
+          cat res/finder-*.jsonl > $D/finder.jsonl
+          python3 tools/engine/eval/score_finder.py $D/finder.jsonl | tee $D/finder-score.txt
+          git config user.name "engine-eval bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/engine/eval/results
+          git commit -q -m "Engine eval: results" || exit 0
+          for i in 1 2 3 4; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((i*10)); done
