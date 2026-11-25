@@ -1,0 +1,81 @@
+variant            n  right   poss  WRONG  none    t_err   parts  FALSE    sec
+clean20           16     16      0      0     0     0.01       -   5/16      4
+tempo1.1          16     16      0      0     0     0.02       -   0/16      6
+combo2            16      0      0      0    15        -       -   0/16      7
+tempo0.8          16     14      0      0     2     0.01       -   0/16      5
+music_bed         16      0      0      0    16        -       -   0/16      0
+pitch+3           16      0      0      0    16        -       -   0/16      6
+compress          16     16      0      0     0     0.01       -   1/16      4
+pitch+2           16      0      0      0    16        -       -   0/16      6
+bass              16     15      1      0     0     0.01       -   1/16      5
+pitch+1           16      0      0      0    16        -       -   0/16      6
+noise10           16     13      1      0     2     0.01       -   2/16      5
+len10             16     15      1      0     0     0.02       -   0/16      4
+reverb_small      16     16      0      0     0     0.01       -   2/16      5
+phone             16      0      0      2    14        -       -   2/16      0
+speed1.25         16      0      0      2    14        -       -   2/16      0
+video_mp4         16      0      0      2    14        -       -   2/16      0
+speed0.9          16      0      0      0    15        -       -   0/16      7
+aac32             16      0      0      0    13        -       -   0/16      0
+tempo1.25         16     16      0      0     0     0.02       -   0/16      6
+combo3            16      0      0      0    16        -       -   0/16      0
+tempo0.9          16     16      0      0     0     0.09       -   0/16      6
+combo1            16      0      0      0    16        -       -   0/16      0
+pitch-4           16      0      0      0    16        -       -   0/16      6
+distort           16     16      0      0     0     0.01       -   2/16      4
+pitch-2           16      0      0      0    16        -       -   0/16      5
+treble_cut        16     16      0      0     0     0.01       -   1/16      4
+pitch-1           16      0      0      0    16        -       -   0/16      5
+noise3            16     13      0      1     2     0.02       -   2/16      5
+len44             16     15      1      0     0     0.02       -   1/16      7
+reverb_large      16     11      3      0     2     0.02       -   0/16      5
+len7              16     14      1      0     1     0.02       -   0/16      3
+echo              16     12      2      1     1     0.01       -   2/16      5
+video_mov         16      0      0      2    14        -       -   2/16      0
+speed1.1          16      0      0      0    13        -       -   0/16      7
+TOTAL: 544 clips; right & confirmed 250; right, possible 10; WRONG confirmed 10; no answer 266; hidden runs 544, FALSE confirmed 27
+   x ('HIDDEN s04-noise10', 'e:I6:سورالقمر والرحمن والقصار(الاقصى).mp3', 'confirmed')
+   x ('HIDDEN s08-clean20', 'e:C:1171--_up_by_muslem.mp3', 'confirmed')
+   x ('s15-speed0.9', 'e:A:342.mp3', 'possible')
+   x ('HIDDEN s03-treble_cut', 'e:N1:245.mp3', 'confirmed')
+   x ('HIDDEN s04-noise3', 'e:I6:سورالقمر والرحمن والقصار(الاقصى).mp3', 'confirmed')
+   x ('HIDDEN s05-len44', 'e:E:القصار المشهورة وبها الاذان.mp3', 'confirmed')
+   x ('HIDDEN s08-bass', 'e:A:784-yousefhousen.mp3', 'confirmed')
+   x ('HIDDEN s06-clean20', 'e:A:770-qamerelrahman.mp3', 'confirmed')
+   x ('s02-noise3', 'e:X5:586-1-5 القمر49-55 والرحمن الحاقة النبأ التكو', 'confirmed')
+   x ('HIDDEN s02-noise3', 'e:X5:586-1-5 القمر49-55 والرحمن الحاقة النبأ التكو', 'confirmed')
+   x ('s04-echo', 'e:X5:570-5-1  القمر 49-55والرحمن 1-27 الشمس التين ', 'confirmed')
+   x ('HIDDEN s04-echo', 'e:X5:570-5-1  القمر 49-55والرحمن 1-27 الشمس التين ', 'confirmed')
+   x ('s05-video_mov', 'e:X5:570-5-1  القمر 49-55والرحمن 1-27 الشمس التين ', 'confirmed')
+   x ('HIDDEN s05-video_mov', 'e:X5:570-5-1  القمر 49-55والرحمن 1-27 الشمس التين ', 'confirmed')
+   x ('HIDDEN s08-distort', 'e:C:1171--_up_by_muslem.mp3', 'confirmed')
+   x ('HIDDEN s15-clean20', 'e:A:433.mp3', 'confirmed')
+   x ('s00-speed1.1', 'e:A:264.mp3', 'possible')
+   x ('s01-aac32', 'e:A:264.mp3', 'possible')
+   x ('HIDDEN s02-clean20', 'e:X5:586-1-5 القمر49-55 والرحمن الحاقة النبأ التكو', 'confirmed')
+   x ('HIDDEN s04-compress', 'e:I6:سورالقمر والرحمن والقصار(الاقصى).mp3', 'confirmed')
+   x ('HIDDEN s07-reverb_small', 'e:X5:577-7-2 القمر49-55 والرحمن 1-27 التلاوة الثان', 'confirmed')
+   x ('s08-phone', 'e:X5:577-7-2 القمر49-55 والرحمن 1-27 التلاوة الثان', 'confirmed')
+   x ('HIDDEN s08-phone', 'e:X5:577-7-2 القمر49-55 والرحمن 1-27 التلاوة الثان', 'confirmed')
+   x ('s08-speed1.25', 'e:X5:577-7-2 القمر49-55 والرحمن 1-27 التلاوة الثان', 'confirmed')
+   x ('HIDDEN s08-speed1.25', 'e:X5:577-7-2 القمر49-55 والرحمن 1-27 التلاوة الثان', 'confirmed')
+   x ('s09-video_mp4', 'e:X5:577-7-2 القمر49-55 والرحمن 1-27 التلاوة الثان', 'confirmed')
+   x ('HIDDEN s09-video_mp4', 'e:X5:577-7-2 القمر49-55 والرحمن 1-27 التلاوة الثان', 'confirmed')
+   x ('s01-speed1.1', 'e:I9:057-----.mp3', 'possible')
+   x ('s02-aac32', 'e:I9:057-----.mp3', 'possible')
+   x ('HIDDEN s08-reverb_small', 'e:C:1121-_up_by_muslem.mp3', 'confirmed')
+   x ('s09-phone', 'e:C:1121-_up_by_muslem.mp3', 'confirmed')
+   x ('HIDDEN s09-phone', 'e:C:1121-_up_by_muslem.mp3', 'confirmed')
+   x ('s09-speed1.25', 'e:C:1121-_up_by_muslem.mp3', 'confirmed')
+   x ('HIDDEN s09-speed1.25', 'e:C:1121-_up_by_muslem.mp3', 'confirmed')
+   x ('s10-video_mp4', 'e:C:1121-_up_by_muslem.mp3', 'confirmed')
+   x ('HIDDEN s10-video_mp4', 'e:C:1121-_up_by_muslem.mp3', 'confirmed')
+   x ('HIDDEN s05-distort', 'e:A:299.mp3', 'confirmed')
+   x ('HIDDEN s04-clean20', 'e:I6:سورالقمر والرحمن والقصار(الاقصى).mp3', 'confirmed')
+   x ('HIDDEN s08-noise10', 'e:C:1121-_up_by_muslem.mp3', 'confirmed')
+   x ('s12-combo2', 'e:B:1-2 الواقعة 1-26 السعودية بالخمسينات- مزامير .', 'possible')
+   x ('HIDDEN s02-echo', 'e:X5:586-1-5 القمر49-55 والرحمن الحاقة النبأ التكو', 'confirmed')
+   x ('s03-video_mov', 'e:X5:586-1-5 القمر49-55 والرحمن الحاقة النبأ التكو', 'confirmed')
+   x ('HIDDEN s03-video_mov', 'e:X5:586-1-5 القمر49-55 والرحمن الحاقة النبأ التكو', 'confirmed')
+   x ('s03-speed1.1', 'e:B:1-2 الواقعة 1-26 السعودية بالخمسينات- مزامير .', 'possible')
+   x ('s04-aac32', 'e:B:1-2 الواقعة 1-26 السعودية بالخمسينات- مزامير .', 'possible')
