@@ -3,7 +3,7 @@
 const {chromium}=require('playwright');const fs=require('fs');const path=require('path');
 const DIR=process.argv[2],OUT=process.argv[3],FFL=process.env.FFLOCAL||'';
 (async()=>{
- const b=await chromium.launch();const ctx=await b.newContext({serviceWorkers:'block'});
+ const b=await chromium.launch(process.env.CHANNEL?{channel:process.env.CHANNEL}:{});const ctx=await b.newContext({serviceWorkers:'block'});
  if(FFL)await ctx.route(/cdn\.jsdelivr\.net\/npm\/@ffmpeg\/(ffmpeg|core)@[^/]+\/dist\/(umd|esm)\/(.+)$/,r=>{
    const m=r.request().url().match(/@ffmpeg\/(ffmpeg|core)@[^/]+\/dist\/(umd|esm)\/([^?]+)/);const f=path.join(FFL,'node_modules/@ffmpeg',m[1],'dist',m[2],m[3]);
    r.fulfill({body:fs.readFileSync(f),contentType:f.endsWith('.wasm')?'application/wasm':'text/javascript',headers:{'access-control-allow-origin':'*'}})});

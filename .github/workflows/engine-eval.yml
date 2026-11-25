@@ -34,8 +34,8 @@ jobs:
         with: {sparse-checkout: "index.html\njs\ncss\ndata\nicons\nmanifest.webmanifest\nsw.js\ntools"}
       - uses: actions/download-artifact@v4
         with: {name: testset, path: set}
-      - run: npm i -q --no-save playwright@1.49.1 && npx playwright install --with-deps chromium
-      - run: (python3 -m http.server 8765 >/dev/null 2>&1 &) && sleep 2 && node tools/engine/eval/test_ingest.js set ingest.jsonl
+      - run: npm i -q --no-save playwright@1.49.1 && npx playwright install --with-deps chrome
+      - run: (python3 -m http.server 8765 >/dev/null 2>&1 &) && sleep 2 && CHANNEL=chrome node tools/engine/eval/test_ingest.js set ingest.jsonl
       - run: python3 tools/engine/eval/score_ingest.py ingest.jsonl | tee ingest-score.txt
       - uses: actions/upload-artifact@v4
         with: {name: res-ingest, path: "ingest.jsonl\ningest-score.txt"}
@@ -51,8 +51,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with: {name: testset, path: set}
-      - run: npm i -q --no-save playwright@1.49.1 && npx playwright install --with-deps chromium
-      - run: (python3 -m http.server 8765 >/dev/null 2>&1 &) && sleep 2 && PART=${{ matrix.part }} OF=$PARTS node tools/engine/eval/run_finder.js set finder-${{ matrix.part }}.jsonl
+      - run: npm i -q --no-save playwright@1.49.1 && npx playwright install --with-deps chrome
+      - run: (python3 -m http.server 8765 >/dev/null 2>&1 &) && sleep 2 && CHANNEL=chrome PART=${{ matrix.part }} OF=$PARTS node tools/engine/eval/run_finder.js set finder-${{ matrix.part }}.jsonl
       - if: always()
         uses: actions/upload-artifact@v4
         with: {name: 'res-finder-${{ matrix.part }}', path: 'finder-${{ matrix.part }}.jsonl'}

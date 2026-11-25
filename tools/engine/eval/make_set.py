@@ -17,6 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..', '..'))
 sys.path.insert(0, os.path.join(ROOT, 'tools', 'engine'))
 sys.path.insert(0, os.path.join(ROOT, 'tools', 'fingerprint'))
+sys.path.insert(0, HERE)
 import proto_melody as PM
 
 SR = 16000
@@ -143,9 +144,14 @@ def find_copies(idx, codes, code, path):
         for f in (1, 1 / 1.03, 1 / 0.97):
             s = seg if f == 1 else np.interp(np.arange(int(len(seg) / f)) * f, np.arange(len(seg)), seg).astype(np.float32)
             for mo, secs, rec, off in idx.search(s, exclude=me)[:4]:
-                if mo >= 8 and secs >= 4 and rec not in got:
+                if mo >= 6 and secs >= 3 and rec not in got:
                     got.add(rec); hits.setdefault(codes[rec], []).append(t)
-    return sorted(k for k, v in hits.items() if len(v) >= 2)
+    cand = sorted(hits)
+    if not cand:
+        return []
+    import samefit
+    res = samefit.fit_pairs([[code, c] for c in cand])
+    return sorted(r['other'] for r in res if r['same'])
 
 
 def write_variant(src, out, d, chain, ext, extra, tmp, rng, x16, starts, others):
@@ -178,9 +184,9 @@ def write_variant(src, out, d, chain, ext, extra, tmp, rng, x16, starts, others)
         lst = '%s.txt' % tmp
         with open(lst, 'w') as fh:
             for j, f in enumerate(files):
-                fh.write("file '%s'\n" % f)
+                fh.write("file '%s'\n" % os.path.abspath(f))
                 if j < len(files) - 1:
-                    fh.write("file '%s'\n" % gap)
+                    fh.write("file '%s'\n" % os.path.abspath(gap))
         joined = '%s.joined.wav' % tmp
         ff(['-f', 'concat', '-safe', '0', '-i', lst, '-c', 'copy', joined])
         base_in, base_ss, base_t = joined, None, None
@@ -221,7 +227,7 @@ def write_variant(src, out, d, chain, ext, extra, tmp, rng, x16, starts, others)
         else:
             ff(['-f', 'lavfi', '-i', MUSIC.format(d=3), '-ac', '1', intro])
         lst = '%s.i.txt' % tmp
-        open(lst, 'w').write("file '%s'\nfile '%s'\n" % (intro, a))
+        open(lst, 'w').write("file '%s'\nfile '%s'\n" % (os.path.abspath(intro), os.path.abspath(a)))
         b2 = '%s.b.wav' % tmp
         ff(['-f', 'concat', '-safe', '0', '-i', lst, '-ar', str(SR), '-ac', '1', b2])
         a = b2
