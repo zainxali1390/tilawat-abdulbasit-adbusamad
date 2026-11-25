@@ -1,0 +1,25 @@
+# Recognition engine, step 6: hidden-run confirmations checked on the clip passage (tools/engine/eval/melody_local.mjs).
+name: Engine melody local
+on:
+  workflow_dispatch:
+  push:
+    paths: ['tools/engine/eval/melody_local_cases.json', '.github/workflows/engine-melody-local.yml']
+permissions:
+  contents: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: '${{ github.ref_name }}', fetch-depth: 1, sparse-checkout: "tools\njs"}
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: |
+          node tools/engine/eval/melody_local.mjs tools/engine/eval/melody_local_cases.json local.json | tee local.txt
+          D=tools/engine/eval/results/melody-local-$(date -u +%Y%m%d-%H%M)
+          mkdir -p $D && cp local.json local.txt $D/
+          git config user.name "engine-eval bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/engine/eval/results
+          git commit -q -m "Engine eval: melody local check" || exit 0
+          for i in 1 2 3 4; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((i*10)); done

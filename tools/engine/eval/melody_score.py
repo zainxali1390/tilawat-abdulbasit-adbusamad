@@ -25,15 +25,19 @@ neg, pos = [], []
 for r in R:
     v = r['variant']; s0 = r['segments'][0]; row = rows[v]
     top = r['top'][0] if r['top'] else None
-    t_ok = r['truth'] and r['truth']['at'] is not None and abs(r['truth']['at'] - s0['at']) < 1.0
-    best_ok = top and is_ok(r, top['code'])
-    right = bool(best_ok and top['at'] is not None and (top['code'] != r['code'] or abs(top['at'] - s0['at']) < 1.0))
+    # the melody reports where the clip's START (time 0) lies in the recording; a segment that begins at clip time a lies at
+    # `at`, so the clip's start lies at at - a*rate (intros, and the later parts of joined clips)
+    starts = [(g['code'], g['at'] - g['a'] * g['rate']) for g in r['segments']]
+    near = lambda code, at: at is not None and any((c == code or code in r['copies']) and abs(at - x) < 1.0 for c, x in starts)
+    t_ok = r['truth'] and near(r['truth']['code'], r['truth']['at'])
+    best_ok = top and (is_ok(r, top['code']) or any(top['code'] == c for c, _ in starts))
+    right = bool(best_ok and top['at'] is not None and (top['code'] not in [c for c, _ in starts] or near(top['code'], top['at'])))
     row['right'].append(right)
     other = max([t['score'] for t in r['top'] if not is_ok(r, t['code'])] or [0])
     if r['truth']:
         row['margin'].append(r['truth']['score'] - other)
         if t_ok:
-            row['terr'].append(abs(r['truth']['at'] - s0['at']))
+            row['terr'].append(min(abs(r['truth']['at'] - x) for c, x in starts if c == r['truth']['code']))
             pos.append((r['truth']['score'], v))
     neg.append((other, v, r['name'], next((t['code'] for t in r['top'] if not is_ok(r, t['code'])), '')))
     row['ms'].append(r['ms'])

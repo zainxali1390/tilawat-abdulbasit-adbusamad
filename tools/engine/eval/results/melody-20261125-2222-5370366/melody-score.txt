@@ -1,58 +1,58 @@
 variant            n  right   margin    t_err    sec
 aac32             16     15    0.186     0.00   63.1
-bass              16     15    0.297     0.00   57.4
-clean20           16     16    0.258     0.00   39.5
-combo1            16      9    0.007     0.05   57.0
-combo2            16     15    0.197     0.00   62.0
-combo3            16      6   -0.138     0.00   44.4
-compress          16     16    0.287     0.00   44.8
-distort           16     16    0.303     0.00   54.9
+bass              16     15    0.269     0.00   57.4
+clean20           16     16    0.219     0.00   39.5
+combo1            16      8    0.006     0.05   57.0
+combo2            16     13    0.106     0.00   62.0
+combo3            16      5   -0.139     0.00   44.4
+compress          16     16    0.286     0.00   44.8
+distort           16     16    0.257     0.00   54.9
 echo              16     13    0.235     0.00   48.2
-intro_music3      16      1    0.231     0.80   39.4
-intro_noise3      16      0    0.233        -   56.6
-intro_silence3    16      0    0.320        -   56.6
-join2_diff        16      5   -0.124     0.00   57.1
-join2_same        16      7    0.104     0.00   56.0
-join3_same        16      4   -0.046     0.00   56.6
-len10             16     15    0.239     0.00   56.8
-len44             16     16    0.354     0.00   57.1
-len7              16     16    0.111     0.00   55.8
-music_bed         16      5   -0.050     0.00   62.8
-noise10           16     13    0.137     0.00   39.3
-noise3            16      8    0.000     0.00   62.7
-phone             16     14    0.147     0.00   45.6
-pitch+1           16     16    0.264     0.00   39.8
-pitch+2           16     15    0.268     0.00   57.3
-pitch+3           16     14    0.198     0.00   44.0
-pitch-1           16     15    0.230     0.00   62.9
+intro_music3      16     15    0.231     0.00   39.4
+intro_noise3      16     16    0.149     0.00   56.6
+intro_silence3    16     15    0.290     0.00   56.6
+join2_diff        16      9   -0.124     0.00   57.1
+join2_same        16     14    0.079     0.00   56.0
+join3_same        16      5   -0.046     0.00   56.6
+len10             16     15    0.230     0.00   56.8
+len44             16     16    0.352     0.00   57.1
+len7              16     16    0.103     0.00   55.8
+music_bed         16      4   -0.050     0.00   62.8
+noise10           16     12    0.068     0.00   39.3
+noise3            16      7    0.000     0.00   62.7
+phone             16     14    0.063     0.00   45.6
+pitch+1           16     16    0.234     0.00   39.8
+pitch+2           16     15    0.210     0.00   57.3
+pitch+3           16     14    0.141     0.00   44.0
+pitch-1           16     15    0.160     0.00   62.9
 pitch-2           16     15    0.299     0.00   61.9
-pitch-4           16     15    0.202     0.00   55.3
-reverb_large      16     11    0.037     0.05   57.0
-reverb_small      16     11    0.140     0.00   56.7
-speed0.9          16     15    0.229     0.00   57.3
-speed1.1          16     16    0.240     0.00   62.1
-speed1.25         16     14    0.158     0.00   44.7
+pitch-4           16     15    0.168     0.00   55.3
+reverb_large      16     11    0.009     0.05   57.0
+reverb_small      16     10    0.022     0.00   56.7
+speed0.9          16     15    0.199     0.00   57.3
+speed1.1          16     13    0.211     0.00   62.1
+speed1.25         16     13    0.064     0.00   44.7
 tempo0.8          16     14    0.207     0.00   56.7
-tempo0.9          16     14    0.170     0.00   57.4
-tempo1.1          16     14    0.202     0.00   39.3
-tempo1.25         16     16    0.279     0.00   63.0
-treble_cut        16     16    0.283     0.00   62.2
-video_mov         16     15    0.240     0.00   62.1
-video_mp4         16     16    0.251     0.00   57.9
-TOTAL: best recording right (place within 1 s) for 487 of 640 clips
-hard negatives (best score of a recording that is not the original or a copy): median 0.646, 95th 0.889, 99th 0.911, max 0.941
-  threshold 0.60: originals above it 479/491, other recordings above it 418/640
-  threshold 0.65: originals above it 470/491, other recordings above it 315/640
-  threshold 0.70: originals above it 456/491, other recordings above it 226/640
-  threshold 0.75: originals above it 441/491, other recordings above it 179/640
-  threshold 0.80: originals above it 428/491, other recordings above it 142/640
-  threshold 0.85: originals above it 395/491, other recordings above it 92/640
+tempo0.9          16     14    0.051     0.00   57.4
+tempo1.1          16     13    0.143     0.00   39.3
+tempo1.25         16     16    0.274     0.00   63.0
+treble_cut        16     16    0.262     0.00   62.2
+video_mov         16     15    0.181     0.00   62.1
+video_mp4         16     16    0.236     0.00   57.9
+TOTAL: best recording right (place within 1 s) for 531 of 640 clips
+hard negatives (best score of a recording that is not the original or a copy): median 0.659, 95th 0.912, 99th 0.932, max 0.941
+  threshold 0.60: originals above it 534/548, other recordings above it 439/640
+  threshold 0.65: originals above it 519/548, other recordings above it 351/640
+  threshold 0.70: originals above it 502/548, other recordings above it 264/640
+  threshold 0.75: originals above it 482/548, other recordings above it 222/640
+  threshold 0.80: originals above it 464/548, other recordings above it 192/640
+  threshold 0.85: originals above it 430/548, other recordings above it 147/640
 highest hard negatives:
    0.941 len7 s08-len7 -> e:C:1121-_up_by_muslem.mp3
-   0.917 len7 s06-len7 -> e:C:0712-5_up_by_muslem.mp3
-   0.914 tempo0.8 s04-tempo0.8 -> e:C:0723-9_up_by_muslem.mp3
-   0.914 intro_music3 s12-intro_music3 -> e:C:0628-_up_by_muslem.mp3
-   0.912 speed0.9 s12-speed0.9 -> e:I1:almsjed-alaqsa (90).mp3
-   0.912 speed0.9 s06-speed0.9 -> e:C:0712-5_up_by_muslem.mp3
-   0.911 len7 s05-len7 -> e:C:0732-2_up_by_muslem.mp3
-   0.910 echo s06-echo -> e:A:287.mp3
+   0.940 speed1.1 s02-speed1.1 -> e:X5:586-1-5 القمر49-55 والرحمن الحاقة النبأ التكوير - من ميدان الخليفة بالقاهرة بداية السبعينات.mp3
+   0.939 noise10 s02-noise10 -> e:X5:586-1-5 القمر49-55 والرحمن الحاقة النبأ التكوير - من ميدان الخليفة بالقاهرة بداية السبعينات.mp3
+   0.935 speed0.9 s12-speed0.9 -> e:I1:almsjed-alaqsa (80).mp3
+   0.935 phone s13-phone -> e:X4:477-1-12  الزمر69-75 البلد الضحى الشرح التين والنصر-صلاة جمعة 30-1-1987 الحسين.mp3
+   0.934 intro_music3 s12-intro_music3 -> e:I1:almsjed-alaqsa (80).mp3
+   0.932 intro_silence3 s12-intro_silence3 -> e:I1:almsjed-alaqsa (80).mp3
+   0.931 video_mov s02-video_mov -> e:X5:586-1-5 القمر49-55 والرحمن الحاقة النبأ التكوير - من ميدان الخليفة بالقاهرة بداية السبعينات.mp3
