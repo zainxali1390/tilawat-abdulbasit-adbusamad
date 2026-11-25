@@ -1,0 +1,71 @@
+copies found by the searches (one time line through >= 3 far-apart clips):
+   e:C:0729-_up_by_muslem.mp3 -> ['e:X5:586-1-5 القمر49-55 والرحمن الحاقة النبأ ']
+   e:I1:almsjed-alaqsa (90).mp3 -> ['e:I6:سورالقمر والرحمن والقصار(الاقصى).mp3']
+   e:C:0706-_up_by_muslem.mp3 -> ['e:A:284.mp3']
+   e:I1:almsjed-alaqsa (79).mp3 -> ['e:I1:almsjed-alaqsa (80).mp3']
+   e:I53:عبد الباسط عبد الصمد  الزمر والبلد والض -> ['e:X4:477-1-12  الزمر69-75 البلد الضحى الشرح ا']
+   e:A:279.mp3 -> ['e:I8:00035.mp3']
+variant            n  right   poss  WRONG  none    t_err   parts  FALSE    sec
+clean20           16     16      0      0     0     0.01       -   2/16      6
+tempo1.1          16     16      0      0     0     0.02       -   0/16      9
+intro_music3      16     16      0      0     0     2.99       -   0/16      6
+pitch+1           16     14      0      0     2     0.01       -   0/16      9
+noise10           16     13      1      0     2     0.01       -   1/16      7
+aac32             16     16      0      0     0     0.01       -   0/16      5
+tempo1.25         16     15      0      0     1     0.02       -   0/16      8
+music_bed         16     14      2      0     0     0.01       -   0/16      6
+pitch-1           16     15      0      0     1     0.02       -   1/16      7
+noise3            16     14      0      0     2     0.02       -   0/16      6
+pitch+2           16     16      0      0     0     0.02       -   0/16      7
+bass              16     15      1      0     0     0.01       -   2/16      5
+video_mp4         16     16      0      0     0     0.02       -   0/16      4
+speed0.9          16     15      0      0     1     0.01       -   0/16      8
+combo1            16      5      0      0    11     0.03       -   0/16      8
+pitch-2           16     13      0      0     3     0.01       -   0/16      8
+treble_cut        16     16      0      0     0     0.01       -   1/16      5
+video_mov         16     15      1      0     0     0.02       -   1/16      4
+speed1.1          16     16      0      0     0     0.01       -   1/16      8
+combo2            16     13      0      1     2     0.01       -   1/16      8
+pitch+3           16     15      0      0     1     0.01       -   1/16      9
+compress          16     16      0      0     0     0.01       -   0/16      6
+phone             16     15      1      0     0     0.01       -   1/16      6
+speed1.25         16     14      0      0     2     0.01       -   0/16      8
+combo3            16      0      0      0    16        -       -   0/16      9
+pitch-4           16     13      0      0     3     0.02       -   0/16      8
+distort           16     16      0      0     0     0.01       -   1/16      5
+len7              16     14      1      0     1     0.02       -   0/16      4
+echo              16     12      2      1     1     0.02       -   1/16      6
+join2_same        16     16      0      0     0    12.98    6/32   0/16      6
+tempo0.8          16     13      0      0     3     0.01       -   0/16      8
+intro_silence3    16     16      0      0     0     3.01       -   1/16      5
+len10             16     15      1      0     0     0.02       -   0/16      5
+reverb_small      16     16      0      0     0     0.01       -   2/16      6
+join3_same        16     15      1      0     0     0.01   40/48   2/16     10
+tempo0.9          16     16      0      0     0     0.09       -   0/16      8
+intro_noise3      16     16      0      0     0     3.00       -   0/16      6
+len44             16     15      1      0     0     0.01       -   1/16      7
+reverb_large      16     11      3      0     2     0.02       -   0/16      8
+join2_diff        16     16      0      0     0     7.08    8/32   0/16      5
+TOTAL: 640 clips; right & confirmed 569; right, possible 15; WRONG confirmed 2; no answer 54; hidden runs 640, FALSE confirmed 20
+   x ('HIDDEN s06-clean20', 'e:A:770-qamerelrahman.mp3', 'confirmed')
+   x ('HIDDEN s08-clean20', 'e:C:1171--_up_by_muslem.mp3', 'confirmed')
+   x ('HIDDEN s05-pitch-1', 'e:C:0736-_up_by_muslem.mp3', 'confirmed')
+   x ('HIDDEN s06-bass', 'e:X5:567-4-1 القمر 49-55 الرحمن 1-27- من العراق 19', 'confirmed')
+   x ('HIDDEN s08-bass', 'e:A:784-yousefhousen.mp3', 'confirmed')
+   x ('HIDDEN s05-speed1.1', 'e:E:القصار المشهورة وبها الاذان.mp3', 'confirmed')
+   x ('s09-combo2', 'e:C:0984-_uP_bY_mUSLEm.mp3', 'confirmed')
+   x ('HIDDEN s09-combo2', 'e:C:0984-_uP_bY_mUSLEm.mp3', 'confirmed')
+   x ('HIDDEN s07-phone', 'e:X5:577-7-2 القمر49-55 والرحمن 1-27 التلاوة الثان', 'confirmed')
+   x ('HIDDEN s08-distort', 'e:C:1171--_up_by_muslem.mp3', 'confirmed')
+   x ('HIDDEN s05-join3_same', 'e:E:القصار المشهورة وبها الاذان.mp3', 'confirmed')
+   x ('HIDDEN s07-reverb_small', 'e:X5:577-7-2 القمر49-55 والرحمن 1-27 التلاوة الثان', 'confirmed')
+   x ('HIDDEN s05-len44', 'e:E:القصار المشهورة وبها الاذان.mp3', 'confirmed')
+   x ('HIDDEN s03-treble_cut', 'e:N1:245.mp3', 'confirmed')
+   x ('HIDDEN s06-video_mov', 'e:X5:567-4-1 القمر 49-55 الرحمن 1-27- من العراق 19', 'confirmed')
+   x ('HIDDEN s03-pitch+3', 'e:N1:245.mp3', 'confirmed')
+   x ('s04-echo', 'e:X5:570-5-1  القمر 49-55والرحمن 1-27 الشمس التين ', 'confirmed')
+   x ('HIDDEN s04-echo', 'e:X5:570-5-1  القمر 49-55والرحمن 1-27 الشمس التين ', 'confirmed')
+   x ('HIDDEN s05-intro_silence3', 'e:C:0870-2_up_by_muslem.mp3', 'confirmed')
+   x ('HIDDEN s08-reverb_small', 'e:C:1121-_up_by_muslem.mp3', 'confirmed')
+   x ('HIDDEN s08-join3_same', 'e:A:784-yousefhousen.mp3', 'confirmed')
+   x ('HIDDEN s08-noise10', 'e:C:1121-_up_by_muslem.mp3', 'confirmed')
