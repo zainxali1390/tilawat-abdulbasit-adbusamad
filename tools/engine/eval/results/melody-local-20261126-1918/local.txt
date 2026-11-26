@@ -1,0 +1,181 @@
+hidden  s00-clean20          e:X3:370-1-3 النور35-42 صلاة جمع 0/13 on one line, k null, clip at null (search said 758.8) 
+hidden  s04-clean20          e:C:0731-_up_by_muslem.mp3       10/21 on one line, k 1.0138, clip at 386.9 (search said 386.9) AGREES
+hidden  s04-clean20          e:A:292.mp3                      9/21 on one line, k 0.9875, clip at 374 (search said 374) AGREES
+hidden  s04-clean20          e:C:0723-9_up_by_muslem.mp3      7/21 on one line, k 1.0064, clip at 373.9 (search said 374.8) AGREES
+hidden  s04-tempo1.1         e:X6:713-3-1 الأعلى1-19 الغاشية  6/23 on one line, k 1.055, clip at 1057 (search said 1041.1) 
+hidden  s04-tempo1.1         e:C:0079--1951-_up_by_muslem.mp3 9/23 on one line, k 0.9691, clip at 2458.3 (search said 2456.8) AGREES
+hidden  s05-pitch+1          e:C:0733-_up_by_muslem.mp3       5/22 on one line, k 0.9194, clip at 159.2 (search said 158.4) AGREES
+hidden  s05-pitch+1          e:C:0732-2_up_by_muslem.mp3      5/22 on one line, k 0.9194, clip at 159.2 (search said 158.4) AGREES
+hidden  s05-pitch+1          e:C:0727-_up_by_muslem.mp3       5/22 on one line, k 0.9194, clip at 159.2 (search said 158.4) AGREES
+hidden  s05-pitch+1          e:E:القصار المشهورة وبها الاذان. 10/22 on one line, k 0.9628, clip at 1833.8 (search said 1833.8) AGREES
+hidden  s05-noise10          e:C:0733-_up_by_muslem.mp3       6/21 on one line, k 0.9433, clip at 1410.5 (search said 1410.5) AGREES
+hidden  s05-noise10          e:C:0727-_up_by_muslem.mp3       6/21 on one line, k 0.9433, clip at 1410.5 (search said 1410.5) AGREES
+hidden  s05-noise10          e:C:0732-2_up_by_muslem.mp3      6/21 on one line, k 0.9433, clip at 1410.5 (search said 1410.5) AGREES
+hidden  s05-noise10          e:I4:المسجد الاموي -رائعة وابداع 6/21 on one line, k 0.9433, clip at 1410.5 (search said 1410.4) AGREES
+hidden  s05-noise10          e:N2:254.mp3                     6/21 on one line, k 0.9433, clip at 1410.5 (search said 1410.4) AGREES
+hidden  s06-clean20          e:C:0719-5_up_by_muslem.mp3      5/18 on one line, k 0.97, clip at 1432.3 (search said 1432) AGREES
+hidden  s08-clean20          e:E:يوسف - الحسين مصر  تلاوة 3 س 14/24 on one line, k 0.9417, clip at 2188.8 (search said 2188.8) AGREES
+hidden  s08-clean20          e:C:1190-4_up_by_muslem.mp3      16/24 on one line, k 0.9417, clip at 2188.8 (search said 2188.8) AGREES
+hidden  s08-clean20          e:C:1209-3_uP_bY_mUSLEm.mp3      11/24 on one line, k 0.9417, clip at 2073 (search said 2073.2) AGREES
+hidden  s08-tempo1.1         e:C:1190-4_up_by_muslem.mp3      19/23 on one line, k 0.935, clip at 1909.3 (search said 1909.5) AGREES
+hidden  s08-intro_music3     e:E:يوسف - الحسين مصر  تلاوة 3 س 8/20 on one line, k 0.9383, clip at 1100.1 (search said 1205.3) 
+hidden  s08-intro_music3     e:C:1190-4_up_by_muslem.mp3      7/20 on one line, k 0.9367, clip at 1099.9 (search said 1205.4) 
+hidden  s12-tempo1.1         e:X2:254-7-1 الحجر 85-99 القيامة 1/25 on one line, k 0.9345, clip at 738.5 (search said 1253.7) 
+hidden  s01-noise3           e:X5:590-1-2 الواقعة 10-80 مصنع  0/23 on one line, k null, clip at null (search said 188.4) 
+hidden  s04-aac32            e:N2:368.mp3                     6/20 on one line, k 1.015, clip at 1334.2 (search said 1334) AGREES
+hidden  s04-aac32            e:E:عبد الباسط قصار السور.mp3    6/20 on one line, k 1.015, clip at 1334.2 (search said 1334) AGREES
+hidden  s04-aac32            e:C:0079--1951-_up_by_muslem.mp3 6/20 on one line, k 0.9383, clip at 2495.8 (search said 2499.2) 
+hidden  s04-aac32            e:C:1066-3_up_by_muslem.mp3      4/20 on one line, k 0.8909, clip at 2287.7 (search said 2287.7) AGREES
+hidden  s04-aac32            e:X6:713-3-1 الأعلى1-19 الغاشية  7/20 on one line, k 1.055, clip at 1101.4 (search said 1101.4) AGREES
+hidden  s04-tempo1.25        e:C:0731-_up_by_muslem.mp3       9/22 on one line, k 1.015, clip at 615.7 (search said 615.9) AGREES
+hidden  s04-music_bed        e:A:391.mp3                      4/23 on one line, k 1.023, clip at 2190.9 (search said 2205.4) 
+hidden  s04-music_bed        e:C:1065-2_up_by_muslem.mp3      5/23 on one line, k 1.1125, clip at 892.5 (search said 891.3) AGREES
+hidden  s04-music_bed        e:C:0240-_up_by_muslem.mp3       4/23 on one line, k 1.0917, clip at 891.5 (search said 891.5) AGREES
+hidden  s05-noise3           e:E:القصار المشهورة وبها الاذان. 8/19 on one line, k 0.92, clip at 3065.5 (search said 3067.5) 
+hidden  s05-noise3           e:C:0727-_up_by_muslem.mp3       10/19 on one line, k 0.9307, clip at 1568.7 (search said 1569.2) AGREES
+hidden  s05-noise3           e:C:0732-2_up_by_muslem.mp3      10/19 on one line, k 0.9307, clip at 1568.7 (search said 1569.2) AGREES
+hidden  s05-noise3           e:C:0733-_up_by_muslem.mp3       10/19 on one line, k 0.9307, clip at 1568.7 (search said 1569.2) AGREES
+hidden  s08-aac32            e:E:يوسف - الحسين مصر  تلاوة 3 س 13/20 on one line, k 0.9506, clip at 929.5 (search said 929.3) AGREES
+hidden  s08-aac32            e:C:1209-3_uP_bY_mUSLEm.mp3      12/20 on one line, k 0.94, clip at 917.4 (search said 917.2) AGREES
+hidden  s04-bass             e:C:1065-2_up_by_muslem.mp3      5/23 on one line, k 1.0933, clip at 923.5 (search said 980.3) 
+hidden  s04-bass             e:X6:713-3-1 الأعلى1-19 الغاشية  5/23 on one line, k 1.06, clip at 892.6 (search said 948.1) 
+hidden  s12-bass             e:C:0631-_up_by_muslem.mp3       6/24 on one line, k 1.0483, clip at 973 (search said 973.9) AGREES
+hidden  s04-treble_cut       e:C:1065-2_up_by_muslem.mp3      4/24 on one line, k 1.0917, clip at 877.1 (search said 877) AGREES
+hidden  s04-treble_cut       e:X6:713-3-1 الأعلى1-19 الغاشية  4/24 on one line, k 1.0583, clip at 864.7 (search said 847.8) 
+hidden  s04-treble_cut       e:C:0240-_up_by_muslem.mp3       4/24 on one line, k 1.09, clip at 1004.9 (search said 877.3) 
+hidden  s04-treble_cut       e:N2:368.mp3                     5/24 on one line, k 1.0031, clip at 1225.1 (search said 1225) AGREES
+hidden  s04-treble_cut       e:E:عبد الباسط قصار السور.mp3    5/24 on one line, k 1.0031, clip at 1225.1 (search said 1225) AGREES
+hidden  s04-treble_cut       e:C:0079--1951-_up_by_muslem.mp3 7/24 on one line, k 0.966, clip at 2395.1 (search said 2395) AGREES
+hidden  s05-video_mov        e:E:القصار المشهورة وبها الاذان. 9/21 on one line, k 0.8921, clip at 3900.3 (search said 3899.2) AGREES
+hidden  s05-speed1.1         e:E:القصار المشهورة وبها الاذان. 6/20 on one line, k 1.1128, clip at 3424.8 (search said 3401) 
+hidden  s05-speed1.1         e:N2:254.mp3                     3/20 on one line, k 0.9217, clip at 1965.4 (search said 1894.1) 
+hidden  s05-speed1.1         e:I4:المسجد الاموي -رائعة وابداع 3/20 on one line, k 0.9217, clip at 1965.4 (search said 1894.1) 
+hidden  s05-speed1.1         e:C:0727-_up_by_muslem.mp3       7/20 on one line, k 0.93, clip at 1894.4 (search said 1894.2) AGREES
+hidden  s05-speed1.1         e:C:0732-2_up_by_muslem.mp3      7/20 on one line, k 0.93, clip at 1894.4 (search said 1894.2) AGREES
+hidden  s05-speed1.1         e:C:0733-_up_by_muslem.mp3       7/20 on one line, k 0.93, clip at 1894.4 (search said 1894.2) AGREES
+hidden  s08-treble_cut       e:C:1190-4_up_by_muslem.mp3      14/22 on one line, k 0.9363, clip at 1741.7 (search said 1741.7) AGREES
+hidden  s08-treble_cut       e:E:يوسف - الحسين مصر  تلاوة 3 س 13/22 on one line, k 0.9375, clip at 1741.8 (search said 1741.6) AGREES
+hidden  s08-treble_cut       e:C:1209-3_uP_bY_mUSLEm.mp3      13/22 on one line, k 0.94, clip at 1625.1 (search said 1625) AGREES
+hidden  s12-pitch-2          e:C:1065-2_up_by_muslem.mp3      16/21 on one line, k 1.0817, clip at 1017.3 (search said 1017.3) AGREES
+hidden  s04-compress         e:A:292.mp3                      7/23 on one line, k 0.9833, clip at 970.5 (search said 970.5) AGREES
+hidden  s05-phone            e:C:0727-_up_by_muslem.mp3       9/18 on one line, k 0.9425, clip at 590.6 (search said 590.2) AGREES
+hidden  s05-phone            e:C:0732-2_up_by_muslem.mp3      9/18 on one line, k 0.9425, clip at 590.6 (search said 590.2) AGREES
+hidden  s05-phone            e:C:0733-_up_by_muslem.mp3       9/18 on one line, k 0.9425, clip at 590.6 (search said 590.2) AGREES
+hidden  s05-phone            e:N2:254.mp3                     8/18 on one line, k 0.9413, clip at 590.4 (search said 590.1) AGREES
+hidden  s05-phone            e:I4:المسجد الاموي -رائعة وابداع 8/18 on one line, k 0.9413, clip at 590.4 (search said 590.1) AGREES
+hidden  s07-combo3           e:X5:556-5-1 النجم 1-62 الطارق ق 0/19 on one line, k null, clip at null (search said 1732.9) 
+hidden  s08-compress         e:C:1209-3_uP_bY_mUSLEm.mp3      14/23 on one line, k 0.9375, clip at 1247.8 (search said 1247.7) AGREES
+hidden  s12-pitch+3          e:B:10 التكاثر - الناس والفاتحة  0/23 on one line, k null, clip at null (search said 1024.7) 
+hidden  s15-phone            e:B:8 ال عمران 35-37 من تلفزيون  0/22 on one line, k null, clip at null (search said 248.4) 
+hidden  s03-len7             e:X5:526-1-9 الحجرات 13-18 القيا 0/17 on one line, k null, clip at null (search said 1368.6) 
+hidden  s04-distort          e:A:292.mp3                      8/23 on one line, k 0.9783, clip at 923.3 (search said 923.7) AGREES
+hidden  s05-echo             e:I9:071--.mp3                   0/18 on one line, k null, clip at null (search said 636) 
+hidden  s08-distort          e:E:يوسف - الحسين مصر  تلاوة 3 س 13/23 on one line, k 0.937, clip at 1967.7 (search said 1967.9) AGREES
+hidden  s08-distort          e:C:1190-4_up_by_muslem.mp3      15/23 on one line, k 0.9367, clip at 1967.8 (search said 1968) AGREES
+hidden  s12-pitch-4          e:B:4-1 مريم 1-52 - تلاوات سوريا 0/23 on one line, k null, clip at null (search said 1242.1) 
+hidden  s02-intro_silence3   e:X5:565-2-1 القمر49-55 والرحمن  0/19 on one line, k null, clip at null (search said 2431.5) 
+hidden  s04-intro_silence3   e:N1:076.mp3                     5/24 on one line, k 1.065, clip at 829.5 (search said 843.3) 
+hidden  s07-len10            e:A:255.mp3                      0/19 on one line, k null, clip at null (search said 801.2) 
+hidden  s01-join2_diff       e:E:القصار المشهورة وبها الاذان. 0/22 on one line, k null, clip at null (search said 3557) 
+hidden  s01-join2_diff       e:A:384.mp3                      1/22 on one line, k 0.875, clip at 1103.5 (search said 22.8) 
+hidden  s04-intro_noise3     e:C:0723-9_up_by_muslem.mp3      11/23 on one line, k 0.9833, clip at 971.4 (search said 968.4) 
+hidden  s04-intro_noise3     e:C:0731-_up_by_muslem.mp3       8/23 on one line, k 1.0121, clip at 1001.7 (search said 998.7) 
+hidden  s04-intro_noise3     e:C:0735-_up_by_muslem.mp3       11/23 on one line, k 1.0056, clip at 999.1 (search said 996) 
+hidden  s05-len44            e:E:القصار المشهورة وبها الاذان. 7/22 on one line, k 0.9391, clip at 3480.3 (search said 3479.7) AGREES
+hidden  s08-intro_noise3     e:E:يوسف - الحسين مصر  تلاوة 3 س 14/21 on one line, k 0.94, clip at 2090.4 (search said 2087.7) 
+hidden  s08-intro_noise3     e:C:1209-3_uP_bY_mUSLEm.mp3      10/21 on one line, k 0.943, clip at 1974.8 (search said 1971.9) 
+hidden  s13-join2_diff       e:C:1209-3_uP_bY_mUSLEm.mp3      0/24 on one line, k null, clip at null (search said 2066) 
+hidden  s04-video_mp4        e:C:0725-_up_by_muslem.mp3       11/22 on one line, k 1.02, clip at 654.1 (search said 654.2) AGREES
+hidden  s05-bass             e:C:0733-_up_by_muslem.mp3       7/20 on one line, k 0.9317, clip at 239.6 (search said 239.1) AGREES
+hidden  s05-bass             e:E:القصار المشهورة وبها الاذان. 9/20 on one line, k 0.967, clip at 1917.8 (search said 1917.8) AGREES
+hidden  s05-bass             e:C:0727-_up_by_muslem.mp3       7/20 on one line, k 0.9317, clip at 239.6 (search said 239.1) AGREES
+hidden  s05-bass             e:C:0732-2_up_by_muslem.mp3      7/20 on one line, k 0.9317, clip at 239.6 (search said 239.1) AGREES
+hidden  s08-video_mp4        e:C:1209-3_uP_bY_mUSLEm.mp3      9/21 on one line, k 0.9367, clip at 1352.4 (search said 1440.3) 
+hidden  s08-video_mp4        e:C:1190-4_up_by_muslem.mp3      7/21 on one line, k 0.9217, clip at 1469.2 (search said 1557.6) 
+hidden  s09-pitch+2          e:C:0884-64--81_up_by_muslem.mp3 1/24 on one line, k 0.9478, clip at 82.3 (search said 1640.9) 
+hidden  s12-video_mp4        e:E:القصار المشهورة وبها الاذان. 1/21 on one line, k 0.8946, clip at 3100.7 (search said 1462.6) 
+hidden  s12-speed0.9         e:C:1065-2_up_by_muslem.mp3      16/18 on one line, k 1.08, clip at 1202 (search said 1202.2) AGREES
+hidden  s12-speed0.9         e:N1:076.mp3                     16/18 on one line, k 1.0767, clip at 1198.6 (search said 1198.7) AGREES
+hidden  s12-speed0.9         e:I16:2-871976.mp3               18/18 on one line, k 1.0717, clip at 1187.9 (search said 1187.9) AGREES
+hidden  s12-speed0.9         e:X6:713-3-1 الأعلى1-19 الغاشية  17/18 on one line, k 1.05, clip at 1163.5 (search said 1163.6) AGREES
+hidden  s12-speed0.9         e:C:0240-_up_by_muslem.mp3       16/18 on one line, k 1.08, clip at 1202.2 (search said 1202.3) AGREES
+hidden  s12-speed0.9         e:A:393.mp3                      12/18 on one line, k 1.0836, clip at 428.7 (search said 428.7) AGREES
+hidden  s04-video_mov        e:C:0991-_up_by_muslem.mp3       6/23 on one line, k 1.1183, clip at 5259.1 (search said 5244.1) 
+hidden  s04-video_mov        e:C:1119-_uP_bY_mUSLEm.mp3       6/23 on one line, k 1.1183, clip at 5259.1 (search said 5244.1) 
+hidden  s04-speed1.1         e:A:292.mp3                      4/15 on one line, k 0.966, clip at 24.7 (search said 23.9) AGREES
+hidden  s04-speed1.1         e:C:0735-_up_by_muslem.mp3       6/15 on one line, k 1.02, clip at 30.5 (search said 30.6) AGREES
+hidden  s04-combo2           e:I16:2-871976.mp3               7/16 on one line, k 1.075, clip at 1176.5 (search said 1176.5) AGREES
+hidden  s04-combo2           e:N1:076.mp3                     7/16 on one line, k 1.0837, clip at 1187.3 (search said 1187.2) AGREES
+hidden  s04-combo2           e:X6:713-3-1 الأعلى1-19 الغاشية  7/16 on one line, k 1.0537, clip at 1152.3 (search said 1152.4) AGREES
+hidden  s04-combo2           e:C:0079--1951-_up_by_muslem.mp3 6/16 on one line, k 1.0067, clip at 2547.8 (search said 2531) 
+hidden  s05-treble_cut       e:E:القصار المشهورة وبها الاذان. 7/21 on one line, k 0.9656, clip at 2905.9 (search said 2905.9) AGREES
+hidden  s08-speed1.1         e:E:يوسف - الحسين مصر  تلاوة 3 س 12/21 on one line, k 0.931, clip at 1311.6 (search said 1311.5) AGREES
+hidden  s09-pitch-2          e:C:0592-2_up_by_muslem.mp3      0/22 on one line, k null, clip at null (search said 376.6) 
+hidden  s09-treble_cut       e:R:291--اذاعة مصر الخمسينات الن 0/20 on one line, k null, clip at null (search said 95.7) 
+hidden  s12-combo2           e:X6:713-3-1 الأعلى1-19 الغاشية  19/20 on one line, k 1.05, clip at 539.2 (search said 539.2) AGREES
+hidden  s12-combo2           e:I16:2-871976.mp3               18/20 on one line, k 1.0733, clip at 551 (search said 550.7) AGREES
+hidden  s00-phone            e:A:419.mp3                      1/18 on one line, k 0.9413, clip at 183.2 (search said 987.5) 
+hidden  s04-speed1.25        e:A:292.mp3                      7/22 on one line, k 0.994, clip at 309.6 (search said 309.6) AGREES
+hidden  s05-pitch+3          e:E:القصار المشهورة وبها الاذان. 7/22 on one line, k 0.9175, clip at 3228.2 (search said 3229) AGREES
+hidden  s05-compress         e:C:0870-2_up_by_muslem.mp3      6/20 on one line, k 1.0967, clip at 29.6 (search said 29.6) AGREES
+hidden  s08-combo3           s:warsh:40                       0/22 on one line, k null, clip at null (search said 759.6) 
+hidden  s11-pitch+3          e:R:186--اذاعة السعودية السبعينا 0/23 on one line, k null, clip at null (search said 284.9) 
+hidden  s14-speed1.25        e:B:7 النساء 64-75 تلاوة تلفزيون 1/23 on one line, k 1.094, clip at 467.8 (search said 206.7) 
+hidden  s01-pitch-4          e:N2:318.mp3                     0/24 on one line, k null, clip at null (search said 655) 
+hidden  s03-pitch-4          e:C:0705-_up_by_muslem.mp3       1/19 on one line, k 0.8629, clip at 312.1 (search said 1375.3) 
+hidden  s04-len7             e:A:393.mp3                      4/21 on one line, k 1.0933, clip at 149.4 (search said 206.5) 
+hidden  s04-echo             e:C:0731-_up_by_muslem.mp3       5/25 on one line, k 1.01, clip at 1154.2 (search said 1247.9) 
+hidden  s05-pitch-4          e:E:القصار المشهورة وبها الاذان. 7/19 on one line, k 0.955, clip at 3998 (search said 3996.8) AGREES
+hidden  s05-distort          e:E:القصار المشهورة وبها الاذان. 8/19 on one line, k 0.9722, clip at 2309.5 (search said 2309.8) AGREES
+hidden  s08-echo             e:C:1190-4_up_by_muslem.mp3      12/23 on one line, k 0.9367, clip at 1851.3 (search said 1851.3) AGREES
+hidden  s08-echo             e:E:يوسف - الحسين مصر  تلاوة 3 س 15/23 on one line, k 0.9367, clip at 1851.2 (search said 1851.2) AGREES
+hidden  s08-echo             e:C:1209-3_uP_bY_mUSLEm.mp3      10/23 on one line, k 0.94, clip at 1734.9 (search said 1734.9) AGREES
+hidden  s08-join2_same       e:C:1190-4_up_by_muslem.mp3      8/21 on one line, k 0.9333, clip at 1609.1 (search said 1609) AGREES
+hidden  s12-echo             e:X6:713-3-1 الأعلى1-19 الغاشية  19/19 on one line, k 1.0517, clip at 1152.8 (search said 1152.8) AGREES
+hidden  s02-len10            e:I1:almsjed-alaqsa (93).mp3     0/21 on one line, k null, clip at null (search said 1790.4) 
+hidden  s04-len10            s:warsh:29                       0/22 on one line, k null, clip at null (search said 411.6) 
+hidden  s04-join3_same       e:C:1065-2_up_by_muslem.mp3      4/22 on one line, k 1.1465, clip at 821.8 (search said 829.7) 
+hidden  s05-intro_silence3   e:C:0870-2_up_by_muslem.mp3      3/20 on one line, k 1.1014, clip at 230.7 (search said 188.6) 
+hidden  s07-intro_silence3   e:A:338.mp3                      0/22 on one line, k null, clip at null (search said 214) 
+hidden  s01-tempo0.9         e:N2:251.mp3                     3/20 on one line, k 0.9883, clip at 229.9 (search said 229.9) AGREES
+hidden  s01-intro_noise3     e:A:298.mp3                      0/22 on one line, k null, clip at null (search said 836) 
+hidden  s04-len44            e:C:0731-_up_by_muslem.mp3       5/25 on one line, k 1.0164, clip at 304 (search said 304.1) AGREES
+hidden  s04-reverb_large     e:I9:071--.mp3                   6/24 on one line, k 1.0725, clip at 142.2 (search said 233) 
+hidden  s08-join2_diff       e:C:1190-4_up_by_muslem.mp3      12/20 on one line, k 0.94, clip at 2127.1 (search said 2127.2) AGREES
+hidden  s10-reverb_large     e:C:0535-_up_by_muslem.mp3       1/20 on one line, k 0.8825, clip at 37 (search said 1044.9) 
+hidden  s10-reverb_large     e:C:0534-_up_by_muslem.mp3       1/20 on one line, k 0.8825, clip at 37 (search said 1044.9) 
+hidden  s10-join2_diff       e:C:1190-4_up_by_muslem.mp3      0/17 on one line, k null, clip at null (search said 1010.2) 
+hidden  s10-join2_diff       e:C:1209-3_uP_bY_mUSLEm.mp3      0/17 on one line, k null, clip at null (search said 998.1) 
+hidden  s01-tempo1.1         e:X2:288-1-1 الكهف  30-45 والبلد 0/24 on one line, k null, clip at null (search said 53.6) 
+hidden  s04-noise10          e:C:0731-_up_by_muslem.mp3       7/25 on one line, k 1.0121, clip at 1119.9 (search said 1119.8) AGREES
+hidden  s05-clean20          e:E:القصار المشهورة وبها الاذان. 7/20 on one line, k 0.9505, clip at 3014 (search said 3014) AGREES
+hidden  s05-clean20          e:E:ابراهيم من المسجد الاقصى وهى 0/20 on one line, k null, clip at null (search said 111) 
+hidden  s05-tempo1.1         e:C:0733-_up_by_muslem.mp3       11/22 on one line, k 0.9357, clip at 2428.7 (search said 2429.3) AGREES
+hidden  s05-tempo1.1         e:C:0727-_up_by_muslem.mp3       11/22 on one line, k 0.9357, clip at 2428.7 (search said 2429.3) AGREES
+hidden  s05-tempo1.1         e:C:0732-2_up_by_muslem.mp3      11/22 on one line, k 0.9357, clip at 2428.7 (search said 2429.3) AGREES
+hidden  s05-intro_music3     e:N2:254.mp3                     5/19 on one line, k 0.935, clip at 750.4 (search said 747.8) 
+hidden  s05-intro_music3     e:C:0727-_up_by_muslem.mp3       8/19 on one line, k 0.9367, clip at 750.6 (search said 747.9) 
+hidden  s05-intro_music3     e:C:0732-2_up_by_muslem.mp3      8/19 on one line, k 0.9367, clip at 750.6 (search said 747.9) 
+hidden  s05-intro_music3     e:E:القصار المشهورة وبها الاذان. 6/19 on one line, k 0.9712, clip at 2469.3 (search said 2466.8) 
+hidden  s05-intro_music3     e:C:0733-_up_by_muslem.mp3       8/19 on one line, k 0.9367, clip at 750.6 (search said 747.9) 
+hidden  s08-pitch+1          e:C:1190-4_up_by_muslem.mp3      11/20 on one line, k 0.9317, clip at 1022 (search said 1022.5) AGREES
+hidden  s08-noise10          e:E:يوسف - الحسين مصر  تلاوة 3 س 14/22 on one line, k 0.9367, clip at 574.1 (search said 574.2) AGREES
+hidden  s11-intro_music3     e:I1:almsjed-alaqsa (105).mp3    0/25 on one line, k null, clip at null (search said 122.3) 
+hidden  s04-noise3           e:C:0731-_up_by_muslem.mp3       4/20 on one line, k 1.0233, clip at 72.9 (search said 72.3) AGREES
+hidden  s05-aac32            e:E:القصار المشهورة وبها الاذان. 7/19 on one line, k 0.9277, clip at 1782.8 (search said 1782.7) AGREES
+hidden  s05-music_bed        e:C:0733-_up_by_muslem.mp3       13/24 on one line, k 0.935, clip at 1708.9 (search said 1708.3) AGREES
+hidden  s05-music_bed        e:I4:المسجد الاموي -رائعة وابداع 11/24 on one line, k 0.92, clip at 1707.6 (search said 1708.3) AGREES
+hidden  s05-music_bed        e:C:0727-_up_by_muslem.mp3       13/24 on one line, k 0.935, clip at 1708.9 (search said 1708.3) AGREES
+hidden  s05-music_bed        e:C:0732-2_up_by_muslem.mp3      13/24 on one line, k 0.935, clip at 1708.9 (search said 1708.3) AGREES
+hidden  s05-music_bed        e:N2:254.mp3                     11/24 on one line, k 0.92, clip at 1707.6 (search said 1708.3) AGREES
+hidden  s05-music_bed        e:E:القصار المشهورة وبها الاذان. 6/24 on one line, k 0.9175, clip at 3202.7 (search said 3202.7) AGREES
+hidden  s06-noise3           e:I1:almsjed-alaqsa (39).mp3     1/17 on one line, k 1.035, clip at 31.9 (search said 528.3) 
+hidden  s08-pitch-1          e:C:1190-4_up_by_muslem.mp3      14/22 on one line, k 0.9433, clip at 2193.8 (search said 2193.8) AGREES
+hidden  s08-pitch-1          e:E:يوسف - الحسين مصر  تلاوة 3 س 14/22 on one line, k 0.9433, clip at 2193.8 (search said 2193.7) AGREES
+hidden  s12-pitch-1          e:X6:713-3-1 الأعلى1-19 الغاشية  21/24 on one line, k 1.0517, clip at 1833.3 (search said 1833.2) AGREES
+control control              e:C:0729-_up_by_muslem.mp3       1/24 on one line, k 1.101, clip at 625.7 (search said null) 
+control control              e:I1:almsjed-alaqsa (90).mp3     0/22 on one line, k null, clip at null (search said null) 
+control control              e:A:284.mp3                      1/23 on one line, k 0.9467, clip at 377.4 (search said null) 
+control control              e:X5:565-2-1 القمر49-55 والرحمن  0/23 on one line, k null, clip at null (search said null) 
+control control              e:A:279.mp3                      0/21 on one line, k null, clip at null (search said null) 
+control control              e:X5:568-4-1 القمر 49-55 الرحمن  0/20 on one line, k null, clip at null (search said null) 
