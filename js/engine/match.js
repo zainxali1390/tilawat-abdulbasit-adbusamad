@@ -69,7 +69,9 @@ X.timestamp=function(lm,mel,ing,recDur,opt){
   const lo=byLm?lm.lo:(rec.length?rec[0].a:0),hi=byLm?lm.hi:(rec.length?rec[rec.length-1].b:dur);
   /* the recitation sections overlapping it (2 s of slack), so the span runs from where the recitation really starts */
   const over=rec.filter(s=>s.b>=lo-2&&s.a<=hi+2);
-  let ca=over.length?Math.min(...over.map(s=>s.a)):lo,cb=over.length?Math.max(...over.map(s=>s.b)):hi;
+  /* sections reach at most 0.5 s beyond the evidence (a recitation section can run across a join between two parts of
+     a clip); the edge check against the recording below takes it the rest of the way where the clip really matches */
+  let ca=over.length?Math.max(lo-0.5,Math.min(...over.map(s=>s.a))):lo,cb=over.length?Math.min(hi+0.5,Math.max(...over.map(s=>s.b))):hi;
   ca=Math.max(0,Math.min(ca,lo));cb=Math.min(dur,Math.max(cb,hi));
   /* the edges, checked against the recording itself (opt.q: the clip's melody, opt.ref: the recording's, both MIDI per
      50 ms frame, NaN = no voice): beyond the span found so far, 0.25 s at a time, the clip is taken as part of the
@@ -82,6 +84,12 @@ X.timestamp=function(lm,mel,ing,recDur,opt){
     const look=(c0,c1)=>{let n=0,vq=0,vr=0,ok=0;for(let t=c0;t<c1;t+=1/F){const i=Math.round(t*F),j=Math.round((k*t+b)*F);if(i<0||i>=q.length||j<0||j>=ref.length)return null;
         const a=q[i],r=ref[j];n++;if(!isNaN(a))vq++;if(!isNaN(r))vr++;if(!isNaN(a)&&!isNaN(r)&&sh!=null){let x=r-a-sh;while(x>6)x-=12;while(x<-6)x+=12;if(Math.abs(x)<=1.5)ok++}}
       return n?{voiced:vq>=0.3*n&&ok>=0.6*vq,quiet:vq<=0.2*n&&vr<=0.35*n}:null};
+    /* a whole gap between the section's start (or end) and the evidence that matches the recording overall is taken in
+       one go: the clip's own recitation before its first landmark (an intro ends there). A gap across a join between
+       two parts does not match the line, so the span stays at the evidence, and the steps below refine it. */
+    const secA=over.length?Math.min(...over.map(s=>s.a)):ca,secB=over.length?Math.max(...over.map(s=>s.b)):cb;
+    if(secA<ca-0.3){const L=look(Math.max(0,secA),ca);if(L&&L.voiced)ca=Math.max(0,secA)}
+    if(secB>cb+0.3){const L=look(cb,Math.min(dur,secB));if(L&&(L.voiced||L.quiet))cb=Math.min(dur,secB)}
     const S=0.25;
     /* start: only matching voice extends it (a silent edge, added or natural, is left out: the match starts where the
        recitation does); end: matching voice or a shared pause (a clip often ends in a pause of the recording) */
