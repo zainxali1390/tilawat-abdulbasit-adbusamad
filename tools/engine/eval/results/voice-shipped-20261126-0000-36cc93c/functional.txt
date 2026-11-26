@@ -1,0 +1,11 @@
+PASS reference: 4 centroids of 192, threshold 0.5751
+PASS silence → unknown
+PASS 3 s clip → unknown (too little voice)
+     tone → {"verdict":"no-objection","score":0.841,"threshold":0.5751,"secs":10}
+PASS other reciter sample ddebde9d40ed.f32 → unlike (0.452)
+PASS other reciter sample fbd44408efb6.f32 → unlike (0.57)
+PASS other reciter sample 5529d77b2e90.f32 → unlike (0.404)
+PASS browser: VOICE.check in the app page → {"verdict":"no-objection","score":0.869,"threshold":0.5751,"secs":12,"ms":2141}
+PASS browser and Node give the same score (0.869 vs 0.869)
+PASS browser: other reciter sample → {"verdict":"unlike","score":0.452,"threshold":0.5751,"secs":12}
+all passed

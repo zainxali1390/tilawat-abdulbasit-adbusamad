@@ -1,0 +1,27 @@
+ALL Abdul Basit                              unlike   3/495  (too little voice: 4)
+ALL other reciters                           unlike 102/364  (too little voice: 5)
+Abdul Basit (1950s)                          unlike   0/104
+Abdul Basit (1960s)                          unlike   1/112  (too little voice: 4)
+Abdul Basit (1970s)                          unlike   1/114
+Abdul Basit (1980s)                          unlike   1/106
+Abdul Basit (undated)                        unlike   0/59
+edited clips (Abdul Basit)                   unlike   3/640
+edited clips judged unlike: bass             unlike   1/1
+edited clips judged unlike: pitch+2          unlike   1/1
+edited clips judged unlike: speed1.25        unlike   1/1
+other: Abdul Rahman Al-Sudais                unlike  11/16
+other: Abu al-Aynayn Shuaisha                unlike   0/20  (too little voice: 1)
+other: Ahmed Naina                           unlike   5/14
+other: Al-Shahat Muhammad Anwar              unlike   1/16
+other: Kamel Yusuf Al-Bahtimi                unlike   1/26  (too little voice: 2)
+other: Maher Al-Muaiqly                      unlike  25/32
+other: Mahmoud Ali Al-Banna                  unlike  11/32
+other: Mahmoud Khalil Al-Husary              unlike   6/12
+other: Mishary Alafasy                       unlike   5/24
+other: Mohamed Siddiq Al-Minshawi            unlike   0/23
+other: Muhammad Jibreel                      unlike   2/16
+other: Muhammad Mahmoud Al-Tablawi           unlike   5/28
+other: Muhammad Rifat                        unlike   0/27  (too little voice: 1)
+other: Mustafa Ismail                        unlike   6/18
+other: Raghib Mustafa Ghalwash               unlike   0/28  (too little voice: 1)
+other: Saad Al-Ghamdi                        unlike  24/32
