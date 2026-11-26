@@ -1,0 +1,50 @@
+# Recognition engine, step 10: narrowing and exact matching in the real app page (tools/engine/eval/run_exact.js) on the
+# 640 test clips, original present and hidden; scored by exact_score.py.
+name: Engine exact match
+on:
+  workflow_dispatch:
+  push:
+    paths: ['tools/engine/eval/EXACT_RUN', '.github/workflows/engine-exact.yml']
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: engine-exact
+  cancel-in-progress: true
+env:
+  SET_RUN: '45686748504'
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    strategy:
+      fail-fast: false
+      matrix: {part: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: testset, path: set, run-id: '${{ env.SET_RUN }}', github-token: '${{ github.token }}'}
+      - run: npm i -q --no-save playwright@1.49.1 && npx playwright install --with-deps chrome
+      - run: (python3 -m http.server 8765 >/dev/null 2>&1 &) && sleep 2 && CHANNEL=chrome PART=${{ matrix.part }} OF=16 node tools/engine/eval/run_exact.js set exact-${{ matrix.part }}.jsonl tools/engine/eval/results/content-20261125-1854-c937226
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: {name: 'res-exact-${{ matrix.part }}', path: 'exact-${{ matrix.part }}.jsonl'}
+  score:
+    needs: [run]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: '${{ github.ref_name }}', fetch-depth: 1, sparse-checkout: tools}
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'res-exact-*', path: res, merge-multiple: true}
+      - run: |
+          D=tools/engine/eval/results/exact-$(date -u +%Y%m%d-%H%M)-$(git rev-parse --short HEAD)
+          mkdir -p $D && cat res/exact-*.jsonl > $D/exact.jsonl
+          python3 tools/engine/eval/exact_score.py $D/exact.jsonl | tee $D/exact-score.txt
+          gzip -9 $D/exact.jsonl
+          git config user.name "engine-eval bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/engine/eval/results
+          git commit -q -m "Engine eval: exact match results" || exit 0
+          for i in 1 2 3 4; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((i*10)); done
