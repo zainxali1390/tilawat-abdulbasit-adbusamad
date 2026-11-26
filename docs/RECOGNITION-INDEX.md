@@ -1,6 +1,6 @@
 # Step 9: Archive indexing and search
 
-Status: see the checklist. Code: `tools/engine/build_index.mjs` (melody index), `js/engine/archive.js` (the app's
+Status: **done** (26 Nov 2026). Code: `tools/engine/build_index.mjs` (melody index), `js/engine/archive.js` (the app's
 loader), `tools/verses/analyse.mjs --model --step --all` (verse map), `tools/engine/build_vi.mjs` (verse index).
 Tests: `test_archive.mjs`, `melody_hash_eval.mjs --archive`, `cand_eval.mjs`, `verse_exp.mjs`. Workflows:
 `engine-index.yml`, `engine-verse-exp.yml`, `verse-rebuild.yml`. Results: `tools/engine/eval/results/index-20261126-0934-9d4a741`
@@ -12,8 +12,8 @@ Tests: `test_archive.mjs`, `melody_hash_eval.mjs --archive`, `cand_eval.mjs`, `v
 |---|---|---|---|
 | `mf/` melody frames | one file per recording, 1 byte per 50 ms (`mf/r/XX/<fnv>.bin`) | 3,081 recordings, 97 MB | the melodies of the 30 recordings it checks (about 0.7 MB) |
 | `mh/` melody hashes | 11.2 million entries in 12,028 shard files, sharded like `fp/` | 48 MB | the shards of the clip's hashes (a few hundred small files) |
-| `vm/` verse map | rebuilt: base model, a 30 s window every 30 s (§3) | see §3 | unchanged: the parts it needs |
-| `vi/` verse index | the verse map turned around, per surah | see §3 | one surah's file |
+| `vm/` verse map | rebuilt: base model, a 30 s window every 30 s (§3); 163,311 windows | 4 MB of placements (+ 33 MB raw transcripts, never downloaded by the app) | the parts it needs |
+| `vi/` verse index | the verse map turned around, per surah | 2.9 MB | one surah's file (at most 137 KB) |
 
 - **Incremental:** the melody indexer keeps a manifest (`mf/manifest.json`: code → file, frames, url). A recording whose url
   hasn't changed is not downloaded again. Tested locally: the second run reused both test recordings and downloaded
@@ -59,7 +59,44 @@ Their turning points are destroyed: pitch ±2 on top of noise, distortion, a mus
 
 ## 3. The verse map
 
-(filled in from the rebuild)
+The verse map was first built with the tiny speech model, before Step 4 chose the base model for the app. It also had
+one 30 s window every 60 s, so half of each recording was never listened to.
+
+**Experiment** (`engine-verse-exp.yml`, `results/verse-exp-*`): the 16 test recordings mapped again three ways, with their
+windows swapped into the map and the verse source measured on the 640 clips:
+
+| Map | Right recording in the verse list's top 30 (367 clips with a verse) | Not-confirmed clips | Time per window |
+|---|---|---|---|
+| Tiny, every 60 s (old) | 259 | 23/35 | — |
+| Base, every 60 s | 276 | 25/35 | 2.1 s |
+| Tiny, every 30 s | 294 | 27/35 | 0.9 s |
+| **Base, every 30 s** | **311** | **29/35** | 1.9 s |
+
+Both changes help, and together most. The full rebuild was estimated at about 162,000 windows × 1.9 s, roughly 85
+CPU-hours, so it was split over 24 jobs.
+
+**Rebuild** (`verse-rebuild.yml`):
+- all 3,081 recordings, base model, a 30 s window every 30 s: 163,311 windows, **0 failures**;
+- about 3.5 h per job; 8 h of wall time, because GitHub runs 20 jobs at once;
+- a recording that failed would have kept its old windows;
+- the manifest now records the model and step;
+- the app's own use of the map (verse checks on sound matches) assumes only the 30 s window length, so it works unchanged
+  and gets the better map too.
+
+**Measured with every recording remapped** (`results/cand-20261126-1753-newvm`):
+
+| | Old map | Rebuilt map |
+|---|---|---|
+| Verse list alone, right recording in top 30 (367 clips with a verse) | 259 | **274** |
+| Verse list alone, the 68 not-confirmed clips | 23 | **27** |
+| Fused shortlist, not-confirmed clips | 59 | 59 |
+| Fused shortlist, right recording first (all 640) | 612 | **619** |
+| Fused shortlist, right recording included (all 640) | 631 | 631 |
+
+The experiment's 311 was optimistic, as noted there: only the 16 test recordings had been remapped, so they had more
+chances than the 3,065 others. With everyone remapped, the gain is smaller but real. The shortlist does not grow, because
+melody and landmarks already covered those clips, but the right recording is first more often (+7). That shortens Step
+10's work.
 
 ## 4. Functional tests
 
