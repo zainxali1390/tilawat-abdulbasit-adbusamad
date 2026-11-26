@@ -20,8 +20,11 @@ import {execFileSync, spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url)), ROOT = path.resolve(HERE, '..', '..'), VM = path.join(ROOT, 'vm');
-const WIN = 30, STEP = 60, SHARDS = 64;
+const WIN = 30, SHARDS = 64;
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
+/* --step S: a window every S seconds (default 60); --model base: the app's current speech model (whisper-base-ar-quran,
+   8-bit), instead of the tiny model the map was first built with (Step 9 experiment) */
+const STEP = +arg('step', 60), MODEL = arg('model', 'tiny');
 export const shardOf = code => { let h = 0x811c9dc5; for (const ch of Buffer.from(code, 'utf8')) { h ^= ch; h = Math.imul(h, 0x01000193) >>> 0; } return h % SHARDS; };
 const hex = n => n.toString(16).padStart(2, '0');
 
@@ -56,13 +59,15 @@ async function part() {
   fs.mkdirSync(out, {recursive: true});
   const {pipeline, env} = await import('@huggingface/transformers');
   env.allowRemoteModels = false; env.localModelPath = path.join(ROOT, 'models') + '/';
-  const asr = await pipeline('automatic-speech-recognition', 'whisper-tiny-ar-quran', {dtype: {encoder_model: 'fp32', decoder_model_merged: 'q8'}});
+  const asr = MODEL === 'base'
+    ? await pipeline('automatic-speech-recognition', 'whisper-base-ar-quran', {dtype: {encoder_model: 'q8', decoder_model_merged: 'q8'}})
+    : await pipeline('automatic-speech-recognition', 'whisper-tiny-ar-quran', {dtype: {encoder_model: 'fp32', decoder_model_merged: 'q8'}});
   const place = matcher();
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'vm-'));
   const res = {};
   const t0 = Date.now();
   for (const [i, rec] of mine.entries()) {
-    const raw = path.join(tmp, 'a'), pcm = path.join(tmp, 'p.f32');
+    const raw = path.join(tmp, 'a'), pcm = path.join(tmp, 'p.f32'), tr = Date.now();
     try {
       let src = rec.url;
       if (!/^https?:/.test(src)) src = path.join(ROOT, decodeURIComponent(src));
@@ -83,7 +88,7 @@ async function part() {
         wins.push([t, text, ...place(text)]);
       }
       fs.closeSync(fd);
-      res[rec.code] = {len: Math.round(len * 10) / 10, wins};
+      res[rec.code] = {len: Math.round(len * 10) / 10, wins, secs: Math.round((Date.now() - tr) / 100) / 10};
       console.log(`${i + 1}/${mine.length}`, rec.code.slice(0, 50), `${wins.length} windows`, wins.filter(w => w[7] === 2).length, 'confirmed', `${Math.round((Date.now() - t0) / 1000)} s`);
     } catch (e) { res[rec.code] = {err: String(e.message || e).slice(-160)}; }
     finally { for (const f of [raw, pcm]) try { fs.unlinkSync(f); } catch (e) {} }

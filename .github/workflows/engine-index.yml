@@ -1,0 +1,88 @@
+# Recognition engine, step 9: the archive melody index. Every recording is downloaded, pitch-tracked and deleted again;
+# only its melody (mf/, 1 byte per 50 ms) and melody hashes (mh/) are committed (tools/engine/build_index.mjs).
+# Unchanged recordings are reused, so later runs process only new or changed ones. Then the whole-archive test.
+name: Engine archive index
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/new-session-lhlpar]
+    paths: ['tools/engine/build_index.mjs', 'tools/engine/eval/INDEX_RUN', '.github/workflows/engine-index.yml']
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: engine-index
+  cancel-in-progress: true
+env:
+  PARTS: 24
+  SET_RUN: '45686748504'
+jobs:
+  list:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: "tools\njs\ndata"}
+      - run: python3 tools/fingerprint/build_index.py list --out recs.json && python3 -c "import json;print(len(json.load(open('recs.json'))),'recordings')"
+      - uses: actions/upload-artifact@v4
+        with: {name: irecs, path: recs.json, retention-days: 5}
+  part:
+    needs: list
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: "tools\njs\naudio\nmf"}
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - uses: actions/download-artifact@v4
+        with: {name: irecs}
+      - run: node tools/engine/build_index.mjs part recs.json parts --part ${{ matrix.part }} --of $PARTS
+      - uses: actions/upload-artifact@v4
+        with: {name: 'ipart-${{ matrix.part }}', path: parts/, retention-days: 5}
+  merge:
+    needs: [list, part]
+    if: ${{ !cancelled() && needs.list.result == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: '${{ github.ref_name }}', fetch-depth: 1, sparse-checkout: "tools\njs\nmf\nmh"}
+      - uses: actions/download-artifact@v4
+        with: {name: irecs}
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'ipart-*', path: parts, merge-multiple: true}
+      - run: node --max-old-space-size=6000 tools/engine/build_index.mjs merge recs.json parts | tee merge.txt
+      - run: |
+          git config user.name "recording-index bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A mf mh
+          git commit -q -m "Update the archive melody index (mf/, mh/)" || { echo "no change"; exit 0; }
+          for i in 1 2 3 4 5; do git pull -q --rebase origin "${{ github.ref_name }}" && git push -q origin "HEAD:${{ github.ref_name }}" && exit 0; sleep $((i*10)); done
+          exit 1
+  eval:
+    needs: [merge]
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: '${{ github.ref_name }}', fetch-depth: 1, sparse-checkout: "tools\njs\nmf\nmh\nvi"}
+      - uses: actions/download-artifact@v4
+        with: {name: testset, path: set, run-id: '${{ env.SET_RUN }}', github-token: '${{ github.token }}'}
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: |
+          (python3 -m http.server 8765 --bind 127.0.0.1 >/dev/null 2>&1 &) ; sleep 2
+          D=tools/engine/eval/results/index-$(date -u +%Y%m%d-%H%M)-$(git rev-parse --short HEAD)
+          mkdir -p $D
+          python3 -c "import json;m=json.load(open('mf/manifest.json'));h=json.load(open('mh/manifest.json'));print('mf',len(m['recs']),'recordings,',len(m['failed']),'failed:',list(m['failed'].items())[:10]);print('mh',h['entries'],'entries,',h['shards'],'shards,',round(h['bytes']/1e6,1),'MB')" | tee $D/index-size.txt
+          du -sh mf mh | tee -a $D/index-size.txt
+          node tools/engine/eval/test_archive.mjs http://127.0.0.1:8765/ $(ls set/clips/*.mp3 | head -3) | tee $D/functional.txt
+          node tools/engine/eval/melody_hash_eval.mjs set melcand.jsonl --archive http://127.0.0.1:8765/ | tee $D/melcand-score.txt
+          gzip -9c melcand.jsonl > $D/melcand.jsonl.gz
+          node tools/engine/eval/cand_eval.mjs tools/engine/eval/results/cand-20261126-0758-94974e5/finder-cand.jsonl.gz tools/engine/eval/results/content-20261125-1854-c937226 melcand.jsonl | tee $D/cand-score.txt
+          git config user.name "engine-eval bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/engine/eval/results
+          git commit -q -m "Engine eval: archive index results" || exit 0
+          for i in 1 2 3 4; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((i*10)); done

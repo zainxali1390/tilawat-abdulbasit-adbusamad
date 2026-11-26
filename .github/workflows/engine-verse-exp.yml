@@ -1,0 +1,53 @@
+# Recognition engine, step 9 experiment: the 16 test-set recordings mapped again with the better speech model and/or a
+# denser window step (tools/verses/analyse.mjs --model --step), scored by tools/engine/eval/verse_exp.mjs.
+name: Engine verse experiment
+on:
+  workflow_dispatch:
+  push:
+    paths: ['tools/engine/eval/VERSE_EXP_RUN', '.github/workflows/engine-verse-exp.yml']
+permissions:
+  contents: write
+jobs:
+  map:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        cfg: ['base-60', 'base-30', 'tiny-30']
+        part: [0,1,2,3]
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: "tools\njs\ndata\nmodels"}
+      - uses: actions/setup-node@v4
+        with: {node-version: 20}
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q numpy
+      - run: cd tools/verses && npm install --no-audit --no-fund --onnxruntime-node-install-cuda=skip
+      - run: |
+          C=${{ matrix.cfg }}
+          python3 -c "import json;json.dump([{'code':s['code'],'url':s['url']} for s in json.load(open('tools/engine/eval/sources.json'))],open('todo.json','w'))"
+          node tools/verses/analyse.mjs part --todo todo.json --part ${{ matrix.part }} --of 4 --out out --model ${C%-*} --step ${C#*-}
+      - uses: actions/upload-artifact@v4
+        with: {name: 'vexp-${{ matrix.cfg }}-${{ matrix.part }}', path: out/}
+  score:
+    needs: map
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: '${{ github.ref_name }}', fetch-depth: 1, sparse-checkout: "tools\njs\nvm\nvi"}
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'vexp-base-60-*', path: base60, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'vexp-base-30-*', path: base30, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'vexp-tiny-30-*', path: tiny30, merge-multiple: true}
+      - run: |
+          D=tools/engine/eval/results/verse-exp-$(date -u +%Y%m%d-%H%M)
+          mkdir -p $D
+          node tools/engine/eval/verse_exp.mjs "base model, 60 s=base60" "base model, 30 s=base30" "tiny model, 30 s=tiny30" | tee $D/verse-exp.txt
+          git config user.name "engine-eval bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/engine/eval/results
+          git commit -q -m "Engine eval: verse map experiment" || exit 0
+          for i in 1 2 3 4; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((i*10)); done
