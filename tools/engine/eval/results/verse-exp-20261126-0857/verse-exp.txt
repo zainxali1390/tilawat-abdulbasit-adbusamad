@@ -1,0 +1,4 @@
+current (tiny, 60 s)   clips with a verse 367: right recording listed 305, in top 30 259; not-confirmed clips in top 30: 23/35; source windows 442, sure 127
+base model, 60 s       clips with a verse 367: right recording listed 313, in top 30 276; not-confirmed clips in top 30: 25/35; source windows 442, sure 184; 442 windows in 932 s (2.11 s per window, download included)
+base model, 30 s       clips with a verse 367: right recording listed 324, in top 30 311; not-confirmed clips in top 30: 29/35; source windows 870, sure 383; 870 windows in 1646 s (1.89 s per window, download included)
+tiny model, 30 s       clips with a verse 367: right recording listed 317, in top 30 294; not-confirmed clips in top 30: 27/35; source windows 870, sure 245; 870 windows in 790 s (0.91 s per window, download included)
