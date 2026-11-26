@@ -1,0 +1,53 @@
+
+ENGINE, rules {"confirmInl":6,"highInl":4,"possibleMel":0.8,"copyInl":6}, copies chained
+  level        right  wrong(present)  wrong(hidden)  precision   start within 0.5 s (answers naming the clip's own recording; a copy's true times are unknown)
+  confirmed      605          0              0      100.0 %   572/578
+  high            11          0              0      100.0 %   9/9
+  possible         5          0              2       71.4 %   5/5
+  no reliable match on 19 of the present runs; right at "high" or better: 616; at any level: 621
+  today's finder: confirmed right 569, wrong 0, hidden 0; possible right 17, wrong 0, hidden 3; nothing 54
+
+ENGINE, rules {"confirmInl":6,"highInl":4,"possibleMel":0.8,"copyInl":6}, copies checked directly only
+  level        right  wrong(present)  wrong(hidden)  precision   start within 0.5 s (answers naming the clip's own recording; a copy's true times are unknown)
+  confirmed      605          0              0      100.0 %   572/578
+  high            11          0              0      100.0 %   9/9
+  possible         5          0              3       62.5 %   5/5
+  no reliable match on 19 of the present runs; right at "high" or better: 616; at any level: 621
+
+grid (copies checked directly only): confirmInl highInl possibleMel → confirmed right/false, high right/false, possible right/false
+  5 3 0.75  →  605/0  11/24  6/2
+  5 3 0.8  →  605/0  11/24  5/2
+  5 3 0.85  →  605/0  11/24  5/0
+  5 4 0.75  →  605/0  11/0  6/3
+  5 4 0.8  →  605/0  11/0  5/3
+  5 4 0.85  →  605/0  11/0  5/0
+  5 5 0.75  →  605/0  8/0  7/3
+  5 5 0.8  →  605/0  8/0  6/3
+  5 5 0.85  →  605/0  8/0  6/0
+  6 3 0.75  →  605/0  11/24  6/2
+  6 3 0.8  →  605/0  11/24  5/2
+  6 3 0.85  →  605/0  11/24  5/0
+  6 4 0.75  →  605/0  11/0  6/3
+  6 4 0.8  →  605/0  11/0  5/3
+  6 4 0.85  →  605/0  11/0  5/0
+  6 5 0.75  →  605/0  8/0  7/3
+  6 5 0.8  →  605/0  8/0  6/3
+  6 5 0.85  →  605/0  8/0  6/0
+  7 3 0.75  →  600/0  16/24  6/2
+  7 3 0.8  →  600/0  16/24  5/2
+  7 3 0.85  →  600/0  16/24  5/0
+  7 4 0.75  →  600/0  16/0  6/3
+  7 4 0.8  →  600/0  16/0  5/3
+  7 4 0.85  →  600/0  16/0  5/0
+  7 5 0.75  →  600/0  13/0  7/3
+  7 5 0.8  →  600/0  13/0  6/3
+  7 5 0.85  →  600/0  13/0  6/0
+  8 3 0.75  →  595/0  21/24  6/2
+  8 3 0.8  →  595/0  21/24  5/2
+  8 3 0.85  →  595/0  21/24  5/0
+  8 4 0.75  →  595/0  21/0  6/3
+  8 4 0.8  →  595/0  21/0  5/3
+  8 4 0.85  →  595/0  21/0  5/0
+  8 5 0.75  →  595/0  18/0  7/3
+  8 5 0.8  →  595/0  18/0  6/3
+  8 5 0.85  →  595/0  18/0  6/0
