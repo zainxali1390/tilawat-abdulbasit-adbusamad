@@ -1,0 +1,44 @@
+index: 89 recordings, 347743 hash entries (2.20 per second of audio), 112275 distinct hashes, built in 1068 ms
+edit               n top1 top5 top30 placed
+aac32              16   13   13   13   12
+bass               16   13   14   14   13
+clean20            16   14   16   16   16
+combo1             16    7    9   13    6
+combo2             16    7    7   12    7
+combo3             16    4    6   12    3
+compress           16   13   13   14   15
+distort            16   14   14   16   10
+echo               16    6    8   14    6
+intro_music3       16   14   14   16   14
+intro_noise3       16   16   16   16   16
+intro_silence3     16   15   16   16   16
+join2_diff         16   15   16   16   15
+join2_same         16   16   16   16   16
+join3_same         16   14   15   16   14
+len10              16   15   15   15   15
+len44              16   16   16   16   16
+len7               16    8   10   11   11
+music_bed          16    7    7   13    4
+noise10            16   10   11   14    9
+noise3             16    2    3    8    2
+phone              16   11   11   14   11
+pitch+1            16   11   12   15   10
+pitch+2            16   11   12   13   13
+pitch+3            16    8    9   12    9
+pitch-1            16    9   10   13    9
+pitch-2            16   10   13   15    9
+pitch-4            16    6    9   13    7
+reverb_large       16    3    5   13    4
+reverb_small       16    4    6   11    6
+speed0.9           16    6   10   14   10
+speed1.1           16    9   11   12    8
+speed1.25          16    8   12   13    9
+tempo0.8           16    9    9   12    9
+tempo0.9           16   10   11   14   11
+tempo1.1           16   14   15   16   14
+tempo1.25          16   10   12   14   12
+treble_cut         16   14   15   15   15
+video_mov          16   14   15   15   16
+video_mp4          16   15   16   16   15
+TOTAL 640 clips: right recording first 421, in top 5 468, in top 30 557; first entry right AND placed within 2 s: 433
+vote time per clip: median 3 ms, max 35 ms (index in memory)
