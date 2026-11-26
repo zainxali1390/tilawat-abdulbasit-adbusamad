@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: {sparse-checkout: "tools\njs\ndata"}
-      - run: python3 tools/fingerprint/build_index.py list --out recs.json && python3 -c "import json;print(len(json.load(open('recs.json'))),'recordings')"
+      - run: pip install -q numpy && python3 tools/fingerprint/build_index.py list --out recs.json && python3 -c "import json;print(len(json.load(open('recs.json'))),'recordings')"
       - uses: actions/upload-artifact@v4
         with: {name: irecs, path: recs.json, retention-days: 5}
   part:
