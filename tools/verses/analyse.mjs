@@ -47,7 +47,8 @@ async function list() {
   const allf = out.replace(/\.json$/, '') + '-all.json';
   execFileSync('python3', [path.join(ROOT, 'tools/fingerprint/build_index.py'), 'list', '--out', allf]);
   const all = JSON.parse(fs.readFileSync(allf, 'utf8')), man = manifest();
-  const todo = all.filter(r => !man.recs[r.code] && !(man.failed || {})[r.code]);
+  /* --all: every recording again (a rebuild with another model or step) */
+  const todo = process.argv.includes('--all') ? all : all.filter(r => !man.recs[r.code] && !(man.failed || {})[r.code]);
   if (process.argv.includes('--retry-failed')) todo.push(...all.filter(r => (man.failed || {})[r.code]));
   fs.writeFileSync(out, JSON.stringify(todo));
   console.log('recordings', all.length, '| analysed', Object.keys(man.recs).length, '| to analyse', todo.length);
@@ -130,6 +131,8 @@ async function merge() {
   /* recordings no longer in the library are dropped */
   const cur = new Set(JSON.parse(execFileSync('python3', ['-c', `import sys,json;sys.path.insert(0,'${path.join(ROOT, 'tools/fingerprint')}');import build_index as b;print(json.dumps([r['code'] for r in b.list_recs()]))`]).toString()));
   for (const code of Object.keys(man.recs)) if (!cur.has(code)) { delete man.recs[code]; const s = shardOf(code); delete place[s][code]; delete text[s][code]; }
+  /* which model and window step the map was made with (Step 9: base model, 30 s) */
+  if (arg('model', null)) man.model = arg('model'); if (arg('step', null)) man.step = +arg('step');
   save(man, place, text);
   console.log('added', added, '| failed', failed, '| analysed in total', Object.keys(man.recs).length);
 }

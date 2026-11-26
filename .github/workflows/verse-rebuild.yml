@@ -1,0 +1,64 @@
+# Recognition engine, step 9: the whole verse map made again with the app's current speech model (whisper-base-ar-quran)
+# and a 30 s window every 30 s (no gaps), as measured in results/verse-exp-* (right recording in the top 30 for 311 of 367
+# clips instead of 259). Then the verse index (vi/) is rebuilt from it. Recordings that fail keep their old windows.
+name: Rebuild verse map
+on:
+  workflow_dispatch:
+  push:
+    paths: ['tools/engine/eval/VERSE_REBUILD_RUN']
+permissions:
+  contents: write
+concurrency:
+  group: verse-map
+  cancel-in-progress: false
+env:
+  PARTS: 24
+jobs:
+  list:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: "tools\njs\ndata\nvm"}
+      - run: pip install -q numpy && node tools/verses/analyse.mjs list --out todo.json --all
+      - uses: actions/upload-artifact@v4
+        with: {name: vtodo, path: todo.json, retention-days: 5}
+  part:
+    needs: list
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: "tools\njs\ndata\nmodels\naudio"}
+      - uses: actions/setup-node@v4
+        with: {node-version: 20}
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q numpy
+      - run: cd tools/verses && npm install --no-audit --no-fund --onnxruntime-node-install-cuda=skip
+      - uses: actions/download-artifact@v4
+        with: {name: vtodo}
+      - run: node tools/verses/analyse.mjs part --todo todo.json --part ${{ matrix.part }} --of $PARTS --out parts --model base --step 30
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: {name: 'vr-part-${{ matrix.part }}', path: parts/, retention-days: 5}
+  merge:
+    needs: [list, part]
+    if: ${{ !cancelled() && needs.list.result == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: '${{ github.ref_name }}', fetch-depth: 1, sparse-checkout: "tools\njs\ndata\nvm\nvi"}
+      - run: pip install -q numpy
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'vr-part-*', path: parts, merge-multiple: true}
+      - run: |
+          node tools/verses/analyse.mjs merge --parts parts --model base --step 30
+          node tools/engine/build_vi.mjs
+          git config user.name "verse-map bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A vm vi
+          git commit -q -m "Rebuild the verse map (base model, 30 s steps) and the verse index" || { echo "no change"; exit 0; }
+          for i in 1 2 3 4 5; do git pull -q --rebase origin "${{ github.ref_name }}" && git push -q origin "HEAD:${{ github.ref_name }}" && exit 0; sleep $((i*10)); done
+          exit 1
