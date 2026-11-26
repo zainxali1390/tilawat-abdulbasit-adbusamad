@@ -95,6 +95,9 @@ X.timestamp=function(lm,mel,ing,recDur,opt){
        recitation does); end: matching voice or a shared pause (a clip often ends in a pause of the recording) */
     for(;;){const c0=Math.max(0,ca-S);if(c0>=ca)break;const L=look(c0,ca);if(!L||!L.voiced)break;ca=c0}
     for(;;){const c1=Math.min(dur,cb+S);if(c1<=cb)break;const L=look(cb,c1);if(!L||!(L.voiced||L.quiet))break;cb=c1}
+    /* the last moments of a clip (at most 1.5 s, no music or noise section there) belong to the same recording: a
+       clip usually runs on to its end, and a join or outro would show as a longer stretch or another section */
+    if(dur-cb>0&&dur-cb<=1.5&&!(ing.sections||[]).some(s=>s.kind!=="recitation"&&s.kind!=="silence"&&s.b>cb&&s.a<dur))cb=dur;
   }
   /* the recording cannot start before 0 or end after its length: the clip span is cut to fit */
   if(k*ca+b<0)ca=-b/k;if(recDur&&k*cb+b>recDur)cb=(recDur-b)/k;
