@@ -11,12 +11,13 @@ import {fileURLToPath} from 'node:url';
 const HERE = path.dirname(fileURLToPath(import.meta.url)), ROOT = path.resolve(HERE, '..', '..', '..');
 globalThis.window = undefined; await import(path.join(ROOT, 'js/engine/melody.js')); await import(path.join(ROOT, 'js/engine/archive.js')); const M = globalThis.MELODY, A = globalThis.ARCHIVE;
 const [SET, OUT, ...rest] = process.argv.slice(2);
-let codes, lookupFor;
+let codes, lookupFor, avgPost = 0, rerank = false;
 if (rest[0] === '--archive') {
   A.base = rest[1].endsWith('/') ? rest[1] : rest[1] + '/';
   const man = await A.mhManifest(); codes = man.recs;
   console.log(`index: whole archive, ${codes.length} recordings, ${man.entries} hash entries, ${man.shards} shard files, ${(man.bytes / 1e6).toFixed(1)} MB`);
   lookupFor = async q => A.melodyLookup(M.hashes(q, {expand: true}).map(x => x[0]));
+  avgPost = man.entries / man.hashes; rerank = true;
 } else {
   const refs = {}; for (const f of rest) for (const [c, v] of Object.entries(JSON.parse(fs.readFileSync(f)))) refs[c] = M.unpack(new Uint8Array(Buffer.from(v.mf, 'base64')));
   codes = Object.keys(refs); const t0 = Date.now(), idx = M.hashIndex(codes.map(c => refs[c]));
@@ -27,12 +28,21 @@ if (rest[0] === '--archive') {
 const groups = JSON.parse(fs.readFileSync(path.join(HERE, 'results/melody-local-20261125-2236/copy-groups.json'))).groups.map(g => new Set(g));
 const same = (a, b) => a === b || groups.some(g => g.has(a) && g.has(b));
 const cases = JSON.parse(fs.readFileSync(path.join(SET, 'cases.json')));
-const out = fs.createWriteStream(OUT), stat = {}, ms = [];
+const out = fs.createWriteStream(OUT), stat = {}, ms = [], msr = [];
 for (const c of cases) {
   const d = spawnSync('ffmpeg', ['-loglevel', 'error', '-i', path.join(SET, c.file), '-vn', '-ac', '1', '-ar', '16000', '-f', 'f32le', '-'], {maxBuffer: 1 << 28});
   const q = M.unpack(M.pack(M.f0(new Float32Array(d.stdout.buffer, d.stdout.byteOffset, d.stdout.length >> 2))));
-  const t1 = Date.now(), look = await lookupFor(q), r = M.hashVote(q, look, {top: 60}); ms.push(Date.now() - t1);
-  const list = r.list.map(x => ({code: codes[x.rec], score: x.votes, t: +x.t.toFixed(1), k: +x.k.toFixed(3)}));
+  const t1 = Date.now(), look = await lookupFor(q), r = M.hashVote(q, look, {top: 60, avgPost}); ms.push(Date.now() - t1);
+  let list = r.list.map(x => ({code: codes[x.rec], score: x.votes, votes: x.votes, t: +x.t.toFixed(1), k: +x.k.toFixed(3)}));
+  /* whole archive: the vote's first 30 re-ranked by aligning the melody around each suggested time (MELODY.alignNear);
+     the list's score is then the alignment score */
+  if (rerank) {
+    const top = list.slice(0, 30);
+    for (const x of top) { const ref = await A.melody(x.code); const a = ref ? M.alignNear(q, ref, x.t) : {score: 0};
+      x.score = +(a.score || 0).toFixed(3); if (a.score > 0) { x.t = +a.at.toFixed(1); x.k = +a.k.toFixed(3); } }
+    list = top.sort((a, b) => b.score - a.score);
+    msr.push(Date.now() - t1);
+  }
   const truth = [...new Set([...c.segments.map(g => g.code), ...(c.copies || [])])];
   const starts = c.segments.map(g => [g.code, g.at - g.a * g.rate]);
   out.write(JSON.stringify({name: c.name, variant: c.variant, hide: false, hashes: r.hashes, list: list.slice(0, 30)}) + '\n');
@@ -52,3 +62,4 @@ for (const [v, a] of Object.entries(stat).sort()) {
 ms.sort((a, b) => a - b);
 console.log(`TOTAL ${tot.n} clips: right recording first ${tot.t1}, in top 5 ${tot.t5}, in top 30 ${tot.t30}; first entry right AND placed within 2 s: ${tot.pl}`);
 console.log(`lookup and vote time per clip: median ${ms[ms.length >> 1]} ms, max ${ms[ms.length - 1]} ms`);
+if (msr.length) { msr.sort((a, b) => a - b); console.log(`with the re-ranking (30 melodies fetched and aligned): median ${msr[msr.length >> 1]} ms, max ${msr[msr.length - 1]} ms`); }
