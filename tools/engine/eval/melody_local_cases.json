@@ -1,562 +1,3037 @@
 [
- {
-  "name": "s06-clean20",
-  "a": "e:X5:568-4-1 القمر 49-55 الرحمن 1-27- من تلاوات العراق 1956.mp3",
-  "ua": "https://archive.org/download/x5-hograt-to-hashr_202308/568-4-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%2049-55%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%201-27-%20%D9%85%D9%86%20%D8%AA%D9%84%D8%A7%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%201956.mp3",
-  "b": "e:A:770-qamerelrahman.mp3",
-  "ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/770-qamerelrahman.mp3",
-  "segs": [
-   {
-    "at": 1285.15,
-    "len": 20,
-    "rate": 1
-   }
-  ],
-  "fpos": 1442.64,
-  "kind": "hidden"
- },
- {
-  "name": "s08-clean20",
-  "a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
-  "ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
-  "b": "e:C:1171--_up_by_muslem.mp3",
-  "ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1171--_up_by_muslem.mp3",
-  "segs": [
-   {
-    "at": 2358.1,
-    "len": 20,
-    "rate": 1
-   }
-  ],
-  "fpos": 2188.9120000000003,
-  "kind": "hidden"
- },
- {
-  "name": "s05-pitch-1",
-  "a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
-  "ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
-  "b": "e:C:0736-_up_by_muslem.mp3",
-  "ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0736-_up_by_muslem.mp3",
-  "segs": [
-   {
-    "at": 1578.3,
-    "len": 20,
-    "rate": 1
-   }
-  ],
-  "fpos": 1456.688,
-  "kind": "hidden"
- },
- {
-  "name": "s06-bass",
-  "a": "e:X5:568-4-1 القمر 49-55 الرحمن 1-27- من تلاوات العراق 1956.mp3",
-  "ua": "https://archive.org/download/x5-hograt-to-hashr_202308/568-4-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%2049-55%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%201-27-%20%D9%85%D9%86%20%D8%AA%D9%84%D8%A7%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%201956.mp3",
-  "b": "e:X5:567-4-1 القمر 49-55 الرحمن 1-27- من العراق 1956.mp3",
-  "ub": "https://archive.org/download/x5-hograt-to-hashr_202308/567-4-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%2049-55%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%201-27-%20%D9%85%D9%86%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%201956.mp3",
-  "segs": [
-   {
-    "at": 956.65,
-    "len": 20,
-    "rate": 1
-   }
-  ],
-  "fpos": 1120.624,
-  "kind": "hidden"
- },
- {
-  "name": "s08-bass",
-  "a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
-  "ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
-  "b": "e:A:784-yousefhousen.mp3",
-  "ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/784-yousefhousen.mp3",
-  "segs": [
-   {
-    "at": 615.6,
-    "len": 20,
-    "rate": 1
-   }
-  ],
-  "fpos": 476.08,
-  "kind": "hidden"
- },
- {
-  "name": "s05-speed1.1",
-  "a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
-  "ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
-  "b": "e:E:القصار المشهورة وبها الاذان.mp3",
-  "ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%A7%D9%84%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%B4%D9%87%D9%88%D8%B1%D8%A9%20%D9%88%D8%A8%D9%87%D8%A7%20%D8%A7%D9%84%D8%A7%D8%B0%D8%A7%D9%86.mp3",
-  "segs": [
-   {
-    "at": 1934.35,
-    "len": 20,
-    "rate": 1.1
-   }
-  ],
-  "fpos": 3400.9120000000003,
-  "kind": "hidden"
- },
- {
-  "name": "s09-combo2",
-  "a": "e:B:2-2 الواقعة 1- 96 تم اكمال التلاوة من اخرى -مركبة.mp3",
-  "ua": "https://archive.org/download/ComprehensiveLibraryHeritageSheikhAbdulBasitAbdulSamadRecitationsSporadicRadio/2-2%20%D8%A7%D9%84%D9%88%D8%A7%D9%82%D8%B9%D8%A9%201-%2096%20%D8%AA%D9%85%20%D8%A7%D9%83%D9%85%D8%A7%D9%84%20%D8%A7%D9%84%D8%AA%D9%84%D8%A7%D9%88%D8%A9%20%D9%85%D9%86%20%D8%A7%D8%AE%D8%B1%D9%89%20-%D9%85%D8%B1%D9%83%D8%A8%D8%A9.mp3",
-  "b": "e:C:0984-_uP_bY_mUSLEm.mp3",
-  "ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0984-_uP_bY_mUSLEm.mp3",
-  "segs": [
-   {
-    "at": 1365.65,
-    "len": 20,
-    "rate": 0.9
-   }
-  ],
-  "fpos": 1162.736,
-  "kind": "hidden"
- },
- {
-  "name": "s07-phone",
-  "a": "e:C:0706-_up_by_muslem.mp3",
-  "ua": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0706-_up_by_muslem.mp3",
-  "b": "e:X5:577-7-2 القمر49-55 والرحمن 1-27 التلاوة الثانية من باكستان 1966.MP3",
-  "ub": "https://archive.org/download/x5-hograt-to-hashr_202308/577-7-2%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%201-27%20%D8%A7%D9%84%D8%AA%D9%84%D8%A7%D9%88%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9%20%D9%85%D9%86%20%D8%A8%D8%A7%D9%83%D8%B3%D8%AA%D8%A7%D9%86%201966.MP3",
-  "segs": [
-   {
-    "at": 113.9,
-    "len": 15,
-    "rate": 1
-   }
-  ],
-  "fpos": 496.272,
-  "kind": "hidden"
- },
- {
-  "name": "s08-distort",
-  "a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
-  "ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
-  "b": "e:C:1171--_up_by_muslem.mp3",
-  "ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1171--_up_by_muslem.mp3",
-  "segs": [
-   {
-    "at": 2123.35,
-    "len": 20,
-    "rate": 1
-   }
-  ],
-  "fpos": 1967.9840000000002,
-  "kind": "hidden"
- },
- {
-  "name": "s05-join3_same",
-  "a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
-  "ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
-  "b": "e:E:القصار المشهورة وبها الاذان.mp3",
-  "ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%A7%D9%84%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%B4%D9%87%D9%88%D8%B1%D8%A9%20%D9%88%D8%A8%D9%87%D8%A7%20%D8%A7%D9%84%D8%A7%D8%B0%D8%A7%D9%86.mp3",
-  "segs": [
-   {
-    "at": 1934.35,
-    "len": 8,
-    "rate": 1
-   },
-   {
-    "at": 1683,
-    "len": 8,
-    "rate": 1
-   },
-   {
-    "at": 1561.75,
-    "len": 8,
-    "rate": 1
-   }
-  ],
-  "fpos": 3400.944,
-  "kind": "hidden"
- },
- {
-  "name": "s07-reverb_small",
-  "a": "e:C:0706-_up_by_muslem.mp3",
-  "ua": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0706-_up_by_muslem.mp3",
-  "b": "e:X5:577-7-2 القمر49-55 والرحمن 1-27 التلاوة الثانية من باكستان 1966.MP3",
-  "ub": "https://archive.org/download/x5-hograt-to-hashr_202308/577-7-2%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%201-27%20%D8%A7%D9%84%D8%AA%D9%84%D8%A7%D9%88%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9%20%D9%85%D9%86%20%D8%A8%D8%A7%D9%83%D8%B3%D8%AA%D8%A7%D9%86%201966.MP3",
-  "segs": [
-   {
-    "at": 113.9,
-    "len": 20,
-    "rate": 1
-   }
-  ],
-  "fpos": 496.272,
-  "kind": "hidden"
- },
- {
-  "name": "s05-len44",
-  "a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
-  "ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
-  "b": "e:E:القصار المشهورة وبها الاذان.mp3",
-  "ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%A7%D9%84%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%B4%D9%87%D9%88%D8%B1%D8%A9%20%D9%88%D8%A8%D9%87%D8%A7%20%D8%A7%D9%84%D8%A7%D8%B0%D8%A7%D9%86.mp3",
-  "segs": [
-   {
-    "at": 1982.45,
-    "len": 44,
-    "rate": 1
-   }
-  ],
-  "fpos": 3484.8160000000003,
-  "kind": "hidden"
- },
- {
-  "name": "s03-treble_cut",
-  "a": "e:A:284.mp3",
-  "ua": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/284.mp3",
-  "b": "e:N1:245.mp3",
-  "ub": "https://archive.org/download/NawaderGroup-1/245.mp3",
-  "segs": [
-   {
-    "at": 97.35,
-    "len": 20,
-    "rate": 1
-   }
-  ],
-  "fpos": 460.272,
-  "kind": "hidden"
- },
- {
-  "name": "s06-video_mov",
-  "a": "e:X5:568-4-1 القمر 49-55 الرحمن 1-27- من تلاوات العراق 1956.mp3",
-  "ua": "https://archive.org/download/x5-hograt-to-hashr_202308/568-4-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%2049-55%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%201-27-%20%D9%85%D9%86%20%D8%AA%D9%84%D8%A7%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%201956.mp3",
-  "b": "e:X5:567-4-1 القمر 49-55 الرحمن 1-27- من العراق 1956.mp3",
-  "ub": "https://archive.org/download/x5-hograt-to-hashr_202308/567-4-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%2049-55%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%201-27-%20%D9%85%D9%86%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%201956.mp3",
-  "segs": [
-   {
-    "at": 453.05,
-    "len": 15,
-    "rate": 1
-   }
-  ],
-  "fpos": 474.032,
-  "kind": "hidden"
- },
- {
-  "name": "s03-pitch+3",
-  "a": "e:A:284.mp3",
-  "ua": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/284.mp3",
-  "b": "e:N1:245.mp3",
-  "ub": "https://archive.org/download/NawaderGroup-1/245.mp3",
-  "segs": [
-   {
-    "at": 97.35,
-    "len": 20,
-    "rate": 1
-   }
-  ],
-  "fpos": 460.24,
-  "kind": "hidden"
- },
- {
-  "name": "s04-echo",
-  "a": "e:I1:almsjed-alaqsa (90).mp3",
-  "ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20%2890%29.mp3",
-  "b": "e:X5:570-5-1  القمر 49-55والرحمن 1-27 الشمس التين - مسجلة في عام 1964 بالكويت.mp3",
-  "ub": "https://archive.org/download/x5-hograt-to-hashr_202308/570-5-1%20%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%2049-55%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%201-27%20%D8%A7%D9%84%D8%B4%D9%85%D8%B3%20%D8%A7%D9%84%D8%AA%D9%8A%D9%86%20-%20%D9%85%D8%B3%D8%AC%D9%84%D8%A9%20%D9%81%D9%8A%20%D8%B9%D8%A7%D9%85%201964%20%D8%A8%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA.mp3",
-  "segs": [
-   {
-    "at": 938.9,
-    "len": 20,
-    "rate": 1
-   }
-  ],
-  "fpos": 1109.744,
-  "kind": "hidden"
- },
- {
-  "name": "s05-intro_silence3",
-  "a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
-  "ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
-  "b": "e:C:0870-2_up_by_muslem.mp3",
-  "ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0870-2_up_by_muslem.mp3",
-  "segs": [
-   {
-    "at": 1211.95,
-    "len": 20,
-    "rate": 1
-   }
-  ],
-  "fpos": 191.856,
-  "kind": "hidden"
- },
- {
-  "name": "s08-reverb_small",
-  "a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
-  "ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
-  "b": "e:C:1121-_up_by_muslem.mp3",
-  "ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1121-_up_by_muslem.mp3",
-  "segs": [
-   {
-    "at": 291.55,
-    "len": 20,
-    "rate": 1
-   }
-  ],
-  "fpos": 120.56,
-  "kind": "hidden"
- },
- {
-  "name": "s08-join3_same",
-  "a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
-  "ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
-  "b": "e:A:784-yousefhousen.mp3",
-  "ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/784-yousefhousen.mp3",
-  "segs": [
-   {
-    "at": 1591.4,
-    "len": 8,
-    "rate": 1
-   },
-   {
-    "at": 1069.7,
-    "len": 8,
-    "rate": 1
-   },
-   {
-    "at": 1662.25,
-    "len": 8,
-    "rate": 1
-   }
-  ],
-  "fpos": 894.64,
-  "kind": "hidden"
- },
- {
-  "name": "s08-noise10",
-  "a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
-  "ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
-  "b": "e:C:1121-_up_by_muslem.mp3",
-  "ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1121-_up_by_muslem.mp3",
-  "segs": [
-   {
-    "at": 759.4,
-    "len": 20,
-    "rate": 1
-   }
-  ],
-  "fpos": 560.912,
-  "kind": "hidden"
- },
- {
-  "name": "control",
-  "a": "e:A:279.mp3",
-  "ua": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/279.mp3",
-  "b": "e:C:0729-_up_by_muslem.mp3",
-  "ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0729-_up_by_muslem.mp3",
-  "segs": null,
-  "fpos": null,
-  "kind": "control"
- },
- {
-  "name": "control",
-  "a": "e:A:284.mp3",
-  "ua": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/284.mp3",
-  "b": "e:I1:almsjed-alaqsa (90).mp3",
-  "ub": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20%2890%29.mp3",
-  "segs": null,
-  "fpos": null,
-  "kind": "control"
- },
- {
-  "name": "control",
-  "a": "e:C:0729-_up_by_muslem.mp3",
-  "ua": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0729-_up_by_muslem.mp3",
-  "b": "e:A:284.mp3",
-  "ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/284.mp3",
-  "segs": null,
-  "fpos": null,
-  "kind": "control"
- },
- {
-  "name": "control",
-  "a": "e:I1:almsjed-alaqsa (90).mp3",
-  "ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20%2890%29.mp3",
-  "b": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
-  "ub": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
-  "segs": null,
-  "fpos": null,
-  "kind": "control"
- },
- {
-  "name": "control",
-  "a": "e:X5:562-1-10 القمر والرحمن مبتورة - 7د– الأقصر.mp3",
-  "ua": "https://archive.org/download/x5-hograt-to-hashr_202308/562-1-10%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D9%85%D8%A8%D8%AA%D9%88%D8%B1%D8%A9%20-%207%D8%AF%E2%80%93%20%D8%A7%D9%84%D8%A3%D9%82%D8%B5%D8%B1.mp3",
-  "b": "e:A:279.mp3",
-  "ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/279.mp3",
-  "segs": null,
-  "fpos": null,
-  "kind": "control"
- },
- {
-  "name": "control",
-  "a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
-  "ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
-  "b": "e:X5:568-4-1 القمر 49-55 الرحمن 1-27- من تلاوات العراق 1956.mp3",
-  "ub": "https://archive.org/download/x5-hograt-to-hashr_202308/568-4-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%2049-55%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%201-27-%20%D9%85%D9%86%20%D8%AA%D9%84%D8%A7%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%201956.mp3",
-  "segs": null,
-  "fpos": null,
-  "kind": "control"
- },
- {
-  "name": "s03-noise10",
-  "a": "e:A:284.mp3",
-  "ua": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/284.mp3",
-  "b": "e:N1:245.mp3",
-  "ub": "https://archive.org/download/NawaderGroup-1/245.mp3",
-  "segs": [
-   {
-    "at": 454.55,
-    "len": 20,
-    "rate": 1
-   }
-  ],
-  "fpos": 816.2,
-  "kind": "melody"
- },
- {
-  "name": "s06-clean20",
-  "a": "e:X5:568-4-1 القمر 49-55 الرحمن 1-27- من تلاوات العراق 1956.mp3",
-  "ua": "https://archive.org/download/x5-hograt-to-hashr_202308/568-4-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%2049-55%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%201-27-%20%D9%85%D9%86%20%D8%AA%D9%84%D8%A7%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%201956.mp3",
-  "b": "e:X5:567-4-1 القمر 49-55 الرحمن 1-27- من العراق 1956.mp3",
-  "ub": "https://archive.org/download/x5-hograt-to-hashr_202308/567-4-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%2049-55%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%201-27-%20%D9%85%D9%86%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%201956.mp3",
-  "segs": [
-   {
-    "at": 1285.15,
-    "len": 20,
-    "rate": 1
-   }
-  ],
-  "fpos": 1533.5,
-  "kind": "melody"
- },
- {
-  "name": "s08-tempo1.1",
-  "a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
-  "ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
-  "b": "e:I4:- يوسف - تلاوات مصر_تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد.mp3",
-  "ub": "https://archive.org/download/wwwwwwwwwwwwwwwwwwwww831_20190831_1217/-%20%D9%8A%D9%88%D8%B3%D9%81%20-%20%D8%AA%D9%84%D8%A7%D9%88%D8%A7%D8%AA%20%D9%85%D8%B5%D8%B1_%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%D8%A7%D8%AA%20%D9%86%D8%A7%D8%AF%D8%B1%D8%A9_%D8%A7%D9%84%D8%B4%D9%8A%D8%AE%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%A8%D8%A7%D8%B3%D8%B7%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%B5%D9%85%D8%AF.mp3",
-  "segs": [
-   {
-    "at": 2061.15,
-    "len": 20,
-    "rate": 1.1
-   }
-  ],
-  "fpos": 1909.45,
-  "kind": "melody"
- },
- {
-  "name": "s02-pitch-1",
-  "a": "e:C:0729-_up_by_muslem.mp3",
-  "ua": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0729-_up_by_muslem.mp3",
-  "b": "e:A:293.mp3",
-  "ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/293.mp3",
-  "segs": [
-   {
-    "at": 841.3,
-    "len": 20,
-    "rate": 1
-   }
-  ],
-  "fpos": 808.7,
-  "kind": "melody"
- },
- {
-  "name": "s04-music_bed",
-  "a": "e:I1:almsjed-alaqsa (90).mp3",
-  "ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20%2890%29.mp3",
-  "b": "e:I1:almsjed-alaqsa (79).mp3",
-  "ub": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20%2879%29.mp3",
-  "segs": [
-   {
-    "at": 1075.95,
-    "len": 20,
-    "rate": 1
-   }
-  ],
-  "fpos": 844.25,
-  "kind": "melody"
- },
- {
-  "name": "s06-aac32",
-  "a": "e:X5:568-4-1 القمر 49-55 الرحمن 1-27- من تلاوات العراق 1956.mp3",
-  "ua": "https://archive.org/download/x5-hograt-to-hashr_202308/568-4-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%2049-55%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%201-27-%20%D9%85%D9%86%20%D8%AA%D9%84%D8%A7%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%201956.mp3",
-  "b": "e:A:287.mp3",
-  "ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/287.mp3",
-  "segs": [
-   {
-    "at": 297.7,
-    "len": 15,
-    "rate": 1
-   }
-  ],
-  "fpos": 284.05,
-  "kind": "melody"
- },
- {
-  "name": "s07-pitch-1",
-  "a": "e:C:0706-_up_by_muslem.mp3",
-  "ua": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0706-_up_by_muslem.mp3",
-  "b": "e:N1:245.mp3",
-  "ub": "https://archive.org/download/NawaderGroup-1/245.mp3",
-  "segs": [
-   {
-    "at": 91.65,
-    "len": 20,
-    "rate": 1
-   }
-  ],
-  "fpos": 460.25,
-  "kind": "melody"
- },
- {
-  "name": "s12-aac32",
-  "a": "e:I1:almsjed-alaqsa (79).mp3",
-  "ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20%2879%29.mp3",
-  "b": "e:A:239.mp3",
-  "ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/239.mp3",
-  "segs": [
-   {
-    "at": 1819.4,
-    "len": 15,
-    "rate": 1
-   }
-  ],
-  "fpos": 1566.9,
-  "kind": "melody"
- },
- {
-  "name": "s12-tempo0.9",
-  "a": "e:I1:almsjed-alaqsa (79).mp3",
-  "ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20%2879%29.mp3",
-  "b": "e:C:0628-_up_by_muslem.mp3",
-  "ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0628-_up_by_muslem.mp3",
-  "segs": [
-   {
-    "at": 1499,
-    "len": 20,
-    "rate": 0.9
-   }
-  ],
-  "fpos": 1073.7,
-  "kind": "melody"
- },
- {
-  "name": "s04-pitch+1",
-  "a": "e:I1:almsjed-alaqsa (90).mp3",
-  "ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20%2890%29.mp3",
-  "b": "e:C:0723-9_up_by_muslem.mp3",
-  "ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0723-9_up_by_muslem.mp3",
-  "segs": [
-   {
-    "at": 972.55,
-    "len": 20,
-    "rate": 1
-   }
-  ],
-  "fpos": 1323.6,
-  "kind": "melody"
- }
+{
+"name": "s00-clean20",
+"a": "e:X5:562-1-10 القمر والرحمن مبتورة - 7د– الأقصر.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/562-1-10%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D9%85%D8%A8%D8%AA%D9%88%D8%B1%D8%A9%20-%207%D8%AF%E2%80%93%20%D8%A7%D9%84%D8%A3%D9%82%D8%B5%D8%B1.mp3",
+"b": "e:X3:370-1-3 النور35-42 صلاة جمعة 1-2-1980 من  الامام الشافعي.mp3",
+"ub": "https://archive.org/download/x3-mariam-to-forkan/370-1-3%20%D8%A7%D9%84%D9%86%D9%88%D8%B135-42%20%D8%B5%D9%84%D8%A7%D8%A9%20%D8%AC%D9%85%D8%B9%D8%A9%201-2-1980%20%D9%85%D9%86%20%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%B4%D8%A7%D9%81%D8%B9%D9%8A.mp3",
+"segs": [
+{
+"at": 78.25,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 758.75,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-clean20",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:0731-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0731-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 264.85,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 386.94,
+"kind": "hidden",
+"inl": 8
+},
+{
+"name": "s04-clean20",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:A:292.mp3",
+"ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/292.mp3",
+"segs": [
+{
+"at": 264.85,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 373.97,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s04-clean20",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:0723-9_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0723-9_up_by_muslem.mp3",
+"segs": [
+{
+"at": 264.85,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 374.76,
+"kind": "hidden",
+"inl": 6
+},
+{
+"name": "s04-tempo1.1",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:X6:713-3-1 الأعلى1-19 الغاشية المعوذتين الفاتحة اول آخر البقرة-السبعينات من الكويت.mp3",
+"ub": "https://archive.org/download/x6-saff-to-qesar/713-3-1%20%D8%A7%D9%84%D8%A3%D8%B9%D9%84%D9%891-19%20%D8%A7%D9%84%D8%BA%D8%A7%D8%B4%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D9%88%D8%B0%D8%AA%D9%8A%D9%86%20%D8%A7%D9%84%D9%81%D8%A7%D8%AA%D8%AD%D8%A9%20%D8%A7%D9%88%D9%84%20%D8%A2%D8%AE%D8%B1%20%D8%A7%D9%84%D8%A8%D9%82%D8%B1%D8%A9-%D8%A7%D9%84%D8%B3%D8%A8%D8%B9%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA.mp3",
+"segs": [
+{
+"at": 1128.3,
+"len": 20,
+"rate": 1.1
+}
+],
+"fpos": 1041.13,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s04-tempo1.1",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:0079--1951-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0079--1951-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1128.3,
+"len": 20,
+"rate": 1.1
+}
+],
+"fpos": 2456.79,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s05-pitch+1",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0733-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0733-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 201,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 158.41,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-pitch+1",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0732-2_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0732-2_up_by_muslem.mp3",
+"segs": [
+{
+"at": 201,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 158.41,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-pitch+1",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0727-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0727-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 201,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 158.41,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-pitch+1",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:E:القصار المشهورة وبها الاذان.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%A7%D9%84%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%B4%D9%87%D9%88%D8%B1%D8%A9%20%D9%88%D8%A8%D9%87%D8%A7%20%D8%A7%D9%84%D8%A7%D8%B0%D8%A7%D9%86.mp3",
+"segs": [
+{
+"at": 201,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1833.85,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s05-noise10",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0733-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0733-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1336.25,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1410.49,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-noise10",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0727-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0727-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1336.25,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1410.49,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-noise10",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0732-2_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0732-2_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1336.25,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1410.49,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-noise10",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:I4:المسجد الاموي -رائعة وابداع - القمر و الرحمن و قصار السور_تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد.mp3",
+"ub": "https://archive.org/download/wwwwwwwwwwwwwwwwwwwww831_20190831_1217/%D8%A7%D9%84%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D9%88%D9%8A%20-%D8%B1%D8%A7%D8%A6%D8%B9%D8%A9%20%D9%88%D8%A7%D8%A8%D8%AF%D8%A7%D8%B9%20-%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%20%D9%88%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D9%88%20%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1_%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%D8%A7%D8%AA%20%D9%86%D8%A7%D8%AF%D8%B1%D8%A9_%D8%A7%D9%84%D8%B4%D9%8A%D8%AE%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%A8%D8%A7%D8%B3%D8%B7%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%B5%D9%85%D8%AF.mp3",
+"segs": [
+{
+"at": 1336.25,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1410.44,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-noise10",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:N2:254.mp3",
+"ub": "https://archive.org/download/NawaderGroup-2/254.mp3",
+"segs": [
+{
+"at": 1336.25,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1410.44,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s06-clean20",
+"a": "e:X5:568-4-1 القمر 49-55 الرحمن 1-27- من تلاوات العراق 1956.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/568-4-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%2049-55%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%201-27-%20%D9%85%D9%86%20%D8%AA%D9%84%D8%A7%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%201956.mp3",
+"b": "e:C:0719-5_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0719-5_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1285.15,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1431.95,
+"kind": "hidden",
+"inl": 8
+},
+{
+"name": "s08-clean20",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:E:يوسف - الحسين مصر  تلاوة 3 سنة 1968.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D9%8A%D9%88%D8%B3%D9%81%20-%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86%20%D9%85%D8%B5%D8%B1%20%20%D8%AA%D9%84%D8%A7%D9%88%D8%A9%203%20%D8%B3%D9%86%D8%A9%201968.mp3",
+"segs": [
+{
+"at": 2358.1,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 2188.78,
+"kind": "hidden",
+"inl": 7
+},
+{
+"name": "s08-clean20",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:C:1190-4_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1190-4_up_by_muslem.mp3",
+"segs": [
+{
+"at": 2358.1,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 2188.85,
+"kind": "hidden",
+"inl": 10
+},
+{
+"name": "s08-clean20",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:C:1209-3_uP_bY_mUSLEm.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1209-3_uP_bY_mUSLEm.mp3",
+"segs": [
+{
+"at": 2358.1,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 2073.17,
+"kind": "hidden",
+"inl": 11
+},
+{
+"name": "s08-tempo1.1",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:C:1190-4_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1190-4_up_by_muslem.mp3",
+"segs": [
+{
+"at": 2061.15,
+"len": 20,
+"rate": 1.1
+}
+],
+"fpos": 1909.46,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s08-intro_music3",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:E:يوسف - الحسين مصر  تلاوة 3 سنة 1968.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D9%8A%D9%88%D8%B3%D9%81%20-%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86%20%D9%85%D8%B5%D8%B1%20%20%D8%AA%D9%84%D8%A7%D9%88%D8%A9%203%20%D8%B3%D9%86%D8%A9%201968.mp3",
+"segs": [
+{
+"at": 1320.75,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1205.32,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s08-intro_music3",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:C:1190-4_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1190-4_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1320.75,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1205.43,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s12-tempo1.1",
+"a": "e:I1:almsjed-alaqsa (79).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(79).mp3",
+"b": "e:X2:254-7-1 الحجر 85-99 القيامة النصر الاخلاص المعوذتين الفاتحة افريقيا 1966  صدا.mp3",
+"ub": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/254-7-1%20%D8%A7%D9%84%D8%AD%D8%AC%D8%B1%2085-99%20%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D9%85%D8%A9%20%D8%A7%D9%84%D9%86%D8%B5%D8%B1%20%D8%A7%D9%84%D8%A7%D8%AE%D9%84%D8%A7%D8%B5%20%D8%A7%D9%84%D9%85%D8%B9%D9%88%D8%B0%D8%AA%D9%8A%D9%86%20%D8%A7%D9%84%D9%81%D8%A7%D8%AA%D8%AD%D8%A9%20%D8%A7%D9%81%D8%B1%D9%8A%D9%82%D9%8A%D8%A7%201966%20%20%D8%B5%D8%AF%D8%A7.mp3",
+"segs": [
+{
+"at": 1782.8,
+"len": 20,
+"rate": 1.1
+}
+],
+"fpos": 1253.74,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s01-noise3",
+"a": "e:A:279.mp3",
+"ua": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/279.mp3",
+"b": "e:X5:590-1-2 الواقعة 10-80 مصنع السكر1973 مدينة قوص من الصعيد.mp3",
+"ub": "https://archive.org/download/x5-hograt-to-hashr_202308/590-1-2%20%D8%A7%D9%84%D9%88%D8%A7%D9%82%D8%B9%D8%A9%2010-80%20%D9%85%D8%B5%D9%86%D8%B9%20%D8%A7%D9%84%D8%B3%D9%83%D8%B11973%20%D9%85%D8%AF%D9%8A%D9%86%D8%A9%20%D9%82%D9%88%D8%B5%20%D9%85%D9%86%20%D8%A7%D9%84%D8%B5%D8%B9%D9%8A%D8%AF.mp3",
+"segs": [
+{
+"at": 1030.4,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 188.39,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-aac32",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:N2:368.mp3",
+"ub": "https://archive.org/download/NawaderGroup-2/368.mp3",
+"segs": [
+{
+"at": 1170.4,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 1333.99,
+"kind": "hidden",
+"inl": 7
+},
+{
+"name": "s04-aac32",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:E:عبد الباسط قصار السور.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%A8%D8%A7%D8%B3%D8%B7%20%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1.mp3",
+"segs": [
+{
+"at": 1170.4,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 1333.99,
+"kind": "hidden",
+"inl": 7
+},
+{
+"name": "s04-aac32",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:0079--1951-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0079--1951-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1170.4,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 2499.23,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-aac32",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:1066-3_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1066-3_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1170.4,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 2287.66,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-aac32",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:X6:713-3-1 الأعلى1-19 الغاشية المعوذتين الفاتحة اول آخر البقرة-السبعينات من الكويت.mp3",
+"ub": "https://archive.org/download/x6-saff-to-qesar/713-3-1%20%D8%A7%D9%84%D8%A3%D8%B9%D9%84%D9%891-19%20%D8%A7%D9%84%D8%BA%D8%A7%D8%B4%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D9%88%D8%B0%D8%AA%D9%8A%D9%86%20%D8%A7%D9%84%D9%81%D8%A7%D8%AA%D8%AD%D8%A9%20%D8%A7%D9%88%D9%84%20%D8%A2%D8%AE%D8%B1%20%D8%A7%D9%84%D8%A8%D9%82%D8%B1%D8%A9-%D8%A7%D9%84%D8%B3%D8%A8%D8%B9%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA.mp3",
+"segs": [
+{
+"at": 1170.4,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 1101.36,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-tempo1.25",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:0731-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0731-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 489.35,
+"len": 20,
+"rate": 1.25
+}
+],
+"fpos": 615.9,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-music_bed",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:A:391.mp3",
+"ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/391.mp3",
+"segs": [
+{
+"at": 1075.95,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 2205.4,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s04-music_bed",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:1065-2_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1065-2_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1075.95,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 891.34,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s04-music_bed",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:0240-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0240-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1075.95,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 891.54,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-noise3",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:E:القصار المشهورة وبها الاذان.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%A7%D9%84%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%B4%D9%87%D9%88%D8%B1%D8%A9%20%D9%88%D8%A8%D9%87%D8%A7%20%D8%A7%D9%84%D8%A7%D8%B0%D8%A7%D9%86.mp3",
+"segs": [
+{
+"at": 1505.6,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 3067.47,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s05-noise3",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0727-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0727-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1505.6,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1569.17,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-noise3",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0732-2_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0732-2_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1505.6,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1569.17,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-noise3",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0733-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0733-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1505.6,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1569.17,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s08-aac32",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:E:يوسف - الحسين مصر  تلاوة 3 سنة 1968.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D9%8A%D9%88%D8%B3%D9%81%20-%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86%20%D9%85%D8%B5%D8%B1%20%20%D8%AA%D9%84%D8%A7%D9%88%D8%A9%203%20%D8%B3%D9%86%D8%A9%201968.mp3",
+"segs": [
+{
+"at": 1138.5,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 929.32,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s08-aac32",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:C:1209-3_uP_bY_mUSLEm.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1209-3_uP_bY_mUSLEm.mp3",
+"segs": [
+{
+"at": 1138.5,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 917.21,
+"kind": "hidden",
+"inl": 7
+},
+{
+"name": "s04-bass",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:1065-2_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1065-2_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1105.25,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 980.3,
+"kind": "hidden",
+"inl": 6
+},
+{
+"name": "s04-bass",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:X6:713-3-1 الأعلى1-19 الغاشية المعوذتين الفاتحة اول آخر البقرة-السبعينات من الكويت.mp3",
+"ub": "https://archive.org/download/x6-saff-to-qesar/713-3-1%20%D8%A7%D9%84%D8%A3%D8%B9%D9%84%D9%891-19%20%D8%A7%D9%84%D8%BA%D8%A7%D8%B4%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D9%88%D8%B0%D8%AA%D9%8A%D9%86%20%D8%A7%D9%84%D9%81%D8%A7%D8%AA%D8%AD%D8%A9%20%D8%A7%D9%88%D9%84%20%D8%A2%D8%AE%D8%B1%20%D8%A7%D9%84%D8%A8%D9%82%D8%B1%D8%A9-%D8%A7%D9%84%D8%B3%D8%A8%D8%B9%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA.mp3",
+"segs": [
+{
+"at": 1105.25,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 948.08,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s12-bass",
+"a": "e:I1:almsjed-alaqsa (79).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(79).mp3",
+"b": "e:C:0631-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0631-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1442.5,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 973.89,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s04-treble_cut",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:1065-2_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1065-2_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1062.85,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 877.04,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s04-treble_cut",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:X6:713-3-1 الأعلى1-19 الغاشية المعوذتين الفاتحة اول آخر البقرة-السبعينات من الكويت.mp3",
+"ub": "https://archive.org/download/x6-saff-to-qesar/713-3-1%20%D8%A7%D9%84%D8%A3%D8%B9%D9%84%D9%891-19%20%D8%A7%D9%84%D8%BA%D8%A7%D8%B4%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D9%88%D8%B0%D8%AA%D9%8A%D9%86%20%D8%A7%D9%84%D9%81%D8%A7%D8%AA%D8%AD%D8%A9%20%D8%A7%D9%88%D9%84%20%D8%A2%D8%AE%D8%B1%20%D8%A7%D9%84%D8%A8%D9%82%D8%B1%D8%A9-%D8%A7%D9%84%D8%B3%D8%A8%D8%B9%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA.mp3",
+"segs": [
+{
+"at": 1062.85,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 847.75,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-treble_cut",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:0240-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0240-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1062.85,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 877.28,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-treble_cut",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:N2:368.mp3",
+"ub": "https://archive.org/download/NawaderGroup-2/368.mp3",
+"segs": [
+{
+"at": 1062.85,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1225.03,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s04-treble_cut",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:E:عبد الباسط قصار السور.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%A8%D8%A7%D8%B3%D8%B7%20%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1.mp3",
+"segs": [
+{
+"at": 1062.85,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1225.03,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s04-treble_cut",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:0079--1951-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0079--1951-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1062.85,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 2395.04,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-video_mov",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:E:القصار المشهورة وبها الاذان.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%A7%D9%84%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%B4%D9%87%D9%88%D8%B1%D8%A9%20%D9%88%D8%A8%D9%87%D8%A7%20%D8%A7%D9%84%D8%A7%D8%B0%D8%A7%D9%86.mp3",
+"segs": [
+{
+"at": 2428,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 3899.2,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s05-speed1.1",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:E:القصار المشهورة وبها الاذان.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%A7%D9%84%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%B4%D9%87%D9%88%D8%B1%D8%A9%20%D9%88%D8%A8%D9%87%D8%A7%20%D8%A7%D9%84%D8%A7%D8%B0%D8%A7%D9%86.mp3",
+"segs": [
+{
+"at": 1934.35,
+"len": 20,
+"rate": 1.1
+}
+],
+"fpos": 3400.97,
+"kind": "hidden",
+"inl": 21
+},
+{
+"name": "s05-speed1.1",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:N2:254.mp3",
+"ub": "https://archive.org/download/NawaderGroup-2/254.mp3",
+"segs": [
+{
+"at": 1934.35,
+"len": 20,
+"rate": 1.1
+}
+],
+"fpos": 1894.11,
+"kind": "hidden",
+"inl": 6
+},
+{
+"name": "s05-speed1.1",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:I4:المسجد الاموي -رائعة وابداع - القمر و الرحمن و قصار السور_تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد.mp3",
+"ub": "https://archive.org/download/wwwwwwwwwwwwwwwwwwwww831_20190831_1217/%D8%A7%D9%84%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D9%88%D9%8A%20-%D8%B1%D8%A7%D8%A6%D8%B9%D8%A9%20%D9%88%D8%A7%D8%A8%D8%AF%D8%A7%D8%B9%20-%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%20%D9%88%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D9%88%20%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1_%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%D8%A7%D8%AA%20%D9%86%D8%A7%D8%AF%D8%B1%D8%A9_%D8%A7%D9%84%D8%B4%D9%8A%D8%AE%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%A8%D8%A7%D8%B3%D8%B7%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%B5%D9%85%D8%AF.mp3",
+"segs": [
+{
+"at": 1934.35,
+"len": 20,
+"rate": 1.1
+}
+],
+"fpos": 1894.12,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s05-speed1.1",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0727-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0727-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1934.35,
+"len": 20,
+"rate": 1.1
+}
+],
+"fpos": 1894.19,
+"kind": "hidden",
+"inl": 6
+},
+{
+"name": "s05-speed1.1",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0732-2_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0732-2_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1934.35,
+"len": 20,
+"rate": 1.1
+}
+],
+"fpos": 1894.19,
+"kind": "hidden",
+"inl": 6
+},
+{
+"name": "s05-speed1.1",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0733-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0733-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1934.35,
+"len": 20,
+"rate": 1.1
+}
+],
+"fpos": 1894.19,
+"kind": "hidden",
+"inl": 6
+},
+{
+"name": "s08-treble_cut",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:C:1190-4_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1190-4_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1882.05,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1741.72,
+"kind": "hidden",
+"inl": 10
+},
+{
+"name": "s08-treble_cut",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:E:يوسف - الحسين مصر  تلاوة 3 سنة 1968.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D9%8A%D9%88%D8%B3%D9%81%20-%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86%20%D9%85%D8%B5%D8%B1%20%20%D8%AA%D9%84%D8%A7%D9%88%D8%A9%203%20%D8%B3%D9%86%D8%A9%201968.mp3",
+"segs": [
+{
+"at": 1882.05,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1741.64,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s08-treble_cut",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:C:1209-3_uP_bY_mUSLEm.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1209-3_uP_bY_mUSLEm.mp3",
+"segs": [
+{
+"at": 1882.05,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1625.02,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s12-pitch-2",
+"a": "e:I1:almsjed-alaqsa (79).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(79).mp3",
+"b": "e:C:1065-2_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1065-2_up_by_muslem.mp3",
+"segs": [
+{
+"at": 960.65,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1017.28,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s04-compress",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:A:292.mp3",
+"ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/292.mp3",
+"segs": [
+{
+"at": 787.95,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 970.54,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-phone",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0727-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0727-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 687.2,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 590.16,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s05-phone",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0732-2_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0732-2_up_by_muslem.mp3",
+"segs": [
+{
+"at": 687.2,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 590.16,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s05-phone",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0733-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0733-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 687.2,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 590.16,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s05-phone",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:N2:254.mp3",
+"ub": "https://archive.org/download/NawaderGroup-2/254.mp3",
+"segs": [
+{
+"at": 687.2,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 590.09,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s05-phone",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:I4:المسجد الاموي -رائعة وابداع - القمر و الرحمن و قصار السور_تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد.mp3",
+"ub": "https://archive.org/download/wwwwwwwwwwwwwwwwwwwww831_20190831_1217/%D8%A7%D9%84%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D9%88%D9%8A%20-%D8%B1%D8%A7%D8%A6%D8%B9%D8%A9%20%D9%88%D8%A7%D8%A8%D8%AF%D8%A7%D8%B9%20-%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%20%D9%88%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D9%88%20%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1_%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%D8%A7%D8%AA%20%D9%86%D8%A7%D8%AF%D8%B1%D8%A9_%D8%A7%D9%84%D8%B4%D9%8A%D8%AE%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%A8%D8%A7%D8%B3%D8%B7%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%B5%D9%85%D8%AF.mp3",
+"segs": [
+{
+"at": 687.2,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 590.09,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s07-combo3",
+"a": "e:C:0706-_up_by_muslem.mp3",
+"ua": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0706-_up_by_muslem.mp3",
+"b": "e:X5:556-5-1 النجم 1-62 الطارق قريش في الستينات من  الكويت.mp3",
+"ub": "https://archive.org/download/x5-hograt-to-hashr_202308/556-5-1%20%D8%A7%D9%84%D9%86%D8%AC%D9%85%201-62%20%D8%A7%D9%84%D8%B7%D8%A7%D8%B1%D9%82%20%D9%82%D8%B1%D9%8A%D8%B4%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA.mp3",
+"segs": [
+{
+"at": 410.55,
+"len": 20,
+"rate": 0.9
+}
+],
+"fpos": 1732.93,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s08-compress",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:C:1209-3_uP_bY_mUSLEm.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1209-3_uP_bY_mUSLEm.mp3",
+"segs": [
+{
+"at": 1495.4,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1247.66,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s12-pitch+3",
+"a": "e:I1:almsjed-alaqsa (79).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(79).mp3",
+"b": "e:B:10 التكاثر - الناس والفاتحة واوائل البقرة - ناقصة البداية  .mp3",
+"ub": "https://archive.org/download/ComprehensiveLibraryHeritageSheikhAbdulBasitAbdulSamadRecitationsSporadicRadio/10%20%D8%A7%D9%84%D8%AA%D9%83%D8%A7%D8%AB%D8%B1%20-%20%D8%A7%D9%84%D9%86%D8%A7%D8%B3%20%D9%88%D8%A7%D9%84%D9%81%D8%A7%D8%AA%D8%AD%D8%A9%20%D9%88%D8%A7%D9%88%D8%A7%D8%A6%D9%84%20%D8%A7%D9%84%D8%A8%D9%82%D8%B1%D8%A9%20-%20%D9%86%D8%A7%D9%82%D8%B5%D8%A9%20%D8%A7%D9%84%D8%A8%D8%AF%D8%A7%D9%8A%D8%A9%20%20.mp3",
+"segs": [
+{
+"at": 798.2,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1024.72,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s15-phone",
+"a": "e:X2:182-1-3 يوسف 1-21  -الاسكندرية في السبعينات.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/182-1-3%20%D9%8A%D9%88%D8%B3%D9%81%201-21%20%20-%D8%A7%D9%84%D8%A7%D8%B3%D9%83%D9%86%D8%AF%D8%B1%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%A8%D8%B9%D9%8A%D9%86%D8%A7%D8%AA.mp3",
+"b": "e:B:8 ال عمران 35-37 من تلفزيون مصر.mp3",
+"ub": "https://archive.org/download/ComprehensiveLibraryHeritageSheikhAbdulBasitAbdulSamadRecitationsSporadicRadio/8%20%D8%A7%D9%84%20%D8%B9%D9%85%D8%B1%D8%A7%D9%86%2035-37%20%D9%85%D9%86%20%D8%AA%D9%84%D9%81%D8%B2%D9%8A%D9%88%D9%86%20%D9%85%D8%B5%D8%B1.mp3",
+"segs": [
+{
+"at": 214.35,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 248.41,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s03-len7",
+"a": "e:A:284.mp3",
+"ua": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/284.mp3",
+"b": "e:X5:526-1-9 الحجرات 13-18 القيامة والقدر -في السبعينات من الشافعي.mp3",
+"ub": "https://archive.org/download/x5-hograt-to-hashr_202308/526-1-9%20%D8%A7%D9%84%D8%AD%D8%AC%D8%B1%D8%A7%D8%AA%2013-18%20%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D9%85%D8%A9%20%D9%88%D8%A7%D9%84%D9%82%D8%AF%D8%B1%20-%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%A8%D8%B9%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%D8%A7%D9%84%D8%B4%D8%A7%D9%81%D8%B9%D9%8A.mp3",
+"segs": [
+{
+"at": 425.05,
+"len": 7,
+"rate": 1
+}
+],
+"fpos": 1368.64,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-distort",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:A:292.mp3",
+"ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/292.mp3",
+"segs": [
+{
+"at": 740.35,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 923.67,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s05-echo",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:I9:071--.mp3",
+"ub": "https://archive.org/download/Tilawat-kharijiya_Abdelbassat-abdssamad/071--.mp3",
+"segs": [
+{
+"at": 620.2,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 635.97,
+"kind": "hidden",
+"inl": 2
+},
+{
+"name": "s08-distort",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:E:يوسف - الحسين مصر  تلاوة 3 سنة 1968.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D9%8A%D9%88%D8%B3%D9%81%20-%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86%20%D9%85%D8%B5%D8%B1%20%20%D8%AA%D9%84%D8%A7%D9%88%D8%A9%203%20%D8%B3%D9%86%D8%A9%201968.mp3",
+"segs": [
+{
+"at": 2123.35,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1967.88,
+"kind": "hidden",
+"inl": 9
+},
+{
+"name": "s08-distort",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:C:1190-4_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1190-4_up_by_muslem.mp3",
+"segs": [
+{
+"at": 2123.35,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1967.95,
+"kind": "hidden",
+"inl": 12
+},
+{
+"name": "s12-pitch-4",
+"a": "e:I1:almsjed-alaqsa (79).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(79).mp3",
+"b": "e:B:4-1 مريم 1-52 - تلاوات سوريا- نسخة الاستاذ عبدالله سالم.mp3",
+"ub": "https://archive.org/download/ComprehensiveLibraryHeritageSheikhAbdulBasitAbdulSamadRecitationsSporadicRadio/4-1%20%D9%85%D8%B1%D9%8A%D9%85%201-52%20-%20%D8%AA%D9%84%D8%A7%D9%88%D8%A7%D8%AA%20%D8%B3%D9%88%D8%B1%D9%8A%D8%A7-%20%D9%86%D8%B3%D8%AE%D8%A9%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%A7%D8%B0%20%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%84%D9%87%20%D8%B3%D8%A7%D9%84%D9%85.mp3",
+"segs": [
+{
+"at": 601.25,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1242.07,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s02-intro_silence3",
+"a": "e:C:0729-_up_by_muslem.mp3",
+"ua": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0729-_up_by_muslem.mp3",
+"b": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ub": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"segs": [
+{
+"at": 2148.15,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 2431.53,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-intro_silence3",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:N1:076.mp3",
+"ub": "https://archive.org/download/NawaderGroup-1/076.mp3",
+"segs": [
+{
+"at": 1021.35,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 843.34,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s07-len10",
+"a": "e:C:0706-_up_by_muslem.mp3",
+"ua": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0706-_up_by_muslem.mp3",
+"b": "e:A:255.mp3",
+"ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/255.mp3",
+"segs": [
+{
+"at": 410.55,
+"len": 10,
+"rate": 1
+}
+],
+"fpos": 801.16,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s01-join2_diff",
+"a": "e:A:279.mp3",
+"ua": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/279.mp3",
+"b": "e:E:القصار المشهورة وبها الاذان.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%A7%D9%84%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%B4%D9%87%D9%88%D8%B1%D8%A9%20%D9%88%D8%A8%D9%87%D8%A7%20%D8%A7%D9%84%D8%A7%D8%B0%D8%A7%D9%86.mp3",
+"segs": [
+{
+"at": 1768.4,
+"len": 12,
+"rate": 1
+}
+],
+"fpos": 3557.03,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s01-join2_diff",
+"a": "e:A:279.mp3",
+"ua": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/279.mp3",
+"b": "e:A:384.mp3",
+"ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/384.mp3",
+"segs": [
+{
+"at": 1768.4,
+"len": 12,
+"rate": 1
+}
+],
+"fpos": 22.83,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-intro_noise3",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:0723-9_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0723-9_up_by_muslem.mp3",
+"segs": [
+{
+"at": 787.95,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 968.35,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-intro_noise3",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:0731-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0731-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 787.95,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 998.68,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-intro_noise3",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:0735-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0735-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 787.95,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 996.02,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-len44",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:E:القصار المشهورة وبها الاذان.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%A7%D9%84%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%B4%D9%87%D9%88%D8%B1%D8%A9%20%D9%88%D8%A8%D9%87%D8%A7%20%D8%A7%D9%84%D8%A7%D8%B0%D8%A7%D9%86.mp3",
+"segs": [
+{
+"at": 1982.45,
+"len": 44,
+"rate": 1
+}
+],
+"fpos": 3479.68,
+"kind": "hidden",
+"inl": 11
+},
+{
+"name": "s08-intro_noise3",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:E:يوسف - الحسين مصر  تلاوة 3 سنة 1968.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D9%8A%D9%88%D8%B3%D9%81%20-%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86%20%D9%85%D8%B5%D8%B1%20%20%D8%AA%D9%84%D8%A7%D9%88%D8%A9%203%20%D8%B3%D9%86%D8%A9%201968.mp3",
+"segs": [
+{
+"at": 2253.75,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 2087.66,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s08-intro_noise3",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:C:1209-3_uP_bY_mUSLEm.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1209-3_uP_bY_mUSLEm.mp3",
+"segs": [
+{
+"at": 2253.75,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1971.91,
+"kind": "hidden",
+"inl": 7
+},
+{
+"name": "s13-join2_diff",
+"a": "e:I53:عبد الباسط عبد الصمد  الزمر والبلد والضحى والشرح والتين والنصر  مسجد الشهيد صلاح عشماوي 30 01 1987.mp3",
+"ua": "https://archive.org/download/30-01-1987/%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%A8%D8%A7%D8%B3%D8%B7%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%B5%D9%85%D8%AF%20%20%D8%A7%D9%84%D8%B2%D9%85%D8%B1%20%D9%88%D8%A7%D9%84%D8%A8%D9%84%D8%AF%20%D9%88%D8%A7%D9%84%D8%B6%D8%AD%D9%89%20%D9%88%D8%A7%D9%84%D8%B4%D8%B1%D8%AD%20%D9%88%D8%A7%D9%84%D8%AA%D9%8A%D9%86%20%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%B4%D9%87%D9%8A%D8%AF%20%D8%B5%D9%84%D8%A7%D8%AD%20%D8%B9%D8%B4%D9%85%D8%A7%D9%88%D9%8A%2030%2001%201987.mp3",
+"b": "e:C:1209-3_uP_bY_mUSLEm.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1209-3_uP_bY_mUSLEm.mp3",
+"segs": [
+{
+"at": 207,
+"len": 12,
+"rate": 1
+}
+],
+"fpos": 2065.99,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s04-video_mp4",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:0725-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0725-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 520.2,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 654.19,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-bass",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0733-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0733-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 287.95,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 239.13,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-bass",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:E:القصار المشهورة وبها الاذان.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%A7%D9%84%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%B4%D9%87%D9%88%D8%B1%D8%A9%20%D9%88%D8%A8%D9%87%D8%A7%20%D8%A7%D9%84%D8%A7%D8%B0%D8%A7%D9%86.mp3",
+"segs": [
+{
+"at": 287.95,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1917.84,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s05-bass",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0727-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0727-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 287.95,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 239.13,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-bass",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0732-2_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0732-2_up_by_muslem.mp3",
+"segs": [
+{
+"at": 287.95,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 239.13,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s08-video_mp4",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:C:1209-3_uP_bY_mUSLEm.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1209-3_uP_bY_mUSLEm.mp3",
+"segs": [
+{
+"at": 1607.1,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 1440.26,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s08-video_mp4",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:C:1190-4_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1190-4_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1607.1,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 1557.57,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s09-pitch+2",
+"a": "e:B:2-2 الواقعة 1- 96 تم اكمال التلاوة من اخرى -مركبة.mp3",
+"ua": "https://archive.org/download/ComprehensiveLibraryHeritageSheikhAbdulBasitAbdulSamadRecitationsSporadicRadio/2-2%20%D8%A7%D9%84%D9%88%D8%A7%D9%82%D8%B9%D8%A9%201-%2096%20%D8%AA%D9%85%20%D8%A7%D9%83%D9%85%D8%A7%D9%84%20%D8%A7%D9%84%D8%AA%D9%84%D8%A7%D9%88%D8%A9%20%D9%85%D9%86%20%D8%A7%D8%AE%D8%B1%D9%89%20-%D9%85%D8%B1%D9%83%D8%A8%D8%A9.mp3",
+"b": "e:C:0884-64--81_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0884-64--81_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1500.5,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1640.87,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s12-video_mp4",
+"a": "e:I1:almsjed-alaqsa (79).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(79).mp3",
+"b": "e:E:القصار المشهورة وبها الاذان.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%A7%D9%84%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%B4%D9%87%D9%88%D8%B1%D8%A9%20%D9%88%D8%A8%D9%87%D8%A7%20%D8%A7%D9%84%D8%A7%D8%B0%D8%A7%D9%86.mp3",
+"segs": [
+{
+"at": 844.25,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 1462.58,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s12-speed0.9",
+"a": "e:I1:almsjed-alaqsa (79).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(79).mp3",
+"b": "e:C:1065-2_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1065-2_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1131.6,
+"len": 20,
+"rate": 0.9
+}
+],
+"fpos": 1202.17,
+"kind": "hidden",
+"inl": 8
+},
+{
+"name": "s12-speed0.9",
+"a": "e:I1:almsjed-alaqsa (79).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(79).mp3",
+"b": "e:N1:076.mp3",
+"ub": "https://archive.org/download/NawaderGroup-1/076.mp3",
+"segs": [
+{
+"at": 1131.6,
+"len": 20,
+"rate": 0.9
+}
+],
+"fpos": 1198.72,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s12-speed0.9",
+"a": "e:I1:almsjed-alaqsa (79).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(79).mp3",
+"b": "e:I16:2-871976.mp3",
+"ub": "https://archive.org/download/112121211976/2-871976.mp3",
+"segs": [
+{
+"at": 1131.6,
+"len": 20,
+"rate": 0.9
+}
+],
+"fpos": 1187.93,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s12-speed0.9",
+"a": "e:I1:almsjed-alaqsa (79).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(79).mp3",
+"b": "e:X6:713-3-1 الأعلى1-19 الغاشية المعوذتين الفاتحة اول آخر البقرة-السبعينات من الكويت.mp3",
+"ub": "https://archive.org/download/x6-saff-to-qesar/713-3-1%20%D8%A7%D9%84%D8%A3%D8%B9%D9%84%D9%891-19%20%D8%A7%D9%84%D8%BA%D8%A7%D8%B4%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D9%88%D8%B0%D8%AA%D9%8A%D9%86%20%D8%A7%D9%84%D9%81%D8%A7%D8%AA%D8%AD%D8%A9%20%D8%A7%D9%88%D9%84%20%D8%A2%D8%AE%D8%B1%20%D8%A7%D9%84%D8%A8%D9%82%D8%B1%D8%A9-%D8%A7%D9%84%D8%B3%D8%A8%D8%B9%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA.mp3",
+"segs": [
+{
+"at": 1131.6,
+"len": 20,
+"rate": 0.9
+}
+],
+"fpos": 1163.59,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s12-speed0.9",
+"a": "e:I1:almsjed-alaqsa (79).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(79).mp3",
+"b": "e:C:0240-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0240-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1131.6,
+"len": 20,
+"rate": 0.9
+}
+],
+"fpos": 1202.33,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s12-speed0.9",
+"a": "e:I1:almsjed-alaqsa (79).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(79).mp3",
+"b": "e:A:393.mp3",
+"ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/393.mp3",
+"segs": [
+{
+"at": 1131.6,
+"len": 20,
+"rate": 0.9
+}
+],
+"fpos": 428.68,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-video_mov",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:0991-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0991-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1062.85,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 5244.1,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-video_mov",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:1119-_uP_bY_mUSLEm.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1119-_uP_bY_mUSLEm.mp3",
+"segs": [
+{
+"at": 1062.85,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 5244.1,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-speed1.1",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:A:292.mp3",
+"ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/292.mp3",
+"segs": [
+{
+"at": 25.35,
+"len": 20,
+"rate": 1.1
+}
+],
+"fpos": 23.92,
+"kind": "hidden",
+"inl": 7
+},
+{
+"name": "s04-speed1.1",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:0735-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0735-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 25.35,
+"len": 20,
+"rate": 1.1
+}
+],
+"fpos": 30.58,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s04-combo2",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:I16:2-871976.mp3",
+"ub": "https://archive.org/download/112121211976/2-871976.mp3",
+"segs": [
+{
+"at": 1218.75,
+"len": 20,
+"rate": 0.9
+}
+],
+"fpos": 1176.47,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-combo2",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:N1:076.mp3",
+"ub": "https://archive.org/download/NawaderGroup-1/076.mp3",
+"segs": [
+{
+"at": 1218.75,
+"len": 20,
+"rate": 0.9
+}
+],
+"fpos": 1187.2,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-combo2",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:X6:713-3-1 الأعلى1-19 الغاشية المعوذتين الفاتحة اول آخر البقرة-السبعينات من الكويت.mp3",
+"ub": "https://archive.org/download/x6-saff-to-qesar/713-3-1%20%D8%A7%D9%84%D8%A3%D8%B9%D9%84%D9%891-19%20%D8%A7%D9%84%D8%BA%D8%A7%D8%B4%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D9%88%D8%B0%D8%AA%D9%8A%D9%86%20%D8%A7%D9%84%D9%81%D8%A7%D8%AA%D8%AD%D8%A9%20%D8%A7%D9%88%D9%84%20%D8%A2%D8%AE%D8%B1%20%D8%A7%D9%84%D8%A8%D9%82%D8%B1%D8%A9-%D8%A7%D9%84%D8%B3%D8%A8%D8%B9%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA.mp3",
+"segs": [
+{
+"at": 1218.75,
+"len": 20,
+"rate": 0.9
+}
+],
+"fpos": 1152.41,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-combo2",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:0079--1951-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0079--1951-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1218.75,
+"len": 20,
+"rate": 0.9
+}
+],
+"fpos": 2531.04,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-treble_cut",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:E:القصار المشهورة وبها الاذان.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%A7%D9%84%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%B4%D9%87%D9%88%D8%B1%D8%A9%20%D9%88%D8%A8%D9%87%D8%A7%20%D8%A7%D9%84%D8%A7%D8%B0%D8%A7%D9%86.mp3",
+"segs": [
+{
+"at": 1336.25,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 2905.91,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s08-speed1.1",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:E:يوسف - الحسين مصر  تلاوة 3 سنة 1968.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D9%8A%D9%88%D8%B3%D9%81%20-%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86%20%D9%85%D8%B5%D8%B1%20%20%D8%AA%D9%84%D8%A7%D9%88%D8%A9%203%20%D8%B3%D9%86%D8%A9%201968.mp3",
+"segs": [
+{
+"at": 1437.1,
+"len": 20,
+"rate": 1.1
+}
+],
+"fpos": 1311.5,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s09-pitch-2",
+"a": "e:B:2-2 الواقعة 1- 96 تم اكمال التلاوة من اخرى -مركبة.mp3",
+"ua": "https://archive.org/download/ComprehensiveLibraryHeritageSheikhAbdulBasitAbdulSamadRecitationsSporadicRadio/2-2%20%D8%A7%D9%84%D9%88%D8%A7%D9%82%D8%B9%D8%A9%201-%2096%20%D8%AA%D9%85%20%D8%A7%D9%83%D9%85%D8%A7%D9%84%20%D8%A7%D9%84%D8%AA%D9%84%D8%A7%D9%88%D8%A9%20%D9%85%D9%86%20%D8%A7%D8%AE%D8%B1%D9%89%20-%D9%85%D8%B1%D9%83%D8%A8%D8%A9.mp3",
+"b": "e:C:0592-2_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0592-2_up_by_muslem.mp3",
+"segs": [
+{
+"at": 994.4,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 376.55,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s09-treble_cut",
+"a": "e:B:2-2 الواقعة 1- 96 تم اكمال التلاوة من اخرى -مركبة.mp3",
+"ua": "https://archive.org/download/ComprehensiveLibraryHeritageSheikhAbdulBasitAbdulSamadRecitationsSporadicRadio/2-2%20%D8%A7%D9%84%D9%88%D8%A7%D9%82%D8%B9%D8%A9%201-%2096%20%D8%AA%D9%85%20%D8%A7%D9%83%D9%85%D8%A7%D9%84%20%D8%A7%D9%84%D8%AA%D9%84%D8%A7%D9%88%D8%A9%20%D9%85%D9%86%20%D8%A7%D8%AE%D8%B1%D9%89%20-%D9%85%D8%B1%D9%83%D8%A8%D8%A9.mp3",
+"b": "e:R:291--اذاعة مصر الخمسينات النصف ساعة   -آل عمران 93-112.mp3",
+"ub": "https://archive.org/download/abdelbassetradiom3raj/291--%D8%A7%D8%B0%D8%A7%D8%B9%D8%A9%20%D9%85%D8%B5%D8%B1%20%D8%A7%D9%84%D8%AE%D9%85%D8%B3%D9%8A%D9%86%D8%A7%D8%AA%20%D8%A7%D9%84%D9%86%D8%B5%D9%81%20%D8%B3%D8%A7%D8%B9%D8%A9%20%20%20-%D8%A2%D9%84%20%D8%B9%D9%85%D8%B1%D8%A7%D9%86%2093-112.mp3",
+"segs": [
+{
+"at": 465.4,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 95.69,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s12-combo2",
+"a": "e:I1:almsjed-alaqsa (79).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(79).mp3",
+"b": "e:X6:713-3-1 الأعلى1-19 الغاشية المعوذتين الفاتحة اول آخر البقرة-السبعينات من الكويت.mp3",
+"ub": "https://archive.org/download/x6-saff-to-qesar/713-3-1%20%D8%A7%D9%84%D8%A3%D8%B9%D9%84%D9%891-19%20%D8%A7%D9%84%D8%BA%D8%A7%D8%B4%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D9%88%D8%B0%D8%AA%D9%8A%D9%86%20%D8%A7%D9%84%D9%81%D8%A7%D8%AA%D8%AD%D8%A9%20%D8%A7%D9%88%D9%84%20%D8%A2%D8%AE%D8%B1%20%D8%A7%D9%84%D8%A8%D9%82%D8%B1%D8%A9-%D8%A7%D9%84%D8%B3%D8%A8%D8%B9%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA.mp3",
+"segs": [
+{
+"at": 513.6,
+"len": 20,
+"rate": 0.9
+}
+],
+"fpos": 539.21,
+"kind": "hidden",
+"inl": 10
+},
+{
+"name": "s12-combo2",
+"a": "e:I1:almsjed-alaqsa (79).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(79).mp3",
+"b": "e:I16:2-871976.mp3",
+"ub": "https://archive.org/download/112121211976/2-871976.mp3",
+"segs": [
+{
+"at": 513.6,
+"len": 20,
+"rate": 0.9
+}
+],
+"fpos": 550.72,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s00-phone",
+"a": "e:X5:562-1-10 القمر والرحمن مبتورة - 7د– الأقصر.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/562-1-10%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D9%85%D8%A8%D8%AA%D9%88%D8%B1%D8%A9%20-%207%D8%AF%E2%80%93%20%D8%A7%D9%84%D8%A3%D9%82%D8%B5%D8%B1.mp3",
+"b": "e:A:419.mp3",
+"ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/419.mp3",
+"segs": [
+{
+"at": 332.85,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 987.48,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-speed1.25",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:A:292.mp3",
+"ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/292.mp3",
+"segs": [
+{
+"at": 199.5,
+"len": 20,
+"rate": 1.25
+}
+],
+"fpos": 309.58,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s05-pitch+3",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:E:القصار المشهورة وبها الاذان.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%A7%D9%84%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%B4%D9%87%D9%88%D8%B1%D8%A9%20%D9%88%D8%A8%D9%87%D8%A7%20%D8%A7%D9%84%D8%A7%D8%B0%D8%A7%D9%86.mp3",
+"segs": [
+{
+"at": 1683,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 3229.03,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s05-compress",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0870-2_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0870-2_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1029.35,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 29.63,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s08-combo3",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "s:warsh:40",
+"ub": "https://cdn.mp3quran.net/audio/abdulbasit-abdulsamad/r2/040.mp3",
+"segs": [
+{
+"at": 1495.4,
+"len": 20,
+"rate": 0.9
+}
+],
+"fpos": 759.62,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s11-pitch+3",
+"a": "e:C:0771-_up_by_muslem.mp3",
+"ua": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0771-_up_by_muslem.mp3",
+"b": "e:R:186--اذاعة السعودية السبعينات -التوبة 18-27.mp3",
+"ub": "https://archive.org/download/abdelbassetradiom3raj/186--%D8%A7%D8%B0%D8%A7%D8%B9%D8%A9%20%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B3%D8%A8%D8%B9%D9%8A%D9%86%D8%A7%D8%AA%20-%D8%A7%D9%84%D8%AA%D9%88%D8%A8%D8%A9%2018-27.mp3",
+"segs": [
+{
+"at": 1431.75,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 284.88,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s14-speed1.25",
+"a": "e:N2:319.mp3",
+"ua": "https://archive.org/download/NawaderGroup-2/319.mp3",
+"b": "e:B:7 النساء 64-75 تلاوة تلفزيونية من الكويت.mp3",
+"ub": "https://archive.org/download/ComprehensiveLibraryHeritageSheikhAbdulBasitAbdulSamadRecitationsSporadicRadio/7%20%D8%A7%D9%84%D9%86%D8%B3%D8%A7%D8%A1%2064-75%20%D8%AA%D9%84%D8%A7%D9%88%D8%A9%20%D8%AA%D9%84%D9%81%D8%B2%D9%8A%D9%88%D9%86%D9%8A%D8%A9%20%D9%85%D9%86%20%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA.mp3",
+"segs": [
+{
+"at": 616.9,
+"len": 20,
+"rate": 1.25
+}
+],
+"fpos": 206.69,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s01-pitch-4",
+"a": "e:A:279.mp3",
+"ua": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/279.mp3",
+"b": "e:N2:318.mp3",
+"ub": "https://archive.org/download/NawaderGroup-2/318.mp3",
+"segs": [
+{
+"at": 1197.7,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 655.05,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s03-pitch-4",
+"a": "e:A:284.mp3",
+"ua": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/284.mp3",
+"b": "e:C:0705-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0705-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 188.35,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1375.31,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-len7",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:A:393.mp3",
+"ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/393.mp3",
+"segs": [
+{
+"at": 1105.25,
+"len": 7,
+"rate": 1
+}
+],
+"fpos": 206.47,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-echo",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:0731-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0731-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 938.9,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1247.89,
+"kind": "hidden",
+"inl": 6
+},
+{
+"name": "s05-pitch-4",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:E:القصار المشهورة وبها الاذان.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%A7%D9%84%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%B4%D9%87%D9%88%D8%B1%D8%A9%20%D9%88%D8%A8%D9%87%D8%A7%20%D8%A7%D9%84%D8%A7%D8%B0%D8%A7%D9%86.mp3",
+"segs": [
+{
+"at": 2536.65,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 3996.83,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s05-distort",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:E:القصار المشهورة وبها الاذان.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%A7%D9%84%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%B4%D9%87%D9%88%D8%B1%D8%A9%20%D9%88%D8%A8%D9%87%D8%A7%20%D8%A7%D9%84%D8%A7%D8%B0%D8%A7%D9%86.mp3",
+"segs": [
+{
+"at": 697.05,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 2309.77,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s08-echo",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:C:1190-4_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1190-4_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1999,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1851.29,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s08-echo",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:E:يوسف - الحسين مصر  تلاوة 3 سنة 1968.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D9%8A%D9%88%D8%B3%D9%81%20-%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86%20%D9%85%D8%B5%D8%B1%20%20%D8%AA%D9%84%D8%A7%D9%88%D8%A9%203%20%D8%B3%D9%86%D8%A9%201968.mp3",
+"segs": [
+{
+"at": 1999,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1851.21,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s08-echo",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:C:1209-3_uP_bY_mUSLEm.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1209-3_uP_bY_mUSLEm.mp3",
+"segs": [
+{
+"at": 1999,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1734.87,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s08-join2_same",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:C:1190-4_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1190-4_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1662.25,
+"len": 12,
+"rate": 1
+}
+],
+"fpos": 1609.02,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s12-echo",
+"a": "e:I1:almsjed-alaqsa (79).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(79).mp3",
+"b": "e:X6:713-3-1 الأعلى1-19 الغاشية المعوذتين الفاتحة اول آخر البقرة-السبعينات من الكويت.mp3",
+"ub": "https://archive.org/download/x6-saff-to-qesar/713-3-1%20%D8%A7%D9%84%D8%A3%D8%B9%D9%84%D9%891-19%20%D8%A7%D9%84%D8%BA%D8%A7%D8%B4%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D9%88%D8%B0%D8%AA%D9%8A%D9%86%20%D8%A7%D9%84%D9%81%D8%A7%D8%AA%D8%AD%D8%A9%20%D8%A7%D9%88%D9%84%20%D8%A2%D8%AE%D8%B1%20%D8%A7%D9%84%D8%A8%D9%82%D8%B1%D8%A9-%D8%A7%D9%84%D8%B3%D8%A8%D8%B9%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA.mp3",
+"segs": [
+{
+"at": 1121.2,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1152.76,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s02-len10",
+"a": "e:C:0729-_up_by_muslem.mp3",
+"ua": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0729-_up_by_muslem.mp3",
+"b": "e:I1:almsjed-alaqsa (93).mp3",
+"ub": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(93).mp3",
+"segs": [
+{
+"at": 1884.55,
+"len": 10,
+"rate": 1
+}
+],
+"fpos": 1790.42,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-len10",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "s:warsh:29",
+"ub": "https://cdn.mp3quran.net/audio/abdulbasit-abdulsamad/r2/029.mp3",
+"segs": [
+{
+"at": 653.1,
+"len": 10,
+"rate": 1
+}
+],
+"fpos": 411.56,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-join3_same",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:1065-2_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1065-2_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1014.3,
+"len": 8,
+"rate": 1
+}
+],
+"fpos": 829.74,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s05-intro_silence3",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0870-2_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0870-2_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1211.95,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 188.55,
+"kind": "hidden",
+"inl": 16
+},
+{
+"name": "s07-intro_silence3",
+"a": "e:C:0706-_up_by_muslem.mp3",
+"ua": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0706-_up_by_muslem.mp3",
+"b": "e:A:338.mp3",
+"ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/338.mp3",
+"segs": [
+{
+"at": 505.55,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 213.96,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s01-tempo0.9",
+"a": "e:A:279.mp3",
+"ua": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/279.mp3",
+"b": "e:N2:251.mp3",
+"ub": "https://archive.org/download/NawaderGroup-2/251.mp3",
+"segs": [
+{
+"at": 166.55,
+"len": 20,
+"rate": 0.9
+}
+],
+"fpos": 229.94,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s01-intro_noise3",
+"a": "e:A:279.mp3",
+"ua": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/279.mp3",
+"b": "e:A:298.mp3",
+"ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/298.mp3",
+"segs": [
+{
+"at": 245.05,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 836.05,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-len44",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:0731-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0731-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 183.2,
+"len": 44,
+"rate": 1
+}
+],
+"fpos": 304.1,
+"kind": "hidden",
+"inl": 6
+},
+{
+"name": "s04-reverb_large",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:I9:071--.mp3",
+"ub": "https://archive.org/download/Tilawat-kharijiya_Abdelbassat-abdssamad/071--.mp3",
+"segs": [
+{
+"at": 129.95,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 232.98,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s08-join2_diff",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:C:1190-4_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1190-4_up_by_muslem.mp3",
+"segs": [
+{
+"at": 2292.65,
+"len": 12,
+"rate": 1
+}
+],
+"fpos": 2127.22,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s10-reverb_large",
+"a": "e:C:0529-3_up_by_muslem.mp3",
+"ua": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0529-3_up_by_muslem.mp3",
+"b": "e:C:0535-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0535-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 123.2,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1044.9,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s10-reverb_large",
+"a": "e:C:0529-3_up_by_muslem.mp3",
+"ua": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0529-3_up_by_muslem.mp3",
+"b": "e:C:0534-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0534-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 123.2,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1044.9,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s10-join2_diff",
+"a": "e:C:0529-3_up_by_muslem.mp3",
+"ua": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0529-3_up_by_muslem.mp3",
+"b": "e:C:1190-4_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1190-4_up_by_muslem.mp3",
+"segs": [
+{
+"at": 592.5,
+"len": 12,
+"rate": 1
+}
+],
+"fpos": 1010.17,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s10-join2_diff",
+"a": "e:C:0529-3_up_by_muslem.mp3",
+"ua": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0529-3_up_by_muslem.mp3",
+"b": "e:C:1209-3_uP_bY_mUSLEm.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1209-3_uP_bY_mUSLEm.mp3",
+"segs": [
+{
+"at": 592.5,
+"len": 12,
+"rate": 1
+}
+],
+"fpos": 998.15,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s01-tempo1.1",
+"a": "e:A:279.mp3",
+"ua": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/279.mp3",
+"b": "e:X2:288-1-1 الكهف  30-45 والبلد الشافعي -شعائر صلاة جمعة في الستينات.mp3",
+"ub": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/288-1-1%20%D8%A7%D9%84%D9%83%D9%87%D9%81%20%2030-45%20%D9%88%D8%A7%D9%84%D8%A8%D9%84%D8%AF%20%D8%A7%D9%84%D8%B4%D8%A7%D9%81%D8%B9%D9%8A%20-%D8%B4%D8%B9%D8%A7%D8%A6%D8%B1%20%D8%B5%D9%84%D8%A7%D8%A9%20%D8%AC%D9%85%D8%B9%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA.mp3",
+"segs": [
+{
+"at": 996.9,
+"len": 20,
+"rate": 1.1
+}
+],
+"fpos": 53.59,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-noise10",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:0731-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0731-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 904.7,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1119.8,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "s05-clean20",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:E:القصار المشهورة وبها الاذان.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%A7%D9%84%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%B4%D9%87%D9%88%D8%B1%D8%A9%20%D9%88%D8%A8%D9%87%D8%A7%20%D8%A7%D9%84%D8%A7%D8%B0%D8%A7%D9%86.mp3",
+"segs": [
+{
+"at": 1449.3,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 3014.03,
+"kind": "hidden",
+"inl": 9
+},
+{
+"name": "s05-clean20",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:E:ابراهيم من المسجد الاقصى وهى نادرة.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%A7%D8%A8%D8%B1%D8%A7%D9%87%D9%8A%D9%85%20%D9%85%D9%86%20%D8%A7%D9%84%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%82%D8%B5%D9%89%20%D9%88%D9%87%D9%89%20%D9%86%D8%A7%D8%AF%D8%B1%D8%A9.mp3",
+"segs": [
+{
+"at": 1449.3,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 111.01,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-tempo1.1",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0733-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0733-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 2428,
+"len": 20,
+"rate": 1.1
+}
+],
+"fpos": 2429.27,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-tempo1.1",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0727-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0727-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 2428,
+"len": 20,
+"rate": 1.1
+}
+],
+"fpos": 2429.27,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-tempo1.1",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0732-2_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0732-2_up_by_muslem.mp3",
+"segs": [
+{
+"at": 2428,
+"len": 20,
+"rate": 1.1
+}
+],
+"fpos": 2429.27,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-intro_music3",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:N2:254.mp3",
+"ub": "https://archive.org/download/NawaderGroup-2/254.mp3",
+"segs": [
+{
+"at": 870.35,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 747.78,
+"kind": "hidden",
+"inl": 6
+},
+{
+"name": "s05-intro_music3",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0727-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0727-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 870.35,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 747.88,
+"kind": "hidden",
+"inl": 7
+},
+{
+"name": "s05-intro_music3",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0732-2_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0732-2_up_by_muslem.mp3",
+"segs": [
+{
+"at": 870.35,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 747.88,
+"kind": "hidden",
+"inl": 7
+},
+{
+"name": "s05-intro_music3",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:E:القصار المشهورة وبها الاذان.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%A7%D9%84%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%B4%D9%87%D9%88%D8%B1%D8%A9%20%D9%88%D8%A8%D9%87%D8%A7%20%D8%A7%D9%84%D8%A7%D8%B0%D8%A7%D9%86.mp3",
+"segs": [
+{
+"at": 870.35,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 2466.81,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s05-intro_music3",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0733-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0733-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 870.35,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 747.88,
+"kind": "hidden",
+"inl": 7
+},
+{
+"name": "s08-pitch+1",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:C:1190-4_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1190-4_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1237.9,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1022.51,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s08-noise10",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:E:يوسف - الحسين مصر  تلاوة 3 سنة 1968.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D9%8A%D9%88%D8%B3%D9%81%20-%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86%20%D9%85%D8%B5%D8%B1%20%20%D8%AA%D9%84%D8%A7%D9%88%D8%A9%203%20%D8%B3%D9%86%D8%A9%201968.mp3",
+"segs": [
+{
+"at": 759.4,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 574.18,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s11-intro_music3",
+"a": "e:C:0771-_up_by_muslem.mp3",
+"ua": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0771-_up_by_muslem.mp3",
+"b": "e:I1:almsjed-alaqsa (105).mp3",
+"ub": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(105).mp3",
+"segs": [
+{
+"at": 291.9,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 122.29,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s04-noise3",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(90).mp3",
+"b": "e:C:0731-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0731-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 70.85,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 72.35,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s05-aac32",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:E:القصار المشهورة وبها الاذان.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%A7%D9%84%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%B4%D9%87%D9%88%D8%B1%D8%A9%20%D9%88%D8%A8%D9%87%D8%A7%20%D8%A7%D9%84%D8%A7%D8%B0%D8%A7%D9%86.mp3",
+"segs": [
+{
+"at": 146.4,
+"len": 15,
+"rate": 1
+}
+],
+"fpos": 1782.71,
+"kind": "hidden",
+"inl": 6
+},
+{
+"name": "s05-music_bed",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0733-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0733-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1655,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1708.34,
+"kind": "hidden",
+"inl": 6
+},
+{
+"name": "s05-music_bed",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:I4:المسجد الاموي -رائعة وابداع - القمر و الرحمن و قصار السور_تسجيلات نادرة_الشيخ عبد الباسط عبد الصمد.mp3",
+"ub": "https://archive.org/download/wwwwwwwwwwwwwwwwwwwww831_20190831_1217/%D8%A7%D9%84%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D9%88%D9%8A%20-%D8%B1%D8%A7%D8%A6%D8%B9%D8%A9%20%D9%88%D8%A7%D8%A8%D8%AF%D8%A7%D8%B9%20-%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%20%D9%88%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D9%88%20%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1_%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%D8%A7%D8%AA%20%D9%86%D8%A7%D8%AF%D8%B1%D8%A9_%D8%A7%D9%84%D8%B4%D9%8A%D8%AE%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%A8%D8%A7%D8%B3%D8%B7%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%B5%D9%85%D8%AF.mp3",
+"segs": [
+{
+"at": 1655,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1708.28,
+"kind": "hidden",
+"inl": 6
+},
+{
+"name": "s05-music_bed",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0727-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0727-_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1655,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1708.34,
+"kind": "hidden",
+"inl": 6
+},
+{
+"name": "s05-music_bed",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:C:0732-2_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0732-2_up_by_muslem.mp3",
+"segs": [
+{
+"at": 1655,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1708.34,
+"kind": "hidden",
+"inl": 6
+},
+{
+"name": "s05-music_bed",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:N2:254.mp3",
+"ub": "https://archive.org/download/NawaderGroup-2/254.mp3",
+"segs": [
+{
+"at": 1655,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1708.28,
+"kind": "hidden",
+"inl": 6
+},
+{
+"name": "s05-music_bed",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:E:القصار المشهورة وبها الاذان.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D8%A7%D9%84%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D8%B4%D9%87%D9%88%D8%B1%D8%A9%20%D9%88%D8%A8%D9%87%D8%A7%20%D8%A7%D9%84%D8%A7%D8%B0%D8%A7%D9%86.mp3",
+"segs": [
+{
+"at": 1655,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 3202.67,
+"kind": "hidden",
+"inl": 12
+},
+{
+"name": "s06-noise3",
+"a": "e:X5:568-4-1 القمر 49-55 الرحمن 1-27- من تلاوات العراق 1956.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/568-4-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%2049-55%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%201-27-%20%D9%85%D9%86%20%D8%AA%D9%84%D8%A7%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%201956.mp3",
+"b": "e:I1:almsjed-alaqsa (39).mp3",
+"ub": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(39).mp3",
+"segs": [
+{
+"at": 317.5,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 528.31,
+"kind": "hidden",
+"inl": 3
+},
+{
+"name": "s08-pitch-1",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:C:1190-4_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/1190-4_up_by_muslem.mp3",
+"segs": [
+{
+"at": 2363.3,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 2193.76,
+"kind": "hidden",
+"inl": 8
+},
+{
+"name": "s08-pitch-1",
+"a": "e:X2:181-1-2 يوسف 1-27 في الستينات من  مسجد الامام الحسين.mp3",
+"ua": "https://archive.org/download/x2-abdelbasset-orginal-yossof-to-kahf_202308/181-1-2%20%D9%8A%D9%88%D8%B3%D9%81%201-27%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%AA%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%20%D9%85%D8%B3%D8%AC%D8%AF%20%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D9%85%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86.mp3",
+"b": "e:E:يوسف - الحسين مصر  تلاوة 3 سنة 1968.mp3",
+"ub": "https://archive.org/download/enregistrement_abdelbasset/%D9%8A%D9%88%D8%B3%D9%81%20-%20%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86%20%D9%85%D8%B5%D8%B1%20%20%D8%AA%D9%84%D8%A7%D9%88%D8%A9%203%20%D8%B3%D9%86%D8%A9%201968.mp3",
+"segs": [
+{
+"at": 2363.3,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 2193.7,
+"kind": "hidden",
+"inl": 4
+},
+{
+"name": "s12-pitch-1",
+"a": "e:I1:almsjed-alaqsa (79).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20(79).mp3",
+"b": "e:X6:713-3-1 الأعلى1-19 الغاشية المعوذتين الفاتحة اول آخر البقرة-السبعينات من الكويت.mp3",
+"ub": "https://archive.org/download/x6-saff-to-qesar/713-3-1%20%D8%A7%D9%84%D8%A3%D8%B9%D9%84%D9%891-19%20%D8%A7%D9%84%D8%BA%D8%A7%D8%B4%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D9%88%D8%B0%D8%AA%D9%8A%D9%86%20%D8%A7%D9%84%D9%81%D8%A7%D8%AA%D8%AD%D8%A9%20%D8%A7%D9%88%D9%84%20%D8%A2%D8%AE%D8%B1%20%D8%A7%D9%84%D8%A8%D9%82%D8%B1%D8%A9-%D8%A7%D9%84%D8%B3%D8%A8%D8%B9%D9%8A%D9%86%D8%A7%D8%AA%20%D9%85%D9%86%20%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA.mp3",
+"segs": [
+{
+"at": 1768.8,
+"len": 20,
+"rate": 1
+}
+],
+"fpos": 1833.21,
+"kind": "hidden",
+"inl": 5
+},
+{
+"name": "control",
+"a": "e:A:279.mp3",
+"ua": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/279.mp3",
+"b": "e:C:0729-_up_by_muslem.mp3",
+"ub": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0729-_up_by_muslem.mp3",
+"segs": null,
+"fpos": null,
+"kind": "control"
+},
+{
+"name": "control",
+"a": "e:A:284.mp3",
+"ua": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/284.mp3",
+"b": "e:I1:almsjed-alaqsa (90).mp3",
+"ub": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20%2890%29.mp3",
+"segs": null,
+"fpos": null,
+"kind": "control"
+},
+{
+"name": "control",
+"a": "e:C:0729-_up_by_muslem.mp3",
+"ua": "https://archive.org/download/Abdel_Baset_Abd-Samad_uP_bY_mUSLEm/0729-_up_by_muslem.mp3",
+"b": "e:A:284.mp3",
+"ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/284.mp3",
+"segs": null,
+"fpos": null,
+"kind": "control"
+},
+{
+"name": "control",
+"a": "e:I1:almsjed-alaqsa (90).mp3",
+"ua": "https://archive.org/download/AlmsjedAlaqsa23/almsjed-alaqsa%20%2890%29.mp3",
+"b": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ub": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"segs": null,
+"fpos": null,
+"kind": "control"
+},
+{
+"name": "control",
+"a": "e:X5:562-1-10 القمر والرحمن مبتورة - 7د– الأقصر.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/562-1-10%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D9%85%D8%A8%D8%AA%D9%88%D8%B1%D8%A9%20-%207%D8%AF%E2%80%93%20%D8%A7%D9%84%D8%A3%D9%82%D8%B5%D8%B1.mp3",
+"b": "e:A:279.mp3",
+"ub": "https://archive.org/download/Tilawat-nadira_Adblbasset-abdssamad_quran/279.mp3",
+"segs": null,
+"fpos": null,
+"kind": "control"
+},
+{
+"name": "control",
+"a": "e:X5:565-2-1 القمر49-55 والرحمن النبأ التكوير وقصار السور 1953حلب.mp3",
+"ua": "https://archive.org/download/x5-hograt-to-hashr_202308/565-2-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B149-55%20%D9%88%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D8%A8%D8%A3%20%D8%A7%D9%84%D8%AA%D9%83%D9%88%D9%8A%D8%B1%20%D9%88%D9%82%D8%B5%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%201953%D8%AD%D9%84%D8%A8.mp3",
+"b": "e:X5:568-4-1 القمر 49-55 الرحمن 1-27- من تلاوات العراق 1956.mp3",
+"ub": "https://archive.org/download/x5-hograt-to-hashr_202308/568-4-1%20%D8%A7%D9%84%D9%82%D9%85%D8%B1%2049-55%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%201-27-%20%D9%85%D9%86%20%D8%AA%D9%84%D8%A7%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%201956.mp3",
+"segs": null,
+"fpos": null,
+"kind": "control"
+}
 ]

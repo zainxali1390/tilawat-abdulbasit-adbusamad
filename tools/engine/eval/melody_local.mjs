@@ -16,8 +16,10 @@ globalThis.window = undefined; await import(path.join(ROOT, 'js/engine/melody.js
 const [CASES, OUT] = process.argv.slice(2), cache = {}, tmp = path.join(os.tmpdir(), 'ml-a');
 const contour = (code, url) => {
   if (cache[code]) return cache[code];
-  const d0 = spawnSync('curl', ['-sSL', '--fail', '--retry', '5', '-o', tmp, url]); if (d0.status) return null;
-  const d = spawnSync('ffmpeg', ['-loglevel', 'error', '-i', tmp, '-vn', '-ac', '1', '-ar', '16000', '-f', 'f32le', '-'], {maxBuffer: 1 << 30});
+  let src = tmp;
+  if (/^https?:/.test(url)) { const d0 = spawnSync('curl', ['-sSL', '--fail', '--retry', '5', '-o', tmp, url]); if (d0.status) return null; }
+  else src = path.join(ROOT, decodeURIComponent(url));   // recordings kept in the repository (audio/)
+  const d = spawnSync('ffmpeg', ['-loglevel', 'error', '-i', src, '-vn', '-ac', '1', '-ar', '16000', '-f', 'f32le', '-'], {maxBuffer: 1 << 30});
   return cache[code] = M.unpack(M.pack(M.f0(new Float32Array(d.stdout.buffer, d.stdout.byteOffset, d.stdout.length >> 2))));
 };
 const F = M.FPS, W = 20 * F, out = [];

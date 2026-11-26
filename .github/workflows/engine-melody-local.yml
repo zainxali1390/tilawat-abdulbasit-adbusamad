@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 240
     steps:
       - uses: actions/checkout@v4
-        with: {ref: '${{ github.ref_name }}', fetch-depth: 1, sparse-checkout: "tools\njs"}
+        with: {ref: '${{ github.ref_name }}', fetch-depth: 1, sparse-checkout: "tools\njs\naudio"}
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - run: |
           node tools/engine/eval/melody_local.mjs tools/engine/eval/melody_local_cases.json local.json | tee local.txt
