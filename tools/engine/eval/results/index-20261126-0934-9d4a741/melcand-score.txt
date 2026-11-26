@@ -1,0 +1,44 @@
+index: whole archive, 3081 recordings, 11184871 hash entries, 12028 shard files, 47.8 MB
+edit               n top1 top5 top30 placed
+aac32              16   13   13   13   12
+bass               16   12   13   14   13
+clean20            16   14   14   14   14
+combo1             16    4    6    9    6
+combo2             16    4    6    6    6
+combo3             16    3    3    3    2
+compress           16   12   12   13   13
+distort            16   10   11   12   11
+echo               16    5    6    6    4
+intro_music3       16   10   12   14   13
+intro_noise3       16   15   15   16   16
+intro_silence3     16   13   14   16   15
+join2_diff         16   15   15   15   15
+join2_same         16   15   16   16   16
+join3_same         16   11   12   14   14
+len10              16   13   13   15   14
+len44              16   16   16   16   16
+len7               16    6    7    8    9
+music_bed          16    6    6    6    4
+noise10            16    7    8   10    8
+noise3             16    1    2    2    2
+phone              16    9   10   10    9
+pitch+1            16    6    6    8    6
+pitch+2            16    6    8    9    9
+pitch+3            16    7    7    9    8
+pitch-1            16    8    8    8    8
+pitch-2            16    9    9   10    9
+pitch-4            16    4    7    7    6
+reverb_large       16    1    2    4    2
+reverb_small       16    3    4    4    2
+speed0.9           16    5    6    8    7
+speed1.1           16    6    6    8    6
+speed1.25          16    5    7   10    8
+tempo0.8           16    5    6    8    7
+tempo0.9           16    9   10   11   11
+tempo1.1           16    7    8   11    8
+tempo1.25          16    8   12   12   11
+treble_cut         16   14   14   14   14
+video_mov          16   12   13   14   14
+video_mp4          16   13   14   14   14
+TOTAL 640 clips: right recording first 342, in top 5 377, in top 30 417; first entry right AND placed within 2 s: 382
+lookup and vote time per clip: median 386 ms, max 2011 ms
