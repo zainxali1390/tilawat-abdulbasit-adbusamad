@@ -97,8 +97,8 @@ held-out Abdul Basit sample** and at most 0.5 % of the edited clips fall below i
 - **Not used to say "it is Abdul Basit".** Reciters of his era pass as often as he does.
 - **Used for one thing:** when a search ends with **no reliable match**, and the clip has at least 4 s of voice that falls
   below the strict threshold, the result adds: *"The voice does not resemble Abdul Basit's recordings — this may be another
-  reciter."* That happens for about 29 % of other-reciter clips, mostly later reciters, and for about 0.6 % of edited
-  Abdul Basit clips. It is a reason shown alongside "no reliable match", never a result. (Whether a melody-only "Possible"
+  reciter."* That happens for about 28 % of other-reciter clips, mostly later reciters, and for about 0.5–0.6 % of Abdul
+  Basit clips. It is a reason shown alongside "no reliable match", never a result. (Whether a melody-only "Possible"
   should be demoted by it is decided in Step 12, with tests.)
 - **Model:** 3D-Speaker CAM++ zh-en advanced, 8-bit, **8.6 MB**, Apache 2.0 (`models/voice/SOURCE.md`). It flags the most
   other reciters at the same safety level. The reference (`models/voice/reference.json`) holds 4 centroids from all 495
@@ -122,7 +122,23 @@ voice set and the 640 clips, plus the browser test on other-reciter samples. See
 
 ## 7. The shipped files on the whole set
 
-(filled in from `results/voice-shipped-*`)
+`results/voice-shipped-20261126-0000-36cc93c`. This run uses the shipped model, the shipped reference and the final
+`VOICE.segments` over the whole voice set, in Node with onnxruntime-web:
+
+| | Flagged "unlike" |
+|---|---|
+| Other reciters | **102/364 (28 %)**: Al-Muaiqly 25/32, Al-Ghamdi 24/32, As-Sudais 11/16, Al-Banna 11/32, Al-Husary 6/12, Mustafa Ismail 6/18, Naina 5/14, At-Tablawi 5/28, Alafasy 5/24, Jibreel 2/16, Al-Bahtimi 1/26, Shahat Anwar 1/16; Al-Minshawi, Rifat, Ghalwash, Shuaisha 0 |
+| Abdul Basit, voice set | 3/495 (0.6 %): one each from the 1960s, 1970s and 1980s; none from the 1950s or undated |
+| Abdul Basit, 640 edited clips | 3/640 (0.5 %): bass boost, pitch +2, speed 1.25; one each |
+| Too little voice ("unknown") | 4 Abdul Basit samples, 5 other-reciter samples |
+
+The shipped reference is built from all 495 samples, which moves its centroids a little. So 3 of its own samples now fall
+just below the threshold, where none of the held-out test samples did in §4. The honest figure for wrongly flagging
+Abdul Basit is therefore **about 0.5–0.6 %**.
+
+Functional test on GitHub, with the real CDN (`functional.txt`): all passed. Three other-reciter samples → "unlike" in
+Node. In the app page: Abdul Basit → no-objection (0.869, the same as Node, 2.1 s), and an other-reciter sample →
+"unlike" (0.452).
 
 ## 8. Problems found and fixed
 
