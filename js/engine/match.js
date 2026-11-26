@@ -29,7 +29,7 @@ X.lmLine=function(pairs,opts){
   let best={inliers:0};
   const fit=(k,b)=>{const ts=new Set();let lo=Infinity,hi=-Infinity;
     for(const p of pairs)if(Math.abs(p.tr-(k*p.tc+b))<=tol){const t=Math.round(p.tc*100);if(!ts.has(t)){ts.add(t);if(p.tc<lo)lo=p.tc;if(p.tc>hi)hi=p.tc}}
-    return {inliers:ts.size,span:ts.size?hi-lo:0}};
+    return {inliers:ts.size,span:ts.size?hi-lo:0,lo:ts.size?lo:null,hi:ts.size?hi:null}};
   /* all pairs when few, otherwise maxTry pairs drawn by a fixed-seed generator (same answer every run) */
   const all=n*(n-1)/2<=maxTry;let seed=12345;const rnd=m=>(seed=(seed*1103515245+12345)%2147483648)%m;
   const tryPair=(p,q)=>{if(Math.abs(q.tc-p.tc)<1)return;const k=(q.tr-p.tr)/(q.tc-p.tc);if(k<0.75||k>1.33)return;
@@ -40,6 +40,8 @@ X.lmLine=function(pairs,opts){
   if(best.inliers>=3){const P=pairs.filter(p=>Math.abs(p.tr-(best.k*p.tc+best.b))<=tol);let sx=0,sy=0,sxx=0,sxy=0;
     for(const p of P){sx+=p.tc;sy+=p.tr;sxx+=p.tc*p.tc;sxy+=p.tc*p.tr}const m=P.length,d=m*sxx-sx*sx;
     if(d>1e-9){const k=(m*sxy-sx*sy)/d,b=(sy-k*sx)/m;if(k>=0.75&&k<=1.33){const f=fit(k,b);if(f.inliers>=best.inliers)best={...f,k,b}}}}
+  /* the scatter of the inliers around the line (seconds), for the timestamp's error */
+  if(best.inliers>=3){let ss=0,m=0;for(const p of pairs){const d=p.tr-(best.k*p.tc+best.b);if(Math.abs(d)<=tol){ss+=d*d;m++}}best.sd=Math.sqrt(ss/Math.max(1,m-2))}
   return {...best,n};
 };
 /* the best line over several searches (each with its own landmarks); searches: finderSearch results */
@@ -47,6 +49,51 @@ X.lmBest=function(searches,rec,secPerFrame){
   let best={inliers:0,n:0};
   for(const res of searches){const L=X.lmLine(X.lmPairs(res,rec,secPerFrame));if(L.inliers>best.inliers)best={...L,mode:res.mode,f:res.f}}
   return best;
+};
+/* Step 11: where the matched recitation starts and ends, in the clip and in the recording.
+   lm: MATCH.lmLine result (with lo/hi: the clip times of the first and last inlier); mel: MELODY.alignNear result;
+   ing: ENGINE.ingest result (dur, sections [{a, b, kind}]); recDur: the recording's length.
+   The line comes from the landmarks when they are many (>= 6 inliers: precise to a few hundredths of a second),
+   otherwise from the melody alignment. The matched part of the clip is the recitation sections the evidence covers
+   (an intro of music, noise or silence before it is not part of the recording); its ends are mapped through the line.
+   err: the start's uncertainty in seconds (line scatter / sqrt(n), at least one frame of the method used). */
+X.timestamp=function(lm,mel,ing,recDur,opt){
+  opt=opt||{};const minInl=opt.minInl||6,dur=ing.dur;
+  let k,b,src,err;
+  if(lm&&lm.k!=null&&lm.inliers>=minInl){k=lm.k;b=lm.b;src="landmarks";err=Math.max(0.032,2*(lm.sd||0.03)/Math.sqrt(lm.inliers))}
+  else if(mel&&mel.score>0){k=mel.k;b=mel.at;src="melody";err=0.1}
+  else if(lm&&lm.k!=null&&lm.inliers>=3){k=lm.k;b=lm.b;src="landmarks (few)";err=0.3}
+  else return null;
+  /* the clip span the evidence covers: the landmark inliers' range, or (a melody line) the recitation sections */
+  const rec=(ing.sections||[]).filter(s=>s.kind==="recitation"),byLm=src.startsWith("landmarks")&&lm.lo!=null;
+  const lo=byLm?lm.lo:(rec.length?rec[0].a:0),hi=byLm?lm.hi:(rec.length?rec[rec.length-1].b:dur);
+  /* the recitation sections overlapping it (2 s of slack), so the span runs from where the recitation really starts */
+  const over=rec.filter(s=>s.b>=lo-2&&s.a<=hi+2);
+  let ca=over.length?Math.min(...over.map(s=>s.a)):lo,cb=over.length?Math.max(...over.map(s=>s.b)):hi;
+  ca=Math.max(0,Math.min(ca,lo));cb=Math.min(dur,Math.max(cb,hi));
+  /* the edges, checked against the recording itself (opt.q: the clip's melody, opt.ref: the recording's, both MIDI per
+     50 ms frame, NaN = no voice): beyond the span found so far, 0.25 s at a time, the clip is taken as part of the
+     recording while both are voiced at a consistent pitch difference, and at the end also while both are silent. An
+     intro (music, noise, added silence) never extends the start. */
+  if(opt.q&&opt.ref){const F=20,q=opt.q,ref=opt.ref;
+    const shiftAt=(c0,c1)=>{const d=[];for(let t=c0;t<c1;t+=1/F){const a=q[Math.round(t*F)],r=ref[Math.round((k*t+b)*F)];if(!isNaN(a)&&!isNaN(r))d.push(r-a)}d.sort((x,y)=>x-y);return d.length>=5?d[d.length>>1]:null};
+    const sh=shiftAt(ca,cb);
+    /* voiced: both voiced at the same tune; quiet: both silent */
+    const look=(c0,c1)=>{let n=0,vq=0,vr=0,ok=0;for(let t=c0;t<c1;t+=1/F){const i=Math.round(t*F),j=Math.round((k*t+b)*F);if(i<0||i>=q.length||j<0||j>=ref.length)return null;
+        const a=q[i],r=ref[j];n++;if(!isNaN(a))vq++;if(!isNaN(r))vr++;if(!isNaN(a)&&!isNaN(r)&&sh!=null){let x=r-a-sh;while(x>6)x-=12;while(x<-6)x+=12;if(Math.abs(x)<=1.5)ok++}}
+      return n?{voiced:vq>=0.3*n&&ok>=0.6*vq,quiet:vq<=0.2*n&&vr<=0.35*n}:null};
+    const S=0.25;
+    /* start: only matching voice extends it (a silent edge, added or natural, is left out: the match starts where the
+       recitation does); end: matching voice or a shared pause (a clip often ends in a pause of the recording) */
+    for(;;){const c0=Math.max(0,ca-S);if(c0>=ca)break;const L=look(c0,ca);if(!L||!L.voiced)break;ca=c0}
+    for(;;){const c1=Math.min(dur,cb+S);if(c1<=cb)break;const L=look(cb,c1);if(!L||!(L.voiced||L.quiet))break;cb=c1}
+  }
+  /* the recording cannot start before 0 or end after its length: the clip span is cut to fit */
+  if(k*ca+b<0)ca=-b/k;if(recDur&&k*cb+b>recDur)cb=(recDur-b)/k;
+  const start=k*ca+b,end=k*cb+b;
+  /* tempo uncertainty grows towards the end of a long span (0.5 % refine step for melody, the fit for landmarks) */
+  const dk=src==="melody"?0.005:0.002;
+  return {start,end,clipA:ca,clipB:cb,k,b,src,err,errEnd:err+dk*(cb-ca)*k,origDur:end-start};
 };
 /* (A) and (B) agree: the same tempo (3 %) and the same start (0.5 s) */
 X.agree=function(lm,mel,opt){

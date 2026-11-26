@@ -27,4 +27,22 @@ ok(X.verseCheck(vm, 300, 322, [{su: 2, ay: 5, su2: 2, ay2: 5, level: 'confirmed'
 ok(X.verseCheck(vm, 300, 322, [{su: 2, ay: 5, su2: 2, ay2: 5, level: 'possible'}]) === 'none', 'verseCheck: an unsure other surah → none');
 ok(X.verseCheck(vm, 360, 380, [{su: 2, ay: 5, su2: 2, ay2: 5, level: 'confirmed'}]) === 'none', 'verseCheck: only unsure map windows there → none');
 ok(X.verseCheck(vm, 300, 322, []) === 'none', 'verseCheck: no verse heard → none');
+/* timestamps (Step 11) */
+{
+  const P2 = []; for (let i = 0; i < 40; i++) { const tc = 3 + r() * 17; P2.push({tc, tr: 1.1 * tc + 300 + (r() - 0.5) * 0.06}); }
+  const L3 = X.lmLine(P2), ing = {dur: 20, sections: [{a: 0, b: 2.9, kind: 'other'}, {a: 3.05, b: 20, kind: 'recitation'}]};
+  const T = X.timestamp(L3, {score: 0.9, k: 1.1, at: 300.1}, ing, 1000);
+  ok(T.src === 'landmarks' && Math.abs(T.clipA - 3) < 0.1 && Math.abs(T.start - 303.3) < 0.1, `timestamp: an intro is left out; start ${T.start.toFixed(2)} (true 303.30)`);
+  ok(T.err > 0 && T.err < 0.1 && T.errEnd >= T.err, 'timestamp: error stated, larger at the end');
+  const Tm = X.timestamp({inliers: 2}, {score: 0.9, k: 1.0, at: 50}, ing, 1000);
+  ok(Tm.src === 'melody' && Tm.clipA === 3.05 && Tm.start === 53.05, 'timestamp: melody line, span from the recitation sections');
+  const Tc = X.timestamp({inliers: 20, k: 1, b: -5, lo: 0, hi: 20, sd: 0.02}, null, {dur: 20, sections: [{a: 0, b: 20, kind: 'recitation'}]}, 10);
+  ok(Tc.start === 0 && Tc.end === 10 && Tc.clipA === 5 && Tc.clipB === 15, 'timestamp: cut to the recording (it cannot start before 0 or end after its length)');
+  ok(X.timestamp({inliers: 1}, {score: 0}, ing, 100) === null, 'timestamp: no evidence, no timestamp');
+  /* edges against the recording: the clip's last 2 s are a pause, and so is the recording there → kept */
+  const F = 20, ref = Float32Array.from({length: 2000}, (_, i) => (i >= 1000 + 18 * F && i < 1000 + 20 * F) ? NaN : 60 + 3 * Math.sin(i / 9));
+  const q = Float32Array.from({length: 20 * F}, (_, i) => i >= 18 * F ? NaN : 60 + 3 * Math.sin((i + 1000) / 9));
+  const Te = X.timestamp({inliers: 30, k: 1, b: 50, lo: 0.5, hi: 17, sd: 0.02}, null, {dur: 20, sections: [{a: 0, b: 18, kind: 'recitation'}]}, 1000, {q, ref});
+  ok(Math.abs(Te.clipB - 20) < 0.3 && Te.clipA === 0, `timestamp: a shared pause at the end is kept (clip ${Te.clipA}-${Te.clipB.toFixed(2)})`);
+}
 console.log(fails ? fails + ' FAILED' : 'all passed'); process.exit(fails ? 1 : 0);

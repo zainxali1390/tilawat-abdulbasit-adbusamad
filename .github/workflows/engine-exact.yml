@@ -42,9 +42,10 @@ jobs:
           D=tools/engine/eval/results/exact-$(date -u +%Y%m%d-%H%M)-$(git rev-parse --short HEAD)
           mkdir -p $D && cat res/exact-*.jsonl > $D/exact.jsonl
           python3 tools/engine/eval/exact_score.py $D/exact.jsonl | tee $D/exact-score.txt
+          python3 tools/engine/eval/timestamp_score.py $D/exact.jsonl | tee $D/timestamp-score.txt
           gzip -9 $D/exact.jsonl
           git config user.name "engine-eval bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add tools/engine/eval/results
-          git commit -q -m "Engine eval: exact match results" || exit 0
+          git commit -q -m "Engine eval: exact match and timestamp results" || exit 0
           for i in 1 2 3 4; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((i*10)); done
