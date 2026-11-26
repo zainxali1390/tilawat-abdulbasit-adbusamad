@@ -1,0 +1,19 @@
+copy groups now: 9 groups, 58 recordings
+Rule (both alignments agree, plus):                right of 640   hidden runs where a wrong recording passes (copies settled)
+  inliers>=3  mel>=0.0               576    33
+  inliers>=4  mel>=0.0               576     1
+  inliers>=5  mel>=0.0               572     1
+  inliers>=6  mel>=0.0               563     0
+  inliers>=6  mel>=0.7               517     0
+  inliers>=8  mel>=0.0               550     0
+  inliers>=10 mel>=0.0               533     0
+  inliers>=4  mel>=0.0 verse agrees  233     0
+  inliers>=3  mel>=0.0 verse agrees  238     2
+remaining at inliers>=6: []
+
+Cross-check, copies = Step 6 groups + only the pairs checked directly here (no chaining):
+  inliers>=3: hidden runs with a wrong recording passing: 36
+  inliers>=4: hidden runs with a wrong recording passing: 4
+  inliers>=5: hidden runs with a wrong recording passing: 2
+  inliers>=6: hidden runs with a wrong recording passing: 0
+  inliers>=8: hidden runs with a wrong recording passing: 0
