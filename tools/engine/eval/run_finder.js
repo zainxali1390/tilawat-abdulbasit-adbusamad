@@ -22,7 +22,13 @@ const cases=JSON.parse(fs.readFileSync(path.join(DIR,'cases.json'))).filter((c,i
   try{
    /* clear the previous answer, then wait for this search to start and to finish */
    await p.evaluate(()=>{finderLast=[];document.querySelector('#fResults').innerHTML='';window.__started=false;
-     if(!window.__wrapped){const run=finderRun;finderRun=async(...a)=>{window.__started=true;return run(...a)};window.__wrapped=true}});
+     window.__cands=[];
+     if(!window.__wrapped){const run=finderRun;finderRun=async(...a)=>{window.__started=true;return run(...a)};
+       /* CANDS=1 (Step 8): every landmark search's vote candidates (top 12 per block), with the recording time of the clip's start */
+       const fsr=finderSearch;finderSearch=async(...a)=>{const r=await fsr(...a);
+         try{window.__cands.push({mode:a[3],f:a[2],blocks:r.blocks.map(b=>({t0:+(b.t0*SEC_PER_FRAME).toFixed(1),c:b.c.map(c=>[r.man.recs[c.rec][0],c.s,c.sp,+(c.off*SEC_PER_FRAME).toFixed(1)])}))})}catch(e){}
+         return r};
+       window.__wrapped=true}});
    await p.setInputFiles('#fFile',path.join(DIR,c.file));
    await p.waitForFunction(()=>window.__started||FINDER.busy,null,{timeout:30000});
    await p.waitForFunction(()=>!FINDER.busy&&document.querySelector('#fResults').innerHTML.length>0,null,{timeout:600000});
@@ -30,7 +36,7 @@ const cases=JSON.parse(fs.readFileSync(path.join(DIR,'cases.json'))).filter((c,i
      o.copies=(r.copies||[]).map(x=>x.code);if(r.verse&&r.verse.place){const q=r.verse.place;o.verse={s:q.surah,a:q.ayah,s2:q.surah2,a2:q.ayah2,l:q.level}}
      if(r.mapVerse)o.mapVerse={s:r.mapVerse.surah,a:r.mapVerse.ayah,l:r.mapVerse.level};return o}),
      nf:[...document.querySelectorAll('#fResults .verses .fverse')].length,
-     text:document.querySelector('#fResults').innerText.slice(0,300)}));
+     text:document.querySelector('#fResults').innerText.slice(0,300),cands:window.__cands}));
   }catch(e){res={error:String(e.message).slice(0,200),list:[]}}
   fs.appendFileSync(OUT,JSON.stringify({name:c.name,variant:c.variant,hide,code:c.code,copies:c.copies,segments:c.segments,other_copies:c.other_copies,ms:Date.now()-t0,...res})+'\n');
   console.log(c.name,hide?'hidden':'',res.list.slice(0,2).map(r=>(r.code===c.code?'RIGHT ':'')+r.level+' '+(r.start!=null?r.start.toFixed(1):'')).join(' | '),Math.round((Date.now()-t0)/1000)+'s');

@@ -1,0 +1,70 @@
+# Recognition engine, step 8: the app's finder on the 640 test clips (original present and hidden), recording every
+# landmark search's vote candidates, then the candidate shortlist test (tools/engine/eval/cand_eval.py).
+name: Engine candidates
+on:
+  workflow_dispatch:
+  push:
+    paths: ['tools/engine/eval/CAND_RUN', '.github/workflows/engine-cand.yml']
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: engine-cand
+  cancel-in-progress: true
+env:
+  SET_RUN: '45686748504'
+jobs:
+  finder:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    strategy:
+      fail-fast: false
+      matrix: {part: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: testset, path: set, run-id: '${{ env.SET_RUN }}', github-token: '${{ github.token }}'}
+      - run: npm i -q --no-save playwright@1.49.1 && npx playwright install --with-deps chrome
+      - run: (python3 -m http.server 8765 >/dev/null 2>&1 &) && sleep 2 && CHANNEL=chrome PART=${{ matrix.part }} OF=16 node tools/engine/eval/run_finder.js set cand-${{ matrix.part }}.jsonl
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: {name: 'res-cand-${{ matrix.part }}', path: 'cand-${{ matrix.part }}.jsonl'}
+  melody:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: "tools\njs"}
+      - uses: actions/download-artifact@v4
+        with: {name: testset, path: set, run-id: '${{ env.SET_RUN }}', github-token: '${{ github.token }}'}
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'mstore-*', path: stores, merge-multiple: true, run-id: '45705597448', github-token: '${{ github.token }}'}
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: node tools/engine/eval/melody_hash_eval.mjs set melcand.jsonl stores/*.json | tee melcand-score.txt
+      - uses: actions/upload-artifact@v4
+        with: {name: res-melcand, path: "melcand.jsonl\nmelcand-score.txt"}
+  score:
+    needs: [finder, melody]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: '${{ github.ref_name }}', fetch-depth: 1, sparse-checkout: "tools\nvi\njs"}
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'res-cand-*', path: res, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        with: {name: res-melcand, path: res}
+      - run: |
+          D=tools/engine/eval/results/cand-$(date -u +%Y%m%d-%H%M)-$(git rev-parse --short HEAD)
+          mkdir -p $D && cat res/cand-*.jsonl > $D/finder-cand.jsonl
+          python3 tools/engine/eval/score_finder.py $D/finder-cand.jsonl > $D/finder-score.txt || true
+          cp res/melcand-score.txt $D/ && gzip -9c res/melcand.jsonl > $D/melcand.jsonl.gz
+          node tools/engine/eval/cand_eval.mjs $D/finder-cand.jsonl tools/engine/eval/results/content-20261125-1854-c937226 | tee $D/cand-score.txt
+          echo "=== with melody hashes (pilot store: 89 recordings only, so this list can never name the other 2,990) ===" | tee -a $D/cand-score.txt
+          node tools/engine/eval/cand_eval.mjs $D/finder-cand.jsonl tools/engine/eval/results/content-20261125-1854-c937226 res/melcand.jsonl | tee -a $D/cand-score.txt
+          gzip -9 $D/finder-cand.jsonl
+          git config user.name "engine-eval bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/engine/eval/results
+          git commit -q -m "Engine eval: candidate results" || exit 0
+          for i in 1 2 3 4; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((i*10)); done

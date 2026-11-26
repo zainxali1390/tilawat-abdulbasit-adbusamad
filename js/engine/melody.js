@@ -126,5 +126,69 @@ function robust(ref,qs,o,L){
   err/=dif.length;return {score:(1-err/2)*Math.min(1,dif.length/(0.5*L)),shift:sh,cover:dif.length/L};
 }
 const refCache=new Map();
-G.MELODY={f0,pack,unpack,shape,match,bandpass,FPS,TEMPI};
+
+/* ---------- melody hashes (Step 8; design §3.2): a search by tune that needs no landmarks ----------
+   The pitch line's turning points (peaks and dips that move at least `th` semitones) are found with a zig-zag over the
+   lightly smoothed line. Every run of four turning points gives one hash:
+     three pitch steps between them, in whole semitones (−7…+7): the key cancels out;
+     two ratios of the gaps between them, log2 in half steps (−4…+4): the tempo cancels out.
+   15³ × 9² × 4 combinations = 1,093,500 values (21 bits), stored with the time of the first turning point. */
+function turns(m,th){
+  th=th||0.75;const n=m.length,s=new Float32Array(n);
+  /* median of 5 voiced frames: removes single-frame jumps of the tracker */
+  for(let i=0;i<n;i++){if(isNaN(m[i])){s[i]=NaN;continue}const w=[];for(let j=i-2;j<=i+2;j++)if(j>=0&&j<n&&!isNaN(m[j]))w.push(m[j]);w.sort((a,b)=>a-b);s[i]=w[w.length>>1]}
+  /* zig-zag: before the first move of th semitones both the lowest and highest frame are tracked; then the current
+     extreme is followed until the line turns back by th, which makes it a turning point */
+  const T=[],P=[];let dir=0,ext=-1,lo=-1,hi=-1;
+  for(let i=0;i<n;i++){const v=s[i];if(isNaN(v))continue;
+    if(dir===0){if(lo<0){lo=hi=i;continue}if(v<s[lo])lo=i;if(v>s[hi])hi=i;
+      if(s[hi]-s[lo]>=th){if(hi>lo){T.push(lo);P.push(s[lo]);dir=1;ext=hi}else{T.push(hi);P.push(s[hi]);dir=-1;ext=lo}}continue}
+    if(dir===1){if(v>s[ext])ext=i;else if(s[ext]-v>=th){T.push(ext);P.push(s[ext]);dir=-1;ext=i}}
+    else{if(v<s[ext])ext=i;else if(v-s[ext]>=th){T.push(ext);P.push(s[ext]);dir=1;ext=i}}
+  }
+  return {T,P};
+}
+const HCOMB=[[0,1,2,3],[0,1,2,4],[0,1,3,4],[0,2,3,4]];
+/* opts: th (turning size, semitones), skip (also the combinations that leave out one turning point, so one missed or
+   extra turning point does not break every hash around it), expand (queries: near a bin edge, also the neighbouring
+   bin; up to 8 keys per moment) */
+function hashes(m,opts){
+  opts=typeof opts==="number"?{th:opts}:(opts||{});
+  const {T,P}=turns(m,opts.th||0.6),out=[],combs=opts.skip===false?HCOMB.slice(0,1):HCOMB;
+  const qv=d=>{const x=Math.max(-7,Math.min(7,d));const r=Math.round(x);const alt=opts.expand&&Math.abs(x-r)>0.3&&Math.abs(r)<7?[r,r+(x>r?1:-1)]:[r];return alt.map(v=>v+7)};
+  const rv=g=>{const x=Math.max(-4,Math.min(4,2*Math.log2(g)));const r=Math.round(x);const alt=opts.expand&&Math.abs(x-r)>0.3&&Math.abs(r)<4?[r,r+(x>r?1:-1)]:[r];return alt.map(v=>v+4)};
+  for(let i=0;i<T.length;i++)for(const c of combs){
+    if(i+c[3]>=T.length)continue;
+    const t=c.map(j=>T[i+j]),p=c.map(j=>P[i+j]);
+    const g1=t[1]-t[0],g2=t[2]-t[1],g3=t[3]-t[2];if(g1<2||g2<2||g3<2)continue;
+    if(t[3]-t[0]>6*FPS)continue;   /* across a long pause the gaps say little */
+    for(const a of qv(p[1]-p[0]))for(const b of qv(p[2]-p[1]))for(const d of qv(p[3]-p[2]))for(const e of rv(g2/g1))for(const f of rv(g3/g2))
+      out.push([(((((a*15+b)*15+d)*9+e)*9+f)*4+HCOMB.indexOf(c))>>>0,t[0]]);
+  }
+  return out;
+}
+/* an index over many recordings: Map hash → Uint32Array of (rec << 18 | frame) ; frames up to 2^18 (3.6 h at 20 fps) */
+function hashIndex(contours,opts){
+  const lists=new Map();
+  contours.forEach((m,rec)=>{for(const [h,t] of hashes(m,opts)){let l=lists.get(h);if(!l)lists.set(h,l=[]);l.push((rec<<18|Math.min(t,262143))>>>0)}});
+  const idx=new Map();for(const [h,l] of lists)idx.set(h,Uint32Array.from(l));return idx;
+}
+/* vote: every clip hash found in a recording suggests (tempo k, offset b) with ref frame = k·clip frame + b, over the
+   tempo grid; the cell with most distinct clip moments wins per recording. lookup(h) → Uint32Array or undefined. */
+function hashVote(q,lookup,opts){
+  opts=opts||{};const tempi=opts.tempi||TEMPI,maxPost=opts.maxPost||400,qh=hashes(q,Object.assign({expand:true},opts.hash||{})),cells=new Map();
+  for(const [h,tq] of qh){
+    const l=lookup(h);if(!l||l.length>maxPost)continue;
+    for(const e of l){const rec=e>>>18,tr=e&262143;
+      for(let ki=0;ki<tempi.length;ki++){const b=Math.round((tr-tempi[ki]*tq)/10);const key=(rec*32+ki)*100000+(b+50000);
+        let s=cells.get(key);if(!s)cells.set(key,s=new Set());s.add(tq)}}
+  }
+  const best=new Map();
+  for(const [key,s] of cells){const rec=Math.floor(key/3200000),ki=Math.floor(key/100000)%32,b=key%100000-50000;
+    /* neighbouring offset cells (half a second apart) are counted together */
+    const n=s.size+((cells.get(key-1)||{size:0}).size+(cells.get(key+1)||{size:0}).size)*0.5;
+    const o=best.get(rec);if(!o||n>o.votes)best.set(rec,{rec,votes:n,k:tempi[ki],t:b*10/FPS})}
+  return {hashes:qh.length,list:[...best.values()].sort((a,b)=>b.votes-a.votes).slice(0,opts.top||50)};
+}
+G.MELODY={f0,pack,unpack,shape,match,bandpass,FPS,TEMPI,turns,hashes,hashIndex,hashVote};
 })(typeof window!=="undefined"?window:globalThis);
