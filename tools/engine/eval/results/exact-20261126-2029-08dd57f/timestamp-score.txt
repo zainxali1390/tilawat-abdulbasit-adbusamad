@@ -44,3 +44,5 @@ ALL 626 clips: start median 0.02 s, 90th 0.06, max 24.80; within 0.1 s 589, with
   line used: {'landmarks': 603, 'melody': 22, 'landmarks (few)': 1}; the stated error (3 x err + 0.05 s) covers the true start for 597/626
 
 the current finder on the same clips (560 with a result for the right recording): start median 0.02, 90th 2.98, within 0.5 s 491; clip start within 0.5 s 493; end median 0.02
+
+when the two alignments AGREE (565 clips): start within 0.1 s 540, within 0.5 s 564, largest error 0.52 s; stated error covers it 545/565
