@@ -19,7 +19,9 @@ const groups = JSON.parse(fs.readFileSync(path.join(HERE, 'results/melody-local-
 const same = (a, b) => a === b || groups.some(g => g.has(a) && g.has(b));
 const preds = {};
 for (const f of fs.readdirSync(PRED).filter(f => f.startsWith('pred-base-q8-'))) for (const r of read(path.join(PRED, f))) preds[r.name] = r;
-const melc = MEL ? Object.fromEntries(read(MEL).map(r => [r.name + (r.hide ? '|h' : ''), r.list])) : {};
+/* MELMIN / MELTOP: keep only melody candidates whose alignment score reaches MELMIN, at most MELTOP of them */
+const MELMIN = +(process.env.MELMIN || 0), MELTOP = +(process.env.MELTOP || 30);   // (CAND.melody applies the shipped minimum on top)
+const melc = MEL ? Object.fromEntries(read(MEL).map(r => [r.name + (r.hide ? '|h' : ''), r.list.filter(x => x.score >= MELMIN).slice(0, MELTOP)])) : {};
 const vi = {}; const getSurah = su => vi[su] ??= (() => { const f = path.join(ROOT, 'vi', String(su).padStart(3, '0') + '.json'); return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f)) : null; })();
 const places = name => (preds[name]?.wins || []).filter(w => w.p).map(w => ({su: w.p[0], ay: w.p[1], su2: w.p[2], ay2: w.p[3], level: w.p[4]}));
 const truthOf = r => [...new Set([...r.segments.map(g => g.code), ...(r.copies || [])])];
@@ -39,7 +41,7 @@ const byVariant = {};
 for (const r of rows) {
   if (!r.cands) continue;
   const truth = truthOf(r), hidden = r.hide ? new Set(truth) : null;
-  const lists = {lm: C.landmarks(r.cands), verse: C.verses(places(r.name), getSurah, 2), mel: C.melody(melc[r.name + (r.hide ? '|h' : '')])};
+  const lists = {lm: C.landmarks(r.cands), verse: C.verses(places(r.name), getSurah, 2), mel: C.melody(melc[r.name + (r.hide ? '|h' : '')], process.env.MELMIN ? 0 : undefined)};
   if (hidden) for (const k of Object.keys(lists)) lists[k] = lists[k].filter(x => !truth.some(y => same(x.code, y)));
   const group = r.hide ? 'hidden' : (confirmedRight(r) ? 'confirmed' : 'not confirmed');
   for (const [name, f] of configs) {

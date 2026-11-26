@@ -32,6 +32,9 @@ ok(C.fuse({lm: Array.from({length: 50}, (_, i) => ({code: 'r' + i, t: 0}))}, {K:
 const F2 = C.fuse({lm: [{code: 'A', t: 10}], verse: [{code: 'A', t: 900}]}, {K: 30});
 ok(!F2[0].agree, 'fuse: two sources far apart in time do not get the agreement bonus');
 
+/* melody candidates: only well-aligned ones are kept */
+ok(C.melody([{code: 'a', score: 0.9}, {code: 'b', score: 0.5}, {code: 'c', score: 0.75}]).map(x => x.code).join() === 'a,c', 'melody list: aligned below 0.7 dropped, best first');
+
 /* melody hashes: key and tempo do not change them; a different tune shares few */
 const tune = n => Float32Array.from({length: n}, (_, i) => 60 + 3 * Math.sin(i / 9) + 1.5 * Math.sin(i / 23));
 const a = M.hashes(tune(600)).map(x => x[0]);

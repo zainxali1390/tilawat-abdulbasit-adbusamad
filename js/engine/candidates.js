@@ -43,7 +43,10 @@ C.verses=function(places,getSurah,R){
   }
   return [...best.values()].sort((x,y)=>x.k-y.k);
 };
-C.melody=function(list){return (list||[]).slice().sort((a,b)=>b.score-a.score)};
+/* melody candidates re-ranked by alignment (MELODY.alignNear): only those that align well enough are kept, so weak
+   ones don't push landmark and verse candidates out (measured: min 0.65-0.8 all best; 0.7 chosen, between them) */
+C.MELODY_MIN=0.7;
+C.melody=function(list,min){min=min==null?C.MELODY_MIN:min;return (list||[]).filter(x=>x.score>=min).sort((a,b)=>b.score-a.score)};
 /* lists: {lm:[…], verse:[…], mel:[…]}; opt: {K, k, w:{lm, verse, mel}, near (s), bonus} */
 C.fuse=function(lists,opt){
   opt=Object.assign({K:30,k:60,w:{lm:1,verse:1,mel:1},near:120,bonus:1},opt||{});
