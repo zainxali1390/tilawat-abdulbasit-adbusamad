@@ -29,8 +29,26 @@ jobs:
       - if: always()
         uses: actions/upload-artifact@v4
         with: {name: 'res-exact-${{ matrix.part }}', path: 'exact-${{ matrix.part }}.jsonl'}
+  app:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: testset, path: set, run-id: '${{ env.SET_RUN }}', github-token: '${{ github.token }}'}
+      - run: npm i -q --no-save playwright@1.49.1 && npx playwright install --with-deps chrome
+      - run: |
+          python3 -c "
+          import json;C=json.load(open('set/cases.json'));keep=[c for c in C if c['name'].startswith(('s00-','s05-','s08-')) and c['variant'] in ('clean20','pitch-4','tempo1.25','intro_music3','join2_same','join2_diff','combo2','video_mov','noise10')]
+          json.dump(keep,open('set/app-cases.json','w'));print(len(keep),'clips')"
+          mkdir -p appset && cp set/app-cases.json appset/cases.json && ln -s ../set/clips appset/clips
+          (python3 -m http.server 8765 >/dev/null 2>&1 &) && sleep 2
+          CHANNEL=chrome node tools/engine/eval/test_app.js appset | tee app-test.txt
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: {name: res-app, path: app-test.txt}
   score:
-    needs: [run]
+    needs: [run, app]
     if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     steps:
@@ -38,6 +56,9 @@ jobs:
         with: {ref: '${{ github.ref_name }}', fetch-depth: 1, sparse-checkout: "tools\njs"}
       - uses: actions/download-artifact@v4
         with: {pattern: 'res-exact-*', path: res, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        with: {name: res-app, path: res}
+        continue-on-error: true
       - run: |
           D=tools/engine/eval/results/exact-$(date -u +%Y%m%d-%H%M)-$(git rev-parse --short HEAD)
           mkdir -p $D && cat res/exact-*.jsonl > $D/exact.jsonl
@@ -45,6 +66,7 @@ jobs:
           python3 tools/engine/eval/timestamp_score.py $D/exact.jsonl | tee $D/timestamp-score.txt
           python3 tools/engine/eval/parts_score.py $D/exact.jsonl tools/engine/eval/copy-groups.json | tee $D/parts-score.txt
           gzip -9 $D/exact.jsonl
+          cp res/app-test.txt $D/ 2>/dev/null || true
           cp tools/engine/eval/copy-groups.json $D/copy-groups-step10.json && node tools/engine/eval/verify_eval.mjs $D/exact.jsonl.gz > $D/verify-score.txt || true
           git config user.name "engine-eval bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

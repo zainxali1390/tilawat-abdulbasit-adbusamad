@@ -1,0 +1,15 @@
+
+ENGINE, rules {"confirmInl":6,"highInl":4,"possibleMel":0.8,"copyInl":6}, copies chained
+  level        right  wrong(present)  wrong(hidden)  precision   start within 0.5 s (answers naming the clip's own recording; a copy's true times are unknown)
+  confirmed      609          0              0      100.0 %   581/582
+  high             5          0              0      100.0 %   3/3
+  possible         6          0              2       75.0 %   6/6
+  no reliable match on 20 of the present runs; right at "high" or better: 614; at any level: 620
+  the app's answer (finder field; from Step 14 on it includes the engine): high right 5, wrong 0, hidden 0; confirmed right 608, wrong 0, hidden 0; possible right 7, wrong 0, hidden 8; nothing 20
+
+ENGINE, rules {"confirmInl":6,"highInl":4,"possibleMel":0.8,"copyInl":6}, copies checked directly only
+  level        right  wrong(present)  wrong(hidden)  precision   start within 0.5 s (answers naming the clip's own recording; a copy's true times are unknown)
+  confirmed      609          0              0      100.0 %   581/582
+  high             5          0              0      100.0 %   3/3
+  possible         6          0              3       66.7 %   6/6
+  no reliable match on 20 of the present runs; right at "high" or better: 614; at any level: 620

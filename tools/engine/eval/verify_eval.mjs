@@ -24,13 +24,13 @@ const sameDirect = (a, b, src) => a === b || step6.some(g => g.has(a) && g.has(b
 const LV = ['confirmed', 'high', 'possible', 'none'];
 function run(rules, same) {
   const T = Object.fromEntries(LV.map(l => [l, {right: 0, wrong: 0, hidden: 0, tsOk: 0}]));
-  const finder = {confirmed: {right: 0, wrong: 0, hidden: 0}, possible: {right: 0, wrong: 0, hidden: 0}, none: {right: 0, wrong: 0, hidden: 0}};
+  const finder = {confirmed: {right: 0, wrong: 0, hidden: 0}, high: {right: 0, wrong: 0, hidden: 0}, possible: {right: 0, wrong: 0, hidden: 0}, none: {right: 0, wrong: 0, hidden: 0}};
   const bad = [];
   for (const r of rows) {
     const truth = [...new Set([...r.segments.map(g => g.code), ...(r.copies || [])])], src = r.segments[0].code;
     const ok = c => truth.some(t => same(c, t, t));   // a copy of ANY part of the clip (joined clips have two or three)
     const d = V.decide(r.list, r.finder, {rules});
-    const f = (r.finder || [])[0], fl = f ? f.level : 'none';
+    const f = (r.finder || [])[0], fl = f && f.level in finder ? f.level : 'none';
     if (!r.hide) {
       if (d.level !== 'none') { const right = ok(d.top.code); T[d.level][right ? 'right' : 'wrong']++;
         if (right) { const g = r.segments.filter(s => s.code === d.top.code); if (g.length) { T[d.level].own = (T[d.level].own || 0) + 1; if (d.top.ts && g.some(s => Math.abs(d.top.ts.start - s.at) <= 0.5)) T[d.level].tsOk++; } }
@@ -55,7 +55,7 @@ const show = (name, res) => {
 for (const [name, same] of [['copies chained', sameChained], ['copies checked directly only', sameDirect]]) {
   const res = run(V.RULES, same); show(`ENGINE, rules ${JSON.stringify(V.RULES)}, ${name}`, res);
   if (name === 'copies chained') {
-    const f = res.finder; console.log(`  today's finder: confirmed right ${f.confirmed.right}, wrong ${f.confirmed.wrong}, hidden ${f.confirmed.hidden}; possible right ${f.possible.right}, wrong ${f.possible.wrong}, hidden ${f.possible.hidden}; nothing ${f.none.right}`);
+    const f = res.finder; console.log(`  the app's answer (finder field; from Step 14 on it includes the engine): high right ${f.high.right}, wrong ${f.high.wrong}, hidden ${f.high.hidden}; confirmed right ${f.confirmed.right}, wrong ${f.confirmed.wrong}, hidden ${f.confirmed.hidden}; possible right ${f.possible.right}, wrong ${f.possible.wrong}, hidden ${f.possible.hidden}; nothing ${f.none.right}`);
   }
   if (res.bad.length) console.log('  confirmed/high answers that are wrong:', JSON.stringify(res.bad.slice(0, 12)));
 }
