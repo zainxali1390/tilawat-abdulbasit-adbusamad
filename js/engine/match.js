@@ -115,6 +115,10 @@ X.lines=function(pairs,opt){
   for(let i=0;i<maxLines&&P.length>=3;i++){
     const L=X.lmLine(P,{tol});if(!(L.inliers>=(i?minInl:3))||L.k==null)break;
     const lo=L.lo,hi=L.hi;
+    /* the same timeline found again (a pitch-shifted clip scatters its hits, so one line can come back in pieces):
+       merged into the earlier line, not a new part */
+    const same=out.find(o=>Math.abs(o.k/L.k-1)<=0.03&&Math.abs((o.k*((lo+hi)/2)+o.b)-(L.k*((lo+hi)/2)+L.b))<=0.5);
+    if(same){same.lo=Math.min(same.lo,lo);same.hi=Math.max(same.hi,hi);same.span=same.hi-same.lo;same.inliers+=L.inliers;P=P.filter(p=>Math.abs(p.tr-(L.k*p.tc+L.b))>tol*3);continue}
     /* a new line must mostly cover clip time no earlier line covers */
     const overlap=out.reduce((m,o)=>Math.max(m,Math.max(0,Math.min(hi,o.hi)-Math.max(lo,o.lo))/Math.max(0.5,hi-lo)),0);
     if(overlap<=0.5)out.push(L);

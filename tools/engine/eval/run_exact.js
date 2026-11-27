@@ -81,7 +81,8 @@ const places=n=>((preds[n]||{}).wins||[]).filter(w=>w.p).map(w=>({su:w.p[0],ay:w
      }
      const parts=MATCH.parts(lineEntries).map(p=>{
        const over=lineEntries.filter(l=>l.ts&&Math.min(l.ts.clipB,p.ts.clipB)-Math.max(l.ts.clipA,p.ts.clipA)>0.5*(p.ts.clipB-p.ts.clipA));
-       const fin=finderNow.filter(f=>f.clipA!=null&&Math.min(f.clipB,p.ts.clipB)-Math.max(f.clipA,p.ts.clipA)>0.5*(p.ts.clipB-p.ts.clipA));
+       /* a finder result lends its verdict only when it covers mostly the same stretch, both ways (not a fragment of it) */
+       const fin=finderNow.filter(f=>{if(f.clipA==null)return false;const o=Math.min(f.clipB,p.ts.clipB)-Math.max(f.clipA,p.ts.clipA);return o>0.5*(p.ts.clipB-p.ts.clipA)&&o>0.5*(f.clipB-f.clipA)});
        const d=VERIFY.decide(over,fin);
        return {clipA:+p.ts.clipA.toFixed(2),clipB:+p.ts.clipB.toFixed(2),level:d.level,code:d.top?d.top.code:null,
          start:d.top&&d.top.ts?+d.top.ts.start.toFixed(2):null,end:d.top&&d.top.ts?+d.top.ts.end.toFixed(2):null,
