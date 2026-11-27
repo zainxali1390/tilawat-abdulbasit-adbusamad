@@ -1,0 +1,83 @@
+# Recognition engine, step 15: a FRESH test set (16 recordings never used in testing, tools/engine/eval/sources_fresh.json;
+# the 40 edits plus long and real-world-style clips: STEP15=1 in make_set.py) through the app's pipeline, original
+# present and hidden; scored with the same scripts as before, plus the speed shortcut and downloads (fresh_extra.py).
+name: Engine fresh test
+on:
+  workflow_dispatch:
+  push:
+    paths: ['tools/engine/eval/FRESH_RUN', '.github/workflows/engine-fresh.yml']
+permissions:
+  contents: write
+concurrency:
+  group: engine-fresh
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: "tools\nfp"}
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg rubberband-cli && pip install -q numpy
+      - run: STEP15=1 python3 tools/engine/eval/make_set.py tools/engine/eval/sources_fresh.json set && rm -rf set/src
+      - uses: actions/upload-artifact@v4
+        with: {name: testset-fresh, path: set/, retention-days: 14}
+  run:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      matrix: {part: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: testset-fresh, path: set}
+      - run: npm i -q --no-save playwright@1.49.1 && npx playwright install --with-deps chrome
+      - run: mkdir -p nopred && (node tools/engine/eval/serve.js 8765 . >/dev/null 2>&1 &) && sleep 2 && CHANNEL=chrome PART=${{ matrix.part }} OF=16 node tools/engine/eval/run_exact.js set exact-${{ matrix.part }}.jsonl nopred
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: {name: 'res-fresh-${{ matrix.part }}', path: 'exact-${{ matrix.part }}.jsonl'}
+  app:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: testset-fresh, path: set}
+      - run: npm i -q --no-save playwright@1.49.1 && npx playwright install --with-deps chrome
+      - run: |
+          python3 -c "
+          import json;C=json.load(open('set/cases.json'));keep=[c for c in C if c['name'].startswith(('s01-','s06-','s11-')) and c['variant'] in ('clean20','pitch-4','social','phone_room','len120','video3','join2_diff','intro_music3')]
+          json.dump(keep,open('set/app-cases.json','w'));print(len(keep),'clips')"
+          mkdir -p appset && cp set/app-cases.json appset/cases.json && ln -s ../set/clips appset/clips
+          (node tools/engine/eval/serve.js 8765 . >/dev/null 2>&1 &) && sleep 2
+          CHANNEL=chrome node tools/engine/eval/test_app.js appset | tee app-test.txt
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: {name: res-fresh-app, path: app-test.txt}
+  score:
+    needs: [run, app]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: '${{ github.ref_name }}', fetch-depth: 1, sparse-checkout: "tools\njs"}
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'res-fresh-*', path: res, merge-multiple: true}
+      - run: |
+          D=tools/engine/eval/results/fresh-$(date -u +%Y%m%d-%H%M)-$(git rev-parse --short HEAD)
+          mkdir -p $D && cat res/exact-*.jsonl > $D/exact.jsonl && cp res/app-test.txt $D/ 2>/dev/null || true
+          python3 tools/engine/eval/exact_score.py $D/exact.jsonl > $D/exact-score.txt || true
+          python3 tools/engine/eval/timestamp_score.py $D/exact.jsonl > $D/timestamp-score.txt || true
+          python3 tools/engine/eval/parts_score.py $D/exact.jsonl tools/engine/eval/copy-groups.json > $D/parts-score.txt || true
+          python3 tools/engine/eval/fresh_extra.py $D/exact.jsonl tools/engine/eval/copy-groups.json > $D/extra.txt || true
+          gzip -9 $D/exact.jsonl
+          cp tools/engine/eval/copy-groups.json $D/copy-groups-step10.json && node tools/engine/eval/verify_eval.mjs $D/exact.jsonl.gz > $D/verify-score.txt || true
+          cat $D/parts-score.txt $D/verify-score.txt $D/extra.txt
+          git config user.name "engine-eval bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/engine/eval/results
+          git commit -q -m "Engine eval: fresh test results" || exit 0
+          for i in 1 2 3 4; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((i*10)); done

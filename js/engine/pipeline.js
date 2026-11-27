@@ -14,22 +14,32 @@ const E=G.ENGINE||(G.ENGINE={});
 E.run=async function(o){
   /* from js/finder.js (its top-level constants are not on window, so they are passed in) */
   const step=o.onStep||(()=>{}),secPF=o.secPerFrame,man=o.man,vmOf=o.vmOf||(()=>null);
+  /* o.exclude: recordings to leave out (the tests' hidden runs; the app passes the sound search's own exclusion, which
+     is empty in normal use) */
+  const ex=o.exclude instanceof Set?o.exclude:new Set(o.exclude||[]);
   step("melody",0);
   const ing=await E.ingest(o.blob,{maxSecs:600});
   const q=G.MELODY.unpack(G.MELODY.pack(G.MELODY.f0(ing.pcm)));
+  /* the melody window fetched around a suggested place: the clip at any tempo from 0.75, the 15 s search pad, margin */
+  const W=ing.dur/0.75+30;
   /* melody candidates */
   step("candidates",0.2);
   let mel=[];
-  try{
+  /* speed: when the sound search has already confirmed results covering most of the clip (>= 80 % of its length), the
+     melody candidate search (a hash vote and 30 alignments, about 1 s and 30 small downloads) is skipped; the other
+     candidates, both alignments and the levels still run. Measured on the fresh test set (docs/RECOGNITION-FINAL.md). */
+  const covered=(o.finder||[]).filter(f=>f.level==="confirmed"&&f.clipA!=null).reduce((s,f)=>s+Math.max(0,f.clipB-f.clipA),0);
+  const skipMel=o.full!==true&&covered>=0.8*ing.dur;
+  if(!skipMel)try{
     const mhm=await G.ARCHIVE.mhManifest(),look=await G.ARCHIVE.melodyLookup(G.MELODY.hashes(q,{expand:true}).map(x=>x[0]));
-    const vote=G.MELODY.hashVote(q,look,{top:60,avgPost:mhm.entries/mhm.hashes}).list.slice(0,30);
-    for(const v of vote){const code=mhm.recs[v.rec],ref=await G.ARCHIVE.melody(code),a=ref?G.MELODY.alignNear(q,ref,v.t):{score:0};
+    const vote=G.MELODY.hashVote(q,look,{top:60,avgPost:mhm.entries/mhm.hashes}).list.filter(v=>!ex.has(mhm.recs[v.rec])).slice(0,30);
+    for(const v of vote){const code=mhm.recs[v.rec],ref=await G.ARCHIVE.melodyAround(code,v.t-W,v.t+W),a=ref?G.MELODY.alignNear(q,ref,v.t):{score:0};
       mel.push({code,score:a.score||0,t:a.score>0?a.at:v.t,k:a.k})}
   }catch(e){mel=[]}   // the melody index is optional: without it the landmark and verse candidates remain
-  const lm=G.CAND.landmarks(o.searches,secPF);
+  const lm=G.CAND.landmarks(o.searches,secPF).filter(x=>!ex.has(x.code));
   const sus=[...new Set((o.places||[]).flatMap(p=>[p.su,p.su2]).filter(Boolean))],vis={};
   for(const s of sus)vis[s]=await G.ARCHIVE.verses(s);
-  const verse=G.CAND.verses(o.places||[],s=>vis[s],2);
+  const verse=G.CAND.verses(o.places||[],s=>vis[s],2).filter(x=>!ex.has(x.code));
   const short=G.CAND.fuse({lm,verse,mel:G.CAND.melody(mel)},{K:30});
   /* every line in every shortlisted recording */
   step("checking",0.5);
@@ -38,12 +48,16 @@ E.run=async function(o){
     const s=short[n],rec=recOf.get(s.code);if(rec==null)continue;step("checking",0.5+0.5*n/short.length);
     const pairs=o.searches.flatMap(res=>G.MATCH.lmPairs(res,rec,secPF));
     let found=G.MATCH.lines(pairs,{maxLines:3,minInl:4});
-    const ref=await G.ARCHIVE.melody(s.code),vm=await vmOf(s.code),recDur=man.recs[rec][1];
+    const B0=G.MATCH.lmBest(o.searches,rec,secPF);
+    /* the melody around every place this recording may hold the clip: the shortlist's time, the landmark line(s) */
+    const spots=[s.t,B0.inliers>=3?B0.b:null,...found.map(L=>L.b)].filter(x=>x!=null);let ref=null;
+    for(const t of [...new Set(spots.map(x=>Math.round(x)))])ref=await G.ARCHIVE.melodyAround(s.code,t-W,t+W)||ref;
+    const vm=await vmOf(s.code),recDur=man.recs[rec][1];
     /* a recording found by melody or verses alone (no landmark line): its melody alignment over the whole clip */
     if(!found.length&&ref&&s.t!=null){const a=G.MELODY.alignNear(q,ref,s.t);if(a.score>0)found=[{inliers:0,n:0,k:null,b:null,lo:null,hi:null,_mel:a}]}
     /* the whole-clip evidence too (Step 10: the best search's line, the melody over the whole clip), so the parts are
        never weaker than the single answer: a pitch-shifted clip's hits can be clearer in one search than in all together */
-    {const B=G.MATCH.lmBest(o.searches,rec,secPF);
+    {const B=B0;
       if(B.inliers>=3&&ref){let M={score:0};for(const h of [...new Set([B.b,s.t].filter(x=>x!=null).map(x=>Math.round(x)))]){const a=G.MELODY.alignNear(q,ref,h);if(a.score>M.score)M=a}
         const ag=G.MATCH.agree(B,M),ts=G.MATCH.timestamp(B,M,ing,recDur,{q,ref});
         if(ts)lines.push({code:s.code,line:B,lm:{inl:B.inliers,span:+(B.span||0).toFixed(1),k:B.k,b:B.b},mel:{score:M.score||0,k:M.k||null,at:M.score>0?M.at:null,shift:M.shift},agree:ag,verse:G.MATCH.verseCheck(vm,ts.start,ts.end,o.places||[]),ts})}}
@@ -68,6 +82,6 @@ E.run=async function(o){
       k:p.ts.k,shift:p.mel.shift!=null?p.mel.shift:null,reasons:d.reasons,copies};
   });
   step("done",1);
-  return {parts,pcm:ing.pcm,dur:ing.dur};
+  return {parts,pcm:ing.pcm,dur:ing.dur,skippedMelody:skipMel};
 };
 })(typeof window!=="undefined"?window:globalThis);

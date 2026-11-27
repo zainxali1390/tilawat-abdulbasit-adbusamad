@@ -25,7 +25,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with: {name: testset, path: set, run-id: '${{ env.SET_RUN }}', github-token: '${{ github.token }}'}
       - run: npm i -q --no-save playwright@1.49.1 && npx playwright install --with-deps chrome
-      - run: (python3 -m http.server 8765 >/dev/null 2>&1 &) && sleep 2 && CHANNEL=chrome PART=${{ matrix.part }} OF=16 node tools/engine/eval/run_exact.js set exact-${{ matrix.part }}.jsonl tools/engine/eval/results/content-20261125-1854-c937226
+      - run: (node tools/engine/eval/serve.js 8765 . >/dev/null 2>&1 &) && sleep 2 && CHANNEL=chrome PART=${{ matrix.part }} OF=16 node tools/engine/eval/run_exact.js set exact-${{ matrix.part }}.jsonl tools/engine/eval/results/content-20261125-1854-c937226
       - if: always()
         uses: actions/upload-artifact@v4
         with: {name: 'res-exact-${{ matrix.part }}', path: 'exact-${{ matrix.part }}.jsonl'}
@@ -42,7 +42,7 @@ jobs:
           import json;C=json.load(open('set/cases.json'));keep=[c for c in C if c['name'].startswith(('s00-','s05-','s08-')) and c['variant'] in ('clean20','pitch-4','tempo1.25','intro_music3','join2_same','join2_diff','combo2','video_mov','noise10')]
           json.dump(keep,open('set/app-cases.json','w'));print(len(keep),'clips')"
           mkdir -p appset && cp set/app-cases.json appset/cases.json && ln -s ../set/clips appset/clips
-          (python3 -m http.server 8765 >/dev/null 2>&1 &) && sleep 2
+          (node tools/engine/eval/serve.js 8765 . >/dev/null 2>&1 &) && sleep 2
           CHANNEL=chrome node tools/engine/eval/test_app.js appset | tee app-test.txt
       - if: always()
         uses: actions/upload-artifact@v4

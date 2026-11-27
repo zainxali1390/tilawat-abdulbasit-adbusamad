@@ -5,7 +5,8 @@
 // url is not downloaded again (incremental: only new or changed recordings are processed).
 //
 // mf/r/XX/<fnv>.bin   one file per recording: its melody, 1 byte per 50 ms frame (MELODY.pack). XX = first 2 hex digits.
-// mf/manifest.json    {v, built, build, fps, recs: {code: [fnv hex, frames, url]}, failed: {code: reason}}
+// mf/manifest.json    {v, built, build, fps, recs: {code: [fnv hex, frames]}, failed: {code: reason}}   (what the app reads)
+// mf/sources.json     {code: url}   (only for the next build: an unchanged url is not downloaded again)
 // mh/s/HH/LL.bin      melody hashes (MELODY.hashes), sharded by key = hash >> 6: HH = key >> 8, LL = key & 255 (2-hex each).
 //                     Layout: 64 × uint32 counts (one list per low 6 bits of the hash), then the lists of uint32 entries
 //                     (recording index << 18 | frame), each list sorted.
@@ -24,6 +25,9 @@ const recs = JSON.parse(fs.readFileSync(RECS));
 /* INDEX_ROOT: where mf/ and mh/ live (default: the repository; tests point it elsewhere) */
 const OUTROOT = process.env.INDEX_ROOT || ROOT, MF = path.join(OUTROOT, 'mf'), MH = path.join(OUTROOT, 'mh');
 const oldMan = fs.existsSync(path.join(MF, 'manifest.json')) ? JSON.parse(fs.readFileSync(path.join(MF, 'manifest.json'))) : {recs: {}};
+/* the source urls are kept apart from the manifest the app downloads (older builds had them as a third field) */
+const oldSrc = fs.existsSync(path.join(MF, 'sources.json')) ? JSON.parse(fs.readFileSync(path.join(MF, 'sources.json'))) : {};
+for (const [c, v] of Object.entries(oldMan.recs)) if (v[2] && !oldSrc[c]) oldSrc[c] = v[2];
 const mfPath = id => path.join(MF, 'r', id.slice(0, 2), id + '.bin');
 
 if (cmd === 'part') {
@@ -32,7 +36,7 @@ if (cmd === 'part') {
   let done = 0, reused = 0;
   for (const r of mine) {
     const o = oldMan.recs[r.code];
-    if (o && o[2] === r.url && fs.existsSync(mfPath(o[0]))) { reused++; continue; }
+    if (o && oldSrc[r.code] === r.url && fs.existsSync(mfPath(o[0]))) { reused++; continue; }
     let src = r.url;
     if (/^https?:/.test(src)) { const d = spawnSync('curl', ['-sSL', '--fail', '--retry', '5', '--max-time', '1800', '-o', tmp, src]); if (d.status) { out[r.code] = {err: 'download ' + d.status}; continue; } src = tmp; }
     else if (!path.isAbsolute(src)) src = path.join(ROOT, src);
@@ -52,22 +56,22 @@ if (cmd === 'merge') {
   const fresh = {};
   for (const f of fs.readdirSync(DIR).filter(f => /^part-\d+\.json$/.test(f))) Object.assign(fresh, JSON.parse(fs.readFileSync(path.join(DIR, f))));
   const man = {v: 1, built: new Date().toISOString().slice(0, 10), fps: M.FPS, recs: {}, failed: {}};
-  const contours = [], codes = [];
+  const contours = [], codes = [], src = {};
   const keep = new Set();
   for (const r of recs) {
     const f = fresh[r.code], o = oldMan.recs[r.code];
     let bytes = null, id = fnv(r.code);
     if (f && f.mf) { bytes = Buffer.from(f.mf, 'base64'); fs.mkdirSync(path.dirname(mfPath(id)), {recursive: true}); fs.writeFileSync(mfPath(id), bytes); }
-    else if (o && o[2] === r.url && fs.existsSync(mfPath(o[0]))) { id = o[0]; bytes = fs.readFileSync(mfPath(id)); }
+    else if (o && oldSrc[r.code] === r.url && fs.existsSync(mfPath(o[0]))) { id = o[0]; bytes = fs.readFileSync(mfPath(id)); }
     else { man.failed[r.code] = f && f.err || 'not processed'; continue; }
-    man.recs[r.code] = [id, bytes.length, r.url]; keep.add(id);
+    man.recs[r.code] = [id, bytes.length]; src[r.code] = r.url; keep.add(id);
     codes.push(r.code); contours.push(M.unpack(new Uint8Array(bytes.buffer, bytes.byteOffset, bytes.length)));
   }
   /* recordings no longer in the list: their files go */
   if (fs.existsSync(path.join(MF, 'r'))) for (const d of fs.readdirSync(path.join(MF, 'r'))) for (const f of fs.readdirSync(path.join(MF, 'r', d))) if (!keep.has(f.replace('.bin', ''))) fs.unlinkSync(path.join(MF, 'r', d, f));
   /* the build id: a hash of the recording list and lengths, so a page never mixes two builds (design §3.5) */
   man.build = fnv(man.built + '|' + codes.map(c => c + '/' + man.recs[c][1]).join('|'));
-  fs.mkdirSync(MF, {recursive: true}); fs.writeFileSync(path.join(MF, 'manifest.json'), JSON.stringify(man));
+  fs.mkdirSync(MF, {recursive: true}); fs.writeFileSync(path.join(MF, 'manifest.json'), JSON.stringify(man)); fs.writeFileSync(path.join(MF, 'sources.json'), JSON.stringify(src));
   /* melody hashes */
   const lists = new Map(); let entries = 0;
   contours.forEach((m, ri) => { for (const [h, t] of M.hashes(m)) { let l = lists.get(h); if (!l) lists.set(h, l = []); l.push((ri << 18 | Math.min(t, 262143)) >>> 0); entries++; } });

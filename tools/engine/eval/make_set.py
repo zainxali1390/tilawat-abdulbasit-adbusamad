@@ -97,6 +97,14 @@ V = {
     'join3_same': (8, 1, None, 'mp4', {'join': 'same3'}),
     'join2_diff': (12, 1, None, 'mp4', {'join': 'diff2'}),
 }
+# Step 15 (STEP15=1): real-world-style and long clips, for the fresh test set
+if os.environ.get('STEP15'):
+    V.update({
+        'len120': (120, 1, None, 'mp3', {}),                                   # two minutes, one stretch
+        'video3': (40, 1, None, 'mp4', {'join': 'diff3', 'gap': 3, 'gapkind': 'music'}),   # 3 recordings, 40 s each, 3 s of music between
+        'social': (20, 1, speed(1.05) + ',acompressor=threshold=0.1:ratio=6,alimiter=limit=0.7', 'm4a', {'codec': ['-c:a', 'aac', '-b:a', '64k']}),
+        'phone_room': (20, 1, 'highpass=f=300,lowpass=f=3400,' + REVERB_S, 'm4a', {'noise': 15, 'codec': ['-c:a', 'aac', '-b:a', '32k']}),
+    })
 
 
 def rate(chain):
@@ -162,15 +170,15 @@ def write_variant(src, out, d, chain, ext, extra, tmp, rng, x16, starts, others)
     pre = 0.0
     parts = []
     if extra.get('join'):
-        n = {'same2': 2, 'same3': 3, 'diff2': 2}[extra['join']]
-        picks = rng.sample(starts, n) if extra['join'] != 'diff2' else [rng.choice(starts)]
+        n = {'same2': 2, 'same3': 3, 'diff2': 2, 'diff3': 3}[extra['join']]
+        picks = rng.sample(starts, n) if extra['join'] not in ('diff2', 'diff3') else [rng.choice(starts)]
         if extra['join'] == 'same2':
             picks = sorted(picks, reverse=True)       # out of order
         for j, st in enumerate(picks):
             parts.append((src['path'], src['code'], st))
-        if extra['join'] == 'diff2':
-            o = rng.choice(others)
-            parts.append((o['path'], o['code'], rng.choice(o['starts'])))
+        if extra['join'] in ('diff2', 'diff3'):
+            for o in rng.sample(others, min(len(others), 1 if extra['join'] == 'diff2' else 2)):
+                parts.append((o['path'], o['code'], rng.choice(o['starts'])))
         files = []
         pos = 0.0
         for j, (path, code, st) in enumerate(parts):
@@ -178,10 +186,13 @@ def write_variant(src, out, d, chain, ext, extra, tmp, rng, x16, starts, others)
             ff(['-ss', '%.3f' % st, '-t', str(d), '-i', path, '-vn', '-ac', '1', '-ar', str(SR), f])
             files.append(f)
             segs.append(dict(a=round(pos, 3), b=round(pos + d, 3), code=code, at=st, rate=1.0))
-            pos += d + 1.0
-        # 1 s of quiet between parts
+            pos += d + extra.get('gap', 1.0)
+        # 1 s of quiet between parts (or extra['gap'] seconds of music)
         gap = '%s.gap.wav' % tmp
-        ff(['-f', 'lavfi', '-i', 'anullsrc=r=%d:cl=mono' % SR, '-t', '1', gap])
+        if extra.get('gapkind') == 'music':
+            ff(['-f', 'lavfi', '-i', MUSIC.format(d=extra['gap']), '-ac', '1', '-ar', str(SR), gap])
+        else:
+            ff(['-f', 'lavfi', '-i', 'anullsrc=r=%d:cl=mono' % SR, '-t', str(extra.get('gap', 1.0)), gap])
         lst = '%s.txt' % tmp
         with open(lst, 'w') as fh:
             for j, f in enumerate(files):

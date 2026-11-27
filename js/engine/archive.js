@@ -34,6 +34,23 @@ A.melody=async function(code){
   const b=await getBin("mf/r/"+e[0].slice(0,2)+"/"+e[0]+".bin?b="+man.build);
   return b&&G.MELODY?G.MELODY.unpack(b):b;
 };
+/* only a window of a recording's melody (Step 15: a whole melody is 25-100 KB; a search needs ~30 of them, but only
+   around one place in each). An HTTP Range request fetches frames t0..t1 (1 byte per 50 ms frame); a server that
+   ignores Range sends the whole file, which is used as it is. The result is the full-length line (NaN outside the
+   windows fetched so far), so every alignment works on it unchanged; windows of one recording are merged. */
+const win=new Map();
+A.melodyAround=async function(code,t0,t1){
+  const man=await A.mfManifest(),e=man.recs[code];if(!e||!G.MELODY)return null;
+  const n=e[1],a=Math.max(0,Math.floor(t0*20)),z=Math.min(n,Math.ceil(t1*20));if(z<=a)return null;
+  let w=win.get(man.build+"|"+code);if(!w){w={m:new Float32Array(n).fill(NaN),have:[],full:false};win.set(man.build+"|"+code,w)}
+  if(w.full||w.have.some(([x,y])=>x<=a&&y>=z))return w.m;
+  const url=base()+"mf/r/"+e[0].slice(0,2)+"/"+e[0]+".bin?b="+man.build;
+  const r=await fetch(url,{headers:{Range:"bytes="+a+"-"+(z-1)}});if(!r.ok)throw new Error("mf http "+r.status);
+  const b=new Uint8Array(await r.arrayBuffer()),u=G.MELODY.unpack(b);
+  if(r.status===206&&b.length===z-a){w.m.set(u,a);w.have.push([a,z])}
+  else{w.m.set(u.subarray(0,n),0);w.full=true}
+  return w.m;
+};
 A.verses=su=>getJSON("vi/"+String(su).padStart(3,"0")+".json").catch(()=>null);
-A.clear=()=>{cache.clear();shardCache.clear()};
+A.clear=()=>{cache.clear();shardCache.clear();win.clear()};
 })(typeof window!=="undefined"?window:globalThis);

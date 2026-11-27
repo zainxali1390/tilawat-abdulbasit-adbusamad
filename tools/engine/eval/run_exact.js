@@ -28,11 +28,13 @@ const places=n=>((preds[n]||{}).wins||[]).filter(w=>w.p).map(w=>({su:w.p[0],ay:w
    await p.evaluate(()=>{finderLast=[];document.querySelector('#fResults').innerHTML='';window.__started=false;window.__res=[];
      if(!window.__wrapped){const run=finderRun;finderRun=async(...a)=>{window.__started=true;return run(...a)};
        const fsr=finderSearch;finderSearch=async(...a)=>{const r=await fsr(...a);r.mode=a[3];r.f=a[2];window.__res.push(r);return r};window.__wrapped=true}});
+   await p.evaluate(()=>performance.clearResourceTimings());
    await p.setInputFiles('#fFile',path.join(DIR,c.file));
    await p.waitForFunction(()=>window.__started||FINDER.busy,null,{timeout:30000});
    await p.waitForFunction(()=>!FINDER.busy&&document.querySelector('#fResults').innerHTML.length>0,null,{timeout:600000});
    const finder=await p.evaluate(()=>finderLast.map(r=>({code:r.code,level:r.level,start:r.start,end:r.end,clipA:r.clipA,clipB:r.clipB})));
    res=await p.evaluate(async({file,places,hidden,finderNow})=>{
+     if(!places.length&&FINDER.lastVerses)places=FINDER.lastVerses.map(v=>v&&v.place).filter(Boolean).map(q=>({su:q.surah,ay:q.ayah,su2:q.surah2,ay2:q.ayah2,level:q.level}));
      const hid=new Set(hidden),t0=performance.now(),T={};
      const ing=await ENGINE.ingest(await (await fetch(file)).blob(),{maxSecs:90});
      const q=MELODY.unpack(MELODY.pack(MELODY.f0(ing.pcm)));T.melody=performance.now()-t0;
@@ -65,10 +67,17 @@ const places=n=>((preds[n]||{}).wins||[]).filter(w=>w.p).map(w=>({su:w.p[0],ay:w
      }
      T.exact=performance.now()-t0;
      /* Step 13/14: the parts exactly as the app computes them (js/engine/pipeline.js, ENGINE.run) */
-     const eng=await ENGINE.run({blob:await (await fetch(file)).blob(),searches:window.__res,places,man:FINDER.man,secPerFrame:SEC_PER_FRAME,vmOf,finder:finderNow});
-     const parts=eng.parts.map(p=>({clipA:+p.clipA.toFixed(2),clipB:+p.clipB.toFixed(2),level:p.level,code:p.code,start:p.start==null?null:+p.start.toFixed(2),end:p.end==null?null:+p.end.toFixed(2),reasons:p.reasons,copies:p.copies.map(c=>c.code)}));
+     const blob2=await (await fetch(file)).blob(),tE=performance.now();
+     const eng=await ENGINE.run({blob:blob2,searches:window.__res,places,man:FINDER.man,secPerFrame:SEC_PER_FRAME,vmOf,finder:finderNow,exclude:hidden});
+     T.engine=performance.now()-tE;
+     const pk=e=>e.parts.map(p=>({clipA:+p.clipA.toFixed(2),clipB:+p.clipB.toFixed(2),level:p.level,code:p.code,start:p.start==null?null:+p.start.toFixed(2),end:p.end==null?null:+p.end.toFixed(2),reasons:p.reasons,copies:p.copies.map(c=>c.code)}));
+     const parts=pk(eng);
+     /* Step 15: when the melody search was skipped (the sound search already confirmed the clip), the full engine too,
+        to measure what the shortcut costs */
+     let partsFull=null;if(eng.skippedMelody){const tF=performance.now();partsFull=pk(await ENGINE.run({blob:blob2,searches:window.__res,places,man:FINDER.man,secPerFrame:SEC_PER_FRAME,vmOf,finder:finderNow,full:true,exclude:hidden}));T.engineFull=performance.now()-tF}
      T.parts=performance.now()-t0;
-     return {parts,dur:ing.dur,sections:(ing.sections||[]).map(x=>[+x.a.toFixed(2),+x.b.toFixed(2),x.kind]),list:out,ms:Object.fromEntries(Object.entries(T).map(([k,v])=>[k,Math.round(v)]))};
+     const bytes={};for(const e of performance.getEntriesByType('resource')){const m=new URL(e.name).pathname.match(/^\/(fp|mf|mh|vi|vm|models)\//);const k=m?m[1]:'other';bytes[k]=(bytes[k]||0)+(e.transferSize||e.encodedBodySize||0)}
+     return {parts,partsFull,skipped:eng.skippedMelody,bytes,dur:ing.dur,sections:(ing.sections||[]).map(x=>[+x.a.toFixed(2),+x.b.toFixed(2),x.kind]),list:out,ms:Object.fromEntries(Object.entries(T).map(([k,v])=>[k,Math.round(v)]))};
    },{file:'set/'+c.file,places:places(c.name),hidden:hide?truth:[],finderNow:finder});
    res.finder=finder;
   }catch(e){res={error:String(e.message).slice(0,300),list:[]}}

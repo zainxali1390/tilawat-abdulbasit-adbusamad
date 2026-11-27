@@ -559,7 +559,10 @@ function finderUnpack(list){
    new card. Parts at "none" are left out. If the engine has no part at all, the sound search's answer stays. */
 function finderFromEngine(parts,list){
   const good=(parts||[]).filter(p=>p.level!=="none"&&p.code&&p.start!=null);
-  if(!good.length)return list;
+  /* the engine ran and found nothing reliable: only the sound search's CONFIRMED results stay (0 false in the tests);
+     its weak "possible" ones are dropped (measured, docs/RECOGNITION-FINAL.md: in the hidden runs they were 6 of the 8
+     false "possible" answers, for 1 right one) */
+  if(!good.length)return list.filter(r=>r.level==="confirmed");
   const out=[];
   for(const p of good){
     const tr=trFromCode(p.code);if(!tr)continue;
@@ -683,11 +686,12 @@ async function finderRun(blob){
     /* the recognition engine (docs/RECOGNITION-APP.md): melody, verse and landmark candidates, two independent
        alignments per recording, the clip's parts, each with a measured confidence level. Its answer replaces the sound
        search's when it has one; if it fails (offline, an index missing) the sound search's answer stays. */
+    FINDER.lastVerses=verses;   // (read by the tests)
     let engPcm=null;
     if(typeof ENGINE!=="undefined"&&ENGINE.run&&S.fEngine!==false){
       try{
         const places=(verses||[]).map(v=>v&&v.place).filter(Boolean).map(p=>({su:p.surah,ay:p.ayah,su2:p.surah2,ay2:p.ayah2,level:p.level}));
-        const eng=await ENGINE.run({blob,searches,places,man,secPerFrame:SEC_PER_FRAME,vmOf,
+        const eng=await ENGINE.run({blob,searches,places,man,secPerFrame:SEC_PER_FRAME,vmOf,exclude:FINDER.exclude?[...FINDER.exclude].map(i=>man.recs[i]&&man.recs[i][0]).filter(Boolean):[],
           finder:list.map(r=>({code:r.code,level:r.level,start:r.start,end:r.end,clipA:r.clipA,clipB:r.clipB})),
           onStep:(k,f)=>finderStatus(t("fChecking"),"",f)});
         engPcm=eng.pcm;
