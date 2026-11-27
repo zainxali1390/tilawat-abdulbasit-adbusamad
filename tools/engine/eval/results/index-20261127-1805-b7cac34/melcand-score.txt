@@ -1,0 +1,45 @@
+index: whole archive, 3081 recordings, 11184871 hash entries, 12028 shard files, 47.8 MB
+edit               n top1 top5 top30 placed
+aac32              16   13   13   13   13
+bass               16   14   14   14   14
+clean20            16   13   13   13   13
+combo1             16    9   10   10    6
+combo2             16    6    7    7    7
+combo3             16    3    3    3    2
+compress           16   14   14   14   14
+distort            16   13   13   13   12
+echo               16    6    6    6    5
+intro_music3       16   13   13   13   13
+intro_noise3       16   16   16   16   16
+intro_silence3     16   15   15   15   15
+join2_diff         16   13   13   15   14
+join2_same         16   13   14   16   14
+join3_same         16    9   12   16    9
+len10              16   14   14   15   14
+len44              16   16   16   16   16
+len7               16    9    9    9    9
+music_bed          16    6    6    6    5
+noise10            16    9    9   10    9
+noise3             16    1    2    2    1
+phone              16    9    9    9    9
+pitch+1            16    8    8    8    7
+pitch+2            16    8    8    9    8
+pitch+3            16    8    8    9    8
+pitch-1            16    7    7    7    6
+pitch-2            16   10   10   10    9
+pitch-4            16    6    6    7    6
+reverb_large       16    3    3    3    3
+reverb_small       16    4    4    4    1
+speed0.9           16    7    7    7    7
+speed1.1           16    7    7    7    5
+speed1.25          16    8    8    9    8
+tempo0.8           16    8    8    8    7
+tempo0.9           16   13   13   13   11
+tempo1.1           16   12   13   13   12
+tempo1.25          16   11   11   11   10
+treble_cut         16   15   15   15   15
+video_mov          16   14   14   14   14
+video_mp4          16   15   15   15   15
+TOTAL 640 clips: right recording first 398, in top 5 406, in top 30 420; first entry right AND placed within 2 s: 382
+lookup and vote time per clip: median 383 ms, max 1999 ms
+with the re-ranking (30 melodies fetched and aligned): median 855 ms, max 2828 ms

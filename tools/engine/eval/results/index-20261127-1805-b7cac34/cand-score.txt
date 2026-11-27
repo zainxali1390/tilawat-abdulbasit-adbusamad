@@ -1,0 +1,24 @@
+
+Clips the landmark search did not confirm (right): 68
+  source                      top1  top5 top10 top30   median rank
+  landmarks only                 50    50    50    51   1
+  verses only                     0    10    17    27   6
+  melody only                    25    25    25    25   1
+  fused (equal weights)          50    54    55    59   1
+  fused, landmarks x2            50    51    52    53   1
+  fused, no agreement bonus      50    54    55    59   1
+  fused, K=10                    50    54    55    55   1
+
+ALL clips: 640
+  source                      top1  top5 top10 top30   median rank
+  landmarks only                622   622   622   623   1
+  verses only                     4    68   138   275   10
+  melody only                   365   367   367   367   1
+  fused (equal weights)         619   626   627   631   1
+  fused, landmarks x2           619   623   624   625   1
+  fused, no agreement bonus     615   626   627   631   1
+  fused, K=10                   619   626   627   627   1
+
+not confirmed, fused: right recording in the list, by edit: bass 1/1, combo1 11/11, combo2 2/2, combo3 7/16, echo 3/3, len10 1/1, len44 1/1, len7 2/2, music_bed 2/2, noise10 3/3, noise3 2/2, phone 1/1, pitch+1 2/2, pitch+3 1/1, pitch-1 1/1, pitch-2 3/3, pitch-4 3/3, reverb_large 5/5, speed0.9 1/1, speed1.25 2/2, tempo0.8 3/3, tempo1.25 1/1, video_mov 1/1
+
+hidden runs: 640; the fused list is never empty for 640 of them (every entry is a wrong recording there: what Steps 10-12 must reject)

@@ -1,0 +1,8 @@
+PASS manifests agree: build 3431a59f, 3081 recordings, 11184871 hash entries
+PASS melody frames fetched for 400 recordings
+     f00.mp3: 14 hashes, shards fetched in 1019 ms; first: s:murattal:14 votes 1 at 313 s
+     f01.mp3: 163 hashes, shards fetched in 1019 ms; first: e:A:279.mp3 votes 11 at 997 s
+     f02.mp3: 232 hashes, shards fetched in 1029 ms; first: e:C:0729-_up_by_muslem.mp3 votes 14 at 960 s
+PASS verse index: Ar-Rahman loads
+PASS verse index: a missing surah gives null
+all passed
