@@ -1,0 +1,89 @@
+PASS clean20: 1 card(s) from the engine [Confirmed match] in 1.9 s
+PASS clean20: part 0-20 s → confirmed at 1485.58 (true 1485.60)
+PASS clean20: reasons shown ("Sound and melody agree on one timeline (63 matching points o…")
+PASS pitch-4: 1 card(s) from the engine [Confirmed match] in 18.4 s
+PASS pitch-4: part 0-20 s → confirmed at 929.20 (true 929.25)
+PASS pitch-4: reasons shown ("Sound and melody agree on one timeline (11 matching points o…")
+PASS intro_music3: 1 card(s) from the engine [Confirmed match] in 1.3 s
+PASS intro_music3: part 3-23 s → confirmed at 1359.57 (true 1359.60)
+PASS intro_music3: reasons shown ("Sound and melody agree on one timeline (32 matching points o…")
+PASS join2_diff: 2 card(s) from the engine [Confirmed match, Confirmed match] in 1.6 s
+PASS join2_diff: part 0-12 s → confirmed at 279.44 (true 279.45)
+PASS join2_diff: part 13-25 s → confirmed at 1385.42 (true 1385.42)
+PASS join2_diff: reasons shown ("Sound and melody agree on one timeline (19 matching points o…")
+PASS len120: 1 card(s) from the engine [Confirmed match] in 4.1 s
+PASS len120: part 0-120 s → confirmed at 1276.33 (true 1276.35)
+PASS len120: reasons shown ("Sound and melody agree on one timeline (246 matching points …")
+PASS video3: 3 card(s) from the engine [Confirmed match, Confirmed match, Confirmed match] in 12.0 s
+PASS video3: part 0-40 s → confirmed at 411.24 (true 411.25)
+PASS video3: part 43-83 s → confirmed at 408.78 (true 408.90)
+PASS video3: part 86-126 s → confirmed at 29.52 (true 29.55)
+PASS video3: reasons shown ("Sound and melody agree on one timeline (18 matching points o…")
+PASS social: 1 card(s) from the engine [Confirmed match] in 4.3 s
+FAIL social: part 0-20 s → not found
+PASS social: reasons shown ("Sound and melody agree on one timeline (11 matching points o…")
+FAIL phone_room: 0 card(s) from the engine [] in 15.5 s
+FAIL phone_room: part 0-20 s → not found
+FAIL phone_room: reasons shown ("…")
+PASS clean20: 1 card(s) from the engine [Confirmed match] in 1.0 s
+PASS clean20: part 0-20 s → confirmed at 1225.74 (true 1225.75)
+PASS clean20: reasons shown ("Sound and melody agree on one timeline (36 matching points o…")
+PASS pitch-4: 1 card(s) from the engine [Confirmed match] in 8.5 s
+PASS pitch-4: part 0-20 s → confirmed at 282.24 (true 282.25)
+PASS pitch-4: reasons shown ("11 matching sound points…")
+PASS intro_music3: 1 card(s) from the engine [Confirmed match] in 0.9 s
+PASS intro_music3: part 3-23 s → confirmed at 530.22 (true 530.25)
+PASS intro_music3: reasons shown ("Sound and melody agree on one timeline (21 matching points o…")
+PASS join2_diff: 2 card(s) from the engine [Confirmed match, Confirmed match] in 0.9 s
+PASS join2_diff: part 0-12 s → confirmed at 1561.49 (true 1561.50)
+PASS join2_diff: part 13-25 s → confirmed at 1500.57 (true 1500.95)
+PASS join2_diff: reasons shown ("Sound and melody agree on one timeline (33 matching points o…")
+PASS len120: 1 card(s) from the engine [Confirmed match] in 2.8 s
+PASS len120: part 0-120 s → confirmed at 321.30 (true 321.30)
+PASS len120: reasons shown ("Sound and melody agree on one timeline (87 matching points o…")
+PASS video3: 3 card(s) from the engine [Confirmed match, Confirmed match, Confirmed match] in 7.1 s
+PASS video3: part 0-40 s → confirmed at 530.23 (true 530.25)
+PASS video3: part 43-83 s → confirmed at 935.49 (true 935.55)
+PASS video3: part 86-126 s → confirmed at 869.71 (true 869.73)
+PASS video3: reasons shown ("Sound and melody agree on one timeline (31 matching points o…")
+FAIL social: 0 card(s) from the engine [] in 11.4 s
+FAIL social: part 0-20 s → not found
+FAIL social: reasons shown ("…")
+PASS phone_room: 1 card(s) from the engine [Confirmed match] in 0.8 s
+PASS phone_room: part 0-20 s → confirmed at 847.89 (true 847.90)
+PASS phone_room: reasons shown ("Sound and melody agree on one timeline (21 matching points o…")
+PASS clean20: 1 card(s) from the engine [Confirmed match] in 0.6 s
+PASS clean20: part 0-20 s → confirmed at 1248.79 (true 1248.80)
+PASS clean20: reasons shown ("Sound and melody agree on one timeline (83 matching points o…")
+PASS pitch-4: 1 card(s) from the engine [Confirmed match] in 7.2 s
+PASS pitch-4: part 0-20 s → confirmed at 391.89 (true 391.90)
+PASS pitch-4: reasons shown ("Sound and melody agree on one timeline (21 matching points o…")
+PASS intro_music3: 1 card(s) from the engine [Confirmed match] in 0.9 s
+PASS intro_music3: part 3-23 s → confirmed at 1041.45 (true 1041.50)
+PASS intro_music3: reasons shown ("Sound and melody agree on one timeline (65 matching points o…")
+PASS join2_diff: 2 card(s) from the engine [Confirmed match, Confirmed match] in 0.8 s
+PASS join2_diff: part 0-12 s → confirmed at 985.57 (true 985.60)
+PASS join2_diff: part 13-25 s → confirmed at 419.91 (true 420.35)
+PASS join2_diff: reasons shown ("Sound and melody agree on one timeline (35 matching points o…")
+PASS len120: 1 card(s) from the engine [Confirmed match] in 2.2 s
+PASS len120: part 0-120 s → confirmed at 1618.29 (true 1618.30)
+PASS len120: reasons shown ("Sound and melody agree on one timeline (196 matching points …")
+PASS video3: 2 card(s) from the engine [Confirmed match, Confirmed match] in 4.6 s
+PASS video3: part 0-40 s → confirmed at 466.67 (true 466.70)
+PASS video3: part 43-83 s → confirmed at 1653.77 (true 1653.78)
+FAIL video3: part 86-126 s → not found
+PASS video3: reasons shown ("Sound and melody agree on one timeline (24 matching points o…")
+PASS social: 1 card(s) from the engine [Confirmed match] in 2.4 s
+PASS social: part 0-20 s → confirmed at 42.03 (true 42.05)
+PASS social: reasons shown ("Sound and melody agree on one timeline (17 matching points o…")
+PASS phone_room: 1 card(s) from the engine [Confirmed match] in 0.5 s
+PASS phone_room: part 0-20 s → confirmed at 944.00 (true 944.00)
+PASS phone_room: reasons shown ("Sound and melody agree on one timeline (15 matching points o…")
+PASS no page errors (English) []
+PASS Arabic: badge "تطابق مؤكد", reason "الصوت واللحن متّفقان على خط زمني واحد (٦٣ نقطة متط"
+PASS no page errors (Arabic)
+PASS melody and verse indexes unreachable: still found (confirmed, engine false)
+PASS no page errors (indexes blocked)
+PASS noise: no result card ("No reliable match  This clip doesn't match any recording in the librar")
+PASS no page errors (noise)
+8 FAILED

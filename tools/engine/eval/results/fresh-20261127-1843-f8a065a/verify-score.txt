@@ -1,0 +1,17 @@
+
+ENGINE, rules {"confirmInl":6,"highInl":4,"possibleMel":0.8,"copyInl":6}, copies chained
+  level        right  wrong(present)  wrong(hidden)  precision   start within 0.5 s (answers naming the clip's own recording; a copy's true times are unknown)
+  confirmed      651          8            159       79.6 %   589/599
+  high            14          1             25       35.0 %   13/13
+  possible         5          1             17       21.7 %   5/5
+  no reliable match on 24 of the present runs; right at "high" or better: 665; at any level: 670
+  the app's answer (finder field; from Step 14 on it includes the engine): high right 14, wrong 2, hidden 30; confirmed right 647, wrong 8, hidden 158; possible right 7, wrong 4, hidden 22; nothing 22
+  confirmed/high answers that are wrong: [["hidden","s00-tempo1.1","confirmed","e:B:1 لقمان 8-22 مبتورة اولها-  تلاوات سوريا - ناد",5],["hidden","s02-len120","confirmed","e:X5:552-1-5 النجم 31-62 والقمر1-17  04.07.1980 ال",17],["hidden","s04-intro_music3","confirmed","e:X1:74-3-1 ال عمران 189- 200 - الاقصى 1957- نسخة ",5],["hidden","s05-phone","confirmed","e:N2:390.mp3",4],["hidden","s06-pitch+1","high","e:I33:009-21-183-103.mp3",5],["hidden","s06-noise10","confirmed","e:N1:083.mp3",19],["hidden","s06-len120","confirmed","e:I33:009-21-183-103.mp3",62],["hidden","s08-clean20","confirmed","e:A:736.mp3",11],["hidden","s08-intro_music3","confirmed","e:A:736.mp3",6],["hidden","s10-len120","confirmed","e:I9:042--1978--.mp3",22],["hidden","s12-clean20","confirmed","e:C:0681-2_up_by_muslem.mp3",3],["hidden","s13-phone","confirmed","e:N2:428.mp3",16]]
+
+ENGINE, rules {"confirmInl":6,"highInl":4,"possibleMel":0.8,"copyInl":6}, copies checked directly only
+  level        right  wrong(present)  wrong(hidden)  precision   start within 0.5 s (answers naming the clip's own recording; a copy's true times are unknown)
+  confirmed      651          8            159       79.6 %   589/599
+  high            14          1             25       35.0 %   13/13
+  possible         5          1             17       21.7 %   5/5
+  no reliable match on 24 of the present runs; right at "high" or better: 665; at any level: 670
+  confirmed/high answers that are wrong: [["hidden","s00-tempo1.1","confirmed","e:B:1 لقمان 8-22 مبتورة اولها-  تلاوات سوريا - ناد",5],["hidden","s02-len120","confirmed","e:X5:552-1-5 النجم 31-62 والقمر1-17  04.07.1980 ال",17],["hidden","s04-intro_music3","confirmed","e:X1:74-3-1 ال عمران 189- 200 - الاقصى 1957- نسخة ",5],["hidden","s05-phone","confirmed","e:N2:390.mp3",4],["hidden","s06-pitch+1","high","e:I33:009-21-183-103.mp3",5],["hidden","s06-noise10","confirmed","e:N1:083.mp3",19],["hidden","s06-len120","confirmed","e:I33:009-21-183-103.mp3",62],["hidden","s08-clean20","confirmed","e:A:736.mp3",11],["hidden","s08-intro_music3","confirmed","e:A:736.mp3",6],["hidden","s10-len120","confirmed","e:I9:042--1978--.mp3",22],["hidden","s12-clean20","confirmed","e:C:0681-2_up_by_muslem.mp3",3],["hidden","s13-phone","confirmed","e:N2:428.mp3",16]]

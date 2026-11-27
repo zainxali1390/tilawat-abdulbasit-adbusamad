@@ -1,0 +1,6 @@
+speed shortcut: melody search skipped for 759 of 1408 runs; the answer at High or better differs from the full engine in 3
+    s12-clean20 hidden shortcut: [] full: [('confirmed', 'e:C:0681-2_up_by_muslem.mp3', 1162)]
+    s13-pitch-1 hidden shortcut: [] full: [('confirmed', 'e:N2:428.mp3', 1193)]
+    s11-combo3  shortcut: [] full: [('confirmed', 'e:X4:463-1-3  الصافات75-122 سهرة بمسجد احمدالرفاعي26-2-1986 القاهرة.mp3', 587)]
+time (ms): engine median 1369, 90th 2534; engineFull median 1420, 90th 2392
+downloads per search (bytes, median / 90th; the browser cache is warm after the first clips): fp 249708 / 1647776; mf 2366752 / 2859511; mh 326496 / 935160; other 507504 / 706803; vi 40273 / 68356; vm 189438 / 1435029
