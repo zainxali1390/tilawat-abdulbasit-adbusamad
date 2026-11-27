@@ -52,7 +52,10 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++};
  ok(rb.list.length>=1&&rb.list[0].code===cases[0].code,`melody and verse indexes unreachable: still found (${rb.list[0]&&rb.list[0].level}, engine ${rb.list[0]&&rb.list[0].eng})`);
  ok(pb.errs.length===0,'no page errors (indexes blocked)');
  /* not recitation: a few seconds of noise */
- const noise=path.join(require('os').tmpdir(),'noise.wav');require('child_process').spawnSync('ffmpeg',['-loglevel','error','-y','-f','lavfi','-i','anoisesrc=d=12:a=0.3','-ar','16000',noise]);
+ /* 12 s of noise, written as a WAV file here (no ffmpeg needed) */
+ const noise=path.join(require('os').tmpdir(),'noise.wav');{const n=16000*12,buf=Buffer.alloc(44+n*2);buf.write('RIFF',0);buf.writeUInt32LE(36+n*2,4);buf.write('WAVEfmt ',8);
+   buf.writeUInt32LE(16,16);buf.writeUInt16LE(1,20);buf.writeUInt16LE(1,22);buf.writeUInt32LE(16000,24);buf.writeUInt32LE(32000,28);buf.writeUInt16LE(2,32);buf.writeUInt16LE(16,34);
+   buf.write('data',36);buf.writeUInt32LE(n*2,40);let sd=9;for(let i=0;i<n;i++){sd=(sd*16807)%2147483647;buf.writeInt16LE(Math.round((sd/2147483647-0.5)*16000),44+i*2)}fs.writeFileSync(noise,buf)}
  const rn=await find(p,noise);
  ok(rn.list.length===0&&/No reliable match|not found|wasn't found|isn't/i.test(rn.text),`noise: no result card ("${rn.text.slice(0,70).replace(/\n/g,' ')}")`);
  ok(p.errs.length===0,'no page errors (noise)');
