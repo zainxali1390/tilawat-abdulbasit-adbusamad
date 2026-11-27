@@ -139,6 +139,10 @@ X.parts=function(lines,opt){
 /* (A) and (B) agree: the same tempo (3 %) and the same start (0.5 s) */
 X.agree=function(lm,mel,opt){
   opt=opt||{};if(!lm||lm.k==null||!mel||!(mel.score>0))return false;
+  /* the melody must match well (>= 0.7), unless the landmark line is strong by itself (>= 10 inliers): a melody aligned
+     in a small window around the landmark place nearly always finds something there, so a weak melody score agreeing
+     says little (measured on the clip parts: wrong parts in hidden runs 35 -> 1, right parts 655 -> 653) */
+  if(mel.score<(opt.minMel==null?0.7:opt.minMel)&&!(lm.inliers>=(opt.strongInl||10)))return false;
   return Math.abs(lm.k/mel.k-1)<=(opt.dk||0.03)&&Math.abs(lm.b-mel.at)<=(opt.db||0.5);
 };
 /* verse check. vm: the recording's verse map windows [t, su, ay, su2, ay2, conf, level]; from, to: the matched span in the

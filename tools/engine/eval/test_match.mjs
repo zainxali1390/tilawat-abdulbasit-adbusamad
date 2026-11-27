@@ -20,6 +20,8 @@ ok(X.agree(L, {score: 0.9, k: 1.09, at: 300.2}), 'agree: same tempo (1 %) and st
 ok(!X.agree(L, {score: 0.9, k: 1.0, at: 300}), 'agree: tempo 9 % apart is not agreement');
 ok(!X.agree(L, {score: 0.9, k: 1.1, at: 302}), 'agree: start 2 s apart is not agreement');
 ok(!X.agree(L, {score: 0}), 'agree: no melody alignment, no agreement');
+ok(!X.agree({inliers: 5, k: 1.1, b: 300}, {score: 0.5, k: 1.1, at: 300}), 'agree: a weak melody (0.5) with few points is not agreement');
+ok(X.agree({inliers: 12, k: 1.1, b: 300}, {score: 0.5, k: 1.1, at: 300}), 'agree: a weak melody counts when the landmark line is strong (12 points)');
 /* verse check */
 const vm = [[300, 55, 13, 55, 14, 80, 2], [330, 55, 15, 55, 16, 70, 2], [360, 56, 1, 56, 2, 40, 1]];
 ok(X.verseCheck(vm, 300, 322, [{su: 55, ay: 14, su2: 55, ay2: 14, level: 'confirmed'}]) === 'agree', 'verseCheck: same surah and ayah → agree');
