@@ -106,6 +106,36 @@ X.timestamp=function(lm,mel,ing,recDur,opt){
   const dk=src==="melody"?0.005:0.002;
   return {start,end,clipA:ca,clipB:cb,k,b,src,err,errEnd:err+dk*(cb-ca)*k,origDur:end-start};
 };
+/* Step 13: several lines in one recording's hits (a clip joined from two or three places of it). After the best line,
+   its inliers are taken out and the rest searched again; a further line counts when it has at least minInl inliers and
+   covers mostly other clip time than the lines already found. pairs: [{tc, tr}] (from every search: clip time). */
+X.lines=function(pairs,opt){
+  opt=opt||{};const maxLines=opt.maxLines||3,minInl=opt.minInl||4,tol=opt.tol||0.1,out=[];
+  let P=pairs.slice();
+  for(let i=0;i<maxLines&&P.length>=3;i++){
+    const L=X.lmLine(P,{tol});if(!(L.inliers>=(i?minInl:3))||L.k==null)break;
+    const lo=L.lo,hi=L.hi;
+    /* a new line must mostly cover clip time no earlier line covers */
+    const overlap=out.reduce((m,o)=>Math.max(m,Math.max(0,Math.min(hi,o.hi)-Math.max(lo,o.lo))/Math.max(0.5,hi-lo)),0);
+    if(overlap<=0.5)out.push(L);
+    P=P.filter(p=>Math.abs(p.tr-(L.k*p.tc+L.b))>tol*3);
+  }
+  return out;
+};
+/* Step 13: the clip's parts. lines: [{code, line (lmLine result), mel, agree, ts, strength}] from every shortlisted
+   recording; the strongest are taken first (agreement, then inliers, then melody), and a line is skipped when its clip
+   span overlaps a part already taken by more than a third of the shorter one. Parts come back in clip order. */
+X.parts=function(lines,opt){
+  opt=opt||{};const minLen=opt.minLen||2;
+  const S=lines.filter(l=>l.ts&&l.ts.clipB-l.ts.clipA>=minLen).slice().sort((a,b)=>(b.agree-a.agree)||(b.line.inliers-a.line.inliers)||(b.mel.score-a.mel.score));
+  const taken=[];
+  for(const l of S){
+    const a=l.ts.clipA,b=l.ts.clipB;
+    const clash=taken.some(t=>{const o=Math.min(b,t.ts.clipB)-Math.max(a,t.ts.clipA);return o>Math.min(b-a,t.ts.clipB-t.ts.clipA)/3});
+    if(!clash)taken.push(l);
+  }
+  return taken.sort((x,y)=>x.ts.clipA-y.ts.clipA);
+};
 /* (A) and (B) agree: the same tempo (3 %) and the same start (0.5 s) */
 X.agree=function(lm,mel,opt){
   opt=opt||{};if(!lm||lm.k==null||!mel||!(mel.score>0))return false;

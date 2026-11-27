@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with: {ref: '${{ github.ref_name }}', fetch-depth: 1, sparse-checkout: tools}
+        with: {ref: '${{ github.ref_name }}', fetch-depth: 1, sparse-checkout: "tools\njs"}
       - uses: actions/download-artifact@v4
         with: {pattern: 'res-exact-*', path: res, merge-multiple: true}
       - run: |
@@ -43,7 +43,9 @@ jobs:
           mkdir -p $D && cat res/exact-*.jsonl > $D/exact.jsonl
           python3 tools/engine/eval/exact_score.py $D/exact.jsonl | tee $D/exact-score.txt
           python3 tools/engine/eval/timestamp_score.py $D/exact.jsonl | tee $D/timestamp-score.txt
+          python3 tools/engine/eval/parts_score.py $D/exact.jsonl tools/engine/eval/copy-groups.json | tee $D/parts-score.txt
           gzip -9 $D/exact.jsonl
+          cp tools/engine/eval/copy-groups.json $D/copy-groups-step10.json && node tools/engine/eval/verify_eval.mjs $D/exact.jsonl.gz > $D/verify-score.txt || true
           git config user.name "engine-eval bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add tools/engine/eval/results

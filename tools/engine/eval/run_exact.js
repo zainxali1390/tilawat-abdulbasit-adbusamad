@@ -16,7 +16,7 @@ const places=n=>((preds[n]||{}).wins||[]).filter(w=>w.p).map(w=>({su:w.p[0],ay:w
  const p=await ctx.newPage();const errs=[];p.on('pageerror',e=>errs.push(e.message));
  await p.goto('http://localhost:8765/');await p.evaluate(()=>{S.lang='en';save()});
  await p.goto('http://localhost:8765/#finder');await p.waitForTimeout(1500);
- for(const s of ['js/engine/ingest.js','js/engine/melody.js','js/engine/archive.js','js/engine/candidates.js','js/engine/match.js'])await p.addScriptTag({url:s});
+ for(const s of ['js/engine/ingest.js','js/engine/melody.js','js/engine/archive.js','js/engine/candidates.js','js/engine/match.js','js/engine/verify.js'])await p.addScriptTag({url:s});
  const man=await p.evaluate(async()=>(await finderManifest()).recs.map(r=>r[0]));
  fs.writeFileSync(OUT,'');
  for(const c of cases)for(const hide of (process.env.HIDE==='0'?[false]:[false,true])){
@@ -32,7 +32,7 @@ const places=n=>((preds[n]||{}).wins||[]).filter(w=>w.p).map(w=>({su:w.p[0],ay:w
    await p.waitForFunction(()=>window.__started||FINDER.busy,null,{timeout:30000});
    await p.waitForFunction(()=>!FINDER.busy&&document.querySelector('#fResults').innerHTML.length>0,null,{timeout:600000});
    const finder=await p.evaluate(()=>finderLast.map(r=>({code:r.code,level:r.level,start:r.start,end:r.end,clipA:r.clipA,clipB:r.clipB})));
-   res=await p.evaluate(async({file,places,hidden})=>{
+   res=await p.evaluate(async({file,places,hidden,finderNow})=>{
      const hid=new Set(hidden),t0=performance.now(),T={};
      const ing=await ENGINE.ingest(await (await fetch(file)).blob(),{maxSecs:90});
      const q=MELODY.unpack(MELODY.pack(MELODY.f0(ing.pcm)));T.melody=performance.now()-t0;
@@ -64,8 +64,32 @@ const places=n=>((preds[n]||{}).wins||[]).filter(w=>w.p).map(w=>({su:w.p[0],ay:w
          ts:ts&&{start:+ts.start.toFixed(2),end:+ts.end.toFixed(2),clipA:+ts.clipA.toFixed(2),clipB:+ts.clipB.toFixed(2),k:+ts.k.toFixed(4),src:ts.src,err:+ts.err.toFixed(3),errEnd:+ts.errEnd.toFixed(3)}});
      }
      T.exact=performance.now()-t0;
-     return {dur:ing.dur,sections:(ing.sections||[]).map(x=>[+x.a.toFixed(2),+x.b.toFixed(2),x.kind]),list:out,ms:Object.fromEntries(Object.entries(T).map(([k,v])=>[k,Math.round(v)]))};
-   },{file:'set/'+c.file,places:places(c.name),hidden:hide?truth:[]});
+     /* Step 13: every line in every shortlisted recording, each checked on its own stretch of the clip; the parts */
+     const lineEntries=[];
+     for(const s of short){
+       const rec=recOf.get(s.code);if(rec==null)continue;
+       const pairs=window.__res.flatMap(res=>MATCH.lmPairs(res,rec,SEC_PER_FRAME));
+       const lines=MATCH.lines(pairs,{maxLines:3,minInl:4});if(!lines.length)continue;
+       const ref=await ARCHIVE.melody(s.code),vm=await vmOf(s.code),recDur=FINDER.man.recs[rec][1];
+       for(const L of lines){
+         const sa=Math.max(0,L.lo-0.5),sb=Math.min(ing.dur,L.hi+0.5),sub=q.subarray(Math.round(sa*20),Math.round(sb*20));
+         let M={score:0};if(ref&&sub.length>=40){const a=MELODY.alignNear(sub,ref,L.b+L.k*sa);if(a.score>0)M={...a,at:a.at-a.k*sa}}
+         const ag=MATCH.agree(L,M),ts=MATCH.timestamp(L,M,ing,recDur,{q,ref});
+         const vc=ts?MATCH.verseCheck(vm,ts.start,ts.end,places):'none';
+         lineEntries.push({code:s.code,line:L,lm:{inl:L.inliers,span:+(L.span||0).toFixed(1),k:L.k,b:L.b},mel:{score:M.score||0,k:M.k||null,at:M.score>0?M.at:null},agree:ag,verse:vc,ts});
+       }
+     }
+     const parts=MATCH.parts(lineEntries).map(p=>{
+       const over=lineEntries.filter(l=>l.ts&&Math.min(l.ts.clipB,p.ts.clipB)-Math.max(l.ts.clipA,p.ts.clipA)>0.5*(p.ts.clipB-p.ts.clipA));
+       const fin=finderNow.filter(f=>f.clipA!=null&&Math.min(f.clipB,p.ts.clipB)-Math.max(f.clipA,p.ts.clipA)>0.5*(p.ts.clipB-p.ts.clipA));
+       const d=VERIFY.decide(over,fin);
+       return {clipA:+p.ts.clipA.toFixed(2),clipB:+p.ts.clipB.toFixed(2),level:d.level,code:d.top?d.top.code:null,
+         start:d.top&&d.top.ts?+d.top.ts.start.toFixed(2):null,end:d.top&&d.top.ts?+d.top.ts.end.toFixed(2):null,
+         inl:p.lm.inl,mel:+p.mel.score.toFixed(3),agree:p.agree,copies:d.copies.map(c=>c.code)};
+     });
+     T.parts=performance.now()-t0;
+     return {parts,dur:ing.dur,sections:(ing.sections||[]).map(x=>[+x.a.toFixed(2),+x.b.toFixed(2),x.kind]),list:out,ms:Object.fromEntries(Object.entries(T).map(([k,v])=>[k,Math.round(v)]))};
+   },{file:'set/'+c.file,places:places(c.name),hidden:hide?truth:[],finderNow:finder});
    res.finder=finder;
   }catch(e){res={error:String(e.message).slice(0,300),list:[]}}
   fs.appendFileSync(OUT,JSON.stringify({name:c.name,variant:c.variant,hide,code:c.code,copies:c.copies,segments:c.segments,ms:Date.now()-t0,...res})+'\n');
