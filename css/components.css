@@ -485,6 +485,9 @@ body.light #mushaf{--mp-bg:#fdfaf3;--mp-ink:#1b1810;--mp-acc:#a8823c;--mp-soft:#
 .fbadge{font-size:12px;font-weight:600;padding:4px 10px;border-radius:12px;background:color-mix(in srgb,var(--gold) 20%,transparent);color:var(--gold)}
 .fres.possible .fbadge{background:color-mix(in srgb,var(--muted) 20%,transparent);color:var(--muted)}
 .fres.possible{border-style:dashed}
+.fres.high .fbadge{background:color-mix(in srgb,var(--gold) 12%,transparent);color:var(--gold)}
+.freasons{margin:6px 0 2px;padding-inline-start:18px;font-size:12.5px;color:var(--muted);line-height:1.5}
+.freasons li{margin:1px 0}
 .fconf{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
 .ftitle{display:block;font-size:16.5px;font-weight:600;line-height:1.35}
 .fsub{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}

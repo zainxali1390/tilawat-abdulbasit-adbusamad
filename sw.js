@@ -12,7 +12,7 @@
  * All paths are relative to this file, so the app works from a GitHub Pages sub-folder, a custom
  * domain or a local server without changes. Change VERSION whenever the list below changes.
  */
-const VERSION = 'v27';
+const VERSION = 'v28';
 const PREFIX = 'abdulbasit-';
 const SHELL_CACHE = PREFIX + 'shell-' + VERSION;
 const QURAN_CACHE = PREFIX + 'quran-v1';   // package versions are fixed, so these never go stale
@@ -26,7 +26,9 @@ const SHELL = [
   './css/style.css', './css/components.css', './css/responsive.css', './css/pages.css',
   './js/i18n.js', './js/quran-data.js', './js/library-config.js', './data/areas.js', './data/aliases.js',
   './js/icons.js', './js/storage.js', './js/utils.js', './js/ui.js', './js/recitations.js', './js/library.js',
-  './js/player.js', './js/pins.js', './js/mushaf.js', './js/mushaf-book.js', './js/navigation.js', './js/share.js', './js/fp.js', './js/ayah.js', './js/finder.js', './js/app.js', './js/pwa.js',
+  './js/player.js', './js/pins.js', './js/mushaf.js', './js/mushaf-book.js', './js/navigation.js', './js/share.js', './js/fp.js', './js/ayah.js',
+  './js/engine/ingest.js', './js/engine/melody.js', './js/engine/archive.js', './js/engine/candidates.js', './js/engine/match.js', './js/engine/verify.js', './js/engine/voice.js', './js/engine/pipeline.js',
+  './js/finder.js', './js/app.js', './js/pwa.js',
   './assets/images/splash.jpg',
   './assets/icons/basit-32.png', './assets/icons/basit-180.png', './assets/icons/basit-192.png',
   './assets/icons/basit-512.png', './assets/icons/basit-maskable-512.png'
@@ -144,9 +146,9 @@ self.addEventListener('fetch', event => {
   // audio is streamed (and seeked with range requests) straight from the network
   if (req.headers.has('range') || isAudio(req, url)) return;
 
-  // Find a recitation: the recording index (thousands of small files) and the speech model (63 MB) are
-  // kept by the browser and by Find a recitation itself, not in the app cache
-  if (url.origin === self.location.origin && /\/(fp|models|vm)\//.test(url.pathname)) return;
+  // Find a recitation: the recording index (thousands of small files), the melody and verse indexes, and the speech
+  // and voice models are kept by the browser and by Find a recitation itself, not in the app cache
+  if (url.origin === self.location.origin && /\/(fp|models|vm|mf|mh|vi)\//.test(url.pathname)) return;
   if (url.origin === self.location.origin) {
     event.respondWith(networkFirst(req, req.mode === 'navigate'));
     return;

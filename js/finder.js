@@ -24,7 +24,13 @@ Object.assign(I18N.en,{fTitle:"Find a recitation",fIntro:"Have a clip of Sheikh 
   fAlso:"Also found in another copy of this recording:",fSpeedNote:"The clip seems to be {n}% faster or slower than the original.",fPitchNote:"The clip's pitch seems to have been changed ({n} semitones).",
   fNoIndex:"The recording index isn't available yet. Please try again later.",fOffline:"Searching needs an internet connection.",fBad:"This file couldn't be read as audio. Try another file, or record the clip instead.",
   fTooShort:"The clip is too short. At least 4 seconds are needed.",fMicNo:"Recording isn't available on this device or was not allowed.",fLong:"Only the first 10 minutes of the clip are searched.",
-  fAboutTx:"Library searched: {n} recordings, {h} hours (index of {d}).",fFailed:"{n} recordings could not be indexed and can't be found."});
+  fAboutTx:"Library searched: {n} recordings, {h} hours (index of {d}).",fFailed:"{n} recordings could not be indexed and can't be found.",
+  fHigh:"High confidence",fChecking:"Checking the matches…",fVoiceCheck:"Listening to the voice…",
+  fVoiceUnlike:"The voice does not resemble Abdul Basit's recordings; this may be another reciter.",
+  fRAgree:"Sound and melody agree on one timeline ({n} matching points over {s} s, melody {m}%)",fRPoints:"{n} matching sound points",fRMelody:"Melody match {m}%",
+  fRFinderConf:"Confirmed by the sound search",fRFinderPoss:"Found by the sound search",fRVerseAgree:"The verses heard match the recording at this point",
+  fRVerseContra:"The verses heard do not match the recording at this point",fRRival:"Another recording also matches",
+  fEngFaster:"Your clip plays about {n}% faster than the original.",fEngSlower:"Your clip plays about {n}% slower than the original.",fEngPitch:"Your clip's pitch differs from the original by about {n} semitones."});
 Object.assign(I18N.ar,{fTitle:"ابحث عن تلاوة بمقطع",fIntro:"لديك مقطع للشيخ عبد الباسط؟ اختر ملف صوت أو فيديو، أو سجّله أثناء تشغيله. ويمكنك أيضًا مشاركة فيديو من معرض الصور إلى هذا التطبيق. يجد التطبيق التسجيل الذي جاء منه في المكتبة، وموضعه، والآيات المتلوّة.",
   fChoose:"اختر من معرض الصور",fChooseA:"ملف صوتي",fRecord:"تسجيل",fStop:"إيقاف التسجيل",fTip:"الأفضل من ١٠ إلى ٣٠ ثانية من تلاوة واضحة. يبقى المقطع على هاتفك؛ يُنزَّل فقط جزء صغير من فهرس التسجيلات.",
   fReading:"جارٍ قراءة الصوت…",fListening:"جارٍ الاستماع…",fSearching:"جارٍ البحث في المكتبة…",fSpeed:"تجربة المقطع بسرعة مختلفة…",fOf:"{a} من {b} من أجزاء الفهرس",
@@ -34,7 +40,13 @@ Object.assign(I18N.ar,{fTitle:"ابحث عن تلاوة بمقطع",fIntro:"لد
   fAlso:"وُجد أيضًا في نسخة أخرى من هذا التسجيل:",fSpeedNote:"يبدو أن المقطع أسرع أو أبطأ من الأصل بنحو {n}٪.",fPitchNote:"يبدو أن طبقة صوت المقطع غُيِّرت ({n} نصف درجة).",
   fNoIndex:"فهرس التسجيلات غير متاح بعد. حاول لاحقًا.",fOffline:"البحث يحتاج إلى اتصال بالإنترنت.",fBad:"تعذّرت قراءة هذا الملف كصوت. جرّب ملفًا آخر أو سجّل المقطع.",
   fTooShort:"المقطع قصير جدًا. يلزم ٤ ثوانٍ على الأقل.",fMicNo:"التسجيل غير متاح على هذا الجهاز أو لم يُسمح به.",fLong:"يُبحث في أول ١٠ دقائق فقط من المقطع.",
-  fAboutTx:"المكتبة التي يُبحث فيها: {n} تسجيلًا، {h} ساعة (فهرس {d}).",fFailed:"تعذّرت فهرسة {n} تسجيلًا ولا يمكن العثور عليها."});
+  fAboutTx:"المكتبة التي يُبحث فيها: {n} تسجيلًا، {h} ساعة (فهرس {d}).",fFailed:"تعذّرت فهرسة {n} تسجيلًا ولا يمكن العثور عليها.",
+  fHigh:"ثقة عالية",fChecking:"جارٍ التحقق من التطابقات…",fVoiceCheck:"جارٍ الاستماع إلى الصوت…",
+  fVoiceUnlike:"الصوت لا يشبه تسجيلات الشيخ عبد الباسط؛ قد يكون المقطع لقارئ آخر.",
+  fRAgree:"الصوت واللحن متّفقان على خط زمني واحد ({n} نقطة متطابقة خلال {s} ث، تطابق اللحن {m}٪)",fRPoints:"{n} نقطة صوتية متطابقة",fRMelody:"تطابق اللحن {m}٪",
+  fRFinderConf:"أكّده البحث الصوتي",fRFinderPoss:"وجده البحث الصوتي",fRVerseAgree:"الآيات المسموعة تطابق التسجيل في هذا الموضع",
+  fRVerseContra:"الآيات المسموعة لا تطابق التسجيل في هذا الموضع",fRRival:"تسجيل آخر يطابق أيضًا",
+  fEngFaster:"مقطعك أسرع من الأصل بنحو {n}٪.",fEngSlower:"مقطعك أبطأ من الأصل بنحو {n}٪.",fEngPitch:"طبقة صوت مقطعك تختلف عن الأصل بنحو {n} نصف درجة."});
 Object.assign(I18N.en,{
   fVerseOpt:"Also recognise the verses (a 77 MB speech model is downloaded once)",fModel:"Getting the verse recognition ready (about 77 MB, only the first time)…",
   fVersesStep:"Recognising the verses…",fVersesOf:"part {a} of {b}",fVerseErr:"The verses couldn't be recognised this time (the speech model didn't load). The sound match below is not affected.",
@@ -414,12 +426,15 @@ function finderCardHTML(r,i,n){
   const vp=r.verse?r.verse.place:null;
   return `<div class="card fres ${r.level}">
       ${n>1?`<div class="fsecn">${fx("fSec",{n:numFmt(i+1)})} · ${fx("fClip",{a:fmtT(r.clipA),b:fmtT(r.clipB)})}</div>`:""}
-      <div class="fhead"><span class="fbadge">${t(r.level==="confirmed"?"fConfirmed":"fPossible")}</span><span class="fconf">${fx("fConf",{n:numFmt(r.conf)})}</span></div>
+      <div class="fhead"><span class="fbadge">${t(r.level==="confirmed"?"fConfirmed":r.level==="high"?"fHigh":"fPossible")}</span>${r.eng||r.conf==null?"":`<span class="fconf">${fx("fConf",{n:numFmt(r.conf)})}</span>`}</div>
       ${vp?finderVerseHTML(vp,vp.within?t("fWithin"):""):(r.mapVerse?finderVerseHTML(r.mapVerse,t("fFromMap")):(r.verse?finderVerseHTML(null):""))}
       <b class="ftitle">${trTitle(r.tr)}</b><small class="fsub">${sub}</small>
       <div class="fmeta"><span class="fcat c${cat.rank}">${fEsc(finderCatTx(r.tr))}</span><span>${t("fDate")}: ${r.tr.y?fEsc(r.tr.y):t("fNoDate")}</span>${riw?`<span>${t("fRiwaya")}: ${fEsc(riw)} ${t("fFromLabel")}</span>`:""}</div>
       <div class="ftime"><span>${t("fStart")} ${fmtT(r.start)}</span><span>${t("fEnd")} ${fmtT(r.end)}</span><span>${fx("fLen",{n:numFmt(Math.round(r.end-r.start))})}</span></div>
-      <div class="fpts">${fx("fPts",{a:numFmt(r.s),b:numFmt(r.s2)})}</div>
+      ${r.eng?`<ul class="freasons">${(r.reasons||[]).map(finderReasonTx).filter(Boolean).map(x=>`<li>${fEsc(x)}</li>`).join("")}</ul>`
+        +(r.tempo&&Math.abs(r.tempo-1)>=0.02?`<div class="fpts">${fx(r.tempo>1?"fEngFaster":"fEngSlower",{n:numFmt(Math.round(Math.abs(r.tempo-1)*100))})}</div>`:"")
+        +(r.shift!=null&&Math.abs(r.shift)>=0.75?`<div class="fpts">${fx("fEngPitch",{n:(r.shift>0?"−":"+")+numFmt(Math.round(Math.abs(r.shift)))})}</div>`:"")
+        :`<div class="fpts">${fx("fPts",{a:numFmt(r.s),b:numFmt(r.s2)})}</div>`}
       ${r.vmAgree===true?`<div class="fpts fok">${t("fVmAgree")}</div>`:r.vmAgree===false?`<div class="fpts fwarn">${fx("fVmDisagree",{s:fEsc(isAr()?SURAHS[vp.surah-1][0]:SURAHS[vp.surah-1][1])})}</div>`:""}
       ${r.agree===true?`<div class="fpts fok">${t("fAgree")}</div>`:r.agree===false&&vp?`<div class="fpts fwarn">${fx("fDisagree",{s:fEsc(isAr()?SURAHS[vp.surah-1][0]:SURAHS[vp.surah-1][1])})}</div>`:""}
       <div class="facts">
@@ -539,6 +554,41 @@ function finderUnpack(list){
   return list.map(r=>{const tr=trFromCode(r.code);if(!tr)return null;return Object.assign({},r,{tr,copies:r.copies.map(c=>{const ct=trFromCode(c.code);return ct?Object.assign({},c,{tr:ct}):null}).filter(Boolean)})}).filter(Boolean);
 }
 
+/* the engine's parts as result cards: the sound search's card for the same recording and stretch is kept (its verses
+   and verse-map check), with the engine's level, place, copies and reasons; a part the sound search did not find gets a
+   new card. Parts at "none" are left out. If the engine has no part at all, the sound search's answer stays. */
+function finderFromEngine(parts,list){
+  const good=(parts||[]).filter(p=>p.level!=="none"&&p.code&&p.start!=null);
+  if(!good.length)return list;
+  const out=[];
+  for(const p of good){
+    const tr=trFromCode(p.code);if(!tr)continue;
+    const old=list.find(r=>(r.code===p.code||(r.copies||[]).some(c=>c.code===p.code))&&r.clipA!=null&&Math.min(r.clipB,p.clipB)-Math.max(r.clipA,p.clipA)>0);
+    const r=Object.assign({},old||{},{tr,code:p.code,level:p.level,start:p.start,end:p.end,clipA:p.clipA,clipB:p.clipB,eng:true,
+      reasons:p.reasons,tempo:p.k,shift:p.shift,conf:old?old.conf:null});
+    const cs=new Map();
+    for(const c of p.copies||[]){const ct=trFromCode(c.code);if(ct&&ct.k!==tr.k)cs.set(c.code,{tr:ct,code:c.code,start:c.start,end:c.end})}
+    for(const c of (old&&old.copies)||[])if(c.code!==p.code&&!cs.has(c.code))cs.set(c.code,c);
+    if(old&&old.code!==p.code&&!cs.has(old.code))cs.set(old.code,{tr:old.tr,code:old.code,start:old.start,end:old.end});
+    r.copies=[...cs.values()];
+    out.push(r);
+  }
+  return out.length?out:list;
+}
+/* the engine's reasons, in the user's language (codes from js/engine/verify.js) */
+function finderReasonTx(x){
+  switch(x.k){
+    case "agree":return fx("fRAgree",{n:numFmt(x.inl),s:numFmt(Math.round(x.span)),m:numFmt(x.mel)});
+    case "points":return fx("fRPoints",{n:numFmt(x.inl)});
+    case "melody":return fx("fRMelody",{m:numFmt(x.mel)});
+    case "finderConfirmed":return t("fRFinderConf");
+    case "finderPossible":return t("fRFinderPoss");
+    case "verseAgree":return t("fRVerseAgree");
+    case "verseContradict":return t("fRVerseContra");
+    case "rival":return t("fRRival");
+    default:return "";
+  }
+}
 /* ---------- the search ---------- */
 async function finderRun(blob){
   if(FINDER.busy)return;FINDER.busy=true;FINDER.last=blob;
@@ -549,7 +599,7 @@ async function finderRun(blob){
     const man=await finderManifest();
     /* results are remembered per index build ("p4": none remembered by earlier versions is reused, some of which
        were wrong because index parts of two builds were mixed) */
-    const vmm=await vmManifest(),key=await finderKey(blob),ck=key&&key+":"+FINDER.build+":"+((vmm&&vmm.built)||"")+":"+(useVerses?1:0)+":p5";
+    const vmm=await vmManifest(),key=await finderKey(blob),ck=key&&key+":"+FINDER.build+":"+((vmm&&vmm.built)||"")+":"+(useVerses?1:0)+":p6";
     const hit=ck&&finderCacheGet(ck);
     if(hit){FINDER.vmFound=hit.vmFound||[];finderStatus();finderRender(finderUnpack(hit.list),(hit.notes||[]).concat(t("fCached")),hit.verses,hit.searched);return}
     if(blob.size>400e6)toast(t("fBigFile"));
@@ -560,6 +610,7 @@ async function finderRun(blob){
     await new Promise(r=>setTimeout(r,30));
     const prog=(a,b)=>finderStatus(t("fSearching"),fx("fOf",{a:numFmt(a),b:numFmt(b)}),a/b);
     let res=await finderSearch(dec.x,prog,1,"r"),list=finderSections(res);const notes=[dec.cut?t("fLong"):""];let edit=null;
+    const searches=[res];   // every search, for the recognition engine (js/engine/pipeline.js)
     /* nothing certain: the clip may have been sped up or slowed down (common on social media), with the pitch
        changed too (resampled) or kept (time-stretched) */
     if(!list.some(r=>r.level==="confirmed")){
@@ -571,7 +622,7 @@ async function finderRun(blob){
         for(const sm of [1,-1,2,-2])for(const k of [1.1,1/1.1])tries.push(["pt",[sm,k]])}
       for(let i=0;i<tries.length;i++){
         const [m,f]=tries[i];
-        const res2=await finderSearch(dec.x,(a,b)=>finderStatus(t("fSpeed"),fx("fOf",{a:numFmt(a),b:numFmt(b)}),(i+a/b)/tries.length),f,m,dur>90?1200:600),r2=finderSections(res2,true);
+        const res2=await finderSearch(dec.x,(a,b)=>finderStatus(t("fSpeed"),fx("fOf",{a:numFmt(a),b:numFmt(b)}),(i+a/b)/tries.length),f,m,dur>90?1200:600),r2=finderSections(res2,true);searches.push(res2);
         if(r2.some(r=>r.level==="confirmed")){list=r2;res=res2;edit={mode:m,f};
           if(m==="p"||m==="pt"){const sm=m==="p"?f:f[0];notes.push(fx("fPitchNote",{n:(sm>0?"+":"−")+numFmt(Math.abs(sm))})+(m==="pt"?" "+fx("fSpeedTempo",{n:numFmt(Math.round(Math.abs(f[1]-1)*100))}):""))}
           else{const pct=numFmt(Math.round(Math.abs((m==="r"?1/f:f)-1)*100));notes.push(fx(m==="r"?"fSpeedNote":"fSpeedTempo",{n:pct}))}
@@ -629,6 +680,25 @@ async function finderRun(blob){
       }
       if(vmDropped){list=list.filter(r=>!r.drop);notes.push(t("fVmDropped"))}
     }catch(e){}
+    /* the recognition engine (docs/RECOGNITION-APP.md): melody, verse and landmark candidates, two independent
+       alignments per recording, the clip's parts, each with a measured confidence level. Its answer replaces the sound
+       search's when it has one; if it fails (offline, an index missing) the sound search's answer stays. */
+    let engPcm=null;
+    if(typeof ENGINE!=="undefined"&&ENGINE.run&&S.fEngine!==false){
+      try{
+        const places=(verses||[]).map(v=>v&&v.place).filter(Boolean).map(p=>({su:p.surah,ay:p.ayah,su2:p.surah2,ay2:p.ayah2,level:p.level}));
+        const eng=await ENGINE.run({blob,searches,places,man,secPerFrame:SEC_PER_FRAME,vmOf,
+          finder:list.map(r=>({code:r.code,level:r.level,start:r.start,end:r.end,clipA:r.clipA,clipB:r.clipB})),
+          onStep:(k,f)=>finderStatus(t("fChecking"),"",f)});
+        engPcm=eng.pcm;
+        list=finderFromEngine(eng.parts,list);
+      }catch(e){console.warn("engine",e)}
+    }
+    /* nothing found: the voice check (js/engine/voice.js, Step 7) may add that the voice is unlike Abdul Basit's
+       recordings. It downloads its model (8.6 MB) only now, and is skipped offline */
+    if(!list.length&&engPcm&&typeof VOICE!=="undefined"&&VOICE.check&&navigator.onLine!==false){
+      try{finderStatus(t("fVoiceCheck"));const v=await VOICE.check(engPcm.subarray(0,16000*60));if(v&&v.verdict==="unlike")notes.push(t("fVoiceUnlike"))}catch(e){}
+    }
     /* no recording found but the verses are clear: which recordings the analysis heard reciting them */
     FINDER.vmFound=[];
     if(!list.length&&verses){const p=verses.map(v=>v.place).find(p=>p&&p.level==="confirmed");if(p){try{FINDER.vmFound=await vmFind(p.surah,p.ayah)}catch(e){}}}
