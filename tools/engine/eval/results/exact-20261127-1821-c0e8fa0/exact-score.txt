@@ -1,0 +1,94 @@
+edit               n inlist  agree  first    t_err
+aac32             16     16     15     16     0.02
+bass              16     16     16     16     0.02
+clean20           16     16     16     16     0.02
+combo1            16     16     14     16     0.02
+combo2            16     16     14     15     0.02
+combo3            16      7      2      4     0.02
+compress          16     16     16     16     0.02
+distort           16     16     16     16     0.01
+echo              16     16     14     16     0.02
+intro_music3      16     16     15     16     0.01
+intro_noise3      16     16     16     16     0.02
+intro_silence3    16     16     15     16     0.02
+join2_diff        16     16     16     16     0.02
+join2_same        16     16     12     16     0.02
+join3_same        16     16     11     16     0.03
+len10             16     16     16     16     0.01
+len44             16     16     16     16     0.02
+len7              16     16     16     16     0.01
+music_bed         16     16      9     16     0.01
+noise10           16     16     13     16     0.02
+noise3            16     16      4     16     0.02
+phone             16     16     15     16     0.02
+pitch+1           16     16     16     16     0.01
+pitch+2           16     16     16     16     0.01
+pitch+3           16     16     15     16     0.02
+pitch-1           16     16     16     16     0.02
+pitch-2           16     16     14     15     0.02
+pitch-4           16     16     16     16     0.02
+reverb_large      16     16     10     15     0.02
+reverb_small      16     16     14     15     0.02
+speed0.9          16     16     15     16     0.01
+speed1.1          16     16     16     16     0.02
+speed1.25         16     16     15     16     0.02
+tempo0.8          16     16     15     16     0.02
+tempo0.9          16     16     16     16     0.01
+tempo1.1          16     16     16     16     0.01
+tempo1.25         16     16     16     16     0.02
+treble_cut        16     16     16     16     0.01
+video_mov         16     16     16     16     0.02
+video_mp4         16     16     16     16     0.01
+TOTAL 640 clips: right recording in the shortlist 631, its alignments agree 571, first by the evidence 624
+start error of the right recording: median 0.02 s, 90th 0.04 s, within 0.5 s: 597/599
+
+right recording, evidence: agree 571/631; landmark inliers median 22; melody score median 0.908
+wrong recordings on the shortlists (present runs): 14761; agreeing 64
+
+hidden runs (640): wrong recordings that still AGREE: 131 (in 65 runs)
+  agreeing with >=  3 landmark inliers: 131
+  agreeing with >=  4 landmark inliers: 84
+  agreeing with >=  6 landmark inliers: 37
+  agreeing with >=  8 landmark inliers: 15
+  agreeing with >= 10 landmark inliers: 9
+  listed (inliers, melody score, tempo, clip, recording, start):
+    21 0.776 1.0944 s05-speed1.1         e:E:القصار المشهورة وبها الاذان.mp3 @3400.97
+    16 0.832 1.0986 s05-intro_silence3   e:C:0870-2_up_by_muslem.mp3 @188.55
+    12 0.879 0.9893 s05-music_bed        e:E:القصار المشهورة وبها الاذان.mp3 @3202.67
+    12 0.756 0.9407 s08-distort          e:C:1190-4_up_by_muslem.mp3 @1967.95
+    11 0.831 0.9447 s08-clean20          e:C:1209-3_uP_bY_mUSLEm.mp3 @2073.17
+    11 0.799 0.9989 s05-len44            e:E:القصار المشهورة وبها الاذان.mp3 @3479.68
+    10 0.880 0.9446 s08-clean20          e:C:1190-4_up_by_muslem.mp3 @2188.85
+    10 0.854 0.9364 s08-treble_cut       e:C:1190-4_up_by_muslem.mp3 @1741.72
+    10 0.815 0.9458 s12-combo2           e:X6:713-3-1 الأعلى1-19 الغاشية المعوذتين الفاتحة اول آخر ال @539.21
+     9 0.830 0.9921 s05-clean20          e:E:القصار المشهورة وبها الاذان.mp3 @3014.03
+     9 0.784 0.9405 s08-distort          e:E:يوسف - الحسين مصر  تلاوة 3 سنة 1968.mp3 @1967.88
+     8 0.920 0.9716 s12-speed0.9         e:C:1065-2_up_by_muslem.mp3 @1202.17
+     8 0.892 1.0246 s04-clean20          e:C:0731-_up_by_muslem.mp3 @386.94
+     8 0.876 0.9436 s08-pitch-1          e:C:1190-4_up_by_muslem.mp3 @2193.76
+     8 0.723 0.9639 s06-clean20          e:C:0719-5_up_by_muslem.mp3 @1431.95
+     7 0.903 1.0242 s04-phone            e:C:0731-_up_by_muslem.mp3 @386.94
+     7 0.861 0.9442 s08-clean20          e:E:يوسف - الحسين مصر  تلاوة 3 سنة 1968.mp3 @2188.78
+     7 0.841 1.0682 s04-speed1.1         e:A:292.mp3 @23.92
+     7 0.837 0.9418 s08-intro_noise3     e:C:1209-3_uP_bY_mUSLEm.mp3 @1971.91
+     7 0.833 0.9386 s08-aac32            e:C:1209-3_uP_bY_mUSLEm.mp3 @917.21
+     7 0.785 1.0368 s04-aac32            e:N2:368.mp3 @1333.99
+     7 0.785 1.0368 s04-aac32            e:E:عبد الباسط قصار السور.mp3 @1333.99
+     6 0.897 0.991 s04-clean20          e:C:0723-9_up_by_muslem.mp3 @374.76
+     6 0.884 0.9698 s05-aac32            e:E:القصار المشهورة وبها الاذان.mp3 @1782.71
+     6 0.866 1.0118 s04-echo             e:C:0731-_up_by_muslem.mp3 @1247.89
+     6 0.830 0.9347 s05-music_bed        e:C:0733-_up_by_muslem.mp3 @1708.34
+     6 0.830 0.9347 s05-music_bed        e:C:0732-2_up_by_muslem.mp3 @1708.34
+     6 0.830 0.9347 s05-music_bed        e:C:0727-_up_by_muslem.mp3 @1708.34
+     6 0.821 1.0904 s04-bass             e:C:1065-2_up_by_muslem.mp3 @980.3
+     6 0.810 0.9347 s05-music_bed        e:N2:254.mp3 @1708.28
+     6 0.810 0.9347 s05-music_bed        e:I4:المسجد الاموي -رائعة وابداع - القمر و الرحمن و قصار الس @1708.28
+     6 0.790 1.0338 s05-speed1.1         e:N2:254.mp3 @1894.11
+     6 0.789 1.0149 s04-len44            e:C:0731-_up_by_muslem.mp3 @304.1
+     6 0.785 1.0333 s05-speed1.1         e:C:0733-_up_by_muslem.mp3 @1894.19
+     6 0.785 1.0333 s05-speed1.1         e:C:0732-2_up_by_muslem.mp3 @1894.19
+     6 0.785 1.0333 s05-speed1.1         e:C:0727-_up_by_muslem.mp3 @1894.19
+     6 0.780 1.1035 s05-tempo1.1         e:E:القصار المشهورة وبها الاذان.mp3 @3899.2
+     5 0.905 0.9633 s12-speed0.9         e:I16:2-871976.mp3 @1187.93
+     5 0.897 1.0954 s04-treble_cut       e:C:1065-2_up_by_muslem.mp3 @877.04
+     5 0.896 0.8858 s06-speed0.9         e:C:0718-4_up_by_muslem.mp3 @79.43
