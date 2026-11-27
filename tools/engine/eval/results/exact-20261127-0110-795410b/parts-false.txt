@@ -1,0 +1,16 @@
+Parts at High or better that the scorer counts as false:
+  present s13-combo1 confirmed right recording; clip 0.64 20.07 true [(0, 20)] start off -0.7
+  present s03-join3_same confirmed right recording; clip 17.52 26 true [(0, 8), (9, 17), (18, 26)] start off 35.1
+  present s10-tempo0.8 confirmed e:X2:210-1-9 الرعد 1-16 من أسنا 1979 مصر.mp3 points 17 melody 0.83 agree True
+  present s11-join3_same confirmed right recording; clip 7.44 17.01 true [(0, 8), (9, 17), (18, 26)] start off -792.0
+  present s14-intro_silence3 confirmed right recording; clip 3.1 22.81 true [(3, 23)] start off -3.1
+  present s01-join2_diff confirmed e:C:0721-7_up_by_muslem.mp3 points 8 melody 0.857 agree True
+  present s10-combo1 confirmed right recording; clip 4.69 18.15 true [(0, 20)] start off -5.2
+  present s10-combo2 confirmed e:X2:210-1-9 الرعد 1-16 من أسنا 1979 مصر.mp3 points 24 melody 0 agree False
+  present s02-speed1.25 confirmed right recording; clip 2.84 20 true [(0, 20)] start off -3.6
+  present s08-join3_same confirmed right recording; clip 17.48 26 true [(0, 8), (9, 17), (18, 26)] start off 52.8
+  present s10-join2_diff confirmed right recording; clip 12.49 25 true [(0, 12), (13, 25)] start off -0.5
+  present s12-noise10 confirmed right recording; clip 0 7.76 true [(0, 20)] start off -0.0
+  hidden s13-tempo1.1 confirmed e:X2:291-1-4 الكهف30-38 والبلد والشمس والضحى  points 8 melody 0.852 agree True
+  present s10-noise3 confirmed e:X2:210-1-9 الرعد 1-16 من أسنا 1979 مصر.mp3 points 18 melody 0.341 agree False
+{'present: right recording, span or time off': 9, 'present: another recording (possible copy)': 4, 'hidden: wrong recording': 1}

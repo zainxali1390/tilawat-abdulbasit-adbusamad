@@ -84,8 +84,11 @@ const places=n=>((preds[n]||{}).wins||[]).filter(w=>w.p).map(w=>({su:w.p[0],ay:w
        /* a finder result lends its verdict only when it covers mostly the same stretch, both ways (not a fragment of it) */
        const fin=finderNow.filter(f=>{if(f.clipA==null)return false;const o=Math.min(f.clipB,p.ts.clipB)-Math.max(f.clipA,p.ts.clipA);return o>0.5*(p.ts.clipB-p.ts.clipA)&&o>0.5*(f.clipB-f.clipA)});
        const d=VERIFY.decide(over,fin);
+       /* the part's time comes from its own line when the answer is the part's own recording (a finder result for the
+          same recording can belong to another part of a joined clip) */
+       const pts=d.top&&d.top.code===p.code?p.ts:(d.top&&d.top.ts);
        return {clipA:+p.ts.clipA.toFixed(2),clipB:+p.ts.clipB.toFixed(2),level:d.level,code:d.top?d.top.code:null,
-         start:d.top&&d.top.ts?+d.top.ts.start.toFixed(2):null,end:d.top&&d.top.ts?+d.top.ts.end.toFixed(2):null,
+         start:pts?+pts.start.toFixed(2):null,end:pts?+pts.end.toFixed(2):null,
          inl:p.lm.inl,mel:+p.mel.score.toFixed(3),agree:p.agree,copies:d.copies.map(c=>c.code)};
      });
      T.parts=performance.now()-t0;
