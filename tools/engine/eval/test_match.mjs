@@ -47,4 +47,21 @@ ok(X.verseCheck(vm, 300, 322, []) === 'none', 'verseCheck: no verse heard → no
   const Te = X.timestamp({inliers: 30, k: 1, b: 50, lo: 0.5, hi: 17, sd: 0.02}, null, {dur: 20, sections: [{a: 0, b: 18, kind: 'recitation'}]}, 1000, {q, ref});
   ok(Math.abs(Te.clipB - 20) < 0.3 && Te.clipA === 0, `timestamp: a shared pause at the end is kept (clip ${Te.clipA}-${Te.clipB.toFixed(2)})`);
 }
+/* several lines and the clip's parts (Step 13) */
+{
+  let s3 = 3; const r3 = () => (s3 = (s3 * 16807) % 2147483647) / 2147483647;
+  const P = []; for (let i = 0; i < 30; i++) { const tc = r3() * 12; P.push({tc, tr: tc + 1245 + (r3() - .5) * .05}); }
+  for (let i = 0; i < 25; i++) { const tc = 13 + r3() * 12; P.push({tc, tr: (tc - 13) + 458 + (r3() - .5) * .05}); }
+  for (let i = 0; i < 200; i++) P.push({tc: r3() * 25, tr: r3() * 3000});
+  const Ls = X.lines(P);
+  ok(Ls.length === 2 && Math.abs(Ls[0].b - 1245) < 0.2 && Math.abs(Ls[1].b - 445) < 0.2, 'lines: a clip joined from two places of one recording gives two lines');
+  const single = []; for (let i = 0; i < 40; i++) { const tc = r3() * 20; single.push({tc, tr: tc + 300}); } for (let i = 0; i < 200; i++) single.push({tc: r3() * 20, tr: r3() * 3000});
+  ok(X.lines(single).length === 1, 'lines: an ordinary clip gives one line');
+  const sc = []; for (let i = 0; i < 60; i++) { const tc = r3() * 20; sc.push({tc, tr: tc + 474 + (r3() - .5) * 0.5}); } for (let i = 0; i < 150; i++) sc.push({tc: r3() * 20, tr: r3() * 3000});
+  const Lsc = X.lines(sc);
+  ok(Lsc.length === 1 && Lsc[0].hi - Lsc[0].lo > 15, 'lines: a scattered (pitch-shifted) line is merged back into one, not split into fragments');
+  const E = (code, a, b, inl, agree, mel = 0.9) => ({code, line: {inliers: inl}, lm: {inl}, mel: {score: mel}, agree, ts: {clipA: a, clipB: b}});
+  const parts = X.parts([E('A', 0, 12, 20, true), E('B', 13, 25, 15, true), E('C', 2, 10, 5, false), E('D', 24, 25, 9, true)]);
+  ok(parts.map(p => p.code).join() === 'A,B', 'parts: the strongest non-overlapping lines in clip order; an overlapping weaker one and a 1 s stretch are left out');
+}
 console.log(fails ? fails + ' FAILED' : 'all passed'); process.exit(fails ? 1 : 0);
