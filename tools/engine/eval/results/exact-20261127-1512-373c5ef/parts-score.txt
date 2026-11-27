@@ -1,0 +1,44 @@
+edit               n  segs | engine: found/all/false  | finder: found/all/false 
+aac32             16    16 |     16     16      0       |     16     16      0
+bass              16    16 |     16     16      0       |     16     16      0
+clean20           16    16 |     16     16      0       |     16     16      0
+combo1            16    16 |     15     15      0       |     12     12      0
+combo2            16    16 |     14     14      1       |     14     14      1
+combo3            16    16 |      2      2      0       |      2      2      0
+compress          16    16 |     16     16      0       |     16     16      0
+distort           16    16 |     16     16      0       |     16     16      0
+echo              16    16 |     15     15      0       |     15     15      0
+intro_music3      16    16 |     16     16      0       |     16     16      0
+intro_noise3      16    16 |     16     16      0       |     16     16      0
+intro_silence3    16    16 |     16     16      0       |     16     16      0
+join2_diff        16    32 |     28     12      2       |     29     13      2
+join2_same        16    32 |     30     14      0       |     30     14      0
+join3_same        16    48 |     36      9      3       |     37      8      4
+len10             16    16 |     16     16      0       |     16     16      0
+len44             16    16 |     16     16      0       |     15     15      0
+len7              16    16 |     16     16      0       |     16     16      0
+music_bed         16    16 |     15     15      0       |     15     15      0
+noise10           16    16 |     15     15      1       |     14     14      1
+noise3            16    16 |     13     13      1       |     13     13      1
+phone             16    16 |     16     16      0       |     16     16      0
+pitch+1           16    16 |     16     16      0       |     16     16      0
+pitch+2           16    16 |     16     16      0       |     16     16      0
+pitch+3           16    16 |     16     16      0       |     16     16      0
+pitch-1           16    16 |     16     16      0       |     16     16      0
+pitch-2           16    16 |     15     15      0       |     15     15      0
+pitch-4           16    16 |     15     15      1       |     15     15      0
+reverb_large      16    16 |     13     13      0       |     14     14      0
+reverb_small      16    16 |     16     16      0       |     16     16      0
+speed0.9          16    16 |     16     16      0       |     16     16      0
+speed1.1          16    16 |     16     16      0       |     16     16      0
+speed1.25         16    16 |     15     15      0       |     15     15      0
+tempo0.8          16    16 |     15     15      1       |     15     15      1
+tempo0.9          16    16 |     16     16      0       |     16     16      0
+tempo1.1          16    16 |     16     16      0       |     16     16      0
+tempo1.25         16    16 |     16     16      0       |     16     16      0
+treble_cut        16    16 |     16     16      0       |     16     16      0
+video_mov         16    16 |     16     16      0       |     16     16      0
+video_mp4         16    16 |     16     16      0       |     16     16      0
+TOTAL 640 clips, 704 segments: engine found 656 segments (every part of the clip: 597 clips), false parts 10; finder found 654 (593 clips), false 10
+JOINED clips (48 clips, 112 segments): engine 94 segments, every part 35 clips; finder 96 segments, every part 35 clips
+hidden runs (640): parts at High or better naming a wrong recording: engine 0, finder (confirmed) 0

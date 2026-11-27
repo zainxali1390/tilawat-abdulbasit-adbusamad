@@ -1,0 +1,92 @@
+PASS clean20: 1 card(s) from the engine [Confirmed match] in 3.1 s
+PASS clean20: part 0-20 s → confirmed at 78.23 (true 78.25)
+PASS clean20: reasons shown ("Sound and melody agree on one timeline (38 matching points o…")
+PASS video_mov: 1 card(s) from the engine [Confirmed match] in 2.2 s
+PASS video_mov: part 0-15 s → confirmed at 299.62 (true 299.65)
+PASS video_mov: reasons shown ("Sound and melody agree on one timeline (61 matching points o…")
+PASS pitch-4: 1 card(s) from the engine [Confirmed match] in 20.5 s
+PASS pitch-4: part 0-20 s → confirmed at 302.82 (true 302.85)
+PASS pitch-4: reasons shown ("Sound and melody agree on one timeline (28 matching points o…")
+PASS tempo1.25: 1 card(s) from the engine [Confirmed match] in 9.7 s
+PASS tempo1.25: part 0-20 s → confirmed at 354.44 (true 354.45)
+PASS tempo1.25: reasons shown ("Sound and melody agree on one timeline (23 matching points o…")
+PASS noise10: 1 card(s) from the engine [Confirmed match] in 1.9 s
+PASS noise10: part 0-20 s → confirmed at 142.04 (true 142.05)
+PASS noise10: reasons shown ("Sound and melody agree on one timeline (38 matching points o…")
+PASS intro_music3: 1 card(s) from the engine [Confirmed match] in 2.6 s
+PASS intro_music3: part 3-23 s → confirmed at 379.57 (true 379.60)
+PASS intro_music3: reasons shown ("Sound and melody agree on one timeline (36 matching points o…")
+PASS combo2: 1 card(s) from the engine [Confirmed match] in 8.8 s
+PASS combo2: part 0-20 s → confirmed at 332.84 (true 332.85)
+PASS combo2: reasons shown ("Sound and melody agree on one timeline (16 matching points o…")
+PASS join2_same: 2 card(s) from the engine [Possible match, Confirmed match] in 2.4 s
+FAIL join2_same: part 0-12 s → possible at 236.24 (true 236.25)
+PASS join2_same: part 13-25 s → confirmed at 172.99 (true 173.45)
+PASS join2_same: reasons shown ("26 matching sound points…")
+PASS join2_diff: 2 card(s) from the engine [Confirmed match, Confirmed match] in 2.2 s
+PASS join2_diff: part 0-12 s → confirmed at 335.53 (true 335.55)
+PASS join2_diff: part 13-25 s → confirmed at 235.11 (true 235.20)
+PASS join2_diff: reasons shown ("Sound and melody agree on one timeline (35 matching points o…")
+PASS clean20: 1 card(s) from the engine [Confirmed match] in 2.6 s
+PASS clean20: part 0-20 s → confirmed at 1449.30 (true 1449.30)
+PASS clean20: reasons shown ("Sound and melody agree on one timeline (28 matching points o…")
+PASS video_mov: 1 card(s) from the engine [Confirmed match] in 2.0 s
+PASS video_mov: part 0-15 s → confirmed at 2427.98 (true 2428.00)
+PASS video_mov: reasons shown ("Sound and melody agree on one timeline (54 matching points o…")
+PASS pitch-4: 1 card(s) from the engine [Confirmed match] in 16.7 s
+PASS pitch-4: part 0-20 s → confirmed at 2536.63 (true 2536.65)
+PASS pitch-4: reasons shown ("Sound and melody agree on one timeline (12 matching points o…")
+PASS tempo1.25: 1 card(s) from the engine [Confirmed match] in 7.9 s
+PASS tempo1.25: part 0-20 s → confirmed at 1967.84 (true 1967.85)
+PASS tempo1.25: reasons shown ("Sound and melody agree on one timeline (29 matching points o…")
+PASS noise10: 1 card(s) from the engine [Confirmed match] in 1.5 s
+PASS noise10: part 0-20 s → confirmed at 1336.32 (true 1336.33)
+PASS noise10: reasons shown ("Sound and melody agree on one timeline (19 matching points o…")
+PASS intro_music3: 1 card(s) from the engine [Confirmed match] in 2.5 s
+PASS intro_music3: part 3-23 s → confirmed at 870.33 (true 870.35)
+PASS intro_music3: reasons shown ("Sound and melody agree on one timeline (35 matching points o…")
+PASS combo2: 1 card(s) from the engine [Confirmed match] in 8.3 s
+PASS combo2: part 0-20 s → confirmed at 1482.68 (true 1482.70)
+PASS combo2: reasons shown ("Sound and melody agree on one timeline (17 matching points o…")
+PASS join2_same: 2 card(s) from the engine [Confirmed match, Confirmed match] in 2.0 s
+PASS join2_same: part 0-12 s → confirmed at 1063.68 (true 1063.70)
+PASS join2_same: part 13-25 s → confirmed at 687.20 (true 687.22)
+PASS join2_same: reasons shown ("Sound and melody agree on one timeline (13 matching points o…")
+PASS join2_diff: 2 card(s) from the engine [Confirmed match, Confirmed match] in 2.1 s
+PASS join2_diff: part 0-12 s → confirmed at 396.28 (true 396.30)
+PASS join2_diff: part 13-25 s → confirmed at 1814.65 (true 1815.05)
+PASS join2_diff: reasons shown ("Sound and melody agree on one timeline (14 matching points o…")
+PASS clean20: 1 card(s) from the engine [Confirmed match] in 2.4 s
+PASS clean20: part 0-20 s → confirmed at 2358.10 (true 2358.10)
+PASS clean20: reasons shown ("Sound and melody agree on one timeline (35 matching points o…")
+PASS video_mov: 1 card(s) from the engine [Confirmed match] in 1.6 s
+PASS video_mov: part 0-15 s → confirmed at 1267.94 (true 1267.95)
+PASS video_mov: reasons shown ("Sound and melody agree on one timeline (12 matching points o…")
+PASS pitch-4: 1 card(s) from the engine [Confirmed match] in 8.9 s
+PASS pitch-4: part 0-20 s → confirmed at 1320.70 (true 1320.75)
+PASS pitch-4: reasons shown ("Sound and melody agree on one timeline (10 matching points o…")
+PASS tempo1.25: 1 card(s) from the engine [Confirmed match] in 6.6 s
+PASS tempo1.25: part 0-20 s → confirmed at 84.22 (true 84.20)
+PASS tempo1.25: reasons shown ("Sound and melody agree on one timeline (44 matching points o…")
+PASS noise10: 1 card(s) from the engine [Confirmed match] in 1.2 s
+PASS noise10: part 0-20 s → confirmed at 759.38 (true 759.40)
+PASS noise10: reasons shown ("Sound and melody agree on one timeline (13 matching points o…")
+PASS intro_music3: 1 card(s) from the engine [Confirmed match] in 1.3 s
+PASS intro_music3: part 3-23 s → confirmed at 1320.72 (true 1320.75)
+PASS intro_music3: reasons shown ("Sound and melody agree on one timeline (30 matching points o…")
+PASS combo2: 1 card(s) from the engine [Confirmed match] in 7.2 s
+PASS combo2: part 0-20 s → confirmed at 2061.13 (true 2061.15)
+PASS combo2: reasons shown ("Sound and melody agree on one timeline (35 matching points o…")
+PASS join2_same: 2 card(s) from the engine [Confirmed match, Confirmed match] in 2.2 s
+PASS join2_same: part 0-12 s → confirmed at 1662.22 (true 1662.25)
+PASS join2_same: part 13-25 s → confirmed at 1606.75 (true 1607.10)
+PASS join2_same: reasons shown ("Sound and melody agree on one timeline (12 matching points o…")
+PASS join2_diff: 2 card(s) from the engine [Confirmed match, Confirmed match] in 2.1 s
+PASS join2_diff: part 0-12 s → confirmed at 2292.64 (true 2292.65)
+PASS join2_diff: part 13-25 s → confirmed at 597.32 (true 597.40)
+PASS join2_diff: reasons shown ("Sound and melody agree on one timeline (16 matching points o…")
+PASS no page errors (English) []
+PASS Arabic: badge "تطابق مؤكد", reason "الصوت واللحن متّفقان على خط زمني واحد (٣٨ نقطة متط"
+PASS no page errors (Arabic)
+PASS melody and verse indexes unreachable: still found (confirmed, engine false)
+PASS no page errors (indexes blocked)
